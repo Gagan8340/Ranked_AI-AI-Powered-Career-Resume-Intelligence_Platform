@@ -1,16 +1,6 @@
-import pymysql
-import os
-from dotenv import load_dotenv
+from config import get_db_connection
 
-load_dotenv('d:/smartcampus/smartcampus-ai/.env')
-
-connection = pymysql.connect(
-    host=os.getenv('DB_HOST', 'localhost'),
-    user=os.getenv('DB_USER', 'root'),
-    password=os.getenv('DB_PASSWORD', ''),
-    database=os.getenv('DB_NAME', 'ai_career_platform'),
-    cursorclass=pymysql.cursors.DictCursor
-)
+connection = get_db_connection()
 
 try:
     with connection.cursor() as cursor:

@@ -13,6 +13,10 @@ DB_PORT = int(os.getenv("DB_PORT", "3306"))
 DB_NAME = os.getenv("DB_NAME", "ai_career_platform")
 DB_USER = os.getenv("DB_USER", "root")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+SSL_CA_PATH = os.getenv(
+    "SSL_CA_PATH",
+    str(Path(__file__).resolve().parent / "certs" / "isrgrootx1.pem"),
+)
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "")
 JWT_TOKEN_LOCATION = ["headers", "cookies"]
 JWT_COOKIE_SECURE = False
@@ -199,27 +203,46 @@ import logging
 
 def get_db_connection():
     max_retries = 3
+    project_root = Path(__file__).resolve().parent
+    ssl_ca_path = Path(SSL_CA_PATH) if SSL_CA_PATH else project_root / "certs" / "isrgrootx1.pem"
+    if not ssl_ca_path.is_absolute():
+        ssl_ca_path = project_root / ssl_ca_path
+
+    if not ssl_ca_path.exists():
+        raise FileNotFoundError(
+            f"SSL CA certificate not found at {ssl_ca_path}. "
+            "Set SSL_CA_PATH or place the certificate in certs/isrgrootx1.pem."
+        )
+
+    connection_args = {
+        "host": DB_HOST,
+        "port": DB_PORT,
+        "user": DB_USER,
+        "password": DB_PASSWORD,
+        "database": DB_NAME,
+        "cursorclass": DictCursor,
+        "autocommit": False,
+        "charset": "utf8mb4",
+        "connect_timeout": 10,
+        "read_timeout": 10,
+        "write_timeout": 10,
+        "ssl": {"ca": str(ssl_ca_path)},
+    }
+
     for attempt in range(max_retries):
         try:
-            return pymysql.connect(
-                host=DB_HOST,
-                port=DB_PORT,
-                user=DB_USER,
-                password=DB_PASSWORD,
-                database=DB_NAME,
-                cursorclass=DictCursor,
-                autocommit=False,
-                charset="utf8mb4",
-                connect_timeout=10,
-                read_timeout=10,
-                write_timeout=10
-            )
+            return pymysql.connect(**connection_args)
         except Exception as e:
             if attempt < max_retries - 1:
                 time.sleep(2)
             else:
-                logging.error(f"Database connection failed after {max_retries} attempts: {e}")
-                raise e
+                logging.error(
+                    f"Database connection failed after {max_retries} attempts to {DB_HOST}:{DB_PORT} for database {DB_NAME}: {e}"
+                )
+                raise ConnectionError(
+                    f"Unable to connect to database at {DB_HOST}:{DB_PORT} "
+                    f"database={DB_NAME}. Verify DB_HOST, DB_PORT, DB_USER, and SSL_CA_PATH."
+                ) from e
 
 def init_db():
     try:
