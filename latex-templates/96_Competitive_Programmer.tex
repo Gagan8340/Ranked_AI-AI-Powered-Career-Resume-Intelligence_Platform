@@ -1,0 +1,91 @@
+%% DESIGN: DejaVu Sans | Contest-style, bold ratings, achievements-first | Red (#D32F2F) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{DejaVuSans}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+
+\definecolor{cpred}{HTML}{D32F2F}
+\definecolor{gold}{HTML}{FFD700}
+\definecolor{lightred}{HTML}{FFEBEE}
+
+\tcbset{colback=lightred,colframe=cpred,boxrule=0.5pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+\titleformat{\section}{\normalsize\bfseries\color{cpred}}{}{0em}{\faIcon{trophy}\hspace{4pt}}[\color{cpred}\rule{\linewidth}{1pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{cpred}\faIcon{medal}}
+
+\hypersetup{colorlinks=true,urlcolor=cpred}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{cpred} AARAV SINGH}\\[3pt]
+{\normalsize Competitive Programmer $\vert$ Algorithm Engineer}\\[4pt]
+{\small \faIcon{envelope} aarav.singh@email.com \quad \faIcon{github} \href{https://github.com/aaravs}{aaravs} \quad \faIcon{code} \href{https://codeforces.com/profile/aarav\_s}{Codeforces} \quad \faIcon{map-marker-alt} Delhi}
+\end{center}
+
+\vspace{4pt}
+% Ratings bar
+\begin{tcolorbox}
+\begin{tabularx}{\linewidth}{@{}XXXX@{}}
+\textbf{\color{cpred}Codeforces} & \textbf{LeetCode} & \textbf{CodeChef} & \textbf{AtCoder}\\
+\textbf{2450} (Grandmaster) & \textbf{3100+} (Guardian) & \textbf{7$\star$} (2600+) & \textbf{2200+} (Orange)\\
+\end{tabularx}
+\end{tcolorbox}
+
+\section{Competitive Programming Achievements}
+\begin{itemize}
+\item \textbf{Google Code Jam 2023} -- World Finals Qualifier (Top 25 globally)
+\item \textbf{ICPC World Finals 2022} -- 18th place (IIT Delhi team)
+\item \textbf{Facebook Hacker Cup 2023} -- Round 3 qualifier (Top 200)
+\item \textbf{IOI 2018} -- Silver Medal (International Olympiad in Informatics)
+\item \textbf{Codeforces} -- Grandmaster (peak 2487), 500+ problems solved
+\item \textbf{Google Kickstart 2022} -- Rank 12 (Round H)
+\item \textbf{ICPC Asia Regionals} -- 1st place (Amritapuri 2021, Kanpur 2020)
+\end{itemize}
+
+\section{Professional Experience}
+
+\textbf{Google} \hfill Bangalore\\
+\textit{Software Engineer L4 -- Search Ranking} \hfill Jul 2022 -- Present
+\begin{itemize}
+\item Designed graph algorithms for knowledge panel ranking (serving 1B+ queries/day)
+\item Optimized query processing pipeline reducing P99 latency by 25\%
+\item Built offline evaluation framework for ranking experiments (MapReduce/Flume)
+\item Authored 3 internal algorithm design documents adopted by Search Quality team
+\end{itemize}
+
+\textbf{Tower Research Capital} \hfill Gurgaon\\
+\textit{Quantitative Developer Intern} \hfill Summer 2021
+\begin{itemize}
+\item Implemented low-latency order matching engine in C++ (<1$\mu$s tick-to-trade)
+\item Developed statistical arbitrage strategy backtesting framework
+\end{itemize}
+
+\section{Problem Setting \& Teaching}
+\begin{itemize}
+\item Problem setter: Codeforces (15 rounds), CodeChef (8 contests)
+\item Coach: IIT Delhi ICPC team (2022--present)
+\item Author: ``Competitive Programming Handbook for ICPC'' (500+ copies sold)
+\end{itemize}
+
+\section{Technical Skills}
+\textbf{Languages:} C++ (primary), Python, Java\\
+\textbf{Algorithms:} Graph theory, DP optimization, segment trees, FFT, flows\\
+\textbf{Systems:} Low-latency C++, SIMD, cache optimization\\
+\textbf{Tools:} MapReduce, Flume, Protocol Buffers
+
+\section{Education}
+\textbf{B.Tech Computer Science} -- IIT Delhi \hfill 2018 -- 2022\\
+\textit{Department Rank 3} \hfill CPI: 9.6/10
+
+\end{document}

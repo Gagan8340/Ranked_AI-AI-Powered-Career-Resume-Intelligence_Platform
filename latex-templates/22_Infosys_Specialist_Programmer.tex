@@ -1,0 +1,88 @@
+%% DESIGN: Palatino | Single-column academic-leaning | Maroon accent | Bold+color section headers, dashes for bullets
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{880E4F}
+\definecolor{ACCENT}{HTML}{880E4F}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{1pt}{\color{accent}\hrule height 0.3pt}]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+\setlist[itemize]{nosep, leftmargin=14pt, label={\color{accent}--}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Priya Sharma}\\[5pt]
+{\small Pune, India $\cdot$ +91-9123456789 $\cdot$ priya.sharma@email.com}\\[2pt]
+{\small \href{https://linkedin.com/in/priyasharma-dev}{linkedin.com/in/priyasharma-dev} $\cdot$ \href{https://github.com/priyasharma}{github.com/priyasharma} $\cdot$ \href{https://codeforces.com/profile/priya_cf}{Codeforces: priya\_cf}}
+\end{center}
+
+\section{Education}
+
+\textbf{B.E. in Computer Science} \hfill 2020 -- 2024\\
+BITS Pilani, Hyderabad Campus \hfill \textbf{CGPA: 8.76/10}\\[3pt]
+\textbf{Class XII (ISC)} -- Bishop Cotton Girls' School, Bangalore \hfill \textbf{95.5\%} \hfill 2020
+
+\section{Technical Skills}
+
+\textbf{Languages:} C++, Java, Python, Go\\
+\textbf{DSA:} Advanced Graph Algorithms, Dynamic Programming, Segment Trees, Tries, Fenwick Trees\\
+\textbf{System Design:} Load Balancing, Caching (Redis), Message Queues, Microservices, CAP Theorem\\
+\textbf{Frameworks:} Spring Boot, Flask, gRPC\\
+\textbf{Tools:} Docker, Kubernetes, Git, Linux, PostgreSQL
+
+\section{Competitive Programming}
+
+\begin{itemize}
+    \item \textbf{HackWithInfy 2023} -- Grand Finalist (Top 100 out of 250,000+ participants)
+    \item \textbf{Codeforces} -- Expert (Rating: 1650+); solved 800+ problems
+    \item \textbf{Google Kickstart 2023} -- Global Rank 312 (Round H)
+    \item \textbf{ICPC Regionals 2023} -- Amritapuri Regional Qualifier; Team Rank 45
+    \item \textbf{CodeChef} -- 5-star (Rating: 2100+); Division 1 participant
+\end{itemize}
+
+\section{Projects}
+
+\textbf{URL Shortener at Scale} $\mid$ \textit{Go, Redis, PostgreSQL, Docker} \hfill Feb 2024 -- Apr 2024
+\begin{itemize}
+    \item Designed a URL shortening service handling 50,000 requests/second with consistent hashing
+    \item Implemented multi-layer caching (L1: in-memory, L2: Redis) achieving 99.9\% cache hit rate
+    \item Built analytics dashboard tracking click-through rates, geographic distribution, and peak usage
+\end{itemize}
+
+\textbf{Distributed Key-Value Store} $\mid$ \textit{C++, gRPC, Raft Consensus} \hfill Sep 2023 -- Dec 2023
+\begin{itemize}
+    \item Implemented a fault-tolerant distributed KV store using Raft consensus algorithm
+    \item Supported linearizable reads and writes across 5-node cluster with automatic leader election
+    \item Achieved 15,000 ops/second throughput with sub-10ms latency for 99th percentile
+\end{itemize}
+
+\textbf{Custom Memory Allocator} $\mid$ \textit{C, Linux System Programming} \hfill May 2023 -- Jul 2023
+\begin{itemize}
+    \item Built a custom malloc implementation using segregated free lists and buddy allocation
+    \item Reduced memory fragmentation by 35\% compared to default glibc allocator on test workloads
+\end{itemize}
+
+\section{Experience}
+
+\textbf{Software Engineering Intern} -- Samsung R\&D, Bangalore \hfill May 2023 -- Jul 2023
+\begin{itemize}
+    \item Optimized image compression pipeline reducing processing time by 28\% using SIMD instructions
+    \item Implemented parallel processing for batch operations using C++ thread pools
+\end{itemize}
+
+\section{Certifications}
+
+{\small System Design for Interviews -- Educative.io (2024) $\cdot$ Algorithms Specialization -- Stanford University (Coursera, 2023)}
+
+\end{document}

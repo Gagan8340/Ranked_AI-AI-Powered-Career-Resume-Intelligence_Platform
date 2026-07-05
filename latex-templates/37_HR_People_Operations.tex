@@ -1,0 +1,82 @@
+%% DESIGN: Palatino (palatino) | Warm friendly layout | Brown (#6D4C41) accent | Rounded feel, people-focused
+%% HR/People Ops style with warm brown tones, friendly section dividers, approachable typography
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{6D4C41}
+\definecolor{ACCENT}{HTML}{6D4C41}
+\definecolor{warmbg}{HTML}{EFEBE9}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: warm brown with decorative dots
+\titleformat{\section}{\normalfont\large\bfseries\color{accent}}{}{0em}{}[\vspace{2pt}{\color{accent}\dotfill}]
+\titlespacing{\section}{0pt}{9pt}{5pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}$\triangleright$}}
+
+\begin{document}
+
+% Header: warm, centered, friendly
+\begin{center}
+\colorbox{warmbg}{\parbox{0.9\textwidth}{\centering\vspace{6pt}
+{\fontsize{20}{24}\selectfont\bfseries\color{accent}Meera Iyer}\\[4pt]
+{\small People Operations Leader}\\[4pt]
+{\small Hyderabad, India \quad\textbullet\quad +91-96543-21098 \quad\textbullet\quad meera.iyer@email.com \quad\textbullet\quad \href{https://linkedin.com/in/meeraiyer-hr}{linkedin.com/in/meeraiyer-hr}}
+\vspace{6pt}}}
+\end{center}
+
+\section{About Me}
+HR/People Operations leader with 7 years of experience scaling teams from 200 to 1,500+ employees. Built recruitment engines delivering 300+ hires annually while maintaining 92\% offer acceptance rate. Drove employee engagement from 3.2 to 4.4/5.0 through data-driven culture initiatives. SHRM-SCP certified with expertise in people analytics and organizational development.
+
+\section{Experience}
+
+\textbf{Head of People Operations} \quad\textbar\quad Zerodha, Bangalore \hfill Apr 2022 -- Present\\
+\textit{\color{accent}Fintech -- 1,200+ employees}
+\begin{itemize}
+  \item Scaled engineering team from 80 to 250 in 18 months; reduced time-to-hire from 45 to 22 days while maintaining quality (90-day retention: 94\%)
+  \item Designed and launched OKR-based performance management system for 1,200+ employees; 96\% completion rate
+  \item Reduced voluntary attrition from 24\% to 14\% through stay interviews, career pathing, and compensation benchmarking
+  \item Implemented Darwinbox HRIS; automated 15 manual processes saving 200+ person-hours monthly
+  \item Led DEI initiative increasing women in leadership from 18\% to 28\%; launched returnship program (25 hires)
+\end{itemize}
+
+\textbf{Senior HR Business Partner} \quad\textbar\quad Gojek (GoTo), Bangalore \hfill Jan 2020 -- Mar 2022\\
+\textit{\color{accent}Tech -- Product \& Engineering org (400 employees)}
+\begin{itemize}
+  \item Partnered with 5 VPs for workforce planning; delivered 150+ hires annually at \$4,200 avg cost-per-hire (40\% below benchmark)
+  \item Launched quarterly pulse survey program; improved eNPS from +12 to +45 over 2 years
+  \item Designed onboarding program reducing ramp time from 90 to 45 days; 30-day satisfaction: 4.6/5.0
+  \item Managed 3 organizational restructures affecting 200+ employees; zero legal escalations
+\end{itemize}
+
+\textbf{HR Executive -- Talent Acquisition} \quad\textbar\quad Infosys BPM, Hyderabad \hfill Jul 2017 -- Dec 2019\\
+\textit{\color{accent}IT Services}
+\begin{itemize}
+  \item Managed full-cycle recruitment for 200+ positions annually across technology and business roles
+  \item Built campus recruitment program across 15 universities; 80+ graduates hired with 88\% retention
+  \item Reduced agency dependency from 60\% to 25\% by building employee referral program
+\end{itemize}
+
+\section{Skills}
+\textbf{HR Core:} Talent Acquisition, Employee Engagement, Performance Management, Compensation \& Benefits\\
+\textbf{People Ops:} HRIS (Darwinbox, BambooHR), Policy Design, Compliance, Workforce Planning\\
+\textbf{Analytics:} People Analytics, Attrition Modeling, Survey Design, Excel (Advanced), Tableau\\
+\textbf{Leadership:} Org Development, Change Management, DEI Strategy, Stakeholder Management
+
+\section{Education}
+\textbf{MBA -- Human Resource Management} \hfill XLRI Jamshedpur \hfill 2017\\
+\textbf{B.A. -- Psychology} \hfill Christ University, Bangalore \hfill 2015
+
+\section{Certifications}
+SHRM-SCP \quad\textbullet\quad Certified Compensation Professional (CCP) \quad\textbullet\quad People Analytics (Wharton Online)
+
+\end{document}

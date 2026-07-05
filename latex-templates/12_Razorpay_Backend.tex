@@ -1,0 +1,89 @@
+%% DESIGN: Courier (monospace headers) | Single-column | Green accent | Code/developer aesthetic
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\usepackage{lmodern}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+
+\definecolor{accent}{HTML}{00C853}
+\definecolor{ACCENT}{HTML}{00C853}
+\definecolor{codebg}{HTML}{1E1E1E}
+\definecolor{codegray}{HTML}{2D2D2D}
+
+\titleformat{\section}{\ttfamily\bfseries\normalsize\color{accent}}{//\ }{0em}{}
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}\texttt{>}}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\noindent\colorbox{codebg}{\parbox{\dimexpr\textwidth-8pt}{%
+\vspace{6pt}
+{\color{accent}\ttfamily\large\bfseries \ \ Priya Sharma}\\[2pt]
+{\color{white}\ttfamily\footnotesize \ \ // Backend Engineer | Fintech}\\[2pt]
+{\color{gray}\ttfamily\footnotesize \ \ Bangalore $|$ +91-87654-32109 $|$ priya.sharma@email.com}\\[1pt]
+{\color{gray}\ttfamily\footnotesize \ \ github.com/priyasharma $|$ linkedin.com/in/priyasharma}
+\vspace{6pt}
+}}
+
+\vspace{6pt}
+
+\section{summary()}
+
+{\small Backend engineer with 5 years in fintech building payment processing systems handling \$2B+ annual transaction volume. Expert in building fault-tolerant, PCI-DSS compliant systems with 99.99\% uptime. Deep understanding of UPI, card networks, and banking integrations.}
+
+\section{skills}
+
+{\small
+\texttt{languages:} Go, PHP, Python, Java \quad
+\texttt{frameworks:} Gin, Laravel, Flask\\
+\texttt{databases:} MySQL (sharded), PostgreSQL, Redis, DynamoDB\\
+\texttt{infra:} Kafka, AWS (ECS, Lambda, SQS, SNS), Docker, Kubernetes\\
+\texttt{payments:} UPI, IMPS, NEFT, Card Networks, PCI-DSS\\
+\texttt{tools:} Git, Terraform, Datadog, PagerDuty, Vault
+}
+
+\section{experience()}
+
+\textbf{\texttt{Senior Backend Engineer}} @ Juspay Technologies \hfill {\small\color{accent} Mar 2022 -- Present}
+\begin{itemize}
+    \item Architected payment routing engine processing 8K TPS across 12 payment gateways, improving success rates from 87\% to 94\%
+    \item Built automated reconciliation system matching 5M+ daily transactions with 99.97\% accuracy, reducing manual effort by 80\%
+    \item Designed idempotent retry mechanism for failed UPI callbacks, recovering \$1.2M/month in previously lost transactions
+    \item Implemented database sharding strategy for transaction ledger, supporting 10x growth without performance degradation
+    \item Led PCI-DSS Level 1 compliance audit; implemented tokenization layer eliminating raw card data from 15 services
+    \item On-call rotation owner; reduced MTTR from 45min to 12min through runbook automation
+\end{itemize}
+
+\textbf{\texttt{Backend Engineer}} @ PayU India \hfill {\small\color{accent} Jul 2020 -- Feb 2022}
+\begin{itemize}
+    \item Developed merchant settlement engine disbursing \$50M+/month with T+1 settlement guarantee
+    \item Built fraud detection pipeline using rule engine + ML scoring, blocking 15K+ fraudulent transactions/month (\$3M saved)
+    \item Implemented webhook delivery system with guaranteed at-least-once delivery serving 200K+ merchants
+    \item Reduced payment API latency by 35\% through connection pooling optimization
+\end{itemize}
+
+\textbf{\texttt{Software Engineer}} @ Paytm \hfill {\small\color{accent} Jun 2019 -- Jun 2020}
+\begin{itemize}
+    \item Built wallet-to-bank transfer service handling 500K daily transfers with zero fund-loss incidents
+    \item Developed KYC verification microservice integrating with UIDAI APIs, processing 100K verifications/day
+\end{itemize}
+
+\section{projects()}
+
+\textbf{\texttt{Distributed Ledger System}} {\small$|$ Go, PostgreSQL, gRPC} -- Double-entry accounting ledger with ACID guarantees supporting 10K writes/sec\\[2pt]
+\textbf{\texttt{Payment Gateway Simulator}} {\small$|$ Go, Docker $|$ \href{https://github.com/priyasharma/pg-simulator}{\color{accent}GitHub}} -- Open-source tool simulating 8 Indian payment gateways; 500+ stars
+
+\section{education()}
+
+\textbf{B.Tech in Computer Science} -- BITS Pilani \hfill 2015 -- 2019 \quad CGPA: 8.9/10
+
+\end{document}

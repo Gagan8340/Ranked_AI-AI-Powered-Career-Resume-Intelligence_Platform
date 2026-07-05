@@ -1,0 +1,89 @@
+%% DESIGN: Inter | Digital-native, async badges, timezone-aware | Blue (#1976D2) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{inter}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+
+\definecolor{remoteblue}{HTML}{1976D2}
+\definecolor{lightblue}{HTML}{E3F2FD}
+
+\tcbset{colback=lightblue,colframe=remoteblue,boxrule=0.3pt,arc=6pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+\titleformat{\section}{\normalsize\bfseries\color{remoteblue}}{}{0em}{\faIcon{wifi}\hspace{4pt}}[\color{remoteblue}\rule{\linewidth}{0.3pt}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{remoteblue}\faIcon{check-circle}}
+
+\hypersetup{colorlinks=true,urlcolor=remoteblue}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{remoteblue} TANVI KULKARNI}\\[4pt]
+{\normalsize Remote-First Senior Engineer \quad \faIcon{globe}\hspace{2pt}{\small IST (UTC+5:30) $\vert$ Flexible overlap with US/EU}}\\[6pt]
+{\small \faIcon{envelope} tanvi.k@email.com \quad \faIcon{video} Available on Zoom/Meet \quad \faIcon{slack} tanvi-k \quad \faIcon{github} \href{https://github.com/tanvik}{tanvik}}
+\end{center}
+
+\vspace{4pt}
+\begin{tcolorbox}
+\faIcon{laptop-house}\hspace{4pt}\textbf{Remote Work Style:} 5+ years fully remote across 3 companies (US, EU, India teams). Expert in async communication, written documentation, and self-directed execution. Overlap-friendly schedule (flexible 4-hour overlap with any timezone).
+\end{tcolorbox}
+
+\section{Remote Experience}
+
+\textbf{GitLab} (Fully Remote -- Global) \hfill \textit{IST timezone}\\
+\textit{Senior Backend Engineer -- CI/CD Platform} \hfill Mar 2022 -- Present
+\begin{itemize}
+\item Contributing to GitLab CI/CD pipeline execution engine (Ruby/Go)
+\item Designed async RFC process adopted by 15-person distributed team (5 timezones)
+\item Built pipeline analytics dashboard used by 10K+ self-managed instances
+\item Reduced CI job scheduling latency by 40\% through queue optimization
+\item All work documented in issues/MRs -- zero synchronous meetings required per sprint
+\end{itemize}
+
+\textbf{Automattic} (Fully Remote -- Global) \hfill \textit{IST timezone}\\
+\textit{Software Engineer -- WooCommerce} \hfill Jul 2019 -- Feb 2022
+\begin{itemize}
+\item Built payment gateway integrations for WooCommerce (used by 5M+ stores)
+\item Worked async-first with team across US, EU, and APAC (P2 blogs, Slack)
+\item Shipped features independently with written proposals and async code review
+\item Conducted 100\% text-based interviews as part of hiring committee
+\end{itemize}
+
+\textbf{Toptal} (Remote Freelance) \hfill \textit{Various clients}\\
+\textit{Senior Developer -- Contract} \hfill Jan 2018 -- Jun 2019
+\begin{itemize}
+\item Delivered 4 projects for US/EU clients with zero timezone-related delays
+\item Maintained detailed daily async standups and weekly video summaries
+\end{itemize}
+
+\section{Remote Work Toolkit}
+\begin{multicols}{2}
+\begin{itemize}[label=\color{remoteblue}\faIcon{tools}]
+\item \textbf{Communication:} Slack, Notion, Loom
+\item \textbf{Collaboration:} GitHub, GitLab, Linear
+\item \textbf{Documentation:} RFC writing, ADRs
+\item \textbf{Async:} Written proposals, video updates
+\item \textbf{Focus:} Deep work blocks, Pomodoro
+\item \textbf{Setup:} Dedicated home office, backup ISP
+\end{itemize}
+\end{multicols}
+
+\section{Technical Skills}
+\textbf{Languages:} Ruby, Go, Python, TypeScript\\
+\textbf{Frameworks:} Rails, React, Next.js\\
+\textbf{Infrastructure:} Kubernetes, Terraform, CI/CD pipelines\\
+\textbf{Databases:} PostgreSQL, Redis, Elasticsearch
+
+\section{Education}
+\textbf{B.E.\ Computer Science} -- COEP Pune \hfill 2013 -- 2017
+
+\end{document}

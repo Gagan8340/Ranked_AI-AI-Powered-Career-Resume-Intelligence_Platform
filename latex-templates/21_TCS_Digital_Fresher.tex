@@ -1,0 +1,84 @@
+%% DESIGN: Times (mathptmx) | Single-column traditional | Navy accent | Conservative, rule underlines
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1A237E}
+\definecolor{ACCENT}{HTML}{1A237E}
+
+\titleformat{\section}{\color{accent}\bfseries\normalsize\uppercase}{}{0em}{}[\color{accent}\rule{\textwidth}{0.8pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=14pt, label=\textbullet}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Arjun Krishnamurthy}\\[4pt]
+{\small Bangalore, India $\mid$ +91-9876543210 $\mid$ arjun.krish@email.com}\\
+{\small \href{https://linkedin.com/in/arjunkrish}{linkedin.com/in/arjunkrish} $\mid$ \href{https://github.com/arjunkrish}{github.com/arjunkrish}}
+\end{center}
+
+\section{Education}
+
+\textbf{B.Tech in Computer Science and Engineering} \hfill 2020 -- 2024\\
+National Institute of Technology, Trichy \hfill \textbf{CGPA: 9.12/10}\\[3pt]
+\textbf{Class XII (CBSE)} -- Delhi Public School, Bangalore \hfill \textbf{96.4\%} \hfill 2020\\
+\textbf{Class X (CBSE)} -- Delhi Public School, Bangalore \hfill \textbf{97.2\%} \hfill 2018
+
+\section{Technical Skills}
+
+\textbf{Languages:} Java, Python, C++, SQL\\
+\textbf{Frameworks:} Spring Boot, React.js, Node.js\\
+\textbf{Databases:} MySQL, PostgreSQL, MongoDB\\
+\textbf{Tools:} Git, Docker, Jenkins, AWS (EC2, S3)\\
+\textbf{Core CS:} Data Structures, Algorithms, DBMS, Operating Systems, Computer Networks
+
+\section{Projects}
+
+\textbf{Distributed Task Scheduler} $\mid$ \textit{Java, Spring Boot, Redis, RabbitMQ} \hfill Jan 2024 -- Apr 2024
+\begin{itemize}
+    \item Designed a distributed job scheduling system handling 10,000+ concurrent tasks with priority queuing
+    \item Implemented fault-tolerant architecture with automatic retry mechanisms reducing task failures by 40\%
+    \item Built REST APIs with rate limiting and JWT authentication; deployed on AWS EC2 with Docker
+\end{itemize}
+
+\textbf{Real-Time Collaborative Code Editor} $\mid$ \textit{React.js, Node.js, WebSocket, MongoDB} \hfill Aug 2023 -- Nov 2023
+\begin{itemize}
+    \item Built a multi-user code editor supporting real-time collaboration using Operational Transformation
+    \item Achieved sub-100ms latency for concurrent edits across 5+ simultaneous users
+    \item Integrated syntax highlighting for 8 languages and auto-save with version history
+\end{itemize}
+
+\textbf{Database Query Optimizer} $\mid$ \textit{C++, Custom B+ Tree Implementation} \hfill Jan 2023 -- Apr 2023
+\begin{itemize}
+    \item Implemented a mini relational database engine with custom B+ tree indexing and query parser
+    \item Optimized SELECT queries with join reordering, achieving 3x speedup on benchmark datasets
+\end{itemize}
+
+\section{Achievements}
+
+\begin{itemize}
+    \item \textbf{CodeVita Season 11} -- Global Rank 142 out of 300,000+ participants (TCS coding contest)
+    \item \textbf{LeetCode} -- Knight badge; 1800+ rating; solved 600+ problems
+    \item \textbf{Smart India Hackathon 2023} -- Finalist; built AI-powered grievance redressal system
+    \item \textbf{NIT Trichy Dean's List} -- All 8 semesters for maintaining CGPA above 9.0
+    \item \textbf{GATE 2024} -- AIR 487 in Computer Science (99.5 percentile)
+\end{itemize}
+
+\section{Certifications}
+
+\begin{itemize}
+    \item AWS Certified Cloud Practitioner (2024)
+    \item Data Structures and Algorithms Specialization -- UC San Diego (Coursera, 2023)
+\end{itemize}
+
+\end{document}

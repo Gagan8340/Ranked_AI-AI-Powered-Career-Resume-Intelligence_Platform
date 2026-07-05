@@ -1,0 +1,91 @@
+%% DESIGN: Times New Roman | Banking-conservative, formal borders | Navy (#0D1B2A) accent
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+\definecolor{banknavy}{HTML}{0D1B2A}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{banknavy}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyfoot[C]{\footnotesize\color{banknavy} Confidential}
+\fancyfoot[R]{\footnotesize\thepage}
+
+\titleformat{\section}{\normalsize\bfseries\color{banknavy}\MakeUppercase}{}{0em}{}[\vspace{-0.5em}\color{banknavy}\rule{\linewidth}{0.8pt}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.5em,itemsep=2pt,parsep=0pt,label=\color{banknavy}\textendash}
+
+\hypersetup{colorlinks=true,urlcolor=banknavy}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries\color{banknavy} NEERAJ AGARWAL}\\[4pt]
+{\normalsize FinTech Engineer -- Payments \& Risk}\\[6pt]
+{\small Mumbai, India \quad $\vert$ \quad neeraj.agarwal@email.com \quad $\vert$ \quad +91-98765-11223 \quad $\vert$ \quad \href{https://linkedin.com/in/neeraja}{LinkedIn}}
+\end{center}
+
+\vspace{4pt}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\small\textbf{Summary:} Payments and risk engineering professional with 9 years in financial services. Expertise in real-time payment processing, fraud detection, and regulatory compliance (RBI, PCI-DSS, SOX). Track record of building systems processing \$10B+ annually.}}
+
+\section{Professional Experience}
+
+\textbf{Razorpay} \hfill Bangalore, India\\
+\textit{Staff Engineer -- Payments Risk} \hfill Jan 2022 -- Present
+\begin{itemize}
+\item Architect of real-time fraud detection engine evaluating 100M+ transactions/month
+\item Built ML-based risk scoring system reducing fraud losses by 65\% (\$8M annual savings)
+\item Designed PCI-DSS Level 1 compliant card vault handling 50M+ stored instruments
+\item Implemented RBI tokenization mandate -- migrated 30M cards with zero downtime
+\item Led UPI autopay system processing 5M+ recurring mandates monthly
+\end{itemize}
+
+\textbf{HDFC Bank -- Digital Banking} \hfill Mumbai, India\\
+\textit{Senior Technology Analyst} \hfill Jul 2019 -- Dec 2021
+\begin{itemize}
+\item Developed core banking integration layer for UPI payments (NPCI certified)
+\item Built anti-money laundering (AML) transaction monitoring system (STR generation)
+\item Implemented real-time sanctions screening against OFAC/UN/EU lists
+\item Reduced payment failure rate from 8\% to 2.1\% through intelligent retry mechanisms
+\end{itemize}
+
+\textbf{Paytm} \hfill Noida, India\\
+\textit{Software Engineer -- Payments} \hfill Jun 2016 -- Jun 2019
+\begin{itemize}
+\item Built wallet-to-bank transfer system handling 10M+ daily transactions
+\item Developed merchant settlement engine with T+1 reconciliation
+\item Implemented 3D Secure authentication flow reducing chargebacks by 40\%
+\end{itemize}
+
+\section{Regulatory \& Compliance Expertise}
+\begin{tabularx}{\linewidth}{@{}XX@{}}
+$\bullet$ PCI-DSS Level 1 (QSA audit lead) & $\bullet$ RBI Payment Aggregator Guidelines\\
+$\bullet$ SOX Compliance (IT controls) & $\bullet$ NPCI UPI Technical Specifications\\
+$\bullet$ AML/KYC (PMLA Act) & $\bullet$ Data Localization (RBI mandate)\\
+\end{tabularx}
+
+\section{Technical Skills}
+\textbf{Languages:} Java, Kotlin, Python, Go\\
+\textbf{Payments:} ISO 8583, UPI, IMPS, NEFT/RTGS, SWIFT, card networks (Visa/MC)\\
+\textbf{Security:} HSM integration, tokenization, encryption (AES-256, RSA)\\
+\textbf{Infrastructure:} Kafka, PostgreSQL, Redis, Kubernetes, AWS
+
+\section{Education}
+\textbf{B.Tech Computer Science} -- IIT Delhi \hfill 2012 -- 2016\\
+\textit{Minor: Financial Engineering}
+
+\section{Certifications}
+PCI Professional (PCIP) \quad $\bullet$ \quad AWS Security Specialty \quad $\bullet$ \quad CAMS (Anti-Money Laundering)
+
+\end{document}

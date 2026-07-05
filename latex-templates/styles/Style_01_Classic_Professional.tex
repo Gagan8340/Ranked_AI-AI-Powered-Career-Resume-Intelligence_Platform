@@ -1,0 +1,73 @@
+%% Style 01: Classic Professional
+%% DESIGN PHILOSOPHY: Traditional, conservative resume. Times New Roman font,
+%% horizontal rules between sections, generous but not excessive spacing.
+%% Visual signature: Thick/thin rule pairs, centered header, indented bullets.
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathptmx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\vspace{-0.5em}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Arjun Mehta} \\[4pt]
+{\normalsize 415-555-0192 \quad $\bullet$ \quad arjun.mehta@email.com \quad $\bullet$ \quad San Francisco, CA} \\[2pt]
+{\normalsize linkedin.com/in/arjunmehta \quad $\bullet$ \quad github.com/arjunmehta}
+\end{center}
+
+\vspace{-4pt}
+\noindent\rule{\textwidth}{1.2pt}
+
+\section{Professional Summary}
+Senior Software Engineer with 7+ years of experience designing and implementing scalable distributed systems. Proven track record of leading cross-functional teams and delivering high-impact products serving millions of users.
+
+\section{Professional Experience}
+
+\noindent\textbf{Senior Software Engineer} \hfill \textbf{2021 -- Present} \\
+\textit{Stripe, Inc.} \hfill \textit{San Francisco, CA}
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=1pt]
+  \item Led redesign of payment processing pipeline, reducing latency by 40\% and handling 50K+ TPS
+  \item Architected event-driven microservices platform using Kafka and gRPC serving 200+ internal teams
+  \item Mentored 5 junior engineers; established code review standards adopted org-wide
+\end{itemize}
+
+\noindent\textbf{Software Engineer II} \hfill \textbf{2018 -- 2021} \\
+\textit{Google LLC} \hfill \textit{Mountain View, CA}
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=1pt]
+  \item Built real-time data pipeline processing 2TB/day for Google Maps traffic predictions
+  \item Designed and shipped collaborative editing features used by 10M+ Google Docs users
+  \item Reduced CI/CD build times by 60\% through parallel test execution framework
+\end{itemize}
+
+\noindent\textbf{Software Engineer} \hfill \textbf{2016 -- 2018} \\
+\textit{Amazon Web Services} \hfill \textit{Seattle, WA}
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=1pt]
+  \item Developed auto-scaling algorithms for EC2 fleet management serving 1M+ instances
+  \item Implemented distributed caching layer reducing database load by 70\%
+\end{itemize}
+
+\section{Education}
+
+\noindent\textbf{Master of Science in Computer Science} \hfill \textbf{2016} \\
+\textit{Stanford University} \hfill \textit{Stanford, CA} \\[2pt]
+\noindent\textbf{Bachelor of Technology in Computer Science} \hfill \textbf{2014} \\
+\textit{Indian Institute of Technology, Bombay} \hfill \textit{Mumbai, India}
+
+\section{Technical Skills}
+
+\noindent\textbf{Languages:} Java, Python, Go, TypeScript, Rust, SQL \\
+\textbf{Frameworks:} Spring Boot, React, gRPC, Apache Kafka, Terraform \\
+\textbf{Infrastructure:} AWS, GCP, Kubernetes, Docker, Redis, PostgreSQL \\
+\textbf{Practices:} System Design, Distributed Systems, CI/CD, Agile/Scrum
+
+\end{document}

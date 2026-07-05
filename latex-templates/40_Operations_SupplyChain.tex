@@ -1,0 +1,84 @@
+%% DESIGN: Charter (charter) | Process-oriented structured | Dark teal (#004D40) accent | Numbered sections, structured
+%% Operations/Supply Chain style with numbered section headers, dark teal, process-flow feel
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{004D40}
+\definecolor{ACCENT}{HTML}{004D40}
+\definecolor{lightteal}{HTML}{E0F2F1}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\newcounter{seccount}
+% Section: numbered, dark teal, with arrow-like indicator
+\titleformat{\section}{\normalfont\bfseries\color{accent}}{\stepcounter{seccount}\color{accent}\theseccount.\enspace}{0em}{\uppercase}[\color{accent}\rule{\textwidth}{0.6pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}$\rightarrow$}}
+
+\begin{document}
+
+% Header: structured, dark teal name
+\begin{center}
+{\fontsize{19}{23}\selectfont\bfseries\color{accent}Rajesh Patel}\\[4pt]
+{\small Operations \& Supply Chain Professional}\\[4pt]
+{\small Ahmedabad, India \quad\textbar\quad +91-94567-89012 \quad\textbar\quad rajesh.patel@email.com \quad\textbar\quad \href{https://linkedin.com/in/rajeshpatel-ops}{linkedin.com/in/rajeshpatel-ops}}
+\end{center}
+\vspace{2pt}
+{\color{accent}\rule{\textwidth}{1.5pt}}
+
+\section{Executive Summary}
+Operations \& Supply Chain professional with 8 years of experience optimizing end-to-end logistics for manufacturing and e-commerce. Delivered \$15M+ in cumulative cost savings through process automation, vendor consolidation, and network optimization. Managed supply chains spanning 200+ suppliers across 12 countries with 99.2\% on-time delivery. Six Sigma Black Belt with expertise in Lean operations.
+
+\section{Professional Experience}
+
+\textbf{Senior Manager -- Supply Chain Operations} \hfill Mar 2022 -- Present\\
+{\color{accent}Amazon India, Hyderabad} \enspace\textbar\enspace \textit{Last-Mile Delivery Network}
+\begin{itemize}
+  \item Managed last-mile operations across 8 cities serving 5M+ monthly deliveries; maintained 99.4\% on-time rate
+  \item Reduced cost-per-delivery by 22\% (\$6.8M annual savings) through route optimization and hub consolidation
+  \item Led network expansion adding 15 delivery stations; achieved operational readiness 20\% ahead of timeline
+  \item Implemented predictive demand forecasting; reduced over-staffing costs by 18\% while maintaining SLA
+  \item Managed team of 12 operations managers and 3,000+ delivery associates; improved retention from 65\% to 82\%
+\end{itemize}
+
+\textbf{Operations Manager} \hfill Jun 2019 -- Feb 2022\\
+{\color{accent}Hindustan Unilever, Mumbai} \enspace\textbar\enspace \textit{FMCG -- Distribution \& Logistics}
+\begin{itemize}
+  \item Optimized distribution network serving 8M+ retail outlets; reduced logistics cost from 4.8\% to 3.6\% of revenue (\$5.2M savings)
+  \item Led warehouse automation project (AS/RS); increased throughput by 45\% and reduced picking errors by 90\%
+  \item Consolidated vendor base from 85 to 45 suppliers; negotiated 12\% average cost reduction
+  \item Implemented S\&OP process reducing forecast error from 35\% to 18\%; decreased inventory holding by \$2.1M
+\end{itemize}
+
+\textbf{Supply Chain Analyst} \hfill Jul 2016 -- May 2019\\
+{\color{accent}Mahindra \& Mahindra, Pune} \enspace\textbar\enspace \textit{Automotive -- Procurement \& Planning}
+\begin{itemize}
+  \item Managed procurement for 120+ SKUs worth \$50M annually; maintained 98\% supplier delivery compliance
+  \item Led Kaizen projects eliminating 3 process bottlenecks; reduced production line downtime by 25\%
+  \item Developed supplier scorecard system; improved supplier performance by 20\%
+  \item Implemented Kanban system for JIT inventory; reduced WIP by 30\% (\$1.8M working capital freed)
+\end{itemize}
+
+\section{Core Competencies}
+\textbf{Operations:} Lean Manufacturing, Six Sigma (Black Belt), Kaizen, S\&OP, Demand Planning\\
+\textbf{Supply Chain:} Procurement, Vendor Management, Logistics, Warehouse Management, Network Design\\
+\textbf{Tools:} SAP MM/PP, Oracle SCM, Advanced Excel, Tableau, Python (basic), WMS/TMS\\
+\textbf{Leadership:} Team Management (50+ direct/indirect), Change Management, P\&L Ownership
+
+\section{Education}
+\textbf{MBA -- Operations Management} \hfill IIM Ahmedabad \hfill 2016\\
+\textbf{B.E. -- Industrial Engineering} \hfill VJTI Mumbai \hfill 2014
+
+\section{Certifications}
+Six Sigma Black Belt (ASQ) \quad\textbar\quad APICS CSCP \quad\textbar\quad PMP (Project Management Professional)
+
+\end{document}

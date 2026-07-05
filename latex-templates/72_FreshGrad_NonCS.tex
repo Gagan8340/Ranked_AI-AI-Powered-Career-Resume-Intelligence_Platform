@@ -1,0 +1,79 @@
+%% DESIGN: Open Sans | Career-change narrative, summary-first | Green (#43A047) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.7in,right=0.7in,top=0.6in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{opensans}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz}
+
+\definecolor{accent}{HTML}{43A047}
+\definecolor{ACCENT}{HTML}{43A047}
+\definecolor{narrativebg}{HTML}{E8F5E9}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\normalsize\bfseries\color{accent}\uppercase}{}{0em}{}[\vspace{-0.3em}\textcolor{accent!40}{\rule{\linewidth}{1pt}}]
+\titlespacing{\section}{0pt}{1em}{0.4em}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\Huge\bfseries\color{accent} ROBIN DELGADO}\\[0.3em]
+{\large Software Engineer (Career Transition)}\\[0.3em]
+{\small robin.delgado@email.com \quad\textcolor{accent}{\textbullet}\quad (555) 123-4567 \quad\textcolor{accent}{\textbullet}\quad Denver, CO \quad\textcolor{accent}{\textbullet}\quad github.com/robindelgado}
+\end{center}
+
+\vspace{0.3em}
+
+% Narrative summary - prominent
+\noindent
+\begin{tikzpicture}
+\node[fill=narrativebg,rounded corners=5pt,inner sep=10pt,text width=\textwidth-1.2cm] {
+\textbf{\color{accent}My Story:} Former mechanical engineer turned software developer. After 4 years designing physical systems, I discovered my passion for building digital ones. Completed an intensive bootcamp, built production applications, and bring a unique engineering mindset---systems thinking, rigorous testing, and first-principles problem solving---to software development.
+};
+\end{tikzpicture}
+
+\section{Technical Skills (Self-Taught \& Bootcamp)}
+\noindent\textbf{Languages:} Python, JavaScript/TypeScript, SQL, Go\\
+\textbf{Frontend:} React, Next.js, Tailwind CSS, HTML/CSS\\
+\textbf{Backend:} Node.js, Express, FastAPI, PostgreSQL, MongoDB, Redis\\
+\textbf{DevOps:} Docker, AWS (EC2, S3, Lambda), CI/CD, Git\\
+\textbf{Transferable:} MATLAB, CAD/CAM, Data Analysis, Technical Documentation
+
+\section{Software Projects}
+
+\noindent\textbf{TaskFlow -- Project Management App} \hfill \textit{React, Node.js, PostgreSQL, Docker}\\
+{\small Full-stack Kanban board with real-time updates, team collaboration, and analytics dashboard. Deployed on AWS with CI/CD pipeline. 200+ active users from Product Hunt launch.}
+\vspace{0.4em}
+
+\noindent\textbf{EngineerCalc -- Engineering Calculator API} \hfill \textit{Python, FastAPI, NumPy}\\
+{\small REST API providing structural engineering calculations. Leveraged domain expertise to build tool used by 50+ engineers. Open-source with comprehensive documentation.}
+\vspace{0.4em}
+
+\noindent\textbf{WeatherDash -- IoT Weather Station} \hfill \textit{Go, Raspberry Pi, React, InfluxDB}\\
+{\small Hardware + software project: built weather station with Go backend processing sensor data. Real-time dashboard with historical analysis. Combines ME and CS skills.}
+
+\section{Education \& Training}
+\noindent\textbf{Software Engineering Bootcamp} \hfill Hack Reactor, 2023 \textit{(800+ hours)}\\
+\textbf{B.S. Mechanical Engineering} \hfill Colorado School of Mines, 2019 \textit{(GPA: 3.7)}
+
+\section{Previous Engineering Experience}
+
+\noindent\textbf{Mechanical Engineer} \hfill \textcolor{accent}{Jul 2019 -- Jun 2023}\\
+\textit{Lockheed Martin, Denver, CO}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Designed thermal management systems for satellite components (Python scripting for analysis)
+\item Led cross-functional team of 6 on \$2M project delivered on time and under budget
+\item Automated testing workflows using Python, reducing analysis time by 40\%
+\item Wrote technical documentation and presented to senior leadership weekly
+\item \textit{This role sparked my transition: automating my work was more exciting than the work itself}
+\end{itemize}
+
+\section{Why Hire a Career Changer?}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Systems thinking from engineering background -- I design before I code
+\item Proven ability to learn complex domains quickly (cleared TS/SCI clearance, learned CFD in 3 months)
+\item Professional maturity: project management, stakeholder communication, deadline delivery
+\end{itemize}
+
+\end{document}

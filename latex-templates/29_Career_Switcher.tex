@@ -1,0 +1,108 @@
+%% DESIGN: Charter (charter) | Narrative single-column | Teal (#008080) accent | Summary-prominent, storytelling layout
+%% Career-switcher narrative style with large summary block, teal left border accents, story-driven
+
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[top=0.6in,bottom=0.5in,left=0.7in,right=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\definecolor{accent}{HTML}{008080}
+\definecolor{ACCENT}{HTML}{008080}
+\definecolor{lightteal}{HTML}{E0F7F7}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: teal text, left border accent
+\titleformat{\section}{\normalfont\large\bfseries\color{accent}}{}{0em}{\hspace{-4pt}}[\vspace{-2pt}]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\setlist[itemize]{nosep,left=4pt,labelsep=5pt,itemsep=2pt,label={\color{accent}\textendash}}
+
+% Summary box style
+\mdfdefinestyle{summarybox}{linecolor=accent,linewidth=3pt,topline=false,bottomline=false,rightline=false,innerleftmargin=10pt,innerrightmargin=10pt,innertopmargin=8pt,innerbottommargin=8pt,backgroundcolor=lightteal}
+
+\begin{document}
+
+% Header: name left, contact right
+\noindent\begin{minipage}[t]{0.55\textwidth}
+{\fontsize{22}{26}\selectfont\bfseries\color{accent}Meera Joshi}\\[3pt]
+{\small\itshape Mechanical Engineer $\rightarrow$ Software Developer}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\textwidth}
+\raggedleft\small
+Bangalore, India\\
++91-9012345678\\
+\href{mailto:meera.joshi@email.com}{meera.joshi@email.com}\\
+\href{https://linkedin.com/in/meerajoshi-dev}{linkedin.com/in/meerajoshi-dev}\\
+\href{https://github.com/meerajoshi}{github.com/meerajoshi}
+\end{minipage}
+
+\vspace{8pt}
+
+% Prominent summary with left border
+\begin{mdframed}[style=summarybox]
+\textbf{My Story:} Former mechanical engineer transitioning to software development after completing intensive full-stack bootcamp. Brings 2 years of engineering problem-solving experience, strong analytical thinking, and domain knowledge in manufacturing/IoT. Passionate about building scalable web applications. Completed 500+ hours of hands-on coding with 5 deployed projects.
+\end{mdframed}
+
+\section{New Technical Skills}
+\textbf{Languages:} JavaScript, TypeScript, Python, SQL\\
+\textbf{Frontend:} React.js, Next.js, HTML5, CSS3, Tailwind CSS\\
+\textbf{Backend:} Node.js, Express.js, Python (FastAPI)\\
+\textbf{Databases:} PostgreSQL, MongoDB, Redis\\
+\textbf{Tools:} Git, Docker, AWS (EC2, S3, RDS), Vercel, CI/CD\\
+\textbf{Transferable:} AutoCAD, MATLAB, Six Sigma (Green Belt), Project Management
+
+\section{Technical Projects (Full-Stack Bootcamp)}
+\textbf{\color{accent}E-Learning Platform} $\mid$ \textit{Next.js, Node.js, PostgreSQL, Stripe, AWS} \hfill Jan -- Mar 2024
+\begin{itemize}
+    \item Built complete LMS with video streaming, progress tracking, and payment integration
+    \item Implemented role-based dashboards (student, instructor, admin) with real-time notifications
+    \item Deployed on AWS with CloudFront CDN; handles 200+ concurrent video streams
+    \item Capstone project; received ``Best Project'' award from bootcamp cohort of 45 students
+\end{itemize}
+
+\vspace{4pt}
+\textbf{\color{accent}IoT Dashboard for Manufacturing} $\mid$ \textit{React, FastAPI, InfluxDB, MQTT} \hfill Nov 2023 -- Jan 2024
+\begin{itemize}
+    \item Leveraged manufacturing domain knowledge to build real-time machine monitoring dashboard
+    \item Integrated with MQTT broker for sensor data ingestion; visualized 10+ metrics in real-time
+    \item Built predictive maintenance alerts using simple threshold and trend analysis
+\end{itemize}
+
+\vspace{4pt}
+\textbf{\color{accent}Task Management App (Trello Clone)} $\mid$ \textit{React, Node.js, MongoDB, Socket.io} \hfill Sep -- Oct 2023
+\begin{itemize}
+    \item Developed drag-and-drop kanban board with real-time collaboration for multiple users
+    \item Implemented WebSocket-based live updates, file attachments, and activity logging
+\end{itemize}
+
+\section{Previous Experience}
+\textbf{Design Engineer} -- Tata Motors, Pune \hfill Jul 2022 -- Aug 2023
+\begin{itemize}
+    \item Led 3-member team for component design optimization; reduced material cost by 12\%
+    \item Automated repetitive CAD tasks using Python scripts, saving 8 hours/week for team
+    \item Collaborated with cross-functional teams (manufacturing, quality, supply chain)
+    \item \textit{\color{accent}Key transferable skills: analytical thinking, team collaboration, deadline management}
+\end{itemize}
+
+\section{Education}
+\textbf{Full-Stack Web Development Bootcamp} -- Masai School (Online) \hfill Aug 2023 -- Mar 2024\\
+\textit{500+ hours of hands-on coding; daily DSA practice; agile team projects}\\[4pt]
+\textbf{B.Tech in Mechanical Engineering} -- NIT Warangal \hfill 2018 -- 2022 \quad\textit{CGPA: 7.89/10}
+
+\section{Certifications \& Achievements}
+\begin{itemize}
+    \item Meta Front-End Developer Professional Certificate (Coursera, 2024)
+    \item freeCodeCamp -- Responsive Web Design + JavaScript Algorithms (2023)
+    \item LeetCode -- 200+ problems solved; focused on arrays, strings, and trees
+    \item Built and deployed 5 full-stack projects (all live on portfolio website)
+\end{itemize}
+
+\end{document}

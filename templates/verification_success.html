@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranked.ai — Email Verified</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    body { min-height: 100vh; background: linear-gradient(-45deg, #09090b, #18181b, #121214, #0a0a0c); background-size: 400% 400%; animation: gradientShift 15s ease infinite; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; padding: 24px; color: #fff; }
+    .card { background: transparent; border: none; border-radius: 16px; padding: 40px; text-align: center; max-width: 440px; width: 100%; box-shadow: none; animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+    .icon { width: 64px; height: 64px; background: rgba(93,202,165,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(93,202,165,0.3); color: #5dcaa5; }
+    h1 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; margin-bottom: 12px; }
+    p { color: #8892b0; font-size: 15px; line-height: 1.6; margin-bottom: 32px; }
+    .btn { display: block; width: 100%; padding: 12px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: 'Space Grotesk', sans-serif; transition: all .2s; }
+    .btn-primary { background: linear-gradient(135deg, #d946ef, #6366F1, #7C3AED, #10B981); color: #fff; border: none; }
+    .btn-primary:hover { filter: brightness(1.1); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    </div>
+    <h1>Email Verified</h1>
+    <p>Your email has been successfully verified. You can now access all the features of Ranked.ai.</p>
+    <a href="/login" class="btn btn-primary">Continue To Login</a>
+  </div>
+</body>
+</html>

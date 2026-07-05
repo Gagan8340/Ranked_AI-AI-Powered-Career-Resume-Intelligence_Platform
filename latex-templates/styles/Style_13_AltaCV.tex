@@ -1,0 +1,129 @@
+%% Style 13: AltaCV - Sidebar with photo placeholder, icons, progress bars for skills
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=5.5cm,right=0.5cm,top=0.5cm,bottom=0.5cm]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{eso-pic}
+\usepackage{lmodern}
+
+\definecolor{accent}{HTML}{1565C0}
+\definecolor{body}{HTML}{333333}
+\definecolor{sidebar}{HTML}{E8EAF6}
+\definecolor{skillbar}{HTML}{1565C0}
+\definecolor{skillbg}{HTML}{D0D0D0}
+
+\pagestyle{empty}
+\color{body}
+
+\titleformat{\section}{\color{accent}\large\bfseries}{}{0em}{}[\color{accent}\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% Progress bar command
+\newcommand{\skillbar}[2]{%
+  \noindent\small\textbf{#1}\hfill\par\vspace{2pt}%
+  \begin{tikzpicture}
+    \fill[skillbg] (0,0) rectangle (4.0cm,0.18cm);
+    \fill[skillbar] (0,0) rectangle ({4.0*#2/100},0.18cm);
+  \end{tikzpicture}\par\vspace{4pt}%
+}
+
+% Sidebar background
+\AddToShipoutPictureBG{%
+  \AtPageLowerLeft{%
+    \color{sidebar}\rule{5.0cm}{\paperheight}%
+  }%
+}
+
+\begin{document}
+
+% Sidebar content using textblock-like approach with minipage
+\noindent\hspace{-5.0cm}%
+\begin{minipage}[t]{4.5cm}
+\vspace{0.5cm}
+\begin{center}
+\begin{tikzpicture}
+\draw[accent, line width=2pt] (0,0) circle (1.3cm);
+\node[color=accent,font=\Large] at (0,0) {\faUser};
+\end{tikzpicture}\\[4pt]
+{\scriptsize\color{body} Photo}
+\end{center}
+\vspace{8pt}
+
+{\color{accent}\large\bfseries Contact}\\[2pt]
+{\color{accent}\rule{4.0cm}{0.5pt}}\\[6pt]
+\small
+\faPhone\ +91-98765-43210\\[3pt]
+\faEnvelope\ arjun.mehta@email.com\\[3pt]
+\faLinkedin\ arjunmehta\\[3pt]
+\faGithub\ arjunmehta\\[3pt]
+\faMapMarker*\ Bangalore, India\\[10pt]
+
+{\color{accent}\large\bfseries Skills}\\[2pt]
+{\color{accent}\rule{4.0cm}{0.5pt}}\\[6pt]
+\skillbar{Java}{90}
+\skillbar{Python}{85}
+\skillbar{Go}{80}
+\skillbar{AWS}{90}
+\skillbar{Kubernetes}{85}
+\skillbar{System Design}{88}
+\skillbar{React}{75}
+
+\vspace{6pt}
+{\color{accent}\large\bfseries Languages}\\[2pt]
+{\color{accent}\rule{4.0cm}{0.5pt}}\\[6pt]
+\small
+English -- Fluent\\[2pt]
+Hindi -- Native\\[2pt]
+Marathi -- Native
+\end{minipage}%
+\hspace{0.5cm}%
+\begin{minipage}[t]{11.5cm}
+\vspace{0.3cm}
+
+{\Huge\bfseries\color{accent} Arjun Mehta}\par\vspace{2pt}
+{\large Senior Software Engineer}\par\vspace{10pt}
+
+\section{Experience}
+\textbf{Senior Software Engineer} \hfill \textit{Jan 2023 -- Present}\\
+\textit{Amazon Web Services, Bangalore}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item \small Designed distributed microservices handling 50K+ requests/second
+\item \small Led monolith-to-microservices migration, reducing latency by 40\%
+\item \small Mentored 4 junior engineers; conducted 50+ interviews
+\end{itemize}
+\vspace{6pt}
+
+\textbf{Software Engineer} \hfill \textit{Jun 2020 -- Dec 2022}\\
+\textit{Microsoft, Hyderabad}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item \small Built real-time data pipeline processing 10TB+ daily
+\item \small Developed REST APIs serving 1M+ users, 99.9\% uptime
+\item \small Reduced CI/CD pipeline time by 60\%
+\end{itemize}
+\vspace{6pt}
+
+\section{Projects}
+\textbf{Distributed Task Scheduler} -- \textit{Go, gRPC, Redis, K8s}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item \small Fault-tolerant scheduler for 100K+ concurrent jobs
+\item \small Raft consensus for leader election
+\end{itemize}
+\vspace{4pt}
+\textbf{Real-time Analytics Dashboard} -- \textit{React, D3.js, WebSocket}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item \small Streaming data visualization with sub-second refresh
+\end{itemize}
+
+\section{Education}
+\textbf{B.Tech Computer Science} \hfill \textit{2016 -- 2020}\\
+IIT Bombay \hfill GPA: 3.8/4.0
+
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,113 @@
+%% Style 18: European CV (Europass-inspired) - Photo box, personal info table, language grid
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.6in,right=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{titlesec}
+
+\definecolor{euroblue}{HTML}{003399}
+\definecolor{eurogray}{HTML}{666666}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\titleformat{\section}{\color{euroblue}\large\bfseries}{}{0em}{}[\color{euroblue}\rule{\textwidth}{0.5pt}]
+\titlespacing{\section}{0pt}{10pt}{6pt}
+
+\begin{document}
+
+% Header with photo placeholder
+\noindent\begin{minipage}[t]{0.22\textwidth}
+\begin{tikzpicture}
+\draw[euroblue, line width=1.5pt] (0,0) rectangle (3.2cm,4.0cm);
+\node[color=eurogray] at (1.6cm,2.0cm) {\small Photo};
+\end{tikzpicture}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.74\textwidth}
+\vspace{0pt}
+{\fontsize{22pt}{26pt}\selectfont\color{euroblue}\textbf{Arjun Mehta}}\\[4pt]
+{\large Senior Software Engineer}\\[10pt]
+
+\begin{tabular}{@{}l l@{}}
+\textbf{Address:} & Bangalore, Karnataka, India\\
+\textbf{Phone:} & +91-98765-43210\\
+\textbf{Email:} & arjun.mehta@email.com\\
+\textbf{LinkedIn:} & linkedin.com/in/arjunmehta\\
+\textbf{GitHub:} & github.com/arjunmehta\\
+\textbf{Date of Birth:} & 15 March 1998\\
+\textbf{Nationality:} & Indian\\
+\end{tabular}
+\end{minipage}
+
+\vspace{12pt}
+
+\section{Work Experience}
+
+\noindent\begin{tabularx}{\textwidth}{@{}p{2.2cm}|X@{}}
+Jan 2023 -- & \textbf{Senior Software Engineer}\\
+Present & Amazon Web Services, Bangalore, India\\
+& \begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]
+  \item \small Designed distributed microservices handling 50K+ requests/second
+  \item \small Led monolith-to-microservices migration, reducing latency by 40\%
+  \item \small Mentored 4 junior engineers; conducted 50+ technical interviews
+\end{itemize}\\[4pt]
+
+Jun 2020 -- & \textbf{Software Engineer}\\
+Dec 2022 & Microsoft Corporation, Hyderabad, India\\
+& \begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]
+  \item \small Built real-time data pipeline processing 10TB+ daily
+  \item \small Developed REST APIs serving 1M+ users with 99.9\% uptime
+  \item \small Reduced CI/CD pipeline time by 60\%
+\end{itemize}
+\end{tabularx}
+
+\section{Education and Training}
+
+\noindent\begin{tabularx}{\textwidth}{@{}p{2.2cm}|X@{}}
+2016 -- 2020 & \textbf{Bachelor of Technology in Computer Science}\\
+& Indian Institute of Technology, Bombay\\
+& GPA: 3.8/4.0\\
+& Key modules: Distributed Systems, Algorithms, Machine Learning, OS
+\end{tabularx}
+
+\section{Language Skills}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Language} & \textbf{Listening} & \textbf{Reading} & \textbf{Spoken} & \textbf{Writing} & \textbf{Level}\\
+\hline
+English & C2 & C2 & C2 & C2 & Proficient\\
+\hline
+Hindi & C2 & C2 & C2 & C1 & Native\\
+\hline
+Marathi & C2 & C1 & C2 & B2 & Native\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Digital Skills}
+
+\textbf{Programming:} Java, Python, Go, TypeScript, SQL\\[2pt]
+\textbf{Frameworks:} Spring Boot, React, Apache Kafka, Apache Spark\\[2pt]
+\textbf{Cloud \& DevOps:} AWS, Docker, Kubernetes, Terraform, Jenkins, Git
+
+\section{Projects}
+
+\noindent\begin{tabularx}{\textwidth}{@{}p{2.2cm}|X@{}}
+2023 & \textbf{Distributed Task Scheduler} (Go, gRPC, Redis, Kubernetes)\\
+& Fault-tolerant scheduler for 100K+ concurrent jobs with Raft consensus\\[4pt]
+2022 & \textbf{Real-time Analytics Dashboard} (React, D3.js, WebSocket)\\
+& Streaming data visualization with sub-second refresh rates
+\end{tabularx}
+
+\end{document}

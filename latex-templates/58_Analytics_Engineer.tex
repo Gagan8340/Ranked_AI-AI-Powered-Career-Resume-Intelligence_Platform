@@ -1,0 +1,84 @@
+%% DESIGN: Inconsolata + Open Sans | Modern minimal, code-style sections | dbt-orange (#FF694B) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.7in,right=0.7in,top=0.6in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{opensans}
+\usepackage{inconsolata}
+\usepackage{xcolor,titlesec,enumitem,hyperref,fancyvrb}
+
+\definecolor{accent}{HTML}{FF694B}
+\definecolor{ACCENT}{HTML}{FF694B}
+\definecolor{codebg}{HTML}{FFF8F5}
+\definecolor{codeborder}{HTML}{FFD4C7}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+% Code-style section headers
+\titleformat{\section}{\normalsize\ttfamily\bfseries\color{accent}}{}{0em}{\texttt{--\ }}[\vspace{-0.3em}]
+\titlespacing{\section}{0pt}{1em}{0.4em}
+
+% Code block environment
+\newcommand{\codeblock}[1]{\par\noindent\colorbox{codebg}{\parbox{\dimexpr\textwidth-2\fboxsep}{\ttfamily\small #1}}\par\vspace{0.3em}}
+
+\begin{document}
+
+% Header - monospace inspired
+\noindent{\ttfamily\huge\bfseries\color{accent} DREW NAKAMURA}\\[0.2em]
+{\large Analytics Engineer}\\[0.3em]
+{\small\ttfamily drew.nakamura@email.com | (555) 890-1234 | Denver, CO | github.com/drewnakamura}
+
+\vspace{0.3em}
+\noindent\textcolor{accent}{\rule{\textwidth}{1pt}}
+
+\section{config.yml}
+\codeblock{%
+\textcolor{accent}{role:} Analytics Engineer with 5+ years transforming raw data into\\
+\textcolor{accent}{\ \ \ \ } trusted, well-modeled datasets. Expert in dbt, SQL, and the\\
+\textcolor{accent}{\ \ \ \ } modern data stack. Passionate about data quality and governance.}
+
+\section{models/skills.sql}
+\codeblock{%
+\textcolor{accent}{-- transformation:} dbt, SQL, Jinja, Python, Spark\\
+\textcolor{accent}{-- warehouses:}\ \ \ \ Snowflake, BigQuery, Redshift, Databricks\\
+\textcolor{accent}{-- orchestration:} Airflow, Dagster, dbt Cloud, Prefect\\
+\textcolor{accent}{-- quality:}\ \ \ \ \ \ \ Great Expectations, dbt tests, Monte Carlo\\
+\textcolor{accent}{-- visualization:} Looker (LookML), Tableau, Metabase\\
+\textcolor{accent}{-- version\_ctrl:}\ \ Git, GitHub Actions, CI/CD for data}
+
+\section{experience}
+
+\noindent\textbf{Senior Analytics Engineer} \hfill \textcolor{accent}{Feb 2022 -- Present}\\
+\textit{DataStack Co., Denver, CO}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\textcolor{accent}{\texttt{>}}}]
+\item Architected dbt project with 400+ models serving 200 business users across 8 departments
+\item Implemented data contracts and SLAs reducing downstream data incidents by 75\%
+\item Built semantic layer in Looker (LookML) creating single source of truth for business metrics
+\item Designed slowly-changing dimension patterns handling 50M+ customer records
+\item Mentored 3 junior engineers on dimensional modeling and dbt best practices
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Analytics Engineer} \hfill \textcolor{accent}{Jun 2019 -- Jan 2022}\\
+\textit{GrowthMetrics, San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\textcolor{accent}{\texttt{>}}}]
+\item Migrated legacy stored procedures to dbt, improving maintainability and reducing run time 60\%
+\item Built automated data quality testing suite with 500+ tests (99.8\% pipeline reliability)
+\item Created self-serve analytics layer enabling product managers to answer questions without SQL
+\item Implemented incremental models reducing warehouse costs by \$150K annually
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Data Analyst} \hfill \textcolor{accent}{Aug 2017 -- May 2019}\\
+\textit{RetailCo, Portland, OR}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\textcolor{accent}{\texttt{>}}}]
+\item Built executive dashboards tracking KPIs across 200+ retail locations
+\item Developed SQL-based reporting automating 20+ weekly manual reports
+\end{itemize}
+
+\section{education}
+\noindent\textbf{B.S. Information Systems} \hfill University of Colorado, 2017
+
+\section{certifications}
+\noindent dbt Certified Developer \quad\textcolor{accent}{|}\quad Snowflake SnowPro Core \quad\textcolor{accent}{|}\quad Google Cloud Professional Data Engineer
+
+\end{document}

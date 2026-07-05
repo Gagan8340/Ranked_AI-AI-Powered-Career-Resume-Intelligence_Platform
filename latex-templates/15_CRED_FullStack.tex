@@ -1,0 +1,83 @@
+%% DESIGN: EB Garamond | Single-column elegant | Gold accent | Generous whitespace, centered header
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{B8860B}
+\definecolor{ACCENT}{HTML}{B8860B}
+
+\titleformat{\section}{\centering\scshape\color{accent}\normalsize}{}{0em}{}[\vspace{2pt}\centering{\color{accent}\rule{0.4\textwidth}{0.4pt}}]
+\titlespacing{\section}{0pt}{14pt}{6pt}
+
+\setlist[itemize]{nosep, leftmargin=16pt, label={\color{accent}\tiny$\blacklozenge$}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+\vspace{8pt}
+{\Huge\scshape Ananya Krishnan}\\[10pt]
+{\color{accent}\rule{0.5\textwidth}{0.8pt}}\\[8pt]
+{\small Bangalore, India \quad $\diamond$ \quad +91-97654-32100 \quad $\diamond$ \quad ananya.krishnan@email.com}\\[3pt]
+{\small \href{https://linkedin.com/in/ananyakrishnan}{linkedin.com/in/ananyakrishnan} \quad $\diamond$ \quad \href{https://github.com/ananyakrishnan}{github.com/ananyakrishnan}}
+\end{center}
+
+\vspace{6pt}
+
+\begin{center}
+{\itshape Full-stack engineer obsessed with craft and user experience. 4+ years building premium fintech products with pixel-perfect UIs and performant backends. Strong product thinking with experience shipping 0-to-1 features used by 5M+ users.}
+\end{center}
+
+\section{Experience}
+
+\textbf{Full-Stack Engineer} \quad CRED \hfill {\color{accent}\small Jan 2023 -- Present}
+\begin{itemize}
+    \item Built CRED Mint (personal finance insights) from scratch -- React Native app module used by 3M+ members with 4.8-star rating
+    \item Developed component library (60+ components) with Storybook documentation, reducing feature development time by 40\%
+    \item Implemented micro-interaction animations achieving 60fps on mid-range devices through GPU-accelerated CSS and React Native Reanimated
+    \item Designed and built credit score journey with progressive disclosure UX, increasing user engagement by 55\%
+    \item Reduced app bundle size by 35\% through code splitting, tree shaking, and lazy loading
+    \item Architected BFF (Backend-for-Frontend) layer in Go aggregating 8 microservices into optimized mobile payloads
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Software Engineer} \quad Razorpay \hfill {\color{accent}\small Jul 2021 -- Dec 2022}
+\begin{itemize}
+    \item Built merchant dashboard (React + TypeScript) serving 500K+ merchants with real-time transaction analytics
+    \item Developed payment links product frontend with customizable themes, generating \$10M+ monthly GMV
+    \item Implemented design system tokens enabling consistent theming across 4 products with dark mode support
+    \item Reduced dashboard load time from 4.2s to 1.8s through SSR, prefetching, and image optimization
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Frontend Engineer} \quad Cure.fit (cult.fit) \hfill {\color{accent}\small Jun 2020 -- Jun 2021}
+\begin{itemize}
+    \item Built live workout streaming interface (WebRTC + React) supporting 10K concurrent viewers
+    \item Developed booking flow with optimistic UI updates, reducing perceived latency by 70\%
+\end{itemize}
+
+\section{Projects}
+
+\textbf{Design System Toolkit} {\small$\mid$ React, TypeScript, Storybook} -- Open-source accessible component library with 40+ components, theming engine, and motion primitives; 1.2K stars\\[4pt]
+\textbf{Credit Card Rewards Optimizer} {\small$\mid$ Next.js, Go, PostgreSQL} -- Full-stack app analyzing spending patterns to recommend optimal credit card usage; 50K MAU
+
+\section{Skills}
+
+\textbf{Frontend:} React, Next.js, TypeScript, React Native, Tailwind CSS, Framer Motion\\
+\textbf{Backend:} Node.js, Go, GraphQL, REST APIs\\
+\textbf{Design:} Design Systems, Figma-to-code, Accessibility (WCAG 2.1), Animation/Motion
+
+\section{Education}
+
+\begin{center}
+\textbf{B.Tech in Computer Science} -- IIIT Hyderabad \quad 2016 -- 2020 \quad CGPA: 9.2/10
+\end{center}
+
+\end{document}

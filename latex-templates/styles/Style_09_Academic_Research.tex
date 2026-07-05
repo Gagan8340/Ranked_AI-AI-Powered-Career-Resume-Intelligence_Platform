@@ -1,0 +1,76 @@
+%% Style 09: Academic/Research
+%% DESIGN PHILOSOPHY: Publications section prominent, footnote-style dates,
+%% serif font, numbered sections, wider margins. CV-style academic format.
+%% Visual signature: Numbered sections, publication list, footnote dates.
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[top=1in, bottom=1in, left=1.3in, right=1.3in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+\hypersetup{colorlinks=true, linkcolor=blue!60!black, urlcolor=blue!60!black}
+\pagestyle{plain}
+
+\titleformat{\section}{\large\bfseries}{{\thesection}.}{0.5em}{}[\vspace{-2pt}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\setcounter{secnumdepth}{1}
+
+\begin{document}
+
+% --- HEADER: Academic style ---
+\begin{center}
+{\Large\bfseries Arjun Mehta}\\[6pt]
+{\normalsize Department of Computer Science, Stanford University (alumnus)}\\[3pt]
+{\small arjun.mehta@email.com \quad | \quad 415-555-0192 \quad | \quad San Francisco, CA}\\[2pt]
+{\small \url{github.com/arjunmehta} \quad | \quad \url{linkedin.com/in/arjunmehta}}
+\end{center}
+
+\section{Research Interests}
+Distributed systems, large-scale data processing, fault-tolerant computing, real-time stream processing, and systems performance optimization.
+
+\section{Education}
+
+\noindent\textbf{Master of Science in Computer Science} \hfill 2014 -- 2016\\
+Stanford University, Stanford, CA\\
+{\small\itshape Thesis: ``Fault-Tolerant Consensus in Geo-Distributed Systems''}\\
+{\small Advisor: Prof.\ David Mazi\`eres}
+
+\vspace{6pt}
+\noindent\textbf{Bachelor of Technology in Computer Science} \hfill 2010 -- 2014\\
+Indian Institute of Technology, Bombay\\
+{\small\itshape First Class with Distinction. GPA: 9.2/10}
+
+\section{Professional Experience}
+
+\noindent\textbf{Senior Software Engineer}, Stripe, Inc.\hfill 2021 -- Present\footnotemark[1]\\
+{\small Led payment pipeline redesign (40\% latency reduction, 50K+ TPS). Architected event-driven microservices platform serving 200+ teams. Mentored 5 engineers.}
+
+\vspace{6pt}
+\noindent\textbf{Software Engineer II}, Google LLC \hfill 2018 -- 2021\\
+{\small Built 2TB/day real-time pipeline for Maps. Shipped collaborative editing for 10M+ Docs users. Reduced CI/CD times by 60\%.}
+
+\vspace{6pt}
+\noindent\textbf{Software Engineer}, Amazon Web Services \hfill 2016 -- 2018\\
+{\small Developed EC2 auto-scaling (1M+ instances). Implemented distributed caching (70\% DB load reduction).}
+
+\footnotetext[1]{San Francisco, CA. All positions full-time.}
+
+\section{Selected Publications \& Talks}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=2pt, itemsep=3pt]
+  \item A.\ Mehta et al., ``Scalable Event-Driven Architectures for Payment Systems,'' \textit{Proc.\ ACM Symposium on Cloud Computing (SoCC)}, 2023.
+  \item A.\ Mehta, ``Real-Time Stream Processing at Scale,'' \textit{Strange Loop Conference}, 2022. (Invited Talk)
+  \item A.\ Mehta, R.\ Patel, ``Consensus Protocols for Geo-Distributed Databases,'' \textit{USENIX ATC}, 2019.
+\end{enumerate}
+
+\section{Technical Proficiencies}
+
+\noindent\textbf{Languages:} Java, Python, Go, TypeScript, Rust, SQL, C++ \\
+\textbf{Systems:} Apache Kafka, gRPC, Kubernetes, AWS, GCP, Redis, PostgreSQL \\
+\textbf{Methods:} Distributed consensus, stream processing, fault injection, formal verification
+
+\end{document}

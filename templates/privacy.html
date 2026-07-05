@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Ranked.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <style>
+        body {
+            background-color: var(--bg-main);
+            margin: 0;
+            padding: 0;
+            padding-top: 80px; /* offset for navbar */
+        }
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        .legal-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .legal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .legal-last-updated {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .toc {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem 2rem;
+        }
+        .toc a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .toc a:hover {
+            color: #d946ef;
+        }
+        .legal-section {
+            margin-bottom: 3rem;
+        }
+        .legal-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .legal-section p, .legal-section ul {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .legal-section ul {
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+        .legal-section li {
+            margin-bottom: 0.5rem;
+        }
+        .legal-highlight {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #a7f3d0;
+        }
+        .legal-highlight-strong {
+            font-weight: 600;
+            color: #ecfdf5;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo">
+                    <div class="logo-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 16l3-9 5 5 5-5 3 9H4z"/></svg>
+                    </div>
+                    <div class="logo-text ranked-gradient">Ranked.ai</div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="javascript:history.back()" class="btn-primary-sm" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                    Go Back
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="legal-container">
+        <div class="legal-header">
+            <h1 class="legal-title">Privacy Policy</h1>
+            <p class="legal-last-updated">Last Updated: July 2026</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#info-collected">2. Information Collected</a></li>
+                <li><a href="#resume-data">3. Resume Data Collection</a></li>
+                <li><a href="#jd-data">4. Job Description Data</a></li>
+                <li><a href="#template-data">5. Third-Party Templates Data</a></li>
+                <li><a href="#analytics">6. ATS Reports & Analytics</a></li>
+                <li><a href="#ai-disclosure">7. AI Processing Disclosure</a></li>
+                <li><a href="#data-usage">8. Data Usage</a></li>
+                <li><a href="#data-sharing">9. Data Sharing</a></li>
+                <li><a href="#security">10. Security</a></li>
+                <li><a href="#retention">11. Data Retention</a></li>
+                <li><a href="#rights">12. User Rights</a></li>
+                <li><a href="#third-party">13. Third-Party Services</a></li>
+                <li><a href="#international">14. International Processing</a></li>
+                <li><a href="#no-sale">15. No Sale of Personal Data</a></li>
+                <li><a href="#updates">16. Policy Updates</a></li>
+                <li><a href="#contact">17. Contact Information</a></li>
+            </ul>
+        </div>
+
+        <section id="introduction" class="legal-section">
+            <h2>1. Introduction</h2>
+            <p>Ranked.ai ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our AI-powered career tools. Please read this Privacy Policy carefully.</p>
+        </section>
+
+        <section id="info-collected" class="legal-section">
+            <h2>2. Information Collected</h2>
+            <p>We may collect information about you in a variety of ways. This includes:</p>
+            <ul>
+                <li><strong>Account Information:</strong> Name, Email address, Phone number (if provided).</li>
+                <li><strong>Technical Information:</strong> Browser Information, Device Information, Login Activity, Usage Analytics, and IP Address.</li>
+            </ul>
+        </section>
+
+        <section id="resume-data" class="legal-section">
+            <h2>3. Resume Data Collection</h2>
+            <p>When you use our resume builder or upload a resume for optimization, we collect the detailed information contained within those documents, including:</p>
+            <ul>
+                <li>Education history and institutions</li>
+                <li>Technical and soft skills</li>
+                <li>Professional experience and work history</li>
+                <li>Certifications and licenses</li>
+                <li>Projects and portfolio data</li>
+            </ul>
+        </section>
+
+        <section id="jd-data" class="legal-section">
+            <h2>4. Job Description Data Collection</h2>
+            <p>We collect the Job Descriptions (JDs) that you input or upload into the system to perform match analysis, keyword extraction, and to generate tailored career roadmaps.</p>
+        </section>
+
+        <section id="template-data" class="legal-section">
+            <h2>5. Third-Party Templates Data</h2>
+            <p>While the LaTeX templates provided in our gallery are open-source and publicly available from third-party creators, the personal information and resume content you enter into them using our editor is treated with the same strict confidentiality and security as any other resume data outlined in Section 3.</p>
+        </section>
+
+        <section id="analytics" class="legal-section">
+            <h2>6. ATS Reports and Analytics</h2>
+            <p>To provide you with insights, we generate and store analysis information derived from your interactions with the platform, including:</p>
+            <ul>
+                <li>ATS (Applicant Tracking System) Reports</li>
+                <li>JD Analysis Reports</li>
+                <li>Customized Career Roadmaps</li>
+                <li>Resume Optimizations</li>
+                <li>Career Readiness Scores</li>
+            </ul>
+        </section>
+
+        <section id="ai-disclosure" class="legal-section">
+            <h2>7. AI Processing Disclosure</h2>
+            <div class="legal-highlight">
+                <span class="legal-highlight-strong">Explicit Disclosure:</span> User content (including resumes, skills, and pasted job descriptions) may be processed by AI Models, Machine Learning Systems, ATS Engines, and Third-party AI Providers solely for the purpose of delivering platform features.
+            </div>
+            <p>By using the platform, you acknowledge and consent to this processing, which is necessary to generate your optimizations and roadmaps.</p>
+        </section>
+
+        <section id="data-usage" class="legal-section">
+            <h2>8. Data Usage</h2>
+            <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. We use your data to create and manage your account, generate ATS scoring, provide personalized career advice, process transactions, and improve the accuracy of our AI models.</p>
+        </section>
+
+        <section id="data-sharing" class="legal-section">
+            <h2>9. Data Sharing</h2>
+            <p>We may share your data with third-party service providers (such as hosting partners and AI API providers) that perform services for us or on our behalf. These third parties are bound by strict confidentiality agreements.</p>
+        </section>
+        
+        <section id="no-sale" class="legal-section">
+            <h2>15. No Sale of Personal Data</h2>
+            <div class="legal-highlight">
+                <span class="legal-highlight-strong">Zero Data Selling:</span> Ranked.ai does NOT sell Personal Data, Resume Data, ATS Reports, Job Descriptions, or Profile Information to third parties.
+            </div>
+            <p>Your data is used strictly to enhance your own career prospects and is not monetized by selling it to data brokers or advertising networks.</p>
+        </section>
+
+        <section id="security" class="legal-section">
+            <h2>10. Security</h2>
+            <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable.</p>
+        </section>
+
+        <section id="retention" class="legal-section">
+            <h2>11. Data Retention</h2>
+            <p>We keep your personal information and resume data for as long as it is necessary for the purposes set out in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+        </section>
+
+        <section id="rights" class="legal-section">
+            <h2>12. User Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal data, including the right to access, correct, delete, or restrict the processing of your information. You can manage your account data directly from your dashboard settings or contact us for assistance.</p>
+        </section>
+
+        <section id="third-party" class="legal-section">
+            <h2>13. Third-Party Services</h2>
+            <p>The Service may contain links to third-party websites or applications of interest. Once you have used these links to leave the Service, any information you provide to these third parties is not covered by this Privacy Policy.</p>
+        </section>
+
+        <section id="international" class="legal-section">
+            <h2>14. International Data Processing</h2>
+            <p>Your information may be transferred to, and maintained on, computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p>
+        </section>
+
+        <section id="updates" class="legal-section">
+            <h2>16. Policy Updates</h2>
+            <p>We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the "Last Updated" date of this Privacy Policy.</p>
+        </section>
+
+        <section id="contact" class="legal-section">
+            <h2>17. Contact Information</h2>
+            <p>If you have questions or comments about this Privacy Policy, please contact us at <a href="mailto:ranked1ai@gmail.com" style="color: #d946ef; text-decoration: none;">ranked1ai@gmail.com</a>.</p>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

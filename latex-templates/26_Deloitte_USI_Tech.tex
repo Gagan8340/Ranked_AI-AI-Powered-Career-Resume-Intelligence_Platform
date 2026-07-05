@@ -1,0 +1,96 @@
+%% DESIGN: Garamond (ebgaramond) | Single-column formal | Dark gray (#333333) accent | Conservative wide-margin layout
+%% Conservative consulting style with generous margins, understated elegance, small caps headers
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=0.8in,bottom=0.8in,left=0.9in,right=0.9in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{333333}
+\definecolor{ACCENT}{HTML}{333333}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: small caps, dark gray, thin rule below
+\titleformat{\section}{\large\scshape\color{accent}}{}{0em}{}[\vspace{2pt}\color{accent}\rule{\textwidth}{0.4pt}]
+\titlespacing{\section}{0pt}{10pt}{6pt}
+\setlist[itemize]{nosep,left=12pt,labelsep=6pt,itemsep=2pt,label=\textcolor{accent}{\textbullet}}
+
+\begin{document}
+
+% Header: centered, formal, name in small caps
+\begin{center}
+{\fontsize{22}{26}\selectfont\scshape Kavya Raghavan}\\[6pt]
+{\small Bangalore, India \quad\textbar\quad +91-9654321098 \quad\textbar\quad kavya.raghavan@email.com}\\[2pt]
+{\small \href{https://linkedin.com/in/kavyaraghavan}{linkedin.com/in/kavyaraghavan} \quad\textbar\quad \href{https://github.com/kavyaraGH}{github.com/kavyaraGH}}
+\end{center}
+
+\section{Professional Summary}
+Data-driven Computer Science graduate with expertise in analytics, machine learning, and full-stack development. Strong foundation in statistical analysis and business intelligence. Proven ability to translate complex data insights into actionable business recommendations through internship and academic projects.
+
+\section{Education}
+\textbf{B.Tech in Computer Science (Specialization: Data Science)} \hfill 2020 -- 2024\\
+PES University, Bangalore \hfill \textit{CGPA: 8.89/10}\\[4pt]
+\textbf{Class XII (CBSE)} -- National Public School, Bangalore \hfill \textit{95.8\%} \hfill 2020
+
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Analytics \& ML:} & Python (Pandas, NumPy, Scikit-learn), R, TensorFlow, Statistical Modeling\\
+\textbf{Data Engineering:} & SQL, Apache Spark, Airflow, ETL Pipelines, Data Warehousing\\
+\textbf{Visualization:} & Tableau, Power BI, Matplotlib, Plotly, D3.js\\
+\textbf{Cloud:} & AWS (Redshift, Glue, SageMaker), GCP (BigQuery)\\
+\textbf{Development:} & Python (Flask/FastAPI), JavaScript, React.js, REST APIs\\
+\end{tabularx}
+
+\section{Experience}
+\textbf{Data Analytics Intern} \hfill \textit{Jan 2024 -- Apr 2024}\\
+EY India (Ernst \& Young), Bangalore
+\begin{itemize}
+    \item Analyzed 2M+ transaction records to identify revenue leakage patterns for BFSI client
+    \item Built automated anomaly detection pipeline using Isolation Forest; flagged \$1.2M in discrepancies
+    \item Created executive dashboards in Tableau presenting findings to C-suite stakeholders
+    \item Documented methodology and trained 3 client team members on dashboard usage
+\end{itemize}
+
+\vspace{4pt}
+\textbf{ML Engineering Intern} \hfill \textit{May 2023 -- Jul 2023}\\
+Flipkart, Bangalore
+\begin{itemize}
+    \item Developed product recommendation model improving click-through rate by 12\% on test cohort
+    \item Built A/B testing framework for ML model evaluation across 100K+ user segments
+    \item Optimized feature engineering pipeline reducing model training time by 35\%
+\end{itemize}
+
+\section{Projects}
+\textbf{Predictive Maintenance for Manufacturing} \quad\textit{Python, XGBoost, Spark, AWS} \hfill Aug 2023
+\begin{itemize}
+    \item Built ML pipeline predicting equipment failures 48 hours in advance with 91\% precision
+    \item Processed 500GB sensor data using PySpark; deployed model on AWS SageMaker
+\end{itemize}
+
+\vspace{4pt}
+\textbf{Financial Risk Assessment Dashboard} \quad\textit{Python, Streamlit, PostgreSQL} \hfill Mar 2023
+\begin{itemize}
+    \item Developed credit risk scoring model using logistic regression and random forest ensemble
+    \item Achieved AUC-ROC of 0.87 on validation dataset of 50,000 loan applications
+\end{itemize}
+
+\section{Leadership \& Achievements}
+\begin{itemize}
+    \item \textbf{Analytics Club Lead} -- PES University; organized 5 data science workshops (200+ attendees)
+    \item \textbf{Kaggle} -- Competitions Expert; Top 5\% in Tabular Playground Series
+    \item \textbf{Research Paper} -- Published in IEEE conference on ``Federated Learning for Healthcare''
+    \item \textbf{Deloitte Case Competition} -- National Finalist (Top 15 teams out of 500+)
+\end{itemize}
+
+\section{Certifications}
+Google Data Analytics Professional Certificate (2024) \quad\textbar\quad AWS Certified Data Analytics -- Specialty (2024) \quad\textbar\quad Tableau Desktop Specialist (2023)
+
+\end{document}

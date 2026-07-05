@@ -1,0 +1,108 @@
+%% Style 12: Deedy Resume - Two-column, colored section headers, compact
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[empty]{fullpage}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{paracol}
+\usepackage{lmodern}
+\usepackage[left=0.4in,top=0.3in,right=0.4in,bottom=0.3in]{geometry}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{primary}{HTML}{2b2b2b}
+\definecolor{headings}{HTML}{6A6A6A}
+\definecolor{subheadings}{HTML}{333333}
+\definecolor{datecolor}{HTML}{666666}
+\definecolor{accent}{HTML}{1a5276}
+
+\titleformat{\section}{\color{accent}\scshape\fontsize{14pt}{16pt}\selectfont\raggedright\bfseries}{}{0em}{}[\color{accent}\titlerule]
+\titlespacing{\section}{0pt}{6pt}{4pt}
+
+\newcommand{\runsubsection}[1]{\fontsize{10pt}{12pt}\selectfont\bfseries\color{subheadings}#1\normalfont}
+\newcommand{\descript}[1]{\fontsize{9pt}{11pt}\selectfont\color{primary} | #1\normalfont}
+\newcommand{\location}[1]{\fontsize{8pt}{10pt}\selectfont\color{datecolor}\textit{#1}\normalfont\vspace{1pt}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\fontsize{28pt}{32pt}\selectfont\color{primary}\textbf{Arjun Mehta}}\\[4pt]
+{\fontsize{9pt}{11pt}\selectfont\color{headings}
+arjun.mehta@email.com | +91-98765-43210 | linkedin.com/in/arjunmehta | github.com/arjunmehta}
+\end{center}
+
+\vspace{-4pt}
+
+\columnratio{0.36}
+\begin{paracol}{2}
+
+\section{Education}
+\runsubsection{IIT Bombay}\\
+\descript{B.Tech Computer Science}\\
+\location{Aug 2016 -- May 2020 | GPA: 3.8/4.0}
+\vspace{4pt}
+
+\section{Skills}
+\runsubsection{Languages}\\
+\location{Java \textbullet{} Python \textbullet{} Go \textbullet{} TypeScript \textbullet{} SQL}
+\vspace{4pt}
+\runsubsection{Technologies}\\
+\location{AWS \textbullet{} Kubernetes \textbullet{} Docker \textbullet{} Kafka \textbullet{} Spark \textbullet{} React \textbullet{} Spring Boot \textbullet{} Terraform}
+\vspace{4pt}
+
+\section{Coursework}
+\location{Distributed Systems \textbullet{} Algorithms \textbullet{} Operating Systems \textbullet{} Machine Learning \textbullet{} Database Systems \textbullet{} Computer Networks}
+\vspace{4pt}
+
+\section{Links}
+GitHub: \href{https://github.com/arjunmehta}{arjunmehta}\\
+LinkedIn: \href{https://linkedin.com/in/arjunmehta}{arjunmehta}\\
+Portfolio: \href{https://arjunmehta.dev}{arjunmehta.dev}
+
+\switchcolumn
+
+\section{Experience}
+\runsubsection{Amazon Web Services}
+\descript{Senior SWE}\\
+\location{Jan 2023 -- Present | Bangalore, India}
+\begin{itemize}[leftmargin=*, itemsep=-1pt, topsep=2pt]
+\item \small Designed distributed microservices handling 50K+ req/sec using Java and AWS Lambda
+\item \small Led monolith-to-microservices migration, reducing latency by 40\%
+\item \small Mentored 4 junior engineers; conducted 50+ technical interviews
+\end{itemize}
+\vspace{4pt}
+
+\runsubsection{Microsoft}
+\descript{Software Engineer}\\
+\location{Jun 2020 -- Dec 2022 | Hyderabad, India}
+\begin{itemize}[leftmargin=*, itemsep=-1pt, topsep=2pt]
+\item \small Built real-time data pipeline processing 10TB+ daily with Kafka and Spark
+\item \small Developed REST APIs serving 1M+ users with 99.9\% uptime
+\item \small Reduced CI/CD pipeline time by 60\% through parallelization
+\end{itemize}
+\vspace{4pt}
+
+\section{Projects}
+\runsubsection{Distributed Task Scheduler}\\
+\descript{Go, gRPC, Redis, K8s}\\
+\location{2023}
+\begin{itemize}[leftmargin=*, itemsep=-1pt, topsep=2pt]
+\item \small Fault-tolerant scheduler supporting 100K+ concurrent jobs
+\item \small Implemented Raft consensus for leader election
+\end{itemize}
+\vspace{4pt}
+
+\runsubsection{Real-time Analytics Dashboard}\\
+\descript{React, D3.js, WebSocket}\\
+\location{2022}
+\begin{itemize}[leftmargin=*, itemsep=-1pt, topsep=2pt]
+\item \small Interactive streaming data visualization with sub-second refresh
+\end{itemize}
+
+\end{paracol}
+\end{document}

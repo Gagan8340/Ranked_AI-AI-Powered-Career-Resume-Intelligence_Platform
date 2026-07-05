@@ -1,0 +1,89 @@
+%% DESIGN: Source Sans Pro | Diagram-inspired, structured boxes | Blue (#1565C0) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{sourcesanspro}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz,tcolorbox}
+
+\definecolor{accent}{HTML}{1565C0}
+\definecolor{ACCENT}{HTML}{1565C0}
+\definecolor{boxbg}{HTML}{E3F2FD}
+\definecolor{boxborder}{HTML}{90CAF9}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\tcbuselibrary{skins}
+
+\titleformat{\section}{\normalsize\bfseries\color{accent}\uppercase}{}{0em}{}[\vspace{-0.4em}\textcolor{boxborder}{\rule{\linewidth}{1.5pt}}]
+\titlespacing{\section}{0pt}{0.9em}{0.4em}
+
+% Architecture box
+\newtcolorbox{archbox}[1][]{colback=boxbg,colframe=boxborder,boxrule=1pt,arc=2pt,title={\small\bfseries\color{accent}#1},fonttitle=\sffamily,left=5pt,right=5pt,top=3pt,bottom=3pt}
+
+\begin{document}
+
+% Header with diagram aesthetic
+\noindent
+\begin{tikzpicture}
+\draw[accent,thick,rounded corners=3pt] (0,0) rectangle (\textwidth,2.2);
+\fill[accent] (0,0) rectangle (0.15,2.2);
+\node[anchor=west,font=\LARGE\bfseries\color{accent}] at (0.5,1.5) {CHRIS YAMAMOTO};
+\node[anchor=west,font=\large] at (0.5,0.8) {Solutions Architect};
+\node[anchor=east,font=\small] at (\textwidth-0.3,1.5) {chris.yamamoto@email.com | (555) 890-1234};
+\node[anchor=east,font=\small] at (\textwidth-0.3,0.8) {Seattle, WA | linkedin.com/in/chrisyamamoto};
+% Connection dots
+\foreach \x in {0.3,0.5,...,1.5} {\fill[accent!40] (\x,0.2) circle (1.5pt);}
+\end{tikzpicture}
+
+\vspace{0.5em}
+
+\section{Architecture Overview}
+Solutions Architect with 9+ years designing scalable, resilient cloud architectures for enterprise clients. AWS and GCP certified with expertise in microservices, serverless, and event-driven systems. Trusted advisor to C-level stakeholders on cloud strategy.
+
+\section{Technical Architecture}
+\begin{archbox}[Cloud Platforms \& Services]
+\textbf{AWS:} EC2, ECS, Lambda, API Gateway, DynamoDB, Aurora, S3, CloudFront, SQS/SNS, Step Functions\\
+\textbf{GCP:} GKE, Cloud Run, BigQuery, Pub/Sub, Cloud Functions, Spanner\\
+\textbf{Azure:} AKS, Functions, Cosmos DB, Event Grid
+\end{archbox}
+\vspace{0.2em}
+\begin{archbox}[Architecture Patterns \& Tools]
+\textbf{Patterns:} Microservices, Event-Driven, CQRS, Saga, Strangler Fig, Domain-Driven Design\\
+\textbf{IaC:} Terraform, CloudFormation, Pulumi, CDK \quad\textbf{Containers:} Docker, Kubernetes, Istio\\
+\textbf{Languages:} Java, Python, Go, TypeScript \quad\textbf{Diagramming:} Lucidchart, draw.io, C4 Model
+\end{archbox}
+
+\section{Experience}
+
+\noindent\textbf{Principal Solutions Architect} \hfill \textcolor{accent}{Apr 2021 -- Present}\\
+\textit{Amazon Web Services, Seattle, WA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}$\blacktriangleright$}]
+\item Serve as trusted technical advisor to 8 enterprise accounts (\$50M+ combined AWS spend)
+\item Designed multi-region active-active architecture achieving 99.999\% availability for fintech client
+\item Led Well-Architected Reviews identifying \$2M in cost optimization opportunities
+\item Created reference architectures for event-driven microservices (adopted by 200+ customers)
+\item Delivered 20+ technical workshops and immersion days for C-suite and engineering teams
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Senior Solutions Architect} \hfill \textcolor{accent}{Jan 2018 -- Mar 2021}\\
+\textit{Accenture Cloud First, San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}$\blacktriangleright$}]
+\item Architected cloud migration strategy for Fortune 500 retailer (2000+ VMs to AWS)
+\item Designed serverless data processing pipeline handling 1M+ events/minute
+\item Built proof-of-concepts accelerating client decision-making (90\% conversion to production)
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Cloud Engineer} \hfill \textcolor{accent}{Jun 2015 -- Dec 2017}\\
+\textit{CloudOps Inc., Portland, OR}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}$\blacktriangleright$}]
+\item Implemented infrastructure-as-code for 50+ client environments
+\item Designed CI/CD pipelines and container orchestration platforms
+\end{itemize}
+
+\section{Education \& Certifications}
+\noindent\textbf{M.S. Computer Science} \hfill University of Washington, 2015 \quad\textbf{B.S. CS} \hfill Oregon State, 2013\\[0.3em]
+AWS Solutions Architect Professional \quad\textcolor{accent}{|}\quad GCP Professional Cloud Architect \quad\textcolor{accent}{|}\quad TOGAF 9 Certified
+
+\end{document}

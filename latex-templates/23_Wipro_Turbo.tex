@@ -1,0 +1,90 @@
+%% DESIGN: Helvetica | Single-column | Teal accent | Modern minimal, section with vertical bar left
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{00838F}
+\definecolor{ACCENT}{HTML}{00838F}
+
+\titleformat{\section}{}{}{0em}{\color{accent}\bfseries\small\uppercase}[\vspace{-4pt}]
+\titlespacing{\section}{0pt}{8pt}{3pt}
+
+\setlist[itemize]{nosep, leftmargin=10pt, label={\color{accent}$\circ$}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\newcommand{\accentbar}{\color{accent}\rule[-1pt]{2pt}{10pt}\hspace{4pt}}
+
+\begin{document}
+
+{\large\bfseries Rahul Mehta} \hfill {\footnotesize\color{accent} Hyderabad, India}\\
+{\footnotesize +91-9988776655 $\cdot$ rahul.mehta@email.com $\cdot$ \href{https://linkedin.com/in/rahulmehta-dev}{LinkedIn} $\cdot$ \href{https://github.com/rahulmehta}{GitHub}}
+
+\vspace{4pt}{\color{accent}\hrule height 0.5pt}\vspace{6pt}
+
+\section{Education}
+
+\textbf{B.Tech in Information Technology} -- VIT Vellore \hfill 2020 -- 2024 \quad CGPA: 8.45/10\\
+\textbf{Class XII (Telangana State Board)} -- Narayana Junior College \hfill 94.8\% \hfill 2020
+
+\section{Technical Skills}
+
+{\footnotesize
+\textbf{Languages:} Java, Python, JavaScript, C++ \quad \textbf{Web:} React.js, Angular, Node.js, Express.js\\
+\textbf{Databases:} MySQL, MongoDB, Firebase \quad \textbf{Cloud:} AWS (Lambda, S3, DynamoDB), Docker, GitHub Actions\\
+\textbf{Testing:} JUnit, Selenium, Postman
+}
+
+\section{Internships}
+
+\accentbar\textbf{Full-Stack Developer Intern} -- Zoho Corporation, Chennai \hfill {\footnotesize Jan 2024 -- Apr 2024}
+\begin{itemize}
+    \item Developed 3 microservices for CRM module handling 5,000+ daily API requests
+    \item Reduced page load time by 45\% through lazy loading and API response caching
+    \item Wrote 50+ unit tests achieving 85\% code coverage using JUnit and Mockito
+\end{itemize}
+
+\accentbar\textbf{Backend Developer Intern} -- Startup (EdTech) \hfill {\footnotesize May 2023 -- Jul 2023}
+\begin{itemize}
+    \item Built REST APIs for course management system serving 2,000+ active students
+    \item Implemented payment gateway integration (Razorpay) with webhook-based order tracking
+    \item Designed database schema handling complex relationships between courses, users, and progress
+\end{itemize}
+
+\section{Projects}
+
+\accentbar\textbf{E-Commerce Platform} {\footnotesize$\mid$ React.js, Node.js, MongoDB, Stripe} \hfill {\footnotesize Aug 2023 -- Oct 2023}
+\begin{itemize}
+    \item Built full-featured e-commerce app with cart, wishlist, order tracking, and admin dashboard
+    \item Implemented search with filters, pagination, and sorting; optimized queries with MongoDB indexing
+    \item Deployed on AWS with auto-scaling; handled 500+ concurrent users during load testing
+\end{itemize}
+
+\accentbar\textbf{Real-Time Chat Application} {\footnotesize$\mid$ Angular, Socket.io, Firebase} \hfill {\footnotesize Apr 2023 -- Jun 2023}
+\begin{itemize}
+    \item Developed group chat with typing indicators, read receipts, and file sharing (up to 10MB)
+    \item Implemented end-to-end encryption using AES-256 for private conversations
+\end{itemize}
+
+\section{Competitive Coding \& Achievements}
+
+\begin{itemize}
+    \item \textbf{Wipro Elite NTH} -- Qualified Turbo track with top 5\% score in coding round
+    \item \textbf{LeetCode} -- 400+ problems solved; Contest Rating 1600+
+    \item \textbf{HackerRank} -- 5-star in Java, Problem Solving, and SQL
+    \item \textbf{Smart India Hackathon 2023} -- Winner (Software Edition); built crop disease detection app
+    \item \textbf{VIT Hackathon} -- 1st place; developed AI-powered resume screening tool
+\end{itemize}
+
+\section{Certifications}
+
+{\footnotesize AWS Certified Cloud Practitioner (2024) $\cdot$ Full-Stack Web Development -- Udemy (2023) $\cdot$ Agile/Scrum Fundamentals -- LinkedIn Learning (2023)}
+
+\end{document}

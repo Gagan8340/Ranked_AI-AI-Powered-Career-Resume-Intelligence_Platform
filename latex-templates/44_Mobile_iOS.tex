@@ -1,0 +1,87 @@
+%% DESIGN: Helvetica (helvet, SF-Pro inspired) | Apple-clean minimal | Blue (#007AFF) accent | Ultra-minimal, lots of space
+%% iOS developer style inspired by Apple's design language: clean, minimal, blue system color, generous spacing
+
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[top=0.7in,bottom=0.6in,left=0.8in,right=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{007AFF}
+\definecolor{ACCENT}{HTML}{007AFF}
+\definecolor{secondary}{HTML}{8E8E93}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: minimal, just blue text and generous spacing -- Apple style
+\titleformat{\section}{\fontsize{12}{14}\selectfont\bfseries\color{accent}}{}{0em}{}
+\titlespacing{\section}{0pt}{14pt}{6pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=6pt,itemsep=2pt,label={\color{secondary}\textendash}}
+
+\begin{document}
+
+% Header: Apple-minimal, centered, clean
+\begin{center}
+{\fontsize{26}{30}\selectfont\bfseries Sarah Kim}\\[8pt]
+{\color{secondary}\small iOS Developer}\\[6pt]
+{\small Cupertino, CA \quad\textperiodcentered\quad (408) 555-0234 \quad\textperiodcentered\quad sarah.kim@email.com}\\[3pt]
+{\small \href{https://linkedin.com/in/sarahkim-ios}{\color{accent}LinkedIn} \quad\textperiodcentered\quad \href{https://github.com/skim-swift}{\color{accent}GitHub}}
+\end{center}
+
+\vspace{6pt}
+
+\section{About}
+iOS Developer with 7+ years crafting polished, high-performance applications in Swift and SwiftUI. Shipped 6 App Store apps with 3M+ combined downloads, including an Apple Design Award finalist. Deep expertise in Apple frameworks, accessibility, and performance optimization across iPhone, iPad, and Apple Watch.
+
+\section{Skills}
+{\color{secondary}\small LANGUAGES}\quad Swift, Objective-C, C++\\[3pt]
+{\color{secondary}\small FRAMEWORKS}\quad SwiftUI, UIKit, Combine, Swift Concurrency, Core Data, CloudKit\\[3pt]
+{\color{secondary}\small APPLE}\quad WidgetKit, App Clips, StoreKit 2, HealthKit, ARKit, WatchKit\\[3pt]
+{\color{secondary}\small ARCHITECTURE}\quad MVVM, TCA, Coordinator Pattern, SPM Modularization\\[3pt]
+{\color{secondary}\small TESTING}\quad XCTest, XCUITest, Swift Testing, Snapshot Testing\\[3pt]
+{\color{secondary}\small TOOLS}\quad Xcode, Instruments, TestFlight, App Store Connect, Fastlane
+
+\section{Experience}
+
+\textbf{Senior iOS Engineer} \quad{\color{secondary}Meridian Health, Cupertino} \hfill May 2021 -- Present
+\begin{itemize}
+  \item Led SwiftUI rewrite of flagship health app (1.8M MAU); reduced codebase by 35\% while adding iPad and Watch support
+  \item Implemented Swift Concurrency migration eliminating 100\% of data race crashes; crash-free rate from 99.2\% to 99.95\%
+  \item Designed modular architecture (18 SPM modules); enabled 4 teams to ship independently, reducing merge conflicts by 70\%
+  \item Optimized Core Data with background contexts; reduced sync time from 8s to 0.9s for 100K+ records
+  \item Built WidgetKit extensions driving 22\% increase in daily active usage
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{iOS Developer} \quad{\color{secondary}TravelNow App, San Jose} \hfill Jan 2019 -- Apr 2021
+\begin{itemize}
+  \item Built travel booking app from concept to launch: 800K downloads, 4.9-star rating, featured in ``Apps We Love''
+  \item Implemented offline maps with custom tile rendering and route caching
+  \item Integrated StoreKit 2 for subscriptions; increased conversion by 18\%
+  \item Achieved VoiceOver accessibility compliance; earned Apple accessibility spotlight
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Junior iOS Developer} \quad{\color{secondary}PixelCraft Studios, Mountain View} \hfill Jul 2017 -- Dec 2018
+\begin{itemize}
+  \item Developed 3 consumer apps reaching 400K downloads with 4.6+ average rating
+  \item Reduced app launch time by 60\% through asset optimization and lazy loading
+  \item Implemented CI/CD with Fastlane; automated TestFlight distribution for 200+ beta testers
+\end{itemize}
+
+\section{Notable Apps}
+\textbf{MeridianHealth} -- 1.8M MAU, 4.8$\star$, Apple Design Award Finalist 2023\\[3pt]
+\textbf{TravelNow} -- 800K downloads, 4.9$\star$, ``Apps We Love'' featured
+
+\section{Education}
+\textbf{B.S. Computer Science} \hfill Stanford University, 2017
+
+\end{document}

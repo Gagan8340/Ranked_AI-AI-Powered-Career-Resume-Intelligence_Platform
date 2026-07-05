@@ -1,0 +1,253 @@
+d:\smartcampus\smartcampus-ai\routes\auth.py:120: cursor.execute("SELECT id FROM students WHERE email=%s", (email,))
+d:\smartcampus\smartcampus-ai\routes\auth.py:124: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\auth.py:126: INSERT INTO students
+d:\smartcampus\smartcampus-ai\routes\auth.py:145: cursor.execute("SELECT * FROM students WHERE id=%s", (student_id,))
+d:\smartcampus\smartcampus-ai\routes\auth.py:186: print("LOGIN: Running SELECT 1", flush=True)
+d:\smartcampus\smartcampus-ai\routes\auth.py:187: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\routes\auth.py:188: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\auth.py:189: "SELECT * FROM students WHERE email=%s AND is_active=TRUE", (email,)
+d:\smartcampus\smartcampus-ai\routes\auth.py:210: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\auth.py:211: "UPDATE students SET last_seen=%s WHERE id=%s",
+d:\smartcampus\smartcampus-ai\routes\auth.py:264: cursor.execute("SELECT * FROM students WHERE id=%s", (student_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:35: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:39: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:56: cursor.execute("SELECT id, project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:60: cursor.execute("SELECT id, name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:91: cursor.execute("""
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:92: INSERT INTO builder_profiles (user_id, professional_summary, linkedin, github, portfolio, skills, achievements)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:113: cursor.execute("DELETE FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:115: cursor.execute("""
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:116: INSERT INTO user_projects (user_id, project_name, description, tech_stack, github_url, live_url)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:128: cursor.execute("DELETE FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:130: cursor.execute("""
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:131: INSERT INTO certifications (user_id, name, issuer, issue_date, certificate_url)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:159: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:164: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:178: cursor.execute("SELECT project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:181: cursor.execute("SELECT name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:211: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:216: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:219: cursor.execute("SELECT project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:222: cursor.execute("SELECT name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:249: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:254: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:257: cursor.execute("SELECT project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:260: cursor.execute("SELECT name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:285: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:287: INSERT INTO resumes (user_id, filename, cloudinary_public_id, resource_type, file_size, resume_text)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:300: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:301: "INSERT INTO notifications (student_id, message, type) VALUES (%s, %s, %s)",
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:32: cursor.execute("SELECT resume_text FROM resumes WHERE resume_id=%s AND user_id=%s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:37: cursor.execute("SELECT jd_text FROM job_descriptions WHERE id=%s AND user_id=%s", (jd_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:49: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:51: INSERT INTO cover_letters (user_id, resume_id, jd_id, role_title, company_name, content)
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:68: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:70: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:90: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:92: SELECT id, role_title as role, company_name as company, created_at as date
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:118: cursor.execute("SELECT id FROM cover_letters WHERE id=%s AND user_id=%s", (cl_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:122: cursor.execute("UPDATE cover_letters SET content=%s WHERE id=%s", (content, cl_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:137: cursor.execute("SELECT content, role_title, company_name FROM cover_letters WHERE id=%s AND user_id=%s", (cl_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:68: cursor.execute("SELECT * FROM students WHERE id=%s", (student_id,))
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:79: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:86: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:87: "SELECT title FROM job_descriptions WHERE user_id=%s ORDER BY created_at DESC LIMIT 1",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:94: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:95: "SELECT jd.ats_score, jd.analysis_json, jd.created_at "
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:122: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:123: "SELECT message, type, created_at FROM notifications WHERE student_id=%s AND is_read=FALSE ORDER BY created_at DESC LIMIT 5",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:129: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:130: "SELECT action, details, created_at FROM activity_logs WHERE user_id=%s ORDER BY created_at DESC LIMIT 5",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:173: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:175: SELECT id, message, type, created_at, is_read
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:208: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:209: "UPDATE notifications SET is_read=TRUE WHERE student_id=%s",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:234: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:235: "SELECT ats_score, created_at FROM job_descriptions WHERE user_id=%s AND ats_score IS NOT NULL ORDER BY created_at DESC LIMIT 10",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:244: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:245: "SELECT action, created_at FROM activity_logs WHERE user_id=%s ORDER BY created_at DESC LIMIT 10",
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:43: cursor.execute("SELECT resume_text FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:57: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:59: INSERT INTO job_descriptions (user_id, resume_id, title, jd_text, ats_score, analysis_json)
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:68: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:70: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:49: cursor.execute("SELECT resume_text FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:54: cursor.execute("SELECT jd_text FROM job_descriptions WHERE id = %s AND user_id = %s", (jd_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:67: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:69: INSERT INTO resume_versions (user_id, original_resume_id, jd_id, version_data, ats_improvement_score)
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:82: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:84: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:115: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:117: SELECT id, jd_id, ats_improvement_score, created_at
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:138: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:140: SELECT rv.version_data, rv.ats_improvement_score, r.resume_text
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:171: cursor.execute("SELECT id, created_at, ats_score FROM job_descriptions WHERE resume_id = %s AND user_id = %s ORDER BY created_at DESC", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:77: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\resume.py:79: INSERT INTO resumes (user_id, filename, cloudinary_public_id, resource_type, file_size, resume_text)
+d:\smartcampus\smartcampus-ai\routes\resume.py:86: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\resume.py:88: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\resume.py:112: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\resume.py:113: "SELECT resume_id, filename, uploaded_at, file_size FROM resumes WHERE user_id = %s ORDER BY uploaded_at DESC",
+d:\smartcampus\smartcampus-ai\routes\resume.py:130: cursor.execute("SELECT cloudinary_public_id, filename FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:152: cursor.execute("SELECT cloudinary_public_id, filename FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:162: cursor.execute("DELETE FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:182: cursor.execute("SELECT resume_id FROM resumes WHERE cloudinary_public_id = %s AND user_id = %s", (f"local:{filename}", user_id))
+d:\smartcampus\smartcampus-ai\utils\activity_logger.py:14: cursor.execute(
+d:\smartcampus\smartcampus-ai\utils\activity_logger.py:16: INSERT INTO activity_logs (user_id, action, details, created_at)
+d:\smartcampus\smartcampus-ai\alter_jd.py:9: cursor.execute("SHOW COLUMNS FROM job_descriptions LIKE 'title'")
+d:\smartcampus\smartcampus-ai\alter_jd.py:12: cursor.execute("ALTER TABLE job_descriptions ADD COLUMN title VARCHAR(255)")
+d:\smartcampus\smartcampus-ai\alter_students.py:10: cursor.execute("SHOW COLUMNS FROM students LIKE 'full_name'")
+d:\smartcampus\smartcampus-ai\alter_students.py:12: cursor.execute("ALTER TABLE students CHANGE COLUMN full_name name VARCHAR(100) NOT NULL")
+d:\smartcampus\smartcampus-ai\alter_students.py:31: cursor.execute(f"SHOW COLUMNS FROM students LIKE '{col_name}'")
+d:\smartcampus\smartcampus-ai\alter_students.py:33: cursor.execute(f"ALTER TABLE students ADD COLUMN {col_name} {col_type}")
+d:\smartcampus\smartcampus-ai\app.py:64: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\app.py:159: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\app.py:172: cursor.execute("SHOW TABLES LIKE %s", (name,))
+d:\smartcampus\smartcampus-ai\apply_ui7.py:127: # Update HTML Empty States
+d:\smartcampus\smartcampus-ai\config.py:117: updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+d:\smartcampus\smartcampus-ai\config.py:154: updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+d:\smartcampus\smartcampus-ai\config.py:207: cursor.execute(statement)
+d:\smartcampus\smartcampus-ai\create_tables.py:8: cursor.execute("""
+d:\smartcampus\smartcampus-ai\create_tables.py:22: cursor.execute("""
+d:\smartcampus\smartcampus-ai\create_tables.py:37: cursor.execute("""
+d:\smartcampus\smartcampus-ai\create_tables.py:52: cursor.execute("""
+d:\smartcampus\smartcampus-ai\dump_schema.py:17: cursor.execute('SHOW TABLES')
+d:\smartcampus\smartcampus-ai\dump_schema.py:22: cursor.execute(f'SHOW COLUMNS FROM {table}')
+d:\smartcampus\smartcampus-ai\get_schema.py:29: cursor.execute("SHOW TABLES;")
+d:\smartcampus\smartcampus-ai\get_schema.py:37: cursor.execute(f"SHOW COLUMNS FROM {table};")
+d:\smartcampus\smartcampus-ai\migrate_db.py:5: cursor.execute(f"ALTER TABLE {table_name} DROP FOREIGN KEY {constraint_name}")
+d:\smartcampus\smartcampus-ai\migrate_db.py:13: cursor.execute(f"ALTER TABLE {table_name} ADD CONSTRAINT {constraint_name} FOREIGN KEY ({column_name}) REFERENCES {ref_table}({ref_col}) ON DELETE CASCADE")
+d:\smartcampus\smartcampus-ai\migrate_db.py:23: cursor.execute("SHOW TABLES LIKE 'users'")
+d:\smartcampus\smartcampus-ai\migrate_db.py:25: cursor.execute("SHOW TABLES LIKE 'students'")
+d:\smartcampus\smartcampus-ai\migrate_db.py:28: cursor.execute("DROP TABLE users")
+d:\smartcampus\smartcampus-ai\migrate_db.py:30: cursor.execute("RENAME TABLE users TO students")
+d:\smartcampus\smartcampus-ai\migrate_db.py:33: # 2. Update all foreign keys
+d:\smartcampus\smartcampus-ai\migrate_db.py:39: SELECT CONSTRAINT_NAME
+d:\smartcampus\smartcampus-ai\migrate_db.py:45: cursor.execute(query)
+d:\smartcampus\smartcampus-ai\migrate_db.py:54: # I should only update columns that are actually 'user_id'
+d:\smartcampus\smartcampus-ai\migrate_db.py:55: cursor.execute(f"SHOW COLUMNS FROM {t} LIKE 'user_id'")
+d:\smartcampus\smartcampus-ai\schema_extractor.py:7: cursor.execute("SHOW TABLES")
+d:\smartcampus\smartcampus-ai\schema_extractor.py:20: cursor.execute(f"SHOW KEYS FROM {t} WHERE Key_name = 'PRIMARY'")
+d:\smartcampus\smartcampus-ai\schema_extractor.py:27: SELECT COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME
+d:\smartcampus\smartcampus-ai\schema_extractor.py:32: cursor.execute(query)
+d:\smartcampus\smartcampus-ai\test_db.py:6: cursor.execute("SELECT DATABASE();")
+d:\smartcampus\smartcampus-ai\test_mysql_connection.py:69: # SELECT 1
+d:\smartcampus\smartcampus-ai\test_mysql_connection.py:72: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\test_mysql_connection.py:73: print("SELECT 1: PASS")
+d:\smartcampus\smartcampus-ai\test_mysql_connection.py:75: print(f"SELECT 1: FAIL ({e})")
+d:\smartcampus\smartcampus-ai\test_mysql_connection.py:81: cursor.execute("SHOW TABLES")
+d:\smartcampus\smartcampus-ai\verify_audit.py:18: cursor.execute("SELECT id FROM students WHERE email = 'audit_test@example.com'")
+d:\smartcampus\smartcampus-ai\verify_audit.py:25: cursor.execute("INSERT INTO students (name, email, password_hash, phone) VALUES (%s, %s, %s, %s)",
+d:\smartcampus\smartcampus-ai\verify_audit.py:30: cursor.execute("REPLACE INTO builder_profiles (user_id, professional_summary, skills, achievements) VALUES (%s, %s, %s, %s)",
+d:\smartcampus\smartcampus-ai\verify_audit.py:75: cursor.execute("SELECT * FROM resumes WHERE user_id = %s ORDER BY uploaded_at DESC LIMIT 1", (user_id,))
+d:\smartcampus\smartcampus-ai\verify_audit.py:103: cursor.execute("SELECT * FROM resumes WHERE user_id = %s AND filename = 'test_upload.pdf' ORDER BY uploaded_at DESC LIMIT 1", (user_id,))
+d:\smartcampus\smartcampus-ai\verify_audit.py:126: cursor.execute("SELECT * FROM job_descriptions WHERE user_id = %s ORDER BY created_at DESC LIMIT 1", (user_id,))
+d:\smartcampus\smartcampus-ai\verify_audit.py:139: cursor.execute("SELECT * FROM resume_versions WHERE original_resume_id = %s ORDER BY created_at DESC LIMIT 1", (builder_resume['resume_id'],))
+d:\smartcampus\smartcampus-ai\verify_audit.py:154: cursor.execute("SELECT * FROM cover_letters WHERE resume_id = %s ORDER BY created_at DESC LIMIT 1", (builder_resume['resume_id'],))
+d:\smartcampus\smartcampus-ai\verify_db.py:29: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\verify_tables.py:25: print("Running SELECT 1...")
+d:\smartcampus\smartcampus-ai\verify_tables.py:26: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\verify_tables.py:27: print("SELECT 1: PASS")
+d:\smartcampus\smartcampus-ai\verify_tables.py:30: cursor.execute("SHOW TABLES")
+d:\smartcampus\smartcampus-ai\ml\study_analyzer\analyzer.py:6: cursor.execute(
+d:\smartcampus\smartcampus-ai\ml\study_analyzer\analyzer.py:8: SELECT topic, AVG((score / total_questions) * 100) AS avg_score
+d:\smartcampus\smartcampus-ai\ml\study_analyzer\analyzer.py:40: cursor.execute(
+d:\smartcampus\smartcampus-ai\ml\study_analyzer\analyzer.py:42: SELECT topic, score, total_questions, created_at
+d:\smartcampus\smartcampus-ai\ml\study_analyzer\analyzer.py:74: cursor.execute(
+d:\smartcampus\smartcampus-ai\ml\study_analyzer\analyzer.py:76: SELECT subject, AVG((score / total_questions) * 100) AS avg_score
+d:\smartcampus\smartcampus-ai\routes\auth.py:120: cursor.execute("SELECT id FROM students WHERE email=%s", (email,))
+d:\smartcampus\smartcampus-ai\routes\auth.py:124: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\auth.py:126: INSERT INTO students
+d:\smartcampus\smartcampus-ai\routes\auth.py:145: cursor.execute("SELECT * FROM students WHERE id=%s", (student_id,))
+d:\smartcampus\smartcampus-ai\routes\auth.py:186: print("LOGIN: Running SELECT 1", flush=True)
+d:\smartcampus\smartcampus-ai\routes\auth.py:187: cursor.execute("SELECT 1")
+d:\smartcampus\smartcampus-ai\routes\auth.py:188: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\auth.py:189: "SELECT * FROM students WHERE email=%s AND is_active=TRUE", (email,)
+d:\smartcampus\smartcampus-ai\routes\auth.py:210: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\auth.py:211: "UPDATE students SET last_seen=%s WHERE id=%s",
+d:\smartcampus\smartcampus-ai\routes\auth.py:264: cursor.execute("SELECT * FROM students WHERE id=%s", (student_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:35: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:39: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:56: cursor.execute("SELECT id, project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:60: cursor.execute("SELECT id, name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:91: cursor.execute("""
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:92: INSERT INTO builder_profiles (user_id, professional_summary, linkedin, github, portfolio, skills, achievements)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:113: cursor.execute("DELETE FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:115: cursor.execute("""
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:116: INSERT INTO user_projects (user_id, project_name, description, tech_stack, github_url, live_url)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:128: cursor.execute("DELETE FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:130: cursor.execute("""
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:131: INSERT INTO certifications (user_id, name, issuer, issue_date, certificate_url)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:159: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:164: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:178: cursor.execute("SELECT project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:181: cursor.execute("SELECT name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:211: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:216: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:219: cursor.execute("SELECT project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:222: cursor.execute("SELECT name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:249: cursor.execute("SELECT name, email, phone FROM students WHERE id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:254: cursor.execute("SELECT * FROM builder_profiles WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:257: cursor.execute("SELECT project_name, description, tech_stack, github_url, live_url FROM user_projects WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:260: cursor.execute("SELECT name, issuer, issue_date, certificate_url FROM certifications WHERE user_id = %s", (user_id,))
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:285: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:287: INSERT INTO resumes (user_id, filename, cloudinary_public_id, resource_type, file_size, resume_text)
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:300: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\builder_routes.py:301: "INSERT INTO notifications (student_id, message, type) VALUES (%s, %s, %s)",
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:32: cursor.execute("SELECT resume_text FROM resumes WHERE resume_id=%s AND user_id=%s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:37: cursor.execute("SELECT jd_text FROM job_descriptions WHERE id=%s AND user_id=%s", (jd_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:49: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:51: INSERT INTO cover_letters (user_id, resume_id, jd_id, role_title, company_name, content)
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:68: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:70: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:90: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:92: SELECT id, role_title as role, company_name as company, created_at as date
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:118: cursor.execute("SELECT id FROM cover_letters WHERE id=%s AND user_id=%s", (cl_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:122: cursor.execute("UPDATE cover_letters SET content=%s WHERE id=%s", (content, cl_id))
+d:\smartcampus\smartcampus-ai\routes\cover_letter_routes.py:137: cursor.execute("SELECT content, role_title, company_name FROM cover_letters WHERE id=%s AND user_id=%s", (cl_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:68: cursor.execute("SELECT * FROM students WHERE id=%s", (student_id,))
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:79: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:86: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:87: "SELECT title FROM job_descriptions WHERE user_id=%s ORDER BY created_at DESC LIMIT 1",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:94: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:95: "SELECT jd.ats_score, jd.analysis_json, jd.created_at "
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:122: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:123: "SELECT message, type, created_at FROM notifications WHERE student_id=%s AND is_read=FALSE ORDER BY created_at DESC LIMIT 5",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:129: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:130: "SELECT action, details, created_at FROM activity_logs WHERE user_id=%s ORDER BY created_at DESC LIMIT 5",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:173: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:175: SELECT id, message, type, created_at, is_read
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:208: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:209: "UPDATE notifications SET is_read=TRUE WHERE student_id=%s",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:234: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:235: "SELECT ats_score, created_at FROM job_descriptions WHERE user_id=%s AND ats_score IS NOT NULL ORDER BY created_at DESC LIMIT 10",
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:244: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\dashboard.py:245: "SELECT action, created_at FROM activity_logs WHERE user_id=%s ORDER BY created_at DESC LIMIT 10",
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:43: cursor.execute("SELECT resume_text FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:57: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:59: INSERT INTO job_descriptions (user_id, resume_id, title, jd_text, ats_score, analysis_json)
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:68: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\jd_routes.py:70: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:49: cursor.execute("SELECT resume_text FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:54: cursor.execute("SELECT jd_text FROM job_descriptions WHERE id = %s AND user_id = %s", (jd_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:67: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:69: INSERT INTO resume_versions (user_id, original_resume_id, jd_id, version_data, ats_improvement_score)
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:82: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:84: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:115: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:117: SELECT id, jd_id, ats_improvement_score, created_at
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:138: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:140: SELECT rv.version_data, rv.ats_improvement_score, r.resume_text
+d:\smartcampus\smartcampus-ai\routes\optimizer_routes.py:171: cursor.execute("SELECT id, created_at, ats_score FROM job_descriptions WHERE resume_id = %s AND user_id = %s ORDER BY created_at DESC", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:77: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\resume.py:79: INSERT INTO resumes (user_id, filename, cloudinary_public_id, resource_type, file_size, resume_text)
+d:\smartcampus\smartcampus-ai\routes\resume.py:86: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\resume.py:88: INSERT INTO notifications (student_id, message, type)
+d:\smartcampus\smartcampus-ai\routes\resume.py:112: cursor.execute(
+d:\smartcampus\smartcampus-ai\routes\resume.py:113: "SELECT resume_id, filename, uploaded_at, file_size FROM resumes WHERE user_id = %s ORDER BY uploaded_at DESC",
+d:\smartcampus\smartcampus-ai\routes\resume.py:130: cursor.execute("SELECT cloudinary_public_id, filename FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:152: cursor.execute("SELECT cloudinary_public_id, filename FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:162: cursor.execute("DELETE FROM resumes WHERE resume_id = %s AND user_id = %s", (resume_id, user_id))
+d:\smartcampus\smartcampus-ai\routes\resume.py:182: cursor.execute("SELECT resume_id FROM resumes WHERE cloudinary_public_id = %s AND user_id = %s", (f"local:{filename}", user_id))
+d:\smartcampus\smartcampus-ai\utils\activity_logger.py:14: cursor.execute(
+d:\smartcampus\smartcampus-ai\utils\activity_logger.py:16: INSERT INTO activity_logs (user_id, action, details, created_at)

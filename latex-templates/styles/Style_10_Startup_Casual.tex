@@ -1,0 +1,98 @@
+%% Style 10: Startup/Casual
+%% DESIGN PHILOSOPHY: Lato font, rounded section dividers, relaxed spacing,
+%% personality-forward. Feels approachable and modern.
+%% Visual signature: Rounded boxes, casual tone, generous padding, tag-style skills.
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.8in, bottom=0.8in, left=0.9in, right=0.9in]{geometry}
+\usepackage{lato}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{mdframed}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\definecolor{primary}{HTML}{5B21B6}
+\definecolor{light}{HTML}{F5F3FF}
+\definecolor{mid}{HTML}{7C3AED}
+\definecolor{tagbg}{HTML}{EDE9FE}
+\definecolor{textdark}{HTML}{1F2937}
+
+% Rounded section header boxes
+\newcommand{\casualsection}[1]{%
+  \vspace{10pt}%
+  \begin{tikzpicture}
+    \node[fill=primary, rounded corners=4pt, inner xsep=10pt, inner ysep=4pt]
+      {\color{white}\bfseries\normalsize #1};
+  \end{tikzpicture}
+  \vspace{4pt}\par
+}
+
+% Skill tag
+\newcommand{\skilltag}[1]{%
+  \tikz[baseline=(tag.base)]{\node[fill=tagbg, rounded corners=3pt, inner xsep=5pt, inner ysep=2pt] (tag) {\small\color{primary}#1};}%
+  \enspace
+}
+
+\begin{document}
+
+\color{textdark}
+
+% --- HEADER: Friendly, personality-forward ---
+{\fontsize{26}{30}\selectfont\bfseries\color{primary} Arjun Mehta}\\[4pt]
+{\large Building systems that scale \textcolor{mid}{//} Breaking things thoughtfully}
+
+\vspace{10pt}
+{\small
+arjun.mehta@email.com \enspace\textcolor{mid}{\textbullet}\enspace 415-555-0192 \enspace\textcolor{mid}{\textbullet}\enspace San Francisco, CA \\[2pt]
+github.com/arjunmehta \enspace\textcolor{mid}{\textbullet}\enspace linkedin.com/in/arjunmehta
+}
+
+\vspace{2pt}
+\textcolor{tagbg}{\rule{\textwidth}{2pt}}
+
+\casualsection{What I Do}
+
+\skilltag{Java} \skilltag{Python} \skilltag{Go} \skilltag{TypeScript} \skilltag{Rust}
+\skilltag{AWS} \skilltag{Kubernetes} \skilltag{Kafka} \skilltag{gRPC}
+\skilltag{React} \skilltag{PostgreSQL} \skilltag{Redis} \skilltag{Terraform}
+\skilltag{System Design} \skilltag{Distributed Systems}
+
+\casualsection{Where I've Been}
+
+\noindent{\bfseries\large Senior Software Engineer} \enspace\textcolor{mid}{@} \enspace{\bfseries Stripe}
+\hfill {\small\color{mid} 2021 -- now}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{mid}{\raisebox{0.4ex}{\tiny$\blacksquare$}}}, topsep=3pt, itemsep=2pt]
+  \item Redesigned payment pipeline -- 40\% faster, handles 50K+ TPS
+  \item Built event-driven microservices platform for 200+ teams
+  \item Mentored 5 engineers and set org-wide code review culture
+\end{itemize}
+
+\vspace{8pt}
+\noindent{\bfseries\large Software Engineer II} \enspace\textcolor{mid}{@} \enspace{\bfseries Google}
+\hfill {\small\color{mid} 2018 -- 2021}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{mid}{\raisebox{0.4ex}{\tiny$\blacksquare$}}}, topsep=3pt, itemsep=2pt]
+  \item Real-time pipeline: 2TB/day for Maps traffic predictions
+  \item Collaborative editing features for 10M+ Docs users
+  \item Cut CI/CD build times by 60\% with parallel testing
+\end{itemize}
+
+\vspace{8pt}
+\noindent{\bfseries\large Software Engineer} \enspace\textcolor{mid}{@} \enspace{\bfseries AWS}
+\hfill {\small\color{mid} 2016 -- 2018}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{mid}{\raisebox{0.4ex}{\tiny$\blacksquare$}}}, topsep=3pt, itemsep=2pt]
+  \item Auto-scaling algorithms for EC2 (1M+ instances)
+  \item Distributed caching -- 70\% less database load
+\end{itemize}
+
+\casualsection{Education}
+
+{\bfseries M.S. Computer Science} \enspace\textcolor{mid}{--}\enspace Stanford University \hfill 2016\\[4pt]
+{\bfseries B.Tech CS} \enspace\textcolor{mid}{--}\enspace IIT Bombay \hfill 2014
+
+\end{document}

@@ -1,0 +1,84 @@
+%% DESIGN: Roboto | Clinical structured, table-heavy | Medical Blue (#1565C0) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{roboto}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{colortbl}
+
+\definecolor{medblue}{HTML}{1565C0}
+\definecolor{lightmed}{HTML}{E3F2FD}
+
+\titleformat{\section}{\normalsize\bfseries\color{medblue}}{}{0em}{\colorbox{lightmed}{\parbox{\dimexpr\linewidth-2\fboxsep}{\strut\hspace{4pt}#1}}}[]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{medblue}$+$}
+
+\hypersetup{colorlinks=true,urlcolor=medblue}
+
+\begin{document}
+
+\noindent\begin{tabularx}{\linewidth}{@{}Xr@{}}
+{\LARGE\bfseries\color{medblue} Sneha Patel} & {\small sneha.patel@email.com}\\
+{\small Healthcare Data Manager} & {\small +91-98123-45678}\\
+{\small Ahmedabad, India} & {\small \href{https://linkedin.com/in/snehapatel}{LinkedIn Profile}}\\
+\end{tabularx}
+
+\vspace{4pt}
+\noindent\rule{\linewidth}{1.5pt}
+
+\section{Professional Summary}
+Healthcare data management professional with 6+ years experience in clinical data systems, EHR integration, and regulatory compliance (HIPAA, NABH). Expertise in building data pipelines for hospital information systems and clinical research databases.
+
+\section{Core Competencies}
+\begin{tabularx}{\linewidth}{@{}XXX@{}}
+\arrayrulecolor{medblue}
+Clinical Data Management & EHR/EMR Systems & HIPAA Compliance\\
+HL7/FHIR Integration & Biostatistics & Data Governance\\
+Clinical Trial Databases & ICD-10 Coding & Quality Assurance\\
+\end{tabularx}
+
+\section{Professional Experience}
+\textbf{Apollo Hospitals} \hfill Ahmedabad\\
+\textit{Senior Healthcare Data Manager} \hfill Apr 2021 -- Present
+\begin{itemize}
+\item Manage clinical data warehouse integrating 15 hospital systems (50M+ patient records)
+\item Implemented FHIR-compliant APIs enabling interoperability with 8 external labs
+\item Reduced data discrepancies by 92\% through automated validation pipelines
+\item Led NABH accreditation data audit -- zero non-conformities in data management
+\end{itemize}
+
+\textbf{Tata Memorial Hospital} \hfill Mumbai\\
+\textit{Clinical Data Analyst} \hfill Jun 2018 -- Mar 2021
+\begin{itemize}
+\item Built oncology research database tracking 200K+ patient outcomes over 10 years
+\item Developed automated reporting for clinical trials (Phase II/III) -- 30\% faster submissions
+\item Created dashboards for real-time bed occupancy and resource allocation
+\end{itemize}
+
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}Xlr@{}}
+\textbf{M.Sc.\ Health Informatics} & IIIT Bangalore & 2016--2018\\
+\textbf{B.Sc.\ Biotechnology} & Gujarat University & 2012--2016\\
+\end{tabularx}
+
+\section{Certifications \& Training}
+\begin{tabularx}{\linewidth}{@{}Xr@{}}
+Certified Health Data Analyst (CHDA) -- AHIMA & 2022\\
+HL7 FHIR Proficiency -- HL7 International & 2021\\
+AWS Healthcare Competency -- Amazon Web Services & 2023\\
+Clinical Data Management (CCDM) -- ACDM & 2020\\
+\end{tabularx}
+
+\section{Technical Skills}
+\textbf{Systems:} Epic, Cerner, OpenMRS, REDCap, DHIS2\\
+\textbf{Languages:} Python, R, SQL, SAS\\
+\textbf{Standards:} HL7 FHIR, DICOM, ICD-10, SNOMED CT\\
+\textbf{Tools:} Tableau, Power BI, Apache Airflow, AWS HealthLake
+
+\end{document}

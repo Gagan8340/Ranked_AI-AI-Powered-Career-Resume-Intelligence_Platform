@@ -1,0 +1,63 @@
+{
+    "Kalvium Teaching Ninja": {
+        "Company Extracted": "Kalvium",
+        "Role Extracted": "Kalvium is an Education Company",
+        "Missing Skills": [
+            "competitive coding",
+            "dsa",
+            "problem solving"
+        ],
+        "Top Project": "Competitive Programming Tracker",
+        "Top Interview Category": "DSA",
+        "Experience Recommendation": "Add bullet points quantifying your impact using competitive coding",
+        "Top Roadmap Phase": "Core Skill Mastery: competitive coding",
+        "Roadmap Duration": "2 Weeks"
+    },
+    "Python Developer": {
+        "Company Extracted": "TechCorp",
+        "Role Extracted": "Python Backend Developer",
+        "Missing Skills": [
+            "django",
+            "flask",
+            "python",
+            "sql",
+            "system design"
+        ],
+        "Top Project": "Automated Web Scraper & Data Pipeline",
+        "Top Interview Category": "Python",
+        "Experience Recommendation": "Add bullet points quantifying your impact using django",
+        "Top Roadmap Phase": "Core Skill Mastery: django",
+        "Roadmap Duration": "2 Weeks"
+    },
+    "Full Stack Developer": {
+        "Company Extracted": "StartupX",
+        "Role Extracted": "Full Stack Developer",
+        "Missing Skills": [
+            "node.js",
+            "sql",
+            "aws",
+            "react"
+        ],
+        "Top Project": "Database Schema Design & Optimization",
+        "Top Interview Category": "React",
+        "Experience Recommendation": "Add bullet points quantifying your impact using node.js",
+        "Top Roadmap Phase": "Core Skill Mastery: node.js",
+        "Roadmap Duration": "2 Weeks"
+    },
+    "Data Scientist": {
+        "Company Extracted": "DataCo",
+        "Role Extracted": "Data Scientist",
+        "Missing Skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "nlp",
+            "statistics"
+        ],
+        "Top Project": "Automated Web Scraper & Data Pipeline",
+        "Top Interview Category": "Python",
+        "Experience Recommendation": "Add bullet points quantifying your impact using python",
+        "Top Roadmap Phase": "Data Engineering & SQL Mastery",
+        "Roadmap Duration": "2 Weeks"
+    }
+}

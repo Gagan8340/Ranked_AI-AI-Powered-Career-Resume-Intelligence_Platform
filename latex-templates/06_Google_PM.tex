@@ -1,0 +1,67 @@
+%% DESIGN: Charter | Single-column | Green accent | Large bold headers, paragraph-style (no bullets)
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{2E7D32}
+\definecolor{ACCENT}{HTML}{2E7D32}
+
+\titleformat{\section}{\Large\bfseries\color{accent}}{}{0em}{}
+\titlespacing{\section}{0pt}{12pt}{4pt}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Emily Zhang}\\[6pt]
+{\small Mountain View, CA $\cdot$ (650) 555-0312 $\cdot$ emily.zhang@email.com $\cdot$ \href{https://linkedin.com/in/emilyzhang}{linkedin.com/in/emilyzhang}}
+\end{center}
+
+\vspace{4pt}
+{\color{accent}\hrule height 1pt}
+\vspace{8pt}
+
+{\itshape Product Manager with 7+ years driving 0-to-1 products and growth at scale. Technical background (CS degree, former SWE) with expertise in search, recommendations, and ML-powered features. Track record of shipping products used by 100M+ users with measurable business impact.}
+
+\section{Experience}
+
+{\large\bfseries Senior Product Manager} \hfill Spotify\\
+{\color{accent}\itshape Search \& Discovery} \hfill {\small Jan 2021 -- Present}
+
+\vspace{4pt}
+Defined and launched personalized search suggestions feature serving 400M+ users, increasing search-to-play conversion by 23\% and reducing null result rate by 40\%. Designed and analyzed 15+ A/B experiments per quarter, establishing statistical rigor standards (95\% CI, minimum detectable effect) adopted across the Discovery org. Partnered with ML engineers to define model architecture for contextual recommendations, incorporating time-of-day, listening history, and social signals into ranking. Led cross-functional team of 12 (4 eng, 2 ML, 3 design, 2 data science, 1 researcher) through discovery, development, and launch of audio-based search. Drove product strategy that contributed to 15\% increase in premium conversion from free-tier users through improved content discovery.
+
+\vspace{8pt}
+{\large\bfseries Product Manager} \hfill LinkedIn\\
+{\color{accent}\itshape Feed Ranking \& Relevance} \hfill {\small Mar 2018 -- Dec 2020}
+
+\vspace{4pt}
+Owned feed engagement metrics (DAU/MAU, sessions/user, time-spent) for 700M+ member platform, growing daily sessions by 18\% YoY. Conducted 40+ user research sessions identifying content quality as top pain point, leading to creator quality scoring system that reduced low-quality content by 35\%. Aligned 3 engineering teams (20+ engineers) on unified feed ranking framework, resolving competing priorities through shared OKR structure. Proposed and secured executive buy-in for video-first feed experience, growing video consumption 4x within 8 months of launch.
+
+\vspace{8pt}
+{\large\bfseries Associate Product Manager / Software Engineer} \hfill Yelp\\
+{\color{accent}\itshape Local Search} \hfill {\small Jun 2015 -- Feb 2018}
+
+\vspace{4pt}
+Transitioned from SWE to APM after shipping location-aware notification system that increased app re-engagement by 12\%. Defined product requirements for real-time business hours feature, reducing ``is this place open?'' support tickets by 60\%.
+
+\section{Education}
+
+\textbf{MBA} -- Wharton School, UPenn \hfill 2015\\
+\textbf{B.S. Computer Science} -- MIT \hfill 2013 \quad {\small Minor: Economics $\mid$ GPA: 3.7/4.0}
+
+\section{Skills \& Certifications}
+
+\textbf{Product:} A/B Testing, User Research, SQL, Roadmap Planning, OKRs, PRDs \\
+\textbf{Technical:} Python, SQL (advanced), Looker, Amplitude, ML/AI concepts \\
+\textbf{Frameworks:} Jobs-to-be-Done, RICE prioritization, Design Thinking
+
+\end{document}

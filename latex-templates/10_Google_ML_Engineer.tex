@@ -1,0 +1,80 @@
+%% DESIGN: Palatino (serif) | Single-column academic | Dark blue accent | Numbered sections, publications
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1A237E}
+\definecolor{ACCENT}{HTML}{1A237E}
+
+\titleformat{\section}{\color{accent}\bfseries\large}{\color{accent}\thesection.}{0.5em}{}
+\titlespacing{\section}{0pt}{12pt}{5pt}
+
+\setlist[itemize]{nosep, leftmargin=16pt, label=\textbullet}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{1}
+
+\begin{document}
+
+{\Large\bfseries Amir Patel}\\[4pt]
+{\small Mountain View, CA $\cdot$ (650) 555-0678 $\cdot$ amir.patel@email.com}\\
+{\small \href{https://github.com/amirpatel}{github.com/amirpatel} $\cdot$ \href{https://scholar.google.com/amirpatel}{Google Scholar} $\cdot$ \href{https://linkedin.com/in/amirpatel}{LinkedIn}}
+
+\vspace{4pt}{\color{accent}\hrule height 0.6pt}\vspace{2pt}{\color{accent}\hrule height 0.2pt}
+
+\section{Professional Experience}
+
+\textbf{Senior Machine Learning Engineer} -- OpenAI \hfill Jan 2021 -- Present\\
+{\itshape Applied Research -- Retrieval \& Search}
+\begin{itemize}
+    \item Designed and productionized dense retrieval system using contrastive learning, improving semantic search relevance by 28\% (NDCG@10) while serving 50M queries/day at <50ms P99 latency
+    \item Built distributed training pipeline on 256 A100 GPUs using FSDP and custom data parallelism, reducing training time for 7B parameter models from 14 days to 3.5 days
+    \item Implemented quantization-aware training and knowledge distillation pipeline, compressing production models by 4x with <2\% quality degradation, saving \$3M/year in inference costs
+    \item Designed model monitoring system tracking distribution drift, prediction quality, and serving latency across 15 production models, catching 8 silent failures before user impact
+    \item Collaborated with product team to define evaluation framework combining offline metrics (MRR, recall@k) with online A/B tests
+\end{itemize}
+
+\textbf{Machine Learning Engineer} -- Pinterest \hfill Aug 2018 -- Dec 2020\\
+{\itshape Recommendations \& Ranking}
+\begin{itemize}
+    \item Deployed multi-task learning model for home feed ranking serving 450M monthly users, improving engagement by 15\% while reducing model serving costs by 30\%
+    \item Architected feature store processing 2TB daily event data with <10 minute freshness, enabling real-time personalization across 6 recommendation surfaces
+    \item Published novel approach to cold-start recommendations using meta-learning at RecSys 2020, subsequently deployed to production improving new-user engagement by 22\%
+    \item Built automated model retraining pipeline with canary deployments and automatic rollback, reducing model staleness from weekly to 6-hour refresh cycles
+\end{itemize}
+
+\textbf{ML Engineer} -- Apple \hfill Jun 2016 -- Jul 2018\\
+{\itshape Siri -- Natural Language Understanding}
+\begin{itemize}
+    \item Developed intent classification model (BERT-based) improving Siri's query understanding accuracy from 89\% to 94\% across 20+ intent categories
+    \item Optimized on-device NLU model for Apple Neural Engine, achieving 5ms inference on iPhone while maintaining 97\% of server-side model quality
+\end{itemize}
+
+\section{Education}
+
+\textbf{Ph.D. Computer Science} -- UC Berkeley, 2016\\
+{\small Dissertation: ``Efficient Representation Learning for Large-Scale Information Retrieval'' \quad 4 first-author publications (NeurIPS, ICML, ACL)}\\[3pt]
+\textbf{B.Tech Computer Science} -- IIT Delhi, 2011
+
+\section{Selected Publications}
+
+\begin{enumerate}[nosep, leftmargin=18pt, label={[\arabic*]}]
+    \item ``Efficient Dense Retrieval with Learned Token Pruning'' -- \textit{NeurIPS 2022}
+    \item ``Multi-Task Learning for Unified Recommendation'' -- \textit{RecSys 2020} (Best Paper Nominee)
+    \item ``Scalable Approximate Nearest Neighbor Search'' -- \textit{ICML 2019}
+\end{enumerate}
+
+\section{Technical Skills}
+
+\textbf{ML:} PyTorch, TensorFlow, JAX, Transformers, Diffusion Models, Reinforcement Learning \\
+\textbf{Infrastructure:} Distributed Training (FSDP, DeepSpeed), Ray, Kubeflow, MLflow, TFX \\
+\textbf{Languages:} Python, C++, CUDA, SQL, Go \\
+\textbf{Data:} Spark, BigQuery, Feature Stores, Vector Databases (FAISS, Pinecone)
+
+\end{document}

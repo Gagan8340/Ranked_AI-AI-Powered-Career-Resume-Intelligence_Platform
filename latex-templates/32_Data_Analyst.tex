@@ -1,0 +1,88 @@
+%% DESIGN: Monospace headers (courier) + Serif body (default) | Steel blue (#4682B4) accent | Data-viz inspired layout
+%% Data analyst style with monospace section headers, pipe separators, chart-inspired skill bars concept
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{4682B4}
+\definecolor{ACCENT}{HTML}{4682B4}
+\definecolor{lightaccent}{HTML}{DCE8F0}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: monospace font, steel blue, with dashed underline
+\titleformat{\section}{\fontfamily{pcr}\selectfont\large\bfseries\color{accent}}{}{0em}{> }[\vspace{2pt}{\color{accent}\rule{\textwidth}{0.4pt}}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}|}}
+
+\begin{document}
+
+% Header: monospace name, data-style layout
+\begin{center}
+{\fontfamily{pcr}\selectfont\fontsize{18}{22}\selectfont\bfseries\color{accent}ARJUN MEHTA}\\[4pt]
+{\small\ttfamily Mumbai, IN | +91-87654-32109 | arjun.mehta@email.com}\\[2pt]
+{\small\ttfamily \href{https://linkedin.com/in/arjunmehta}{linkedin.com/in/arjunmehta} | \href{https://github.com/arjunmehta-data}{github.com/arjunmehta-data}}
+\end{center}
+
+\vspace{2pt}
+{\color{accent}\rule{\textwidth}{2pt}}
+
+\section{Summary}
+Data Analyst with 5 years of experience transforming complex datasets into actionable business insights. Proficient in SQL, Python, and Tableau with a track record of delivering analyses that drove \$8M+ in cost savings and revenue optimization. Skilled at translating technical findings into executive-ready narratives for cross-functional stakeholders.
+
+\section{Experience}
+
+\textbf{Senior Data Analyst} \hfill \textbf{Swiggy, Bangalore}\\
+{\color{accent}\texttt{Growth \& Monetization Team}} \hfill \textit{Mar 2022 -- Present}
+\begin{itemize}
+  \item Built customer segmentation model (RFM + K-means) on 15M+ users; enabled targeted campaigns improving reactivation rate by 23\% (\$3.1M incremental revenue)
+  \item Designed automated Tableau dashboards tracking 25+ KPIs; reduced ad-hoc reporting by 60\%
+  \item Conducted A/B test analysis for pricing experiments across 12 cities; identified optimal surge pricing thresholds increasing AOV by 8\%
+  \item Wrote 200+ complex SQL queries (CTEs, window functions) across Redshift; optimized 15 legacy queries reducing runtime by 70\%
+  \item Presented weekly insights to VP-level stakeholders; 4 recommendations adopted into product roadmap
+\end{itemize}
+
+\textbf{Data Analyst} \hfill \textbf{HDFC Bank, Mumbai}\\
+{\color{accent}\texttt{Retail Analytics}} \hfill \textit{Jun 2020 -- Feb 2022}
+\begin{itemize}
+  \item Analyzed credit card transaction patterns across 2M+ accounts; identified fraud indicators reducing false positives by 35\% (\$2.4M saved annually)
+  \item Built Python ETL pipeline automating monthly portfolio risk reports; reduced effort from 40 hours to 2 hours
+  \item Developed customer lifetime value model using logistic regression; improved cross-sell targeting by 27\%
+  \item Created Power BI executive dashboard adopted by 150+ branch managers nationwide
+\end{itemize}
+
+\textbf{Junior Data Analyst} \hfill \textbf{Deloitte India, Hyderabad}\\
+{\color{accent}\texttt{Consulting -- Retail \& Consumer}} \hfill \textit{Jul 2018 -- May 2020}
+\begin{itemize}
+  \item Performed market basket analysis for top-3 FMCG client; drove 12\% increase in cross-category sales
+  \item Cleaned and standardized datasets of 5M+ records using Python (Pandas, NumPy)
+  \item Delivered 8 client-facing analytical reports per quarter with actionable recommendations
+\end{itemize}
+
+\section{Skills}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\texttt{\color{accent}QUERY} & SQL (Advanced), PostgreSQL, Redshift, BigQuery, MySQL, Snowflake\\
+\texttt{\color{accent}CODE} & Python (Pandas, NumPy, Scikit-learn, Matplotlib), R\\
+\texttt{\color{accent}VISUALIZE} & Tableau (Desktop + Server), Power BI, Looker, Google Data Studio\\
+\texttt{\color{accent}ANALYZE} & Hypothesis Testing, Regression, Clustering, Time Series, A/B Testing\\
+\texttt{\color{accent}TOOLS} & Excel (Advanced), Jupyter, Git, Airflow, dbt\\
+\end{tabularx}
+
+\section{Education}
+\textbf{M.Sc. Statistics} \hfill Mumbai University \hfill 2018\\
+\textbf{B.Sc. Mathematics} \hfill St. Xavier's College, Mumbai \hfill 2016
+
+\section{Certifications}
+{\ttfamily Google Data Analytics Professional} \quad|\quad {\ttfamily Tableau Desktop Specialist} \quad|\quad {\ttfamily AWS Cloud Practitioner}
+
+\end{document}

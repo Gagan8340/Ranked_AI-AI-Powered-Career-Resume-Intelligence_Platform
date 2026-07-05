@@ -1,0 +1,83 @@
+%% DESIGN: Nunito | Modern sans, metrics-heavy, orange highlights | E-commerce Orange (#FF6D00) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[default]{nunito}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{tcolorbox}
+
+\definecolor{ecorange}{HTML}{FF6D00}
+\definecolor{lightorange}{HTML}{FFF8E1}
+
+\tcbset{colback=lightorange,colframe=ecorange,boxrule=0.3pt,arc=2pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+
+\titleformat{\section}{\normalsize\bfseries\color{ecorange}}{}{0em}{}[\color{ecorange}\rule{\linewidth}{1.5pt}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\newcommand{\metric}[2]{\begin{tcolorbox}\centering\textbf{\large\color{ecorange}#1}\\{\scriptsize #2}\end{tcolorbox}}
+
+\setlist[itemize]{leftmargin=1em,itemsep=1pt,parsep=0pt,label=\color{ecorange}\faIcon{shopping-cart}}
+
+\hypersetup{colorlinks=true,urlcolor=ecorange}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{ecorange} DEEPA VENKATESH}\\[4pt]
+{\normalsize E-commerce Search \& Catalog Engineer}\\[4pt]
+{\small \faIcon{envelope} deepa.v@email.com \quad \faIcon{phone} +91-99887-76655 \quad \faIcon{linkedin} \href{https://linkedin.com/in/deepav}{deepav} \quad \faIcon{map-marker-alt} Bangalore}
+\end{center}
+
+\vspace{6pt}
+% Metrics bar
+\noindent\begin{minipage}[t]{0.24\linewidth}\metric{500M+}{Products Indexed}\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}\metric{<50ms}{P99 Search Latency}\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}\metric{23\%}{Conversion Uplift}\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}\metric{8 Yrs}{Search/IR Experience}\end{minipage}
+
+\section{Experience}
+
+\textbf{Flipkart} \hfill Bangalore\\
+\textit{Staff Engineer -- Search \& Discovery} \hfill Jan 2021 -- Present
+\begin{itemize}
+\item Own search ranking stack serving 200M+ monthly users across 500M product catalog
+\item Built learning-to-rank model (LambdaMART + neural re-ranker) improving NDCG@10 by 12\%
+\item Designed real-time personalization layer using user embeddings -- 23\% conversion uplift
+\item Architected catalog enrichment pipeline using LLMs for attribute extraction (95\% accuracy)
+\item Led query understanding system: spell correction, intent classification, query expansion
+\end{itemize}
+
+\textbf{Amazon India} \hfill Bangalore\\
+\textit{SDE II -- Product Search} \hfill Jul 2018 -- Dec 2020
+\begin{itemize}
+\item Built autocomplete system handling 50K QPS with sub-20ms latency
+\item Developed multilingual search supporting 8 Indian languages (Hindi, Tamil, Telugu, etc.)
+\item Implemented A/B testing framework for search experiments (100+ experiments/quarter)
+\end{itemize}
+
+\textbf{Myntra} \hfill Bangalore\\
+\textit{Software Engineer -- Catalog} \hfill Jun 2016 -- Jun 2018
+\begin{itemize}
+\item Built image-based product search using CNN embeddings (visual similarity)
+\item Developed catalog deduplication system reducing duplicate listings by 85\%
+\end{itemize}
+
+\section{Technical Skills}
+\textbf{Search:} Elasticsearch, Solr, Lucene, Vector Search (FAISS, Pinecone)\\
+\textbf{ML/NLP:} PyTorch, Transformers, LambdaMART, BERT, Sentence-BERT\\
+\textbf{Languages:} Java, Python, Scala, Go\\
+\textbf{Infrastructure:} Kafka, Spark, Flink, Redis, DynamoDB, Kubernetes
+
+\section{Education}
+\textbf{M.Tech Computer Science (IR specialization)} -- IISc Bangalore \hfill 2014 -- 2016\\
+\textbf{B.Tech Computer Science} -- NIT Warangal \hfill 2010 -- 2014
+
+\section{Publications}
+Venkatesh, D. et al. ``Neural Query Understanding for Indian E-commerce.'' \textit{SIGIR 2022}.
+
+\end{document}

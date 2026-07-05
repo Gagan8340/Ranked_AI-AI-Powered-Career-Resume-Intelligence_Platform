@@ -1,0 +1,90 @@
+%% DESIGN: Fira Sans | Creative bold, asymmetric header | Purple (#6A1B9A) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[sfdefault]{FiraSans}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+
+\definecolor{gamepurple}{HTML}{6A1B9A}
+\definecolor{lightpurple}{HTML}{F3E5F5}
+\definecolor{darkbg}{HTML}{1A1A2E}
+
+\titleformat{\section}{\normalsize\bfseries\color{gamepurple}}{}{0em}{$\blacktriangleright$\hspace{4pt}}[]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{gamepurple}\faIcon{gamepad}}
+
+\hypersetup{colorlinks=true,urlcolor=gamepurple}
+
+\begin{document}
+
+% Creative asymmetric header
+\noindent\begin{tikzpicture}[remember picture,overlay]
+\fill[gamepurple] (-0.6in,0.3cm) rectangle (\paperwidth,-2.2cm);
+\end{tikzpicture}
+
+\vspace{-1.2cm}
+\noindent{\color{white}\LARGE\bfseries ROHAN GUPTA}\\[2pt]
+\noindent{\color{white}\normalsize Game Developer \& Engine Programmer}\\[2pt]
+\noindent{\color{white}\small\faIcon{envelope} rohan.gupta@gamedev.io \quad \faIcon{globe} \href{https://rohangupta.dev}{rohangupta.dev} \quad \faIcon{steam} \href{https://store.steampowered.com}{Steam Portfolio} \quad \faIcon{github} \href{https://github.com/rohang}{rohang}}
+
+\vspace{1.2cm}
+
+\section{Shipped Titles}
+\textbf{``Mystic Realms''} -- Action RPG (Unity/C\#) \hfill \textit{Released 2023}\\
+{\small Lead Programmer $\vert$ 500K+ downloads $\vert$ 4.5/5 rating on Steam}
+\begin{itemize}
+\item Designed procedural dungeon generation system with 10B+ unique configurations
+\item Built custom networking layer supporting 32-player co-op with rollback netcode
+\item Optimized rendering pipeline achieving 60fps on mid-range mobile devices
+\end{itemize}
+
+\textbf{``Speed Demons''} -- Racing Game (Unreal Engine 5) \hfill \textit{Released 2022}\\
+{\small Engine Programmer $\vert$ Published by Nazara Technologies}
+\begin{itemize}
+\item Implemented vehicle physics system with realistic tire simulation
+\item Built dynamic weather system affecting gameplay (rain, fog, ice)
+\item Created AI racing opponents using behavior trees and ML-trained driving models
+\end{itemize}
+
+\section{Professional Experience}
+\textbf{Ubisoft India} \hfill Pune\\
+\textit{Senior Game Programmer} \hfill Mar 2021 -- Present
+\begin{itemize}
+\item Core gameplay team for AAA title (unannounced) -- combat systems and AI
+\item Developed custom animation blending system reducing memory usage by 40\%
+\item Mentored 3 junior programmers on engine architecture and optimization
+\end{itemize}
+
+\textbf{Games2Win} \hfill Mumbai\\
+\textit{Game Developer} \hfill Jun 2018 -- Feb 2021
+\begin{itemize}
+\item Shipped 5 mobile games with combined 20M+ downloads
+\item Built reusable SDK for analytics, ads, and IAP across all titles
+\end{itemize}
+
+\section{Technical Arsenal}
+\begin{multicols}{2}
+\begin{itemize}[label=\color{gamepurple}\faIcon{code}]
+\item \textbf{Engines:} Unity, Unreal Engine 5, Godot
+\item \textbf{Languages:} C++, C\#, Rust, HLSL/GLSL
+\item \textbf{Graphics:} Vulkan, DirectX 12, OpenGL
+\item \textbf{Networking:} Photon, Mirror, custom UDP
+\item \textbf{Tools:} Blender, Substance, Perforce
+\item \textbf{Platforms:} PC, Console (PS5/Xbox), Mobile
+\end{itemize}
+\end{multicols}
+
+\section{Education \& Achievements}
+\textbf{B.Tech Computer Science} -- IIIT Hyderabad \hfill 2014 -- 2018\\[3pt]
+\faIcon{trophy}\hspace{4pt} Global Game Jam 2023 -- Regional Winner\\
+\faIcon{trophy}\hspace{4pt} Ludum Dare 52 -- Top 50 (out of 3,000 entries)\\
+\faIcon{trophy}\hspace{4pt} Unity Certified Expert: Programmer (2022)
+
+\end{document}

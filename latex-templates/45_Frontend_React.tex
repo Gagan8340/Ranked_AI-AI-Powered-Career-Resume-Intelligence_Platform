@@ -1,0 +1,80 @@
+%% DESIGN: Modern sans (helvet) | Two-tone gradient header | Indigo-to-cyan (#3F51B5/#00BCD4) | Component-style sections
+%% Frontend React style with two-tone colored header band, component-like section naming, modern web aesthetic
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\definecolor{primary}{HTML}{3F51B5}
+\definecolor{secondary}{HTML}{00BCD4}
+\definecolor{lightbg}{HTML}{E8EAF6}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: component-style with angle brackets
+\titleformat{\section}{\bfseries\normalsize\color{primary}}{}{0em}{\textless}[\textgreater]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{secondary}\textbullet}}
+
+\begin{document}
+
+% Header: two-tone gradient-inspired band
+\noindent\colorbox{primary}{\parbox{0.5\textwidth}{\vspace{6pt}\color{white}\bfseries\large\quad Elena Vasquez\vspace{6pt}}}%
+\colorbox{secondary}{\parbox{0.485\textwidth}{\vspace{6pt}\color{white}\small\quad Frontend Engineer | React | TypeScript\vspace{6pt}}}\\[4pt]
+{\small New York, NY \quad\textbar\quad (212) 555-0318 \quad\textbar\quad elena.vasquez@email.com \quad\textbar\quad \href{https://linkedin.com/in/elenavasquez}{\color{primary}LinkedIn} \quad\textbar\quad \href{https://elenadev.com}{\color{primary}elenadev.com}}
+
+\vspace{4pt}
+
+\section{Summary}
+Frontend Engineer with 6+ years specializing in React ecosystem, performance optimization, and design system architecture. Built interfaces serving 10M+ monthly users with 98+ Lighthouse scores. Passionate about accessibility, component-driven development, and bridging design-engineering collaboration.
+
+\section{Skills}
+\textbf{Core:} React 18, TypeScript, Next.js, JavaScript (ES2024), HTML5, CSS3\\
+\textbf{State \& Data:} Redux Toolkit, React Query/TanStack Query, Zustand, GraphQL (Apollo)\\
+\textbf{Styling:} Tailwind CSS, Styled Components, CSS Modules, Design Tokens\\
+\textbf{Testing:} Jest, React Testing Library, Cypress, Playwright, Storybook, Chromatic\\
+\textbf{Performance:} Core Web Vitals, Webpack/Vite, Code Splitting, SSR/ISR, Web Workers\\
+\textbf{Accessibility:} WCAG 2.1 AA/AAA, ARIA, axe-core, Screen Reader Testing
+
+\section{Experience}
+
+\textbf{Senior Frontend Engineer} \quad{\color{secondary}\textbar}\quad Marketplace Pro, New York \hfill Jun 2021 -- Present
+\begin{itemize}
+  \item Architected design system (60+ components) adopted by 12 teams; reduced UI dev time by 45\%
+  \item Improved Core Web Vitals: LCP 4.2s$\rightarrow$1.1s, CLS 0.25$\rightarrow$0.02, FID 180ms$\rightarrow$12ms; +15\% SEO, +9\% conversion
+  \item Led React 18 migration with concurrent features; reduced TTI by 40\% for data-heavy pages
+  \item Achieved WCAG 2.1 AA compliance across all products; resolved 200+ a11y issues
+  \item Built micro-frontend architecture (Module Federation); enabled daily independent deployments for 5 teams
+\end{itemize}
+
+\textbf{Frontend Developer} \quad{\color{secondary}\textbar}\quad DataViz Corp, Brooklyn \hfill Sep 2019 -- May 2021
+\begin{itemize}
+  \item Built real-time analytics dashboard (React + D3.js) rendering 100K+ data points at 60fps for 50K DAU
+  \item Reduced bundle size by 62\% via code splitting and tree shaking; mobile load 6s$\rightarrow$2.1s
+  \item Implemented SSR with Next.js; +180\% SEO traffic, +55\% FCP improvement
+  \item Created Storybook component library with 95\% visual regression coverage
+\end{itemize}
+
+\textbf{Frontend Developer} \quad{\color{secondary}\textbar}\quad StartupHub, New York \hfill Jul 2017 -- Aug 2019
+\begin{itemize}
+  \item Developed SaaS platform frontend for 20K businesses; complex form workflows with 98\% completion
+  \item Built responsive interfaces with 100/100 mobile usability across 15+ breakpoints
+  \item Mentored 3 junior developers through code reviews and pair programming
+\end{itemize}
+
+\section{Open Source \& Speaking}
+Maintainer of \texttt{\color{primary}react-a11y-toolkit} (2.1K GitHub stars) \quad\textbar\quad Speaker at ReactConf 2023: ``Design Systems at Scale''
+
+\section{Education}
+\textbf{B.A. Computer Science} \hfill Columbia University, 2017
+
+\end{document}

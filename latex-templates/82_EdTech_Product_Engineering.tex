@@ -1,0 +1,86 @@
+%% DESIGN: Montserrat | Modern playful-professional, pill-shaped tags | Orange (#E65100) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[defaultfam,tabular,lining]{montserrat}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+
+\definecolor{edorange}{HTML}{E65100}
+\definecolor{lightorange}{HTML}{FFF3E0}
+
+\newcommand{\skilltag}[1]{%
+\tikz[baseline=(tag.base)]{\node[fill=lightorange,draw=edorange,rounded corners=8pt,inner sep=3pt,font=\footnotesize\bfseries](tag){#1};}%
+}
+
+\titleformat{\section}{\normalsize\bfseries\color{edorange}}{}{0em}{\faIcon{graduation-cap}\hspace{6pt}}[\vspace{-0.3em}\color{edorange}\rule{\linewidth}{0.3pt}]
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+
+\setlist[itemize]{leftmargin=1em,itemsep=1pt,parsep=0pt,label=\color{edorange}\faIcon{angle-right}}
+
+\hypersetup{colorlinks=true,urlcolor=edorange}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{edorange} Vikram Desai}\\[4pt]
+{\normalsize EdTech Product Engineer $\vert$ Building the Future of Learning}\\[6pt]
+{\small \faIcon{envelope} vikram.desai@email.com \quad \faIcon{phone} +91-87654-09876 \quad \faIcon{github} \href{https://github.com/vikramd}{vikramd} \quad \faIcon{linkedin} \href{https://linkedin.com/in/vikramdesai}{vikramdesai}}
+\end{center}
+
+\vspace{6pt}
+\noindent\skilltag{React} \skilltag{Node.js} \skilltag{Python} \skilltag{AWS} \skilltag{ML/AI} \skilltag{Video Streaming} \skilltag{LMS} \skilltag{Gamification} \skilltag{A/B Testing} \skilltag{Accessibility}
+
+\section{Experience}
+
+\textbf{BYJU'S} \hfill Bangalore\\
+\textit{Senior Product Engineer -- Learning Platform} \hfill Jan 2022 -- Present
+\begin{itemize}
+\item Architected adaptive learning engine serving personalized content to 40M+ students
+\item Built real-time quiz system handling 500K concurrent users during live classes
+\item Implemented ML-based content recommendation increasing engagement by 35\%
+\item Led accessibility initiative making platform WCAG 2.1 AA compliant
+\end{itemize}
+
+\textbf{Unacademy} \hfill Bangalore\\
+\textit{Full Stack Engineer -- Live Classes} \hfill Jul 2019 -- Dec 2021
+\begin{itemize}
+\item Developed low-latency video streaming infrastructure (sub-2s glass-to-glass)
+\item Built gamification system (streaks, badges, leaderboards) increasing DAU by 28\%
+\item Created educator dashboard with real-time analytics on student engagement
+\item Reduced video buffering by 60\% through adaptive bitrate optimization
+\end{itemize}
+
+\textbf{Freshworks} \hfill Chennai\\
+\textit{Software Engineer} \hfill Jun 2017 -- Jun 2019
+\begin{itemize}
+\item Built customer education portal with interactive tutorials and certifications
+\item Developed in-app onboarding flows reducing support tickets by 40\%
+\end{itemize}
+
+\section{Projects}
+\textbf{OpenLearn} -- Open-source LMS with AI tutoring (\href{https://github.com/vikramd/openlearn}{GitHub} -- 2.1K stars)\\
+\textbf{QuizCraft} -- AI-powered question generation from any PDF/video content
+
+\section{Education}
+\textbf{B.Tech Computer Science} -- VIT Vellore \hfill 2013 -- 2017\\
+\textit{Specialization: Multimedia \& Game Technology} \hfill CGPA: 8.9/10
+
+\section{Skills}
+\begin{multicols}{2}
+\begin{itemize}[label={}]
+\item \textbf{Frontend:} React, Next.js, React Native
+\item \textbf{Backend:} Node.js, Python, Go
+\item \textbf{Video:} WebRTC, HLS, FFmpeg
+\item \textbf{ML:} TensorFlow, recommendation systems
+\item \textbf{Cloud:} AWS, Firebase, CDN optimization
+\item \textbf{Mail:} A/B testing, analytics, Mixpanel
+\end{itemize}
+\end{multicols}
+
+\end{document}

@@ -1,0 +1,83 @@
+%% Style 17: One-Column Clean - Maximum simplicity, hierarchy through font size only
+%% No lines, no boxes, no color, Libertine font
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[left=0.8in,right=0.8in,top=0.6in,bottom=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+{\fontsize{28pt}{32pt}\selectfont Arjun Mehta}\par
+\vspace{6pt}
+{\fontsize{11pt}{13pt}\selectfont Senior Software Engineer}\par
+\vspace{4pt}
+{\fontsize{9pt}{11pt}\selectfont arjun.mehta@email.com \quad +91-98765-43210 \quad linkedin.com/in/arjunmehta \quad github.com/arjunmehta}\par
+\vspace{16pt}
+
+{\fontsize{14pt}{17pt}\selectfont Experience}\par
+\vspace{8pt}
+
+{\fontsize{11pt}{13pt}\selectfont\bfseries Senior Software Engineer, Amazon Web Services}\par
+{\fontsize{9pt}{11pt}\selectfont Bangalore, India \quad January 2023 -- Present}\par
+\vspace{4pt}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=0pt, label={\textbullet}]
+\item \small Designed distributed microservices handling 50K+ requests/second using Java and AWS Lambda
+\item \small Led monolith-to-microservices migration, reducing end-to-end latency by 40\%
+\item \small Mentored 4 junior engineers and conducted 50+ technical interviews
+\end{itemize}
+\vspace{10pt}
+
+{\fontsize{11pt}{13pt}\selectfont\bfseries Software Engineer, Microsoft}\par
+{\fontsize{9pt}{11pt}\selectfont Hyderabad, India \quad June 2020 -- December 2022}\par
+\vspace{4pt}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=0pt, label={\textbullet}]
+\item \small Built real-time data pipeline processing 10TB+ daily using Apache Kafka and Spark
+\item \small Developed REST APIs serving 1M+ users with 99.9\% uptime SLA
+\item \small Reduced CI/CD pipeline execution time by 60\% through parallelization
+\end{itemize}
+\vspace{16pt}
+
+{\fontsize{14pt}{17pt}\selectfont Education}\par
+\vspace{8pt}
+
+{\fontsize{11pt}{13pt}\selectfont\bfseries B.Tech in Computer Science}\par
+{\fontsize{9pt}{11pt}\selectfont Indian Institute of Technology, Bombay \quad 2016 -- 2020 \quad GPA: 3.8/4.0}\par
+\vspace{16pt}
+
+{\fontsize{14pt}{17pt}\selectfont Projects}\par
+\vspace{8pt}
+
+{\fontsize{11pt}{13pt}\selectfont\bfseries Distributed Task Scheduler}\par
+{\fontsize{9pt}{11pt}\selectfont Go, gRPC, Redis, Kubernetes \quad 2023}\par
+\vspace{4pt}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=0pt, label={\textbullet}]
+\item \small Fault-tolerant distributed scheduler supporting 100K+ concurrent jobs
+\item \small Implemented Raft consensus algorithm for leader election
+\end{itemize}
+\vspace{10pt}
+
+{\fontsize{11pt}{13pt}\selectfont\bfseries Real-time Analytics Dashboard}\par
+{\fontsize{9pt}{11pt}\selectfont React, TypeScript, D3.js, WebSocket \quad 2022}\par
+\vspace{4pt}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=0pt, label={\textbullet}]
+\item \small Interactive streaming data visualization with sub-second refresh rates
+\end{itemize}
+\vspace{16pt}
+
+{\fontsize{14pt}{17pt}\selectfont Skills}\par
+\vspace{8pt}
+
+{\fontsize{10pt}{12pt}\selectfont\bfseries Languages:} {\fontsize{10pt}{12pt}\selectfont Java, Python, Go, TypeScript, SQL}\par
+\vspace{3pt}
+{\fontsize{10pt}{12pt}\selectfont\bfseries Frameworks:} {\fontsize{10pt}{12pt}\selectfont Spring Boot, React, Node.js, Kafka, Spark}\par
+\vspace{3pt}
+{\fontsize{10pt}{12pt}\selectfont\bfseries Tools:} {\fontsize{10pt}{12pt}\selectfont AWS, Docker, Kubernetes, Terraform, Git, Jenkins}\par
+
+\end{document}

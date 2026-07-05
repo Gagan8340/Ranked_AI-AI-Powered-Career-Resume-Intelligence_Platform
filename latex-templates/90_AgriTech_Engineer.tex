@@ -1,0 +1,85 @@
+%% DESIGN: Alegreya | Earth-tones, leaf motifs, sustainability | Olive Green (#558B2F) accent
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{Alegreya}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+
+\definecolor{olive}{HTML}{558B2F}
+\definecolor{earth}{HTML}{F1F8E9}
+\definecolor{brown}{HTML}{4E342E}
+
+\titleformat{\section}{\normalsize\bfseries\color{olive}}{}{0em}{\faIcon{leaf}\hspace{4pt}}[\color{olive}\rule{\linewidth}{0.3pt}]
+\titlespacing*{\section}{0pt}{14pt}{5pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=2pt,parsep=0pt,label=\color{olive}\faIcon{seedling}}
+
+\hypersetup{colorlinks=true,urlcolor=olive}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{brown} KARTHIK SUNDARAM}\\[4pt]
+{\normalsize\color{olive} AgriTech Engineer $\vert$ Precision Agriculture \& IoT}\\[6pt]
+{\small \faIcon{envelope} karthik.s@email.com \quad \faIcon{phone} +91-98765-33221 \quad \faIcon{map-marker-alt} Coimbatore, India \quad \faIcon{linkedin} \href{https://linkedin.com/in/karthiks}{karthiks}}
+\end{center}
+
+\vspace{6pt}
+\noindent\colorbox{earth}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small
+\faIcon{leaf}\hspace{4pt}\textbf{Mission:} Building technology solutions for sustainable agriculture. Combining IoT, computer vision, and data science to help farmers increase yield while reducing water and chemical usage. Passionate about food security and climate-resilient farming.}}
+
+\section{Experience}
+
+\textbf{CropIn Technology} \hfill Bangalore\\
+\textit{Senior Engineer -- Precision Agriculture Platform} \hfill Mar 2021 -- Present
+\begin{itemize}
+\item Built satellite imagery analysis pipeline (Sentinel-2) for crop health monitoring across 5M+ acres
+\item Developed pest/disease detection model using drone imagery (CNN, 92\% accuracy)
+\item Designed IoT data platform ingesting sensor data from 100K+ farm devices (soil, weather)
+\item Implemented smart irrigation recommendation engine reducing water usage by 30\%
+\item Built yield prediction model (ensemble ML) with 88\% accuracy at plot level
+\end{itemize}
+
+\textbf{Fasal (AgriTech Startup)} \hfill Bangalore\\
+\textit{Full Stack IoT Engineer} \hfill Jul 2018 -- Feb 2021
+\begin{itemize}
+\item Designed low-power IoT sensor hardware (soil moisture, temperature, humidity)
+\item Built edge computing firmware for real-time microclimate analysis (ESP32/LoRa)
+\item Developed farmer-facing mobile app (React Native) with offline-first architecture
+\item Scaled platform from 500 to 25,000 connected farms across 8 states
+\end{itemize}
+
+\textbf{Wipro -- IoT Practice} \hfill Bangalore\\
+\textit{Software Engineer} \hfill Jun 2016 -- Jun 2018
+\begin{itemize}
+\item Built industrial IoT platform for manufacturing clients (predictive maintenance)
+\item Developed MQTT-based device management system for 10K+ connected devices
+\end{itemize}
+
+\section{Technical Skills}
+\begin{multicols}{2}
+\begin{itemize}[label=\color{olive}\faIcon{microchip}]
+\item \textbf{IoT:} ESP32, LoRaWAN, MQTT, BLE
+\item \textbf{ML/CV:} PyTorch, TensorFlow Lite, YOLO
+\item \textbf{Remote Sensing:} NDVI, GEE, Sentinel
+\item \textbf{Cloud:} AWS IoT Core, Lambda, S3
+\item \textbf{Languages:} Python, C/C++, JavaScript
+\item \textbf{Data:} TimescaleDB, InfluxDB, Grafana
+\end{itemize}
+\end{multicols}
+
+\section{Education}
+\textbf{M.Tech Embedded Systems} -- PSG Tech, Coimbatore \hfill 2014 -- 2016\\
+\textbf{B.E.\ Electronics} -- Coimbatore Institute of Technology \hfill 2010 -- 2014
+
+\section{Impact \& Recognition}
+\faIcon{award}\hspace{4pt} ``AgriTech Innovator'' -- NASSCOM (2023)\\
+\faIcon{award}\hspace{4pt} Platform deployed across 5M+ acres in India, Kenya, and Indonesia\\
+\faIcon{award}\hspace{4pt} 2 patents on IoT-based precision irrigation systems
+
+\end{document}

@@ -1,0 +1,95 @@
+%% DESIGN: Helvetica (helvet) | Airy creative layout | Magenta (#C2185B) accent | Generous whitespace, minimal lines
+%% UI/UX Designer style with breathing room, magenta pops, portfolio-prominent, clean and creative
+
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[top=0.7in,bottom=0.6in,left=0.8in,right=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{C2185B}
+\definecolor{ACCENT}{HTML}{C2185B}
+\definecolor{lightpink}{HTML}{FCE4EC}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: magenta, lightweight, no rules -- just color and spacing
+\titleformat{\section}{\fontsize{11}{13}\selectfont\bfseries\color{accent}\uppercase}{}{0em}{}
+\titlespacing{\section}{0pt}{14pt}{6pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=6pt,itemsep=2pt,label={\color{accent}--}}
+
+\begin{document}
+
+% Header: minimal, name large, portfolio prominent
+\begin{center}
+{\fontsize{24}{28}\selectfont\color{accent}Kavya Nair}\\[8pt]
+{\small Bangalore, India \quad\textperiodcentered\quad +91-97654-32108 \quad\textperiodcentered\quad kavya.nair@email.com}\\[4pt]
+{\small \href{https://kavyanair.design}{\color{accent}\textbf{kavyanair.design}} (Portfolio) \quad\textperiodcentered\quad \href{https://linkedin.com/in/kavyanair}{linkedin.com/in/kavyanair}}
+\end{center}
+
+\vspace{10pt}
+
+\section{About}
+UI/UX Designer with 5+ years crafting user-centered digital experiences for B2B SaaS and consumer products. Led design for products serving 3M+ users with measurable improvements in engagement and conversion. Passionate about design systems, accessibility, and bridging user needs with business goals through research-driven design.
+
+\vspace{4pt}
+
+\section{Experience}
+
+\textbf{Senior UX Designer} \quad {\color{accent}Atlassian, Bangalore}\\[2pt]
+\textit{Jira Cloud -- Workflows} \hfill Feb 2022 -- Present
+\begin{itemize}
+  \item Redesigned workflow builder used by 1.5M+ teams; improved task completion rate by 42\% and reduced support tickets by 35\%
+  \item Built design system with 120+ components in Figma; reduced design-to-dev handoff time by 50\% and ensured WCAG 2.1 AA compliance
+  \item Conducted 30+ user research sessions (contextual inquiry, card sorting, tree testing)
+  \item Led design sprint for automation feature; prototype achieved 87\% task success rate
+  \item Mentored 2 junior designers; established design critique process adopted by 4 teams
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{UX Designer} \quad {\color{accent}Myntra (Flipkart Group), Bangalore}\\[2pt]
+\textit{Mobile Commerce} \hfill Aug 2019 -- Jan 2022
+\begin{itemize}
+  \item Redesigned product discovery for 50M+ MAU app; A/B tested 8 variants resulting in 18\% increase in add-to-cart rate
+  \item Created checkout flow reducing cart abandonment by 22\%
+  \item Developed user personas from 200+ surveys and 25 interviews; adopted across 5 product teams
+  \item Designed AR try-on feature from concept to launch; 2M+ monthly interactions
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{UI Designer} \quad {\color{accent}Lollypop Design Studio, Bangalore}\\[2pt]
+\textit{Agency -- Multiple Clients} \hfill Jun 2018 -- Jul 2019
+\begin{itemize}
+  \item Delivered UI designs for 10+ client projects (fintech, healthtech, edtech); 95\% client satisfaction
+  \item Created interactive prototypes for investor demos; helped 3 startups secure seed funding
+  \item Established agency's first design system template; reduced project kickoff time by 30\%
+\end{itemize}
+
+\vspace{4pt}
+
+\section{Skills}
+\textbf{Design:} User Research, Wireframing, Prototyping, Interaction Design, Visual Design, Design Systems\\[3pt]
+\textbf{Tools:} Figma, Sketch, Adobe XD, Principle, ProtoPie, Miro, FigJam, Zeplin\\[3pt]
+\textbf{Research:} Usability Testing, A/B Testing, Card Sorting, Heuristic Evaluation, Surveys\\[3pt]
+\textbf{Other:} HTML/CSS (basic), Accessibility (WCAG 2.1), Design Thinking, Agile/Scrum
+
+\vspace{4pt}
+
+\section{Education}
+\textbf{M.Des -- Interaction Design} \hfill IDC, IIT Bombay \hfill 2018\\[3pt]
+\textbf{B.Des -- Communication Design} \hfill NID Ahmedabad \hfill 2016
+
+\vspace{4pt}
+
+\section{Certifications}
+Google UX Design Certificate \quad\textperiodcentered\quad Nielsen Norman Group UX Certification \quad\textperiodcentered\quad IAAP WAS
+
+\end{document}

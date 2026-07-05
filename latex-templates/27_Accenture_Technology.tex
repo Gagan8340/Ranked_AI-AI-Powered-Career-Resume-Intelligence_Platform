@@ -1,0 +1,96 @@
+%% DESIGN: Helvetica (helvet) | Modern single-column | Purple (#6B2FA0) accent | Colored section bars with white text
+%% Modern corporate style with bold purple section headers on colored background strips
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+
+\definecolor{accent}{HTML}{6B2FA0}
+\definecolor{ACCENT}{HTML}{6B2FA0}
+\definecolor{lightpurple}{HTML}{F3E8FF}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: purple text with purple left border bar
+\titleformat{\section}{\normalfont\bfseries\large\color{accent}}{}{0em}{\rule[-2pt]{3pt}{12pt}\enspace}
+\titlespacing{\section}{0pt}{8pt}{5pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1pt,label=\textcolor{accent}{$\blacktriangleright$}}
+
+\begin{document}
+
+% Header: left-aligned, bold name, purple underline
+\noindent{\fontsize{20}{24}\selectfont\bfseries\color{accent} Vikram Desai}\\[4pt]
+\noindent{\small Pune, India \quad$\bullet$\quad +91-9543216789 \quad$\bullet$\quad vikram.desai@email.com}\\[2pt]
+\noindent{\small \href{https://linkedin.com/in/vikramdesai}{linkedin.com/in/vikramdesai} \quad$\bullet$\quad \href{https://github.com/vikramdesai}{github.com/vikramdesai}}\\[2pt]
+{\color{accent}\rule{\textwidth}{2pt}}
+
+\section{Professional Summary}
+Technology-focused graduate with hands-on experience in cloud computing, enterprise applications, and agile delivery. Strong understanding of digital transformation trends including AI/ML, cloud migration, and automation. Proven team player with experience leading cross-functional college projects and delivering client-facing solutions during internships.
+
+\section{Education}
+\textbf{B.Tech in Computer Engineering} \hfill 2020 -- 2024\\
+College of Engineering, Pune (COEP) \hfill \textbf{CGPA: 8.21/10}\\[3pt]
+\textbf{Class XII (CBSE)} -- Kendriya Vidyalaya, Pune \hfill \textbf{92.4\%} \hfill 2020
+
+\section{Technical Skills}
+\textbf{Languages:} Java, Python, JavaScript, TypeScript, SQL\\
+\textbf{Enterprise Tech:} SAP (basics), Salesforce (Admin), ServiceNow\\
+\textbf{Cloud:} AWS (Solutions Architect path), Azure (AZ-900 certified)\\
+\textbf{Web \& Mobile:} React.js, Angular, Node.js, React Native\\
+\textbf{AI/ML:} Python (TensorFlow, OpenAI API), Prompt Engineering, RAG pipelines\\
+\textbf{Tools:} Git, Docker, JIRA, Confluence, Figma (basic prototyping)
+
+\section{Experience}
+\textbf{\color{accent}Technology Analyst Intern} -- Accenture, Pune \hfill Jan 2024 -- Apr 2024
+\begin{itemize}
+    \item Worked on cloud migration project moving legacy .NET application to Azure for banking client
+    \item Developed 5 Azure Functions for event-driven processing; reduced batch job time by 60\%
+    \item Created technical documentation and runbooks for operations team handover
+    \item Participated in daily standups and sprint retrospectives; presented demo to client team
+\end{itemize}
+
+\vspace{3pt}
+\textbf{\color{accent}Software Development Intern} -- Persistent Systems, Pune \hfill May 2023 -- Jul 2023
+\begin{itemize}
+    \item Built chatbot using OpenAI API and LangChain for internal HR query resolution
+    \item Reduced HR ticket volume by 25\% within pilot group of 200 employees
+    \item Integrated chatbot with Slack and Microsoft Teams using webhook APIs
+\end{itemize}
+
+\section{Projects}
+\textbf{AI-Powered Document Processing} \quad\textit{\small Python, OpenAI, FastAPI, React} \hfill Sep -- Dec 2023
+\begin{itemize}
+    \item Built intelligent document extraction system using GPT-4 API with custom prompts
+    \item Processed invoices, contracts, and forms with 94\% field extraction accuracy
+    \item Designed user-friendly interface for non-technical users to upload and verify extractions
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Digital Transformation Roadmap Tool} \quad\textit{\small React, Node.js, MongoDB} \hfill Mar -- May 2023
+\begin{itemize}
+    \item Created assessment tool helping SMEs evaluate digital maturity across 6 dimensions
+    \item Generated automated recommendations based on industry benchmarks and best practices
+\end{itemize}
+
+\section{Leadership \& Activities}
+\begin{itemize}
+    \item \textbf{Vice President, Entrepreneurship Cell} -- COEP (2023-24); organized startup bootcamp
+    \item \textbf{Accenture Innovation Challenge 2023} -- National Semi-finalist (AI for sustainability)
+    \item \textbf{Microsoft Imagine Cup 2023} -- Regional Finalist; built accessibility tool
+    \item \textbf{Blog Author} -- 20+ articles on digital transformation trends (2,000+ followers)
+\end{itemize}
+
+\section{Certifications}
+Microsoft Azure Fundamentals (AZ-900) \quad$\bullet$\quad AWS Cloud Practitioner \quad$\bullet$\quad Salesforce Certified Administrator \quad$\bullet$\quad Google AI/ML Specialization
+
+\end{document}

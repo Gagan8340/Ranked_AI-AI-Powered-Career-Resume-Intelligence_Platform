@@ -1,0 +1,114 @@
+%% DESIGN: Sans-serif (helvet) | Two-column sidebar layout | AWS Orange (#FF9900) accent | Certification badges sidebar
+%% Cloud Architect style with left sidebar for skills/certs, main content right, orange AWS-inspired accents
+
+\documentclass[9.5pt,a4paper]{article}
+\usepackage[margin=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\definecolor{accent}{HTML}{FF9900}
+\definecolor{ACCENT}{HTML}{FF9900}
+\definecolor{darkbg}{HTML}{232F3E}
+\definecolor{lightbg}{HTML}{FFF8E1}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section styling for main column
+\titleformat{\section}{\bfseries\normalsize\color{darkbg}}{}{0em}{\MakeUppercase}[\color{accent}\rule{\linewidth}{1.2pt}]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=4pt,itemsep=1pt,label={\color{accent}\textbullet}}
+
+\begin{document}
+
+% Full-width header
+\noindent\colorbox{darkbg}{\parbox{\textwidth}{\vspace{6pt}\centering
+{\color{white}\fontsize{18}{22}\selectfont\bfseries Priya Ramanathan}\\[3pt]
+{\color{accent}\small Cloud Architect | Multi-Cloud | FinOps}\\[3pt]
+{\color{white}\small Austin, TX \quad|\quad (512) 555-0293 \quad|\quad priya.ramanathan@email.com \quad|\quad \href{https://linkedin.com/in/priyaramanathan}{\color{accent}LinkedIn} \quad|\quad \href{https://priyacloud.dev}{\color{accent}priyacloud.dev}}
+\vspace{6pt}}}
+
+\vspace{6pt}
+
+\noindent\begin{minipage}[t]{0.3\textwidth}
+% LEFT SIDEBAR
+\begin{tcolorbox}[colback=lightbg,colframe=accent,boxrule=0.5pt,arc=2pt,left=3pt,right=3pt,top=3pt,bottom=3pt]
+{\small\bfseries\color{darkbg}CERTIFICATIONS}\\[3pt]
+{\footnotesize
+$\bullet$ AWS Solutions Architect -- Professional\\[2pt]
+$\bullet$ Azure Solutions Architect Expert\\[2pt]
+$\bullet$ GCP Professional Cloud Architect\\[2pt]
+$\bullet$ FinOps Certified Practitioner}
+\end{tcolorbox}
+
+\vspace{4pt}
+{\small\bfseries\color{darkbg}AWS}\\[2pt]
+{\footnotesize VPC, EC2, EKS, Lambda, S3, RDS, DynamoDB, CloudFront, Transit Gateway}
+
+\vspace{4pt}
+{\small\bfseries\color{darkbg}AZURE}\\[2pt]
+{\footnotesize AKS, Functions, Cosmos DB, Virtual WAN, Landing Zones, Azure Arc}
+
+\vspace{4pt}
+{\small\bfseries\color{darkbg}GCP}\\[2pt]
+{\footnotesize GKE, Cloud Spanner, BigQuery, Anthos, Cloud Interconnect}
+
+\vspace{4pt}
+{\small\bfseries\color{darkbg}IaC}\\[2pt]
+{\footnotesize Terraform, CloudFormation, Pulumi, CDK, Crossplane}
+
+\vspace{4pt}
+{\small\bfseries\color{darkbg}ARCHITECTURE}\\[2pt]
+{\footnotesize Microservices, Event-Driven, CQRS, Multi-Region, Zero Trust}
+
+\vspace{4pt}
+{\small\bfseries\color{darkbg}EDUCATION}\\[2pt]
+{\footnotesize\textbf{M.S. Computer Science}\\UT Austin, 2015\\[2pt]
+\textbf{B.Tech IT}\\Anna University, 2013}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.67\textwidth}
+% RIGHT MAIN COLUMN
+
+\section{Summary}
+Cloud Architect with 9+ years designing enterprise-scale infrastructure across AWS, Azure, and GCP. Led cloud transformations for Fortune 500 clients, reducing annual spend by \$4.2M while improving reliability to 99.99\%.
+
+\section{Experience}
+
+\textbf{Principal Cloud Architect} \hfill Jan 2021 -- Present\\
+{\color{accent}Nexus Consulting Group}, Austin, TX
+\begin{itemize}
+  \item Designed multi-region active-active architecture on AWS for 12M users; 99.99\% availability, sub-100ms latency
+  \item Led cost optimization across 8 accounts: \$11.2M to \$7.0M (37\% reduction)
+  \item Architected serverless pipeline processing 500M events/day; eliminated \$800K/yr EC2 costs
+  \item Established landing zone framework; onboarded 45 teams in 6 months
+  \item Designed hybrid connectivity reducing data transfer costs by 52\%
+\end{itemize}
+
+\textbf{Senior Cloud Engineer} \hfill Mar 2018 -- Dec 2020\\
+{\color{accent}GlobalTech Systems}, Dallas, TX
+\begin{itemize}
+  \item Migrated 120+ on-prem apps to AWS (6R strategy); 3 months early, \$1.1M under budget
+  \item Designed DR: RPO < 5min, RTO < 15min with cross-region replication
+  \item Managed 2,000+ resources via Terraform across 3 providers with zero drift
+  \item Built FinOps practice; caught 15+ billing anomalies before exceeding \$10K
+\end{itemize}
+
+\textbf{Cloud Engineer} \hfill Jun 2015 -- Feb 2018\\
+{\color{accent}Innovate Labs}, Houston, TX
+\begin{itemize}
+  \item Deployed containerized microservices on EKS; supported 300\% growth
+  \item Reduced over-provisioning by 40\% (\$180K annual savings)
+  \item Designed VPC for PCI-DSS and HIPAA compliance
+\end{itemize}
+
+\end{minipage}
+
+\end{document}

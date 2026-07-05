@@ -1,0 +1,82 @@
+%% DESIGN: Cabin | Operations-structured, numbered steps, process flow | Dark Teal (#004D40) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[sfdefault]{cabin}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+\definecolor{darkteal}{HTML}{004D40}
+\definecolor{lightteal}{HTML}{E0F2F1}
+
+\titleformat{\section}{\normalsize\bfseries\color{darkteal}}{}{0em}{\colorbox{darkteal}{\color{white}\small\thesection}\hspace{6pt}}
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{darkteal}\faIcon{truck}}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=1pt}
+
+\hypersetup{colorlinks=true,urlcolor=darkteal}
+
+\begin{document}
+
+\noindent\begin{tabularx}{\linewidth}{@{}Xr@{}}
+{\LARGE\bfseries\color{darkteal} MEERA IYER} & {\small\faIcon{envelope} meera.iyer@email.com}\\
+{\normalsize Supply Chain \& Logistics Engineer} & {\small\faIcon{phone} +91-94432-88776}\\
+& {\small\faIcon{map-marker-alt} Hyderabad, India}\\
+\end{tabularx}
+
+\noindent\rule{\linewidth}{2pt}
+
+\section{Professional Summary}
+Supply chain technology professional with 8 years building logistics optimization systems. Expertise in route planning, warehouse automation, demand forecasting, and last-mile delivery. Reduced operational costs by \$15M+ through algorithmic optimization.
+
+\section{Experience}
+
+\textbf{Delhivery} \hfill Gurgaon / Hyderabad\\
+\textit{Principal Engineer -- Logistics Optimization} \hfill Feb 2021 -- Present
+\begin{itemize}
+\item Designed route optimization engine reducing delivery costs by 22\% (VRP solver)
+\item Built demand forecasting system (Prophet + LSTM) with 94\% accuracy at SKU level
+\item Architected real-time shipment tracking platform handling 5M+ active parcels
+\item Implemented dynamic pricing algorithm for express delivery (revenue +18\%)
+\item Led warehouse slot optimization reducing pick-pack time by 35\%
+\end{itemize}
+
+\textbf{Flipkart -- Supply Chain} \hfill Bangalore\\
+\textit{Senior Software Engineer} \hfill Jul 2018 -- Jan 2021
+\begin{itemize}
+\item Built inventory placement algorithm optimizing stock across 50+ fulfillment centers
+\item Developed ETA prediction model (95th percentile accuracy: $\pm$4 hours)
+\item Implemented automated returns processing reducing reverse logistics cost by 28\%
+\item Created capacity planning tool for Big Billion Days (10x normal volume)
+\end{itemize}
+
+\textbf{TCS -- Supply Chain Practice} \hfill Mumbai\\
+\textit{Systems Engineer} \hfill Jun 2016 -- Jun 2018
+\begin{itemize}
+\item Built WMS integration for Unilever distribution network (200+ warehouses)
+\item Developed shipment consolidation algorithm reducing LTL costs by 15\%
+\end{itemize}
+
+\section{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Optimization:} & OR-Tools, CPLEX, Gurobi, genetic algorithms, VRP solvers\\
+\textbf{ML/Forecasting:} & Python, TensorFlow, Prophet, time-series analysis\\
+\textbf{Systems:} & Java, Go, Kafka, PostgreSQL, Redis, Elasticsearch\\
+\textbf{GIS/Maps:} & PostGIS, OSRM, Google Maps API, geospatial indexing\\
+\textbf{Domain:} & WMS, TMS, OMS, demand planning, network design\\
+\end{tabularx}
+
+\section{Education}
+\textbf{M.Tech Operations Research} -- IIT Kharagpur \hfill 2014 -- 2016\\
+\textbf{B.Tech Industrial Engineering} -- NIT Calicut \hfill 2010 -- 2014
+
+\section{Certifications \& Awards}
+APICS CSCP (Certified Supply Chain Professional) \quad $\bullet$ \quad AWS ML Specialty\\
+Delhivery ``Innovator of the Year'' 2022 \quad $\bullet$ \quad 2 patents on route optimization
+
+\end{document}

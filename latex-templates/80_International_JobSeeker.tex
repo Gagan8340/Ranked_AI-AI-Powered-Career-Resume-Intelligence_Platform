@@ -1,0 +1,81 @@
+%% DESIGN: Lato | Clean global layout, flag-style header bar | Steel Blue (#4682B4) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.65in]{geometry}
+\usepackage[default]{lato}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+\definecolor{steelblue}{HTML}{4682B4}
+\definecolor{lightblue}{HTML}{EBF4FA}
+
+\titleformat{\section}{\normalsize\bfseries\color{steelblue}\MakeUppercase}{}{0em}{}[\color{steelblue}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\textcolor{steelblue}{\textbf{--}}}
+
+\hypersetup{colorlinks=true,urlcolor=steelblue}
+
+\begin{document}
+
+% Blue header bar
+\noindent\colorbox{steelblue}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\centering\color{white}\bfseries\large\vspace{4pt}ARJUN KRISHNAMURTHY\vspace{4pt}}}
+
+\vspace{6pt}
+\begin{center}
+{\small \faIcon{map-marker-alt} Willing to Relocate (Currently: Bangalore, India) \quad \faIcon{passport} US H-1B Eligible \quad \faIcon{plane} Open to Global Roles}\\[3pt]
+{\small \faIcon{envelope} arjun.k@email.com \quad \faIcon{phone} +91-98765-12345 \quad \faIcon{linkedin} \href{https://linkedin.com/in/arjunk}{linkedin.com/in/arjunk}}
+\end{center}
+
+\section{Professional Summary}
+Senior software engineer with 9 years of experience in distributed systems and cloud infrastructure. Previously worked at Amazon (Seattle, 3 years) and currently based in India. Authorized to work in the US (H-1B transfer eligible). Seeking senior/staff engineering roles globally.
+
+\section{Work Experience}
+
+\textbf{Amazon Web Services} \hfill Seattle, WA, USA\\
+\textit{SDE III -- EC2 Networking Team} \hfill Jan 2020 -- Dec 2022
+\begin{itemize}
+\item Designed VPC peering infrastructure serving 1M+ customer VPCs across 25 regions
+\item Led cross-team initiative reducing network packet loss by 99.2\% during failovers
+\item Owned on-call for Tier-1 service with 99.999\% availability SLA
+\item Filed 3 patents on network topology optimization algorithms
+\end{itemize}
+
+\textbf{Amazon} \hfill Hyderabad, India\\
+\textit{SDE II -- Alexa Smart Home} \hfill Jul 2017 -- Dec 2019
+\begin{itemize}
+\item Built device discovery service handling 50M+ IoT devices globally
+\item Reduced cold-start latency by 65\% through Lambda optimization
+\item Launched Alexa Smart Home in India market (10M+ users in Year 1)
+\end{itemize}
+
+\textbf{Samsung R\&D} \hfill Bangalore, India\\
+\textit{Software Engineer} \hfill Jun 2015 -- Jun 2017
+\begin{itemize}
+\item Developed firmware for Tizen OS wearable devices
+\item Optimized Bluetooth stack reducing power consumption by 20\%
+\end{itemize}
+
+\section{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Languages:} & Java, C++, Python, Go, Rust\\
+\textbf{Systems:} & Distributed systems, Networking (L3/L4/L7), Linux kernel\\
+\textbf{Cloud:} & AWS (VPC, EC2, Lambda, DynamoDB, Kinesis), Terraform\\
+\textbf{Tools:} & Kubernetes, Docker, gRPC, Protocol Buffers, Kafka\\
+\end{tabularx}
+
+\section{Education}
+\textbf{M.Tech Computer Science} -- IIT Bombay \hfill 2013 -- 2015\\
+\textbf{B.Tech Computer Science} -- NIT Trichy \hfill 2009 -- 2013
+
+\section{Additional}
+\textbf{Work Authorization:} US H-1B (transfer eligible), India citizen\\
+\textbf{Languages:} English (fluent), Hindi (native), Tamil (native)\\
+\textbf{Patents:} 3 filed (US Patent Office) on network optimization
+
+\end{document}

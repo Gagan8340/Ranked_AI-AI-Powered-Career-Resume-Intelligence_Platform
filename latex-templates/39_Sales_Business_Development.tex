@@ -1,0 +1,87 @@
+%% DESIGN: Helvetica Bold (helvet) | Aggressive sales layout | Red (#C62828) accent | Numbers prominent, bold metrics
+%% Sales/BD style with red accents, bold revenue numbers, aggressive formatting, results-first
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{C62828}
+\definecolor{ACCENT}{HTML}{C62828}
+\definecolor{lightred}{HTML}{FFEBEE}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: red bold uppercase, thick red underline
+\titleformat{\section}{\bfseries\normalsize\color{accent}}{}{0em}{\MakeUppercase}[\color{accent}\rule{\textwidth}{2pt}]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=4pt,itemsep=1.5pt,label={\color{accent}\bfseries\textgreater}}
+
+% Bold red numbers command
+\newcommand{\num}[1]{{\bfseries\color{accent}#1}}
+
+\begin{document}
+
+% Header: bold, aggressive, red name
+\noindent{\fontsize{22}{26}\selectfont\bfseries\color{accent}ADITYA KAPOOR}\\[2pt]
+\noindent{\small\bfseries Gurgaon, India \quad|\quad +91-98765-12345 \quad|\quad aditya.kapoor@email.com \quad|\quad \href{https://linkedin.com/in/adityakapoor-sales}{linkedin.com/in/adityakapoor-sales}}
+
+\vspace{4pt}
+\noindent\colorbox{lightred}{\parbox{\dimexpr\textwidth-2\fboxsep}{%
+\centering\small\bfseries\vspace{3pt}
+\num{\$18M+} Cumulative Revenue \quad\textbar\quad \num{128\%} Quota Attainment \quad\textbar\quad \num{8} Consecutive Quarters Above Target \quad\textbar\quad \num{3x} President's Club Winner
+\vspace{3pt}}}
+
+\section{Summary}
+Sales \& Business Development leader with 7 years in enterprise SaaS and technology sales. Consistently exceeded quota (\num{115\%+} attainment for 8 consecutive quarters). Closed \num{\$18M+} in cumulative revenue with average deal size of \num{\$250K}. Skilled at consultative selling to C-suite buyers, building strategic partnerships, and scaling sales teams.
+
+\section{Experience}
+
+\textbf{Senior Manager -- Enterprise Sales} \quad|\quad Salesforce India, Gurgaon \hfill Jan 2022 -- Present\\
+{\small\itshape Enterprise Accounts -- BFSI Vertical}
+\begin{itemize}
+  \item Exceeded annual quota of \$4.5M by \num{128\%}; closed 12 enterprise deals with avg contract value of \num{\$480K}
+  \item Acquired \num{8 new logos} including 3 Fortune 500 accounts; built pipeline of \num{\$15M+}
+  \item Reduced average sales cycle from 9 months to \num{5.5 months} via MEDDPICC qualification framework
+  \item Grew existing account portfolio by \num{45\%} through upsell/cross-sell; achieved 130\% net revenue retention
+  \item Mentored team of 4 AEs; 3 promoted to senior roles within 18 months
+\end{itemize}
+
+\textbf{Account Executive -- Mid-Market} \quad|\quad Freshworks, Chennai \hfill Jun 2019 -- Dec 2021\\
+{\small\itshape CRM \& ITSM Solutions}
+\begin{itemize}
+  \item Achieved \num{118\%} average quota attainment over 10 quarters; ranked \num{\#2} in APAC team of 35 reps
+  \item Closed \num{45+ deals} totaling \num{\$6.2M}; managed full sales cycle from prospecting to close
+  \item Built outbound pipeline generating 60\% of personal revenue; multi-threading across 5+ stakeholders
+  \item Won President's Club award (2020, 2021) for top 5\% performance globally
+\end{itemize}
+
+\textbf{Business Development Representative} \quad|\quad Zoominfo (India), Hyderabad \hfill Jul 2017 -- May 2019\\
+{\small\itshape Data \& Intelligence Platform}
+\begin{itemize}
+  \item Generated \num{200+} qualified opportunities worth \num{\$8M} in pipeline for enterprise AE team
+  \item Exceeded monthly meeting quota by \num{135\%}; booked 25+ discovery calls per month
+  \item Developed cold outreach sequences with \num{12\%} response rate (3x team average)
+\end{itemize}
+
+\section{Skills}
+\textbf{Sales:} Enterprise Selling, Consultative Sales, MEDDPICC, Solution Selling, Contract Negotiation\\
+\textbf{BD:} Pipeline Generation, Strategic Partnerships, Channel Sales, Account Planning\\
+\textbf{Tools:} Salesforce CRM, Outreach, LinkedIn Sales Navigator, Gong, ZoomInfo, Clari\\
+\textbf{Domains:} SaaS, BFSI, Manufacturing, IT Services
+
+\section{Education}
+\textbf{MBA -- Sales \& Marketing} \hfill IIM Lucknow \hfill 2017\\
+\textbf{B.Tech -- Mechanical Engineering} \hfill DTU Delhi \hfill 2015
+
+\section{Achievements}
+President's Club (2020, 2021, 2023) \quad|\quad Salesforce Certified Sales Professional \quad|\quad Top 5\% Global (3 years)
+
+\end{document}

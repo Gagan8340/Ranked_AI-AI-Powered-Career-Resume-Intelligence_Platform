@@ -1,0 +1,80 @@
+%% DESIGN: Computer Modern | Engineering-precise, dense two-column skills | Dark Gray (#333333) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{multicol}
+
+\definecolor{engdark}{HTML}{333333}
+\definecolor{englight}{HTML}{EEEEEE}
+
+\titleformat{\section}{\normalsize\bfseries\color{engdark}\scshape}{}{0em}{}[\vspace{-0.5em}{\color{engdark}\leaders\hbox{\rule[0.4ex]{1pt}{0.4pt}\hskip 2pt}\hfill\kern0pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{leftmargin=1em,itemsep=0pt,parsep=0pt,topsep=2pt,label=\color{engdark}\tiny$\blacksquare$}
+
+\hypersetup{colorlinks=true,urlcolor=engdark}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries SURESH NARAYANAN}\\[3pt]
+{\small Embedded Systems Engineer $\vert$ Automotive ADAS/EV}\\[3pt]
+{\footnotesize suresh.n@email.com \quad $\bullet$ \quad +91-94432-11234 \quad $\bullet$ \quad Chennai, India \quad $\bullet$ \quad \href{https://linkedin.com/in/sureshn}{LinkedIn}}
+\end{center}
+
+\section{Summary}
+Embedded systems engineer with 8 years in automotive domain (ADAS, EV powertrain, AUTOSAR). Expertise in real-time systems, functional safety (ISO 26262), and hardware-software co-design. Experience with Tier-1 suppliers and OEMs.
+
+\section{Technical Competencies}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{MCU/SoC:} & ARM Cortex-M/R/A, Infineon AURIX, NXP S32K, TI TDA4, Qualcomm SA8155P\\
+\textbf{Protocols:} & CAN, CAN-FD, LIN, FlexRay, Ethernet (100BASE-T1), SPI, I2C, UART\\
+\textbf{RTOS:} & FreeRTOS, QNX, AUTOSAR OS, VxWorks, Zephyr\\
+\textbf{Languages:} & C (expert), C++ (advanced), Python, Rust (embedded), MATLAB/Simulink\\
+\textbf{Tools:} & Vector CANoe/CANalyzer, ETAS INCA, Lauterbach TRACE32, LDRA, Polyspace\\
+\textbf{Standards:} & ISO 26262 (ASIL-D), AUTOSAR Classic/Adaptive, MISRA C:2012, ASPICE\\
+\end{tabularx}
+
+\section{Professional Experience}
+
+\textbf{Robert Bosch} \hfill Bangalore, India\\
+\textit{Senior Embedded Engineer -- ADAS Platform} \hfill Apr 2021 -- Present
+\begin{itemize}
+\item Developing sensor fusion ECU software for L2+ autonomous driving (radar + camera)
+\item Implemented AUTOSAR Adaptive platform on Qualcomm SA8155P achieving ASIL-B certification
+\item Designed real-time object detection pipeline with 10ms end-to-end latency constraint
+\item Led functional safety analysis (FMEA, FTA) for braking intervention module
+\item Reduced boot time from 8s to 2.1s through optimized initialization sequencing
+\end{itemize}
+
+\textbf{Tata Elxsi} \hfill Bangalore, India\\
+\textit{Embedded Software Engineer -- EV Powertrain} \hfill Jul 2018 -- Mar 2021
+\begin{itemize}
+\item Developed Battery Management System (BMS) firmware for 96-cell Li-ion pack
+\item Implemented SoC/SoH estimation algorithms with $<$3\% error margin
+\item Built CAN-based diagnostic stack (UDS/ISO 14229) for production vehicles
+\item Achieved ISO 26262 ASIL-C compliance for motor control unit
+\end{itemize}
+
+\textbf{Continental Automotive} \hfill Bangalore, India\\
+\textit{Junior Embedded Engineer} \hfill Jun 2016 -- Jun 2018
+\begin{itemize}
+\item Developed AUTOSAR BSW modules (COM, PDU Router, NM) for body control ECU
+\item Wrote MISRA-compliant device drivers for CAN and SPI peripherals
+\item Performed HIL testing using dSPACE and National Instruments platforms
+\end{itemize}
+
+\section{Education}
+\textbf{M.Tech VLSI \& Embedded Systems} -- NIT Surathkal \hfill 2014 -- 2016\\
+\textbf{B.E.\ Electronics \& Communication} -- Anna University \hfill 2010 -- 2014
+
+\section{Certifications}
+ISO 26262 Functional Safety Professional (T\"UV S\"UD) \quad $\bullet$ \quad AUTOSAR Certified Engineer \quad $\bullet$ \quad Certified LabVIEW Developer
+
+\end{document}

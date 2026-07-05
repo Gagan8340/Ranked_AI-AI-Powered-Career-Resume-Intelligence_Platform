@@ -1,0 +1,86 @@
+%% DESIGN: Clean sans (lmodern sans) | Pythonic minimal | Snake green (#2E7D32) accent | Clean, indented, minimal decoration
+%% Python/Django style: clean and minimal like Python itself, green accent, indentation-inspired layout
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{2E7D32}
+\definecolor{ACCENT}{HTML}{2E7D32}
+\definecolor{lightgreen}{HTML}{E8F5E9}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: green, clean, single thin line -- pythonic simplicity
+\titleformat{\section}{\normalfont\bfseries\color{accent}}{}{0em}{\#\enspace}[\vspace{1pt}{\color{accent!40}\rule{\textwidth}{0.3pt}}]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+\setlist[itemize]{nosep,left=8pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}\guilsinglright}}
+
+\begin{document}
+
+% Header: clean, minimal, green name
+\begin{center}
+{\fontsize{20}{24}\selectfont\color{accent}\bfseries Amara Johnson}\\[6pt]
+{\small Denver, CO \enspace\textperiodcentered\enspace (720) 555-0567 \enspace\textperiodcentered\enspace amara.johnson@email.com}\\[3pt]
+{\small \href{https://linkedin.com/in/amarajohnson}{\color{accent}linkedin.com/in/amarajohnson} \enspace\textperiodcentered\enspace \href{https://github.com/ajohnson-py}{\color{accent}github.com/ajohnson-py}}
+\end{center}
+
+\vspace{4pt}
+{\color{accent}\rule{\textwidth}{0.8pt}}
+\vspace{2pt}
+
+\section{Summary}
+Backend Engineer with 6+ years building scalable APIs and data pipelines in Python. Expert in Django/FastAPI, ETL orchestration, and ML model integration. Designed systems serving 5M+ API calls/day with sub-50ms latency while processing 2TB+ daily data volumes for ML-powered product features.
+
+\section{Skills}
+\textbf{Languages:} Python 3.11+, SQL, Go, JavaScript\\
+\textbf{Frameworks:} Django, Django REST Framework, FastAPI, Celery, Flask\\
+\textbf{Data \& ML:} PostgreSQL, Redis, Apache Airflow, Spark, Pandas, scikit-learn, MLflow\\
+\textbf{Infrastructure:} AWS (Lambda, SQS, S3, Redshift, SageMaker), Docker, Kubernetes\\
+\textbf{Messaging:} Apache Kafka, RabbitMQ, AWS SNS/SQS\\
+\textbf{Testing:} pytest, factory\_boy, hypothesis, locust, coverage.py\\
+\textbf{Practices:} REST/GraphQL API Design, Data Modeling, Feature Engineering, CI/CD
+
+\section{Experience}
+
+\textbf{Senior Backend Engineer} \enspace\textbar\enspace RecoAI Platform, Denver \hfill Aug 2021 -- Present
+\begin{itemize}
+  \item Designed recommendation API serving 5M+ requests/day with p99 of 42ms (FastAPI + Redis); powers personalization for 2M users
+  \item Built real-time ML feature pipeline (Airflow + Kafka) processing 2TB/day; reduced feature freshness from 24h to 15min, +12\% model accuracy
+  \item Architected model serving infrastructure (SageMaker + A/B testing); enabled 3x more experiments per quarter
+  \item Implemented Django admin platform managing 500+ ML models with versioning and automated rollback
+  \item Reduced API infrastructure costs by 45\% through async processing and intelligent caching
+\end{itemize}
+
+\textbf{Python Backend Developer} \enspace\textbar\enspace DataPulse Analytics, Boulder \hfill Mar 2019 -- Jul 2021
+\begin{itemize}
+  \item Built ETL pipelines with Airflow (200+ DAGs, 40+ sources); achieved 99.5\% SLA compliance
+  \item Developed Django REST API for analytics dashboard (50K DAU); sub-second aggregation queries
+  \item Designed event-driven architecture (Celery + RabbitMQ) processing 10M+ async tasks/day
+  \item Implemented API versioning strategy; reduced partner integration time from 2 weeks to 2 days
+\end{itemize}
+
+\textbf{Software Engineer} \enspace\textbar\enspace EduTech Startup, Denver \hfill Jun 2017 -- Feb 2019
+\begin{itemize}
+  \item Built Django application from MVP to 100K users with auth, payments, and content delivery
+  \item Designed PostgreSQL schema with multi-tenant row-level security
+  \item Created data pipeline processing 50M+ events/month for adaptive learning algorithms
+\end{itemize}
+
+\section{Open Source}
+\texttt{\color{accent}django-ml-pipeline} -- Django integration for ML model serving (1.4K$\star$)\\
+\texttt{\color{accent}fastapi-cache-plus} -- Advanced caching middleware for FastAPI (800+$\star$)
+
+\section{Education}
+\textbf{M.S. Data Science} \hfill University of Colorado Boulder \hfill 2017\\
+\textbf{B.S. Computer Science} \hfill Howard University \hfill 2015
+
+\end{document}

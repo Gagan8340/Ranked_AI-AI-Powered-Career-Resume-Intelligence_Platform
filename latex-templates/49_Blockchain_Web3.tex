@@ -1,0 +1,94 @@
+%% DESIGN: Futuristic sans (avant) | Electric blue (#2979FF) accent | Geometric elements, angular section dividers
+%% Blockchain/Web3 style: futuristic, electric blue, geometric shapes, angular design, tech-forward
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{avant}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{amssymb}
+
+\definecolor{accent}{HTML}{2979FF}
+\definecolor{ACCENT}{HTML}{2979FF}
+\definecolor{darkaccent}{HTML}{0D47A1}
+\definecolor{lightbg}{HTML}{E3F2FD}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: electric blue with geometric diamond prefix
+\titleformat{\section}{\bfseries\normalsize\color{darkaccent}}{}{0em}{\color{accent}$\lozenge$\enspace\MakeUppercase}[\color{accent}\rule{\textwidth}{0.8pt}]
+\titlespacing{\section}{0pt}{8pt}{5pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}$\diamond$}}
+
+\begin{document}
+
+% Header: geometric, futuristic
+\noindent\begin{tikzpicture}
+\fill[accent] (0,0) -- (0.5,0.8) -- (0,0.8) -- cycle;
+\fill[darkaccent] (0.5,0) -- (0.5,0.8) -- (1,0) -- cycle;
+\end{tikzpicture}
+\hspace{4pt}
+{\fontsize{20}{24}\selectfont\bfseries\color{darkaccent}Alex Novak}
+\hfill
+\begin{tikzpicture}
+\fill[darkaccent] (0,0) -- (0.5,0.8) -- (0,0.8) -- cycle;
+\fill[accent] (0.5,0) -- (0.5,0.8) -- (1,0) -- cycle;
+\end{tikzpicture}\\[4pt]
+{\small\color{accent}Blockchain Developer | Smart Contracts | DeFi}\\[3pt]
+{\small Miami, FL \quad\textbar\quad (305) 555-0891 \quad\textbar\quad alex.novak@email.com \quad\textbar\quad \href{https://linkedin.com/in/alexnovak-web3}{LinkedIn} \quad\textbar\quad \href{https://github.com/anovak-sol}{GitHub}}
+
+\vspace{2pt}
+{\color{accent}\rule{\textwidth}{1.5pt}}
+
+\section{Summary}
+Blockchain Developer with 5+ years building decentralized applications and smart contracts on Ethereum, Polygon, and Solana. Architected DeFi protocols managing \$180M+ TVL with zero security incidents. Expert in Solidity optimization, cross-chain bridges, and MEV-resistant protocol design.
+
+\section{Technical Skills}
+\textbf{Smart Contracts:} Solidity, Vyper, Rust (Solana/Anchor), Cairo (StarkNet)\\
+\textbf{Frameworks:} Hardhat, Foundry, Truffle, OpenZeppelin, Chainlink\\
+\textbf{DeFi:} AMMs, Lending Protocols, Yield Aggregators, Liquid Staking, Oracles\\
+\textbf{Frontend:} React, ethers.js, wagmi, RainbowKit, The Graph (subgraphs)\\
+\textbf{Security:} Slither, Mythril, Echidna (fuzzing), Formal Verification, Audit Preparation\\
+\textbf{Infrastructure:} IPFS, Alchemy, Infura, TheGraph, Chainlink Automation\\
+\textbf{Chains:} Ethereum, Polygon, Arbitrum, Optimism, Solana, Base
+
+\section{Experience}
+
+\textbf{Lead Smart Contract Engineer} \quad\textbar\quad DeFi Protocol Labs, Miami \hfill Jun 2022 -- Present
+\begin{itemize}
+  \item Architected lending protocol contracts managing \$180M TVL (Ethereum + Arbitrum); passed 3 independent audits with zero critical findings
+  \item Optimized gas by 45\% via storage packing, assembly blocks, and batch operations; saved users \$2.1M in cumulative fees
+  \item Designed cross-chain bridge (LayerZero) handling \$50M+/month with cryptographic verification and MEV protection
+  \item Implemented UUPS upgradeable proxy with timelock governance and multi-sig controls
+  \item Built Foundry test suite: 100\% branch coverage, 10M+ fuzz iterations; caught 8 edge-case vulnerabilities pre-deploy
+\end{itemize}
+
+\textbf{Solidity Developer} \quad\textbar\quad YieldMax Finance, Remote \hfill Jan 2021 -- May 2022
+\begin{itemize}
+  \item Developed yield aggregator vaults processing \$40M+ in deposits; auto-compounding across 15+ protocols
+  \item Built ERC-4626 tokenized vault implementation adopted by 5 partner protocols
+  \item Designed oracle-resistant liquidation mechanism reducing bad debt by 92\%
+  \item Created subgraph indexing 500K+ on-chain events for real-time analytics (10K DAU)
+\end{itemize}
+
+\textbf{Blockchain Developer} \quad\textbar\quad NFT Marketplace Co., Austin \hfill Mar 2019 -- Dec 2020
+\begin{itemize}
+  \item Built NFT marketplace contracts (ERC-721/1155) facilitating 100K+ trades (\$15M volume)
+  \item Implemented lazy minting reducing creator gas costs by 95\%
+  \item Developed royalty enforcement mechanism (EIP-2981) for secondary sales
+\end{itemize}
+
+\section{Security \& Open Source}
+Contributor to OpenZeppelin Contracts \quad\textbar\quad 3 Immunefi bug bounties (\$45K total) \quad\textbar\quad Published: ``Gas Optimization Patterns in Solidity''
+
+\section{Education}
+\textbf{B.S. Computer Science} \hfill Georgia Institute of Technology, 2019
+
+\end{document}

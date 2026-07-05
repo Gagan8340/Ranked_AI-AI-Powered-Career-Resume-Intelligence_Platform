@@ -1,0 +1,73 @@
+%% Style 04: Bold Headers
+%% DESIGN PHILOSOPHY: Strong visual hierarchy through oversized bold section headers
+%% with colored underlines. Palatino font for elegance with impact.
+%% Visual signature: Large colored section titles, compact dense bullets.
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{palatino}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\definecolor{accent}{HTML}{C0392B}
+\definecolor{darktext}{HTML}{2C3E50}
+
+\titleformat{\section}{\Large\bfseries\color{darktext}}{}{0em}{}[\vspace{-4pt}{\color{accent}\rule{\textwidth}{2.5pt}}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\fontsize{28}{34}\selectfont\bfseries\color{darktext} Arjun Mehta}\\[6pt]
+{\normalsize arjun.mehta@email.com \enspace | \enspace 415-555-0192 \enspace | \enspace San Francisco, CA}\\[2pt]
+{\normalsize\color{accent} github.com/arjunmehta \enspace | \enspace linkedin.com/in/arjunmehta}
+\end{center}
+
+\section{Experience}
+
+\noindent{\bfseries\large Senior Software Engineer} \hfill {\bfseries 2021 -- Present}\\
+{\itshape\color{accent} Stripe, Inc.} \hfill {\itshape San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=0pt, parsep=1pt]
+  \item Led redesign of payment processing pipeline, reducing latency by 40\% and handling 50K+ TPS
+  \item Architected event-driven microservices platform using Kafka and gRPC serving 200+ teams
+  \item Mentored 5 junior engineers; established code review standards adopted org-wide
+\end{itemize}
+
+\vspace{4pt}
+\noindent{\bfseries\large Software Engineer II} \hfill {\bfseries 2018 -- 2021}\\
+{\itshape\color{accent} Google LLC} \hfill {\itshape Mountain View, CA}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=0pt, parsep=1pt]
+  \item Built real-time data pipeline processing 2TB/day for Google Maps traffic predictions
+  \item Designed collaborative editing features used by 10M+ Google Docs users
+  \item Reduced CI/CD build times by 60\% through parallel test execution framework
+\end{itemize}
+
+\vspace{4pt}
+\noindent{\bfseries\large Software Engineer} \hfill {\bfseries 2016 -- 2018}\\
+{\itshape\color{accent} Amazon Web Services} \hfill {\itshape Seattle, WA}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=0pt, parsep=1pt]
+  \item Developed auto-scaling algorithms for EC2 fleet management serving 1M+ instances
+  \item Implemented distributed caching layer reducing database load by 70\%
+\end{itemize}
+
+\section{Education}
+
+\noindent{\bfseries M.S. Computer Science} -- Stanford University \hfill 2016\\
+\noindent{\bfseries B.Tech Computer Science} -- IIT Bombay \hfill 2014
+
+\section{Technical Skills}
+
+\begin{itemize}[leftmargin=1.2em, topsep=0pt, itemsep=0pt, parsep=1pt]
+  \item \textbf{Languages:} Java, Python, Go, TypeScript, Rust, SQL
+  \item \textbf{Frameworks \& Tools:} Spring Boot, React, gRPC, Apache Kafka, Terraform
+  \item \textbf{Infrastructure:} AWS, GCP, Kubernetes, Docker, Redis, PostgreSQL
+  \item \textbf{Expertise:} System Design, Distributed Systems, CI/CD, Agile/Scrum
+\end{itemize}
+
+\end{document}

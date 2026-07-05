@@ -1,0 +1,79 @@
+%% DESIGN: Charter | Warm narrative layout, rounded boxes | Forest Green (#2E8B57) accent
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{charter}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{parskip}
+
+\definecolor{forest}{HTML}{2E8B57}
+\definecolor{warmgray}{HTML}{FAF8F5}
+
+\tcbset{colback=warmgray,colframe=forest,boxrule=0.4pt,arc=8pt,left=10pt,right=10pt,top=8pt,bottom=8pt}
+
+\titleformat{\section}{\normalsize\bfseries\color{forest}\uppercase}{}{0em}{}[\vspace{-0.3em}]
+\titlespacing*{\section}{0pt}{16pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=2pt,parsep=0pt,label=\color{forest}$\circ$}
+
+\hypersetup{colorlinks=true,urlcolor=forest}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Kavitha Rajan}\\[6pt]
+{\small Software Engineer \quad $\cdot$ \quad Returning after Career Break}\\[4pt]
+{\footnotesize Bangalore, India \quad $\vert$ \quad kavitha.rajan@email.com \quad $\vert$ \quad +91-99876-54321 \quad $\vert$ \quad \href{https://linkedin.com/in/kavitharajan}{LinkedIn}}
+\end{center}
+
+\vspace{8pt}
+\begin{tcolorbox}
+\textbf{About Me:} After a fulfilling 2-year career break for family caregiving, I am re-entering the workforce with renewed energy and updated skills. During my break, I completed 3 certifications, contributed to open-source projects, and stayed current with cloud-native technologies. My 7 years of prior experience in backend engineering provide a strong foundation for immediate contribution.
+\end{tcolorbox}
+
+\section{During My Career Break (2022--2024)}
+\begin{itemize}
+\item Completed AWS Solutions Architect Associate certification (Dec 2023)
+\item Contributed 40+ PRs to Apache Kafka open-source project
+\item Built personal project: real-time stock portfolio tracker (Go + React)
+\item Completed Stanford Online ``Machine Learning Specialization'' (Coursera)
+\item Volunteered as coding mentor at NGO teaching underprivileged students
+\end{itemize}
+
+\section{Professional Experience}
+
+\textbf{Flipkart} \hfill Bangalore, India\\
+\textit{Senior Software Engineer} \hfill Jul 2019 -- Mar 2022
+\begin{itemize}
+\item Designed and built order management system handling 2M+ orders during Big Billion Days
+\item Led migration of payment service from monolith to event-driven microservices
+\item Reduced API latency by 40\% through Redis caching and query optimization
+\item Mentored 4 junior engineers; 2 promoted within 18 months
+\end{itemize}
+
+\textbf{Infosys} \hfill Mysore / Pune, India\\
+\textit{Software Engineer} \hfill Jun 2015 -- Jun 2019
+\begin{itemize}
+\item Built RESTful APIs for banking client serving 5M+ customers
+\item Implemented automated testing framework reducing QA cycle by 50\%
+\item Received ``Infy Maker'' award for building internal developer productivity tool
+\end{itemize}
+
+\section{Technical Skills}
+\textbf{Languages:} Java, Go, Python, SQL\\
+\textbf{Frameworks:} Spring Boot, gRPC, React\\
+\textbf{Cloud \& Infra:} AWS (EC2, Lambda, DynamoDB, SQS), Docker, Kubernetes\\
+\textbf{Databases:} PostgreSQL, Redis, MongoDB, Apache Kafka
+
+\section{Education}
+\textbf{B.E.\ Computer Science} -- BMS College of Engineering, Bangalore \hfill 2011 -- 2015\\
+\textit{First Class with Distinction} \hfill 8.5/10 CGPA
+
+\section{Certifications}
+AWS Solutions Architect Associate (2023) \quad $\bullet$ \quad Kubernetes Application Developer (2023) \quad $\bullet$ \quad Oracle Java SE 11 (2020)
+
+\end{document}

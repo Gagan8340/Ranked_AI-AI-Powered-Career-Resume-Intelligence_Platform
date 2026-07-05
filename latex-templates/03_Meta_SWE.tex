@@ -1,0 +1,109 @@
+%% DESIGN: Helvetica | Two-column sidebar (dark navy bg, white text) | Sans-serif | Modern
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0pt]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+
+\definecolor{sidebar}{HTML}{1B2838}
+\definecolor{accent}{HTML}{4FC3F7}
+\definecolor{ACCENT}{HTML}{4FC3F7}
+\definecolor{lightgray}{HTML}{F5F5F5}
+
+\setlist[itemize]{nosep, leftmargin=10pt, label={\color{accent}\footnotesize$\blacktriangleright$}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\newcommand{\sidesection}[1]{{\color{accent}\bfseries\uppercase{\small #1}}\\\vspace{2pt}\color{white}\hrule height 0.5pt\vspace{4pt}}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.32\textwidth}
+\colorbox{sidebar}{\parbox[t][\paperheight][t]{\dimexpr\textwidth-12pt}{%
+\vspace{12pt}\color{white}\centering
+{\Large\bfseries Priya Sharma}\\[4pt]
+{\footnotesize Menlo Park, CA}\\
+{\footnotesize (650) 555-0234}\\
+{\footnotesize priya.sharma@email.com}\\[3pt]
+{\footnotesize\href{https://github.com/priyasharma}{\color{accent}github.com/priyasharma}}\\
+{\footnotesize\href{https://linkedin.com/in/priyasharma}{\color{accent}linkedin.com/in/priyasharma}}\\[12pt]
+\raggedright\hspace{6pt}\begin{minipage}{\dimexpr\textwidth-12pt}
+\sidesection{Technical Skills}
+{\footnotesize
+\textbf{Languages}\\
+C++, Python, Java, Go, Hack/PHP, Rust\\[4pt]
+\textbf{Systems}\\
+Distributed consensus (Paxos/Raft), sharding, replication, load balancing\\[4pt]
+\textbf{Infrastructure}\\
+Kubernetes, Thrift/gRPC, Memcached, RocksDB, ZooKeeper, Flink\\[4pt]
+\textbf{Data}\\
+MySQL, Cassandra, HBase, Apache Spark, Presto\\[10pt]
+}
+
+\sidesection{Education}
+{\footnotesize
+\textbf{M.S. Computer Science}\\
+Carnegie Mellon University\\
+Focus: Distributed Systems\\
+GPA: 3.9/4.0 \quad 2016\\[6pt]
+\textbf{B.Tech Computer Science}\\
+IIT Bombay \quad 2014\\[10pt]
+}
+
+\sidesection{Open Source}
+{\footnotesize
+\textbf{Apache Kafka Contributor}\\
+Implemented KIP-392 (fetch from closest replica), reducing cross-AZ network costs for 10K+ deployments.\\[6pt]
+\textbf{Distributed Graph DB}\\
+Graph storage engine supporting 100M+ edges with sub-ms traversal. 1.2K GitHub stars.\\
+}
+\end{minipage}
+}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.65\textwidth}
+\vspace{12pt}
+\hspace{8pt}\begin{minipage}{\dimexpr\textwidth-16pt}
+
+{\color{sidebar}\large\bfseries EXPERIENCE}\\[-2pt]
+{\color{accent}\hrule height 1.5pt}\vspace{6pt}
+
+\textbf{Staff Software Engineer} $\mid$ \textbf{Twitter/X} \hfill {\small Jan 2021 -- Present}\\
+{\small\itshape Timeline Infrastructure}
+\begin{itemize}
+    \item Redesigned timeline fanout architecture handling 600K tweets/sec during peak events, serving personalized feeds to 350M+ daily active users with P99 under 200ms
+    \item Led 3-engineer team that shipped real-time content ranking system in 8 weeks, increasing user engagement by 12\%
+    \item Implemented eventually-consistent distributed cache across 5 data centers using CRDTs, reducing cross-region read latency by 65\%
+    \item Designed and open-sourced internal RPC framework adopted by 40+ teams (200+ services), reducing service call overhead by 30\%
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Senior Software Engineer} $\mid$ \textbf{Pinterest} \hfill {\small Aug 2018 -- Dec 2020}\\
+{\small\itshape Ads Serving Platform}
+\begin{itemize}
+    \item Built real-time ad auction system processing 2M bid requests/sec, contributing to 18\% increase in ads revenue (\$340M incremental annual)
+    \item Deployed CTR prediction model serving 500M daily predictions with <10ms inference latency
+    \item Architected petabyte-scale event logging pipeline using Apache Flink, enabling real-time advertiser reporting with <5 minute freshness
+    \item Drove privacy-preserving ad targeting initiative with ML and Data Science teams, maintaining revenue within 3\% while eliminating PII dependency
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Software Engineer} $\mid$ \textbf{Snap Inc.} \hfill {\small Jun 2016 -- Jul 2018}\\
+{\small\itshape Backend Infrastructure}
+\begin{itemize}
+    \item Scaled message delivery from 1B to 4B daily messages via sharded queue architecture with automatic rebalancing
+    \item Reduced storage costs by 45\% through intelligent media lifecycle management, archiving 2PB of cold data
+    \item Built capacity planning tool predicting infrastructure needs 30 days ahead with 92\% accuracy
+\end{itemize}
+
+\end{minipage}
+\end{minipage}
+
+\end{document}

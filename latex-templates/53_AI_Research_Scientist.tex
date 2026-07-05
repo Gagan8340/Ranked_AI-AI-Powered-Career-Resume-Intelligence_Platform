@@ -1,0 +1,67 @@
+%% DESIGN: Computer Modern (default LaTeX) | Academic article-class feel, no color | Serif, publications-heavy
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=1in,right=1in,top=0.8in,bottom=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{titlesec,enumitem,hyperref}
+
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\vspace{-0.5em}\hrule\vspace{0.3em}]
+\titleformat{\subsection}[runin]{\bfseries}{}{0em}{}[.]
+\titlespacing{\section}{0pt}{1.2em}{0.5em}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Dr.\ Morgan Chen}\\[0.3em]
+{\large AI Research Scientist}\\[0.3em]
+\small morgan.chen@university.edu $\cdot$ (555) 345-6789 $\cdot$ Cambridge, MA\\
+\small \href{https://scholar.google.com/citations?user=mchen}{Google Scholar} $\cdot$ \href{https://github.com/morganchen}{GitHub} $\cdot$ \href{https://morganchen.ai}{morganchen.ai}
+\end{center}
+
+\section{Research Interests}
+Large language models, reasoning and planning in AI systems, multi-agent systems, alignment and safety, efficient inference methods, neurosymbolic approaches.
+
+\section{Education}
+\noindent\textbf{Ph.D.\ Computer Science} \hfill Massachusetts Institute of Technology, 2020\\
+\indent Thesis: \textit{``Compositional Reasoning in Neural Architectures''}\\
+\indent Advisor: Prof.\ Sarah Williams\\[0.4em]
+\textbf{M.S.\ Computer Science} \hfill Stanford University, 2016\\[0.4em]
+\textbf{B.S.\ Mathematics} (\textit{summa cum laude}) \hfill Carnegie Mellon University, 2014
+
+\section{Selected Publications}
+\begin{enumerate}[leftmargin=2em,nosep,label={[\arabic*]}]
+\item \textbf{Chen, M.}, Park, J., Williams, S. ``Scaling Laws for Compositional Generalization in Transformers.'' \textit{Proceedings of NeurIPS}, 2024.
+\item \textbf{Chen, M.}, Liu, R. ``Efficient Reasoning via Sparse Mixture-of-Experts.'' \textit{Proceedings of ICML}, 2024.
+\item Park, J., \textbf{Chen, M.} ``Multi-Agent Debate Improves Factual Accuracy in LLMs.'' \textit{Proceedings of ICLR}, 2023.
+\item \textbf{Chen, M.}, Williams, S. ``Neurosymbolic Program Synthesis for Mathematical Reasoning.'' \textit{Proceedings of NeurIPS}, 2022.
+\item \textbf{Chen, M.}, et al. ``Compositional Attention Networks for Few-Shot Learning.'' \textit{Proceedings of AAAI}, 2021.
+\item \textbf{Chen, M.}, Williams, S. ``Hierarchical Reasoning with Structured Transformers.'' \textit{Journal of Machine Learning Research}, 22(1):1--45, 2021.
+\end{enumerate}
+
+\section{Experience}
+\noindent\textbf{Senior Research Scientist} \hfill DeepMind, London (Remote) \hfill 2022--Present
+\begin{itemize}[leftmargin=2em,nosep]
+\item Lead research on reasoning capabilities in large language models (team of 6)
+\item Developed novel chain-of-thought distillation method adopted across 3 product teams
+\item Published 4 first-author papers at top venues; filed 2 patents
+\end{itemize}
+\vspace{0.4em}
+
+\noindent\textbf{Research Scientist} \hfill Google Brain, Mountain View, CA \hfill 2020--2022
+\begin{itemize}[leftmargin=2em,nosep]
+\item Contributed to foundational work on instruction-tuned language models
+\item Designed evaluation benchmarks for compositional reasoning (adopted by 50+ papers)
+\end{itemize}
+
+\section{Teaching \& Mentoring}
+\noindent Guest Lecturer, MIT 6.884 ``Advanced NLP'' \hfill Spring 2023, 2024\\
+Mentored 8 PhD interns; 3 papers published from internship work\\
+Program Committee: NeurIPS, ICML, ICLR, ACL (2021--present)
+
+\section{Awards \& Honors}
+\noindent Outstanding Paper Award, NeurIPS 2024 $\cdot$ MIT EECS Dissertation Award 2020 $\cdot$ NSF Graduate Fellowship 2016 $\cdot$ Phi Beta Kappa
+
+\end{document}

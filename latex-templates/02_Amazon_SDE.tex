@@ -1,0 +1,75 @@
+%% DESIGN: Palatino | Single-column | Orange accent | Bold boxed section headers, left dates column
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\definecolor{accent}{HTML}{D35400}
+\definecolor{ACCENT}{HTML}{D35400}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{\colorbox{accent!15}{\parbox{\dimexpr\textwidth-2\fboxsep}{\strut\color{accent}\uppercase{#1}\strut}}}[]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label=--}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\Large \textbf{Jordan Rivera}} \hfill {\small seattle, WA $\cdot$ (206) 555-0198} \\
+{\small \href{mailto:jordan.rivera@email.com}{jordan.rivera@email.com} $\cdot$ \href{https://linkedin.com/in/jordanrivera}{linkedin.com/in/jordanrivera} $\cdot$ \href{https://github.com/jrivera}{github.com/jrivera}}
+
+\vspace{6pt}\hrule height 0.8pt\vspace{2pt}\hrule height 0.3pt
+
+\section{Experience}
+
+{\color{accent}\small Mar 2020 -- Present} \hfill \\[-12pt]
+
+\textbf{Senior Software Development Engineer} $\mid$ \textbf{Uber} \\
+\textit{Rider Payments Platform}
+\begin{itemize}
+    \item Owned end-to-end redesign of payment retry logic, reducing failed ride charges by 28\% and recovering \$4.2M in annual revenue impacting 15M monthly active riders
+    \item Identified and resolved race condition in concurrent payment processing within 48 hours of detection, preventing \$800K in potential double-charges
+    \item Investigated intermittent latency spikes by instrumenting 47 service endpoints, discovered connection pool exhaustion, implemented adaptive pooling reducing P99 from 2.3s to 340ms
+    \item Designed idempotency framework adopted by 8 teams across payments org, eliminating duplicate transaction bugs entirely (previously 12 incidents/quarter)
+    \item Conducted 50+ technical interviews and mentored 3 SDEs through promotion to SDE II
+\end{itemize}
+
+{\color{accent}\small Jul 2017 -- Feb 2020} \hfill \\[-12pt]
+
+\textbf{Software Development Engineer II} $\mid$ \textbf{Twilio} \\
+\textit{Messaging Infrastructure}
+\begin{itemize}
+    \item Architected message queuing system processing 1.2B messages/day with exactly-once delivery, supporting 200K+ business customers
+    \item Delivered zero-downtime migration of 4PB message store from on-prem to AWS within 6-month deadline, 2 weeks ahead of schedule
+    \item Reduced infrastructure costs by 35\% (\$1.6M/year) by implementing intelligent message batching and S3 tiered storage lifecycle policies
+    \item Authored operational excellence runbooks reducing mean-time-to-resolve for SEV-2 incidents from 4 hours to 45 minutes
+\end{itemize}
+
+{\color{accent}\small Jun 2015 -- Jun 2017} \hfill \\[-12pt]
+
+\textbf{Software Development Engineer} $\mid$ \textbf{Capital One} \\
+\textit{Fraud Detection Platform}
+\begin{itemize}
+    \item Built real-time fraud scoring pipeline using Kafka Streams processing 50K transactions/sec, blocking \$12M in fraudulent charges annually
+    \item Owned on-call rotation for critical fraud systems (99.95\% SLA), authored 15 runbooks reducing escalations by 60\%
+\end{itemize}
+
+\section{Education}
+
+{\color{accent}\small 2015} \quad \textbf{B.S. Computer Science} -- University of Washington \quad Magna Cum Laude \quad GPA: 3.7/4.0
+
+\section{Technical Skills}
+
+\textbf{Languages:} Java, Python, TypeScript, Go, SQL \\
+\textbf{AWS:} DynamoDB, SQS, SNS, Lambda, ECS, S3, CloudFormation, CloudWatch, Kinesis \\
+\textbf{Systems:} Microservices, REST APIs, gRPC, Apache Kafka, Redis, PostgreSQL \\
+\textbf{Practices:} CI/CD, Infrastructure as Code, Operational Excellence, Load Testing
+
+\end{document}

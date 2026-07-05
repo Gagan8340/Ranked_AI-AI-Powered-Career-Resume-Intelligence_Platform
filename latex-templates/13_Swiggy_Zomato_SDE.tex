@@ -1,0 +1,74 @@
+%% DESIGN: Palatino | Single-column | Orange accent | Bold company names, italic roles, inline dates
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{E65100}
+\definecolor{ACCENT}{HTML}{E65100}
+
+\titleformat{\section}{\bfseries\normalsize\color{accent}}{}{0em}{}[\vspace{1pt}\color{accent}\rule{\textwidth}{0.6pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}$\triangleright$}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\Large\bfseries Karthik Rajan} \hfill {\small\color{accent} Bangalore, India}\\
+{\small +91-99887-76655 $\cdot$ karthik.rajan@email.com $\cdot$ \href{https://linkedin.com/in/karthikrajan}{LinkedIn} $\cdot$ \href{https://github.com/karthikrajan}{GitHub}}
+
+\section{Summary}
+
+Backend engineer with 4+ years building real-time hyperlocal systems processing 2M+ orders/day. Expertise in geospatial algorithms, ETA prediction, and event-driven architectures. Delivered systems sustaining 5x traffic surges during peak hours and IPL match nights.
+
+\section{Experience}
+
+\textbf{Swiggy} -- \textit{SDE-2} (Apr 2023 -- Present)
+\begin{itemize}
+    \item Redesigned delivery partner assignment algorithm using H3 geospatial indexing, reducing average delivery time by 4.5 minutes across 500+ cities
+    \item Built real-time order tracking system processing 50K location updates/sec from delivery partners via WebSocket connections
+    \item Developed dynamic delivery fee engine factoring distance, demand, weather, and partner availability; increased partner earnings by 18\%
+    \item Implemented restaurant prep-time prediction model (RMSE: 2.1 min) using historical order data, improving ETA accuracy by 22\%
+    \item Designed circuit-breaker patterns for restaurant POS integrations, maintaining 99.5\% order acceptance during partner API outages
+\end{itemize}
+
+\textbf{Dunzo} -- \textit{Software Engineer} (Aug 2021 -- Mar 2023)
+\begin{itemize}
+    \item Built batching algorithm grouping nearby orders for single delivery partner, improving deliveries/hour by 30\%
+    \item Developed geofencing service managing 10K+ delivery zones with real-time boundary updates using PostGIS
+    \item Implemented surge pricing engine processing real-time demand signals across 8 cities, increasing order fulfillment by 25\%
+    \item Built notification service delivering 5M+ push notifications/day with <2sec delivery latency
+\end{itemize}
+
+\textbf{Ola} -- \textit{Software Engineer Intern} (Jan 2021 -- Jun 2021)
+\begin{itemize}
+    \item Developed driver heat-map visualization processing 1M+ GPS pings/hour for supply-demand analysis
+    \item Built automated serviceability checker reducing city launch time from 2 weeks to 3 days
+\end{itemize}
+
+\section{Projects}
+
+\textbf{Real-time Fleet Tracker} {\small$\mid$ Go, Redis, WebSocket, Leaflet.js} -- Open-source real-time vehicle tracking system supporting 10K concurrent connections with geofence alerts\\[3pt]
+\textbf{ETA Prediction Engine} {\small$\mid$ Python, XGBoost, FastAPI} -- ML-based delivery time predictor trained on 5M+ deliveries achieving MAE of 3.2 minutes
+
+\section{Skills}
+
+{\small
+\textbf{Languages:} Go, Python, Java \quad \textbf{Frameworks:} Gin, FastAPI, Spring Boot\\
+\textbf{Databases:} PostgreSQL (PostGIS), Redis, MongoDB, Cassandra, Elasticsearch\\
+\textbf{Infrastructure:} Kafka, AWS (ECS, Lambda, Kinesis), Docker, Kubernetes\\
+\textbf{Specializations:} Geospatial indexing (H3, S2), real-time tracking, ETA/ML models
+}
+
+\section{Education}
+
+\textbf{B.Tech in Computer Science} -- IIT Madras \hfill 2017 -- 2021 \quad CGPA: 8.5/10
+
+\end{document}

@@ -1,0 +1,43 @@
+{% set active_page = "view_resume" %}
+{% set page_title = "View Resume" %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container" style="max-width: 1200px; margin: 0 auto;">
+    <header class="dashboard-header flex-between align-center" style="margin-bottom: var(--space-6);">
+        <div>
+            <h1 class="page-title text-gradient-primary" style="font-size: var(--text-2xl); margin: 0;">Resume Viewer</h1>
+            <p class="muted-text mt-2" style="font-size: var(--text-base);">Preview your uploaded resume document.</p>
+        </div>
+        <div class="header-actions">
+            <a href="/settings" class="btn-secondary" style="display: flex; align-items: center; gap: 8px; padding: 10px 20px; font-weight: 600; text-decoration: none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Go Back to Profile
+            </a>
+        </div>
+    </header>
+
+    <div class="card glass-panel fade-in-up stagger-1" style="padding: 0; overflow: hidden; height: 80vh; display: flex; flex-direction: column;">
+        {% if resume_url %}
+            <object data="{{ resume_url }}" type="application/pdf" style="width: 100%; height: 100%; border: none; flex: 1;" title="Resume Viewer">
+                <div style="padding: var(--space-8); text-align: center; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px; opacity: 0.5;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <h3 style="margin-bottom: 8px; font-size: 20px; font-weight: 600; color: var(--text-main);">Resume PDF Ready</h3>
+                    <p style="max-width: 400px; line-height: 1.6; margin-bottom: 24px;">Your browser restricts inline PDF viewing from secure storage. Please click the button below to securely view or download your resume.</p>
+                    <a href="{{ resume_url }}" target="_blank" class="btn-premium" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Open Resume
+                    </a>
+                </div>
+            </object>
+        {% else %}
+            <div style="padding: var(--space-8); text-align: center; color: var(--text-muted);">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px; opacity: 0.5;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <h3 style="margin-bottom: 8px;">Resume Not Found</h3>
+                <p>The requested resume could not be loaded or the link has expired.</p>
+                <a href="/settings" class="btn-primary mt-4" style="display: inline-block; padding: 10px 24px; text-decoration: none; border-radius: 8px;">Return to Settings</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

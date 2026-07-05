@@ -1,0 +1,74 @@
+%% DESIGN: Times (mathptmx) | Single-column traditional | Maroon accent | Conservative, wide margins (1.0in)
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{800020}
+\definecolor{ACCENT}{HTML}{800020}
+
+\titleformat{\section}{\bfseries\normalsize\color{accent}\uppercase}{}{0em}{}[\vspace{2pt}{\color{accent}\rule{\textwidth}{1.2pt}}]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+\setlist[itemize]{nosep, leftmargin=18pt, label=\textbullet}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\Large\bfseries David Okafor}\\[4pt]
+Seattle, WA $\cdot$ (206) 555-0276 $\cdot$ david.okafor@email.com\\
+\href{https://linkedin.com/in/davidokafor}{linkedin.com/in/davidokafor}
+
+\vspace{4pt}
+{\color{accent}\rule{\textwidth}{0.4pt}}
+
+\section{Summary}
+
+Technical Product Manager with 8+ years launching customer-facing products at scale. Former software engineer with deep understanding of distributed systems and cloud infrastructure. Proven track record of driving \$100M+ revenue impact through data-driven product decisions.
+
+\section{Experience}
+
+\textbf{Senior Product Manager, Technical} -- Shopify \hfill May 2020 -- Present\\
+\textit{Checkout Platform}
+\begin{itemize}
+    \item Identified checkout abandonment as \#1 merchant pain point through analysis of 500K+ merchant support tickets, launched one-click checkout reducing cart abandonment by 22\% across 2M+ stores
+    \item Authored product vision and 3-year roadmap for checkout extensibility platform, securing \$15M engineering investment and enabling 10K+ third-party integrations
+    \item Made controversial decision to deprecate legacy checkout flow (serving 30\% of GMV) based on cohort analysis showing 3x higher conversion on new platform
+    \item Drove \$180M incremental GMV by launching Shop Pay installments, defining pricing model, risk thresholds, and merchant eligibility criteria
+    \item Presented quarterly business reviews to C-suite, translating technical platform investments into merchant revenue impact narratives
+\end{itemize}
+
+\textbf{Product Manager} -- Stripe \hfill Jan 2017 -- Apr 2020\\
+\textit{Developer Platform}
+\begin{itemize}
+    \item Launched Stripe CLI and improved API documentation based on developer friction analysis, reducing median time-to-first-integration from 3 days to 4 hours
+    \item Defined product requirements for webhook reliability system, working with engineers to design at-least-once delivery guarantee that reduced failed webhook rate from 2.3\% to 0.01\%
+    \item Owned \$45M ARR product line (Connect platform), driving 35\% YoY growth through marketplace-specific features informed by 100+ customer interviews
+    \item Identified and fast-tracked fraud detection API launch in 6 weeks after detecting emerging fraud pattern affecting 500+ merchants
+\end{itemize}
+
+\textbf{Software Engineer / Associate PM} -- Intuit \hfill Jun 2014 -- Dec 2016\\
+\textit{QuickBooks Platform}
+\begin{itemize}
+    \item Transitioned from engineering to product after identifying and shipping automated invoice reminders feature that recovered \$2.1B in overdue payments for SMBs annually
+    \item Defined API strategy for QuickBooks ecosystem, growing third-party app marketplace from 200 to 800+ integrations
+\end{itemize}
+
+\section{Education}
+
+\textbf{MBA} -- Harvard Business School \hfill 2014\\
+\textbf{B.S. Computer Science} -- Georgia Tech \hfill 2012 \quad {\small Highest Honors, GPA: 3.9/4.0}
+
+\section{Skills}
+
+\textbf{Product:} Working Backwards (PR/FAQ), A/B Testing, SQL, Roadmapping, P\&L Ownership \\
+\textbf{Technical:} System Design, API Design, Cloud Architecture (AWS), Data Pipelines \\
+\textbf{Analytics:} SQL (advanced), Python, Tableau, Mixpanel, Statistical Analysis
+
+\end{document}

@@ -1,0 +1,97 @@
+%% Style 05: Tech/Developer
+%% DESIGN PHILOSOPHY: GitHub README / terminal inspired. Monospace for headers,
+%% code-block style skill sections, markdown-like formatting.
+%% Visual signature: Monospace name, boxed skill sections, hash-prefixed headers.
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{courier}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\definecolor{codebg}{HTML}{F6F8FA}
+\definecolor{border}{HTML}{D0D7DE}
+\definecolor{green}{HTML}{238636}
+\definecolor{blue}{HTML}{0969DA}
+\definecolor{dimgray}{HTML}{656D76}
+
+\mdfdefinestyle{codeblock}{
+  backgroundcolor=codebg, linecolor=border, linewidth=0.5pt,
+  innerleftmargin=10pt, innerrightmargin=10pt,
+  innertopmargin=8pt, innerbottommargin=8pt, roundcorner=3pt
+}
+
+\newcommand{\devheader}[1]{%
+  \vspace{10pt}\noindent{\ttfamily\large\bfseries\color{blue} \#\# #1}\vspace{4pt}\par%
+  \noindent\textcolor{border}{\rule{\textwidth}{0.5pt}}\vspace{4pt}\par%
+}
+
+\begin{document}
+
+{\ttfamily\fontsize{22}{26}\selectfont\bfseries Arjun Mehta}
+\vspace{2pt}
+
+{\ttfamily\small\color{dimgray}
+> Senior Software Engineer @ Stripe \\
+> San Francisco, CA
+}
+
+\vspace{6pt}
+{\ttfamily\small
+\textcolor{green}{[email]} arjun.mehta@email.com \quad
+\textcolor{green}{[phone]} 415-555-0192 \\
+\textcolor{green}{[github]} github.com/arjunmehta \quad
+\textcolor{green}{[linkedin]} linkedin.com/in/arjunmehta
+}
+
+\devheader{tech\_stack}
+
+\begin{mdframed}[style=codeblock]
+{\ttfamily\small
+languages: \enspace Java, Python, Go, TypeScript, Rust, SQL \\
+frameworks: Spring Boot, React, gRPC, Kafka, Terraform \\
+infra: \enspace\enspace\enspace\enspace AWS, GCP, Kubernetes, Docker, Redis, PostgreSQL \\
+practices: \enspace System Design, Distributed Systems, CI/CD
+}
+\end{mdframed}
+
+\devheader{experience}
+
+\noindent{\ttfamily\bfseries Senior Software Engineer} \hfill {\ttfamily\small\color{dimgray} 2021--present}\\
+{\small\color{blue} Stripe, Inc.} \hfill {\small San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{green}{\textbullet}}, topsep=2pt, itemsep=1pt]
+  \item Led redesign of payment processing pipeline -- 40\% latency reduction, 50K+ TPS
+  \item Architected event-driven microservices (Kafka + gRPC) serving 200+ teams
+  \item Mentored 5 engineers; established org-wide code review standards
+\end{itemize}
+
+\vspace{6pt}
+\noindent{\ttfamily\bfseries Software Engineer II} \hfill {\ttfamily\small\color{dimgray} 2018--2021}\\
+{\small\color{blue} Google LLC} \hfill {\small Mountain View, CA}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{green}{\textbullet}}, topsep=2pt, itemsep=1pt]
+  \item Built real-time data pipeline: 2TB/day for Maps traffic predictions
+  \item Shipped collaborative editing features for 10M+ Docs users
+  \item Reduced CI/CD build times by 60\% via parallel test execution
+\end{itemize}
+
+\vspace{6pt}
+\noindent{\ttfamily\bfseries Software Engineer} \hfill {\ttfamily\small\color{dimgray} 2016--2018}\\
+{\small\color{blue} Amazon Web Services} \hfill {\small Seattle, WA}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{green}{\textbullet}}, topsep=2pt, itemsep=1pt]
+  \item Developed auto-scaling algorithms for EC2 (1M+ instances)
+  \item Implemented distributed caching -- 70\% database load reduction
+\end{itemize}
+
+\devheader{education}
+
+\noindent{\ttfamily M.S. Computer Science} -- Stanford University \hfill {\small 2016}\\
+{\ttfamily B.Tech Computer Science} -- IIT Bombay \hfill {\small 2014}
+
+\end{document}

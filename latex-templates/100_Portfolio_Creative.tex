@@ -1,0 +1,174 @@
+%% DESIGN: Comfortaa + Source Code Pro | Most creative: colored sidebar, TikZ icons, portfolio | Coral (#FF5722) + Teal (#00897B) dual accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0pt]{geometry}
+\usepackage{comfortaa}
+\usepackage{sourcecodepro}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+
+\usetikzlibrary{calc,positioning,shapes.geometric}
+
+\definecolor{sidebar}{HTML}{1A1A2E}
+\definecolor{coral}{HTML}{FF5722}
+\definecolor{teal}{HTML}{00897B}
+\definecolor{lightbg}{HTML}{FAFAFA}
+\definecolor{sidetext}{HTML}{E0E0E0}
+
+\setlist[itemize]{leftmargin=1em,itemsep=1pt,parsep=0pt,label=\color{coral}$\blacktriangleright$}
+
+\hypersetup{colorlinks=true,urlcolor=teal}
+
+\newcommand{\sideicon}[2]{%
+\begin{tikzpicture}[baseline=-0.5ex]
+\node[circle,fill=coral,inner sep=2pt,font=\color{white}\scriptsize] {#1};
+\end{tikzpicture}\hspace{2pt}{\color{sidetext}\small #2}}
+
+\begin{document}
+
+% Full-page layout with sidebar
+\noindent\begin{tikzpicture}[remember picture,overlay]
+% Dark sidebar
+\fill[sidebar] (current page.north west) rectangle ([xshift=6.5cm]current page.south west);
+\end{tikzpicture}
+
+% Sidebar content
+\noindent\begin{minipage}[t][0.96\textheight][t]{5.8cm}
+\vspace{0.6cm}
+\hspace{0.4cm}\begin{minipage}{5cm}
+\color{white}
+
+% Profile circle
+\begin{center}
+\begin{tikzpicture}
+\draw[coral,line width=2pt] (0,0) circle (1.2cm);
+\node[font=\Huge\bfseries\color{coral}] at (0,0) {AK};
+\end{tikzpicture}
+\end{center}
+
+\vspace{8pt}
+\begin{center}
+{\Large\bfseries ANKIT KUMAR}\\[4pt]
+{\small\color{coral} Creative Technologist}\\
+{\small\color{coral} \& Full Stack Developer}
+\end{center}
+
+\vspace{12pt}
+{\color{coral}\rule{4.5cm}{0.5pt}}
+
+\vspace{10pt}
+\sideicon{\faIcon{envelope}}{ankit@creative.dev}\\[6pt]
+\sideicon{\faIcon{phone}}{+91-98765-22110}\\[6pt]
+\sideicon{\faIcon{map-marker-alt}}{Bangalore, India}\\[6pt]
+\sideicon{\faIcon{globe}}{\href{https://ankitkumar.dev}{ankitkumar.dev}}\\[6pt]
+\sideicon{\faIcon{github}}{\href{https://github.com/ankitk}{ankitk}}\\[6pt]
+\sideicon{\faIcon{dribbble}}{\href{https://dribbble.com/ankitk}{dribbble/ankitk}}
+
+\vspace{14pt}
+{\color{coral}\rule{4.5cm}{0.5pt}}
+
+\vspace{10pt}
+{\color{coral}\bfseries\small SKILLS}\\[6pt]
+{\small
+\begin{tikzpicture}
+\foreach \skill/\level [count=\i] in {React/0.95,Three.js/0.85,Node.js/0.9,Python/0.8,Figma/0.88,WebGL/0.75} {
+  \node[anchor=west,text=sidetext] at (0,-\i*0.55) {\skill};
+  \draw[sidetext!30,line width=2pt] (2.2,-\i*0.55) -- (4.5,-\i*0.55);
+  \draw[coral,line width=2pt] (2.2,-\i*0.55) -- ({2.2+2.3*\level},-\i*0.55);
+}
+\end{tikzpicture}
+}
+
+\vspace{14pt}
+{\color{coral}\rule{4.5cm}{0.5pt}}
+
+\vspace{10pt}
+{\color{coral}\bfseries\small EDUCATION}\\[6pt]
+{\small B.Des + B.Tech\\(Dual Degree)\\IIT Bombay\\2014 -- 2019}
+
+\vspace{14pt}
+{\color{coral}\rule{4.5cm}{0.5pt}}
+
+\vspace{10pt}
+{\color{coral}\bfseries\small AWARDS}\\[6pt]
+{\small\color{sidetext}
+\faIcon{trophy} Awwwards SOTD (3x)\\[3pt]
+\faIcon{trophy} FWA of the Day (2x)\\[3pt]
+\faIcon{trophy} Product Hunt \#1 (2x)\\[3pt]
+\faIcon{trophy} CSSDesignAwards (5x)}
+
+\end{minipage}
+\end{minipage}%
+%
+% Main content
+\hspace{0.9cm}\begin{minipage}[t][0.96\textheight][t]{10.5cm}
+\vspace{0.6cm}
+
+{\Large\bfseries\color{sidebar} Portfolio \& Experience}\\[2pt]
+{\color{teal}\rule{9cm}{1.5pt}}
+
+\vspace{10pt}
+{\color{coral}\bfseries Featured Projects}
+
+\vspace{6pt}
+\textbf{\href{https://ankitkumar.dev/cosmos}{Cosmos}} -- Interactive 3D data visualization\\
+{\small WebGL + Three.js $\vert$ 50K+ visitors $\vert$ Featured on Awwwards}
+\begin{itemize}
+\item Real-time particle system visualizing 1M+ data points at 60fps
+\item Custom shader pipeline with post-processing effects
+\end{itemize}
+
+\vspace{4pt}
+\textbf{\href{https://ankitkumar.dev/soundscape}{Soundscape}} -- Audio-reactive generative art\\
+{\small Web Audio API + Canvas $\vert$ 20K+ users $\vert$ Product Hunt \#1}
+\begin{itemize}
+\item Real-time FFT analysis driving procedural animations
+\item Exportable as NFTs on Ethereum (500+ minted)
+\end{itemize}
+
+\vspace{10pt}
+{\color{coral}\bfseries Work Experience}
+
+\vspace{6pt}
+\textbf{Vercel} \hfill Remote\\
+\textit{Creative Engineer} \hfill 2022 -- Present
+\begin{itemize}
+\item Building interactive marketing experiences for Next.js launches
+\item Created conf.vercel.com -- 3D interactive conference site (2M+ visits)
+\item Developed real-time collaboration demo showcasing Edge Functions
+\end{itemize}
+
+\vspace{4pt}
+\textbf{Obvious (Design Studio)} \hfill Bangalore\\
+\textit{Creative Technologist} \hfill 2020 -- 2022
+\begin{itemize}
+\item Built award-winning interactive experiences for brands (Nike, Spotify India)
+\item Developed AR filters reaching 10M+ users on Instagram
+\item Created generative art installations for physical exhibitions
+\end{itemize}
+
+\vspace{4pt}
+\textbf{Freelance Creative Dev} \hfill Various\\
+\textit{Independent} \hfill 2019 -- 2020
+\begin{itemize}
+\item 10+ creative web projects for agencies and startups
+\item Specialized in WebGL, creative coding, and interactive storytelling
+\end{itemize}
+
+\vspace{10pt}
+{\color{coral}\bfseries Technical Toolkit}
+
+\vspace{4pt}
+{\small
+\textbf{Creative:} Three.js, WebGL, GLSL, p5.js, TouchDesigner, Blender\\
+\textbf{Frontend:} React, Next.js, Svelte, Framer Motion, GSAP\\
+\textbf{Backend:} Node.js, Python, Supabase, Vercel Edge\\
+\textbf{Mail:} Figma, After Effects, Premiere Pro}
+
+\end{minipage}
+
+\end{document}

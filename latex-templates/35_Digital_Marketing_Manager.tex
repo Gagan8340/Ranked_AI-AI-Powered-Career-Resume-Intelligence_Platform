@@ -1,0 +1,86 @@
+%% DESIGN: Bold sans-serif (helvet bold) | Single-column | Orange (#E65100) accent | Achievement highlight boxes
+%% Digital marketing style with orange achievement callout boxes, bold headers, aggressive metrics
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\tcbuselibrary{skins}
+
+\definecolor{accent}{HTML}{E65100}
+\definecolor{ACCENT}{HTML}{E65100}
+\definecolor{lightorange}{HTML}{FFF3E0}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: bold orange uppercase with thick underline
+\titleformat{\section}{\bfseries\large\color{accent}}{}{0em}{\MakeUppercase}[\color{accent}\rule{\textwidth}{1.5pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}$\blacktriangleright$}}
+
+\begin{document}
+
+% Header: left-aligned bold with orange bar
+\noindent\colorbox{accent}{\parbox{\textwidth}{\color{white}\bfseries\large\quad Rohan Sharma \hfill Digital Marketing Leader\quad}}\\[6pt]
+{\small Delhi NCR, India \quad|\quad +91-98123-45678 \quad|\quad rohan.sharma@email.com \quad|\quad \href{https://linkedin.com/in/rohansharma-marketing}{linkedin.com/in/rohansharma-marketing}}
+
+\vspace{4pt}
+
+% Key metrics box
+\begin{tcolorbox}[colback=lightorange,colframe=accent,boxrule=0.5pt,arc=2pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+\centering\small\bfseries
+\$5M+ Ad Budget Managed \quad\textbar\quad 4.8x ROAS \quad\textbar\quad 200\% Revenue Growth \quad\textbar\quad 1.2M Organic Sessions/Month
+\end{tcolorbox}
+
+\section{Summary}
+Digital Marketing Manager with 7 years of experience scaling growth channels for D2C and SaaS brands. Managed \$5M+ annual ad budgets across Google, Meta, and programmatic channels with consistent 4x+ ROAS. Grew organic traffic from 50K to 1.2M monthly sessions through technical SEO and content strategy.
+
+\section{Experience}
+
+\textbf{Head of Digital Marketing} -- boAt Lifestyle, Delhi \hfill Mar 2022 -- Present
+\begin{itemize}
+  \item Managed \$3.2M annual digital ad budget across Google, Meta, and Amazon Ads; achieved 4.8x blended ROAS (up from 3.1x)
+  \item Scaled monthly revenue from digital channels from \$800K to \$2.4M (200\% growth) within 18 months
+  \item Reduced CAC by 35\% through lookalike audience optimization and creative testing (150+ ad variants/quarter)
+  \item Led SEO strategy growing organic traffic from 200K to 850K monthly sessions; Page 1 for 120+ keywords
+  \item Built and managed team of 6 marketers + 2 agency partners
+\end{itemize}
+
+\textbf{Digital Marketing Manager} -- Lenskart, Bangalore \hfill Jul 2019 -- Feb 2022
+\begin{itemize}
+  \item Drove 45\% YoY growth in paid acquisition revenue; managed \$1.5M quarterly Google Ads budget with 3.6x ROAS
+  \item Launched email marketing automation (Klaviyo); built 12 lifecycle flows generating \$400K monthly revenue
+  \item Improved landing page conversion from 2.1\% to 4.8\% through systematic A/B testing (30+ experiments)
+  \item Executed influencer campaigns with 50+ creators; 15M+ impressions at \$0.02 CPE
+\end{itemize}
+
+\textbf{Digital Marketing Executive} -- iProspect (Dentsu), Mumbai \hfill Jun 2017 -- Jun 2019
+\begin{itemize}
+  \item Managed SEM campaigns for 5 enterprise clients with combined \$2M annual spend
+  \item Implemented technical SEO fixes for e-commerce client; increased organic revenue by 60\%
+  \item Created monthly performance reports and QBR presentations for C-suite stakeholders
+\end{itemize}
+
+\section{Skills}
+\textbf{Channels:} SEO (Technical + Content), Google Ads, Meta Ads, Amazon Ads, Email, Programmatic\\
+\textbf{Analytics:} Google Analytics 4, GTM, Mixpanel, Attribution Modeling, SQL\\
+\textbf{Tools:} SEMrush, Ahrefs, Klaviyo, HubSpot, Shopify, Google Optimize, Hotjar\\
+\textbf{Strategy:} Growth Hacking, CRO, Marketing Automation, Budget Planning, Team Management
+
+\section{Education}
+\textbf{MBA -- Marketing} \hfill FMS Delhi \hfill 2017\\
+\textbf{B.Com (Hons)} \hfill SRCC, Delhi University \hfill 2015
+
+\section{Certifications}
+Google Ads Certified (Search + Display + Video) \quad|\quad HubSpot Inbound Marketing \quad|\quad Meta Blueprint
+
+\end{document}

@@ -1,0 +1,84 @@
+%% DESIGN: Lato | Business-meets-tech with metrics boxes | Coral (#FF6B6B) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.6in,right=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz,tabularx}
+
+\definecolor{accent}{HTML}{FF6B6B}
+\definecolor{ACCENT}{HTML}{FF6B6B}
+\definecolor{metricbg}{HTML}{FFF5F5}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{\color{accent}}[]
+\titlespacing{\section}{0pt}{1em}{0.4em}
+
+% Metric box command
+\newcommand{\metricbox}[2]{%
+\begin{tikzpicture}[baseline=(m.base)]
+\node[fill=metricbg,draw=accent!30,rounded corners=4pt,inner sep=6pt,minimum width=2.8cm] (m) {%
+\begin{tabular}{c}\textbf{\large\color{accent}#1}\\\small #2\end{tabular}};
+\end{tikzpicture}}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\Huge\bfseries TAYLOR MARTINEZ}\\[0.3em]
+{\large\color{accent} Data Scientist -- E-Commerce \& Growth}\\[0.3em]
+{\small taylor.martinez@email.com $\cdot$ (555) 678-9012 $\cdot$ Los Angeles, CA $\cdot$ linkedin.com/in/taylormartinez}
+\end{center}
+
+\vspace{0.3em}
+\noindent\textcolor{accent}{\rule{\textwidth}{2pt}}
+
+% Key Metrics
+\vspace{0.5em}
+\begin{center}
+\metricbox{\$12M+}{Revenue Impact} \quad
+\metricbox{35\%}{Conversion Lift} \quad
+\metricbox{50M+}{Users Served} \quad
+\metricbox{8+}{Years Experience}
+\end{center}
+\vspace{0.3em}
+
+\section{Summary}
+Data Scientist specializing in e-commerce optimization, customer analytics, and growth experimentation. Proven ability to translate complex analyses into actionable business strategies that drive revenue and customer engagement.
+
+\section{Experience}
+
+\noindent\textbf{Lead Data Scientist -- Growth} \hfill May 2021 -- Present\\
+\textit{ShopStream (Series C, \$200M GMV), Los Angeles, CA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Built personalized recommendation engine increasing average order value by 28\% (\$4.2M annual impact)
+\item Designed and analyzed 100+ A/B tests across checkout, search, and product pages
+\item Developed customer lifetime value model enabling targeted retention campaigns (churn reduced 18\%)
+\item Created dynamic pricing algorithm optimizing margins while maintaining competitive positioning
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Senior Data Scientist} \hfill Jan 2019 -- Apr 2021\\
+\textit{MegaRetail Corp., San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Led demand forecasting initiative reducing overstock by 22\% and stockouts by 15\%
+\item Built customer segmentation model (RFM + behavioral) driving personalized email campaigns (+35\% CTR)
+\item Developed attribution model for marketing spend optimization, reallocating \$2M to higher-ROI channels
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Data Scientist} \hfill Jun 2017 -- Dec 2018\\
+\textit{AdTech Solutions, New York, NY}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Built click-through rate prediction models for programmatic advertising (AUC: 0.89)
+\item Analyzed user journey data to identify conversion bottlenecks, improving funnel by 20\%
+\end{itemize}
+
+\section{Skills}
+\noindent\textbf{Analytics:} Python, R, SQL, Spark, Tableau, Looker \quad\textbf{ML:} Scikit-learn, XGBoost, PyTorch, Prophet\\
+\textbf{Experimentation:} A/B Testing, Causal Inference, Bayesian Methods \quad\textbf{Tools:} Snowflake, BigQuery, Airflow, dbt
+
+\section{Education}
+\noindent\textbf{M.S. Statistics} \hfill UCLA, 2017 \qquad \textbf{B.S. Economics \& Mathematics} \hfill USC, 2015
+
+\end{document}

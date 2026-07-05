@@ -1,0 +1,566 @@
+{
+    "dsa": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "competitive coding": {
+        "category": "Competitive Coding",
+        "questions": [
+            {
+                "question": "Explain Segment Trees",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "How to implement Fenwick Tree?",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Competitive Programming Guide",
+                "channel": "WilliamFiset",
+                "url": "https://www.youtube.com/c/WilliamFiset-videos"
+            }
+        ]
+    },
+    "data science": {
+        "category": "Data Science",
+        "questions": [
+            {
+                "question": "Explain the Random Forest algorithm",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "How do you treat missing values in a dataset?",
+                "difficulty": "Easy"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Data Science Interview Prep",
+                "channel": "Ken Jee",
+                "url": "https://www.youtube.com/c/KenJee1"
+            }
+        ]
+    },
+    "node.js": {
+        "category": "Node.js",
+        "questions": [
+            {
+                "question": "Explain the Event Loop",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "What is streams in Node?",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Node.js Advanced Concepts",
+                "channel": "Hussein Nasser",
+                "url": "https://www.youtube.com/c/HusseinNasser-software-engineering"
+            }
+        ]
+    },
+    "django": {
+        "category": "Django",
+        "questions": [
+            {
+                "question": "How does Django ORM handle N+1 query problem?",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Explain Django middleware",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Django REST Framework",
+                "channel": "Dennis Ivy",
+                "url": "https://www.youtube.com/c/DennisIvy"
+            }
+        ]
+    },
+    "system design": {
+        "category": "System Design",
+        "questions": [
+            {
+                "question": "Design YouTube",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Design a URL Shortener",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Design an Online Coding Judge",
+                "difficulty": "Hard"
+            }
+        ],
+        "videos": [
+            {
+                "title": "System Design Interview",
+                "channel": "Gaurav Sen",
+                "url": "https://www.youtube.com/c/GauravSensei"
+            },
+            {
+                "title": "System Design Fundamentals",
+                "channel": "ByteByteGo",
+                "url": "https://bytebytego.com/"
+            }
+        ]
+    },
+    "python": {
+        "category": "Python",
+        "questions": [
+            {
+                "question": "What is the GIL in Python?",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain generators and iterators",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "How does memory management work in Python?",
+                "difficulty": "Hard"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Python Interview Questions",
+                "channel": "Corey Schafer",
+                "url": "https://www.youtube.com/user/schafer5"
+            }
+        ]
+    },
+    "machine learning": {
+        "category": "Machine Learning",
+        "questions": [
+            {
+                "question": "Explain the Bias-Variance Tradeoff",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "How do you handle imbalanced datasets?",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Gradient Descent",
+                "difficulty": "Hard"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Machine Learning Interview Prep",
+                "channel": "StatQuest",
+                "url": "https://www.youtube.com/c/joshstarmer"
+            }
+        ]
+    },
+    "react": {
+        "category": "React",
+        "questions": [
+            {
+                "question": "Explain the Virtual DOM",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "How does React handle state and props?",
+                "difficulty": "Easy"
+            },
+            {
+                "question": "What are React Hooks and how do they work?",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "React Interview Questions",
+                "channel": "Web Dev Simplified",
+                "url": "https://www.youtube.com/c/WebDevSimplified"
+            }
+        ]
+    },
+    "default": {
+        "category": "General Engineering",
+        "questions": [
+            {
+                "question": "Tell me about a challenging bug you fixed",
+                "difficulty": "Behavioral"
+            },
+            {
+                "question": "Explain an architectural decision you made",
+                "difficulty": "Technical"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Behavioral Interview Prep",
+                "channel": "Tech Interview Pro",
+                "url": "https://www.techinterviewpro.com/"
+            }
+        ]
+    },
+    "dummy_expanded_10": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_11": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_12": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_13": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_14": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_15": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_16": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_17": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_18": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    },
+    "dummy_expanded_19": {
+        "category": "DSA",
+        "questions": [
+            {
+                "question": "Explain BFS vs DFS",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Explain Dynamic Programming",
+                "difficulty": "Hard"
+            },
+            {
+                "question": "Implement LRU Cache",
+                "difficulty": "Medium"
+            },
+            {
+                "question": "Detect Cycle in Graph",
+                "difficulty": "Medium"
+            }
+        ],
+        "videos": [
+            {
+                "title": "Striver DSA Sheet",
+                "channel": "TakeUForward",
+                "url": "https://takeuforward.org/"
+            },
+            {
+                "title": "NeetCode DSA Playlist",
+                "channel": "NeetCode",
+                "url": "https://neetcode.io/"
+            }
+        ]
+    }
+}

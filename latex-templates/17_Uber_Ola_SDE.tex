@@ -1,0 +1,64 @@
+%% DESIGN: Latin Modern 9pt | Single-column ultra-compact | Black (no color) | Maximum density, no decorations
+\documentclass[9pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\titleformat{\section}{\bfseries\footnotesize\uppercase}{}{0em}{}
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\setlist[itemize]{nosep, leftmargin=8pt, label={-}, itemsep=0pt, topsep=0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\normalsize\bfseries Vikram Sundaram} \hfill {\tiny Bangalore $|$ +91-95432-10987 $|$ vikram.sundaram@email.com $|$ \href{https://linkedin.com/in/vikramsundaram}{LinkedIn} $|$ \href{https://github.com/vikramsundaram}{GitHub}}
+
+\vspace{2pt}\hrule\vspace{2pt}
+
+{\tiny Backend engineer with 5+ years building real-time mobility platforms serving 5M+ daily rides. Expert in geospatial systems, routing algorithms, and supply-demand matching at scale.}
+
+\section{Skills}
+{\tiny\textbf{Languages:} Go, Java, Python, C++ \textbf{Frameworks:} Gin, Spring Boot, gRPC \textbf{Databases:} PostgreSQL (PostGIS), Redis, Cassandra, Druid, ClickHouse \textbf{Geospatial:} H3, S2, OSRM, Valhalla, OSM \textbf{Infra:} Kafka, Flink, K8s, AWS, GCP \textbf{ML:} ETA models, dynamic pricing, graph algorithms, OR-Tools}
+
+\section{Experience}
+
+{\footnotesize\bfseries SDE-3, Ola} \hfill {\tiny Mar 2022 -- Present}
+\begin{itemize}
+    \item Redesigned ride-matching algorithm using bipartite graph matching, reducing rider wait time by 25\% and improving driver utilization by 18\%
+    \item Built real-time routing engine processing 200K route requests/min using custom OSRM fork with live traffic integration
+    \item Developed dynamic surge pricing model processing supply-demand signals from 500K+ drivers in real-time, increasing ride completion by 15\%
+    \item Architected map data pipeline ingesting 50M+ GPS traces/day for road network updates and speed profile generation
+    \item Implemented driver heat-map prediction system forecasting demand 30 minutes ahead with 85\% accuracy, reducing empty miles by 20\%
+\end{itemize}
+
+{\footnotesize\bfseries Software Engineer, MapmyIndia (Mappls)} \hfill {\tiny Jul 2020 -- Feb 2022}
+\begin{itemize}
+    \item Built geocoding service handling 50K queries/sec with fuzzy address matching for Indian addresses (multilingual)
+    \item Developed turn-by-turn navigation engine with real-time rerouting based on traffic incidents and road closures
+    \item Implemented map tile rendering pipeline generating vector tiles for 7.5M+ road segments across India
+    \item Built fleet tracking platform monitoring 100K+ vehicles with geofence alerts and route deviation detection
+\end{itemize}
+
+{\footnotesize\bfseries Software Engineer Intern, Google Maps (Bangalore)} \hfill {\tiny May 2019 -- Jul 2019}
+\begin{itemize}
+    \item Developed POI deduplication algorithm using spatial clustering and NLP, improving map data quality by 8\%
+    \item Built evaluation framework for ETA model accuracy across 50+ Indian cities
+\end{itemize}
+
+\section{Projects}
+
+{\tiny\bfseries Open-Source Routing Engine} $|$ Go, OSM, A* -- Lightweight routing engine for Indian road networks with support for two-wheelers and auto-rickshaws; 600+ stars\\
+{\tiny\bfseries Ride Demand Forecaster} $|$ Python, LSTM, Kafka -- Time-series model predicting ride demand at H3 hex level with 15-min granularity; MAE of 12 rides/hex
+
+\section{Education}
+
+{\footnotesize\bfseries B.Tech in Computer Science} -- IIT Bombay \hfill 2016 -- 2020 \quad CGPA: 9.0/10
+
+\end{document}

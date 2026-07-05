@@ -1,0 +1,825 @@
+{% set active_page = "settings" %}
+{% set page_title = "My Profile" %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+  <header class="dashboard-header flex-between align-center" style="margin-bottom: var(--space-8); position: sticky; top: 0; z-index: 10; background: var(--bg-app); padding: 20px 0; border-bottom: 1px solid var(--border-subtle);">
+    <div>
+      <h1 class="page-title text-gradient-primary" style="font-size: var(--text-2xl); margin: 0;">My Profile</h1>
+      <p class="muted-text mt-2" style="font-size: var(--text-base);">Manage your professional profile, skills, and resume.</p>
+    </div>
+    <div class="header-actions">
+        <button onclick="saveProfile()" class="btn-primary" id="saveProfileBtn" style="display: none; position: fixed; bottom: 32px; right: 32px; z-index: 999; box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); align-items: center; gap: 8px; padding: 12px 24px; font-weight: 600; border-radius: 50px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            Save Profile Changes
+        </button>
+    </div>
+  </header>
+
+  <div class="grid" style="grid-template-columns: 2fr 1fr; gap: var(--space-6); align-items: start;">
+    
+    <!-- Left Column -->
+    <div class="grid" style="gap: var(--space-6); align-content: start;">
+        <!-- Profile Header -->
+        <div class="card glass-panel fade-in-up stagger-1" style="padding: var(--space-6); display: flex; align-items: center; gap: 24px;">
+            <div class="avatar" style="width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid var(--border-subtle);">
+                <img src="{{ url_for('static', filename='templates/previews/student.png') }}" style="width: 100%; height: 100%; object-fit: contain;" alt="Profile Avatar" />
+            </div>
+            <div style="flex: 1;">
+                <h2 style="margin: 0 0 4px 0; font-size: 24px; color: var(--text-primary);">{{ student.name if student else '' }}</h2>
+                <p class="muted-text" style="margin: 0 0 8px 0;">{{ student.email if student else '' }}</p>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 13px; color: var(--text-secondary); background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 12px;">Joined {{ student.created_at.strftime('%Y') if student and student.created_at else '2026' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="card glass-panel fade-in-up stagger-2" style="padding: var(--space-6);">
+            <div class="accordion-header" onclick="toggleAccordion(this)" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 0;"><h3 class="card-title text-lg font-semibold" style="margin: 0;">Professional Summary</h3><svg class="accordion-icon collapsed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="accordion-content collapsed">
+            <textarea id="profSummary" class="settings-input" rows="4" placeholder="Write a brief professional summary about yourself..." style="resize: none;">{{ builder_profile.professional_summary if builder_profile else '' }}</textarea>
+        </div></div>
+
+        <!-- Profile Details (Form) -->
+        <div class="card glass-panel fade-in-up stagger-3" style="padding: var(--space-6);">
+            <div class="accordion-header" onclick="toggleAccordion(this)" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 0;"><h3 class="card-title text-lg font-semibold" style="margin: 0;">Personal Information & Education</h3><svg class="accordion-icon collapsed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="accordion-content collapsed">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                <div>
+                    <label class="form-label">Full Name</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="profName" value="{{ student.name if student else '' }}" class="settings-input" readonly style="opacity: 0.8;" />
+                        <button onclick="let input = document.getElementById('profName'); input.removeAttribute('readonly'); input.style.opacity = '1'; input.focus();" class="btn-secondary" style="padding: 0 12px; font-size: 13px;">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">Email Address (Read Only)</label>
+                    <input type="email" value="{{ student.email if student else '' }}" class="settings-input" disabled style="opacity: 0.7; cursor: not-allowed;" />
+                </div>
+                <div>
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" id="profPhone" value="{{ student.phone if student else '' }}" class="settings-input" />
+                </div>
+            </div>
+
+            <h3 class="card-title text-lg font-semibold" style="margin: var(--space-6) 0 var(--space-5) 0; border-top: 1px solid var(--border-subtle); padding-top: var(--space-5);">Education & Links</h3>
+            
+            {% set edu = builder_profile.education[0] if builder_profile and builder_profile.education and builder_profile.education|length > 0 else {} %}
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                <div class="autocomplete-wrapper">
+                    <label class="form-label">College / University</label>
+                    <input type="text" id="profCollege" value="{{ edu.school | default('') }}" class="settings-input" placeholder="Search for your university..." autocomplete="off" />
+                    <div id="universityList" class="autocomplete-list"></div>
+                </div>
+                <div>
+                    <label class="form-label">Degree</label>
+                    <input type="text" id="profDegree" value="{{ edu.degree | default('') }}" class="settings-input" />
+                </div>
+                <div>
+                    <label class="form-label">Branch / Field of Study</label>
+                    <input type="text" id="profBranch" value="{{ edu.field | default('') }}" class="settings-input" />
+                </div>
+                <div>
+                    <label class="form-label">Graduation Year</label>
+                    <input type="text" id="profGradYear" value="{{ edu.year | default('') }}" class="settings-input" />
+                </div>
+                <div>
+                    <label class="form-label">LinkedIn URL</label>
+                    <input type="url" id="profLinkedin" value="{{ builder_profile.linkedin if builder_profile else '' }}" class="settings-input" placeholder="https://linkedin.com/in/..." />
+                </div>
+                <div>
+                    <label class="form-label">GitHub URL</label>
+                    <input type="url" id="profGithub" value="{{ builder_profile.github if builder_profile else '' }}" class="settings-input" placeholder="https://github.com/..." />
+                </div>
+                <div style="grid-column: span 2;">
+                    <label class="form-label">Portfolio URL</label>
+                    <input type="url" id="profPortfolio" value="{{ builder_profile.portfolio if builder_profile else '' }}" class="settings-input" placeholder="https://yourwebsite.com" />
+                </div>
+            </div>
+        </div></div>
+
+        <!-- Skills Section -->
+        <div class="card glass-panel fade-in-up stagger-4" style="padding: var(--space-6);">
+            <div class="accordion-header" onclick="toggleAccordion(this)" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 0;"><div style="display:flex; justify-content:space-between; width: 100%; align-items:center;"><div class="flex-between" style="margin-bottom: 0;">
+                <h3 class="card-title text-lg font-semibold" style="margin: 0;">Skills</h3>
+            </div><svg class="accordion-icon collapsed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div><div class="accordion-content collapsed">
+            <div class="autocomplete-wrapper" style="display: flex; gap: 8px; margin-bottom: 16px;">
+                <div style="flex: 1; position: relative;">
+                    <input type="text" id="newSkillInput" class="settings-input" placeholder="Enter a professional skill (e.g., Python, Project Management)..." autocomplete="off" onkeypress="if(event.key === 'Enter') addSkill()" />
+                    <div id="skillsList" class="autocomplete-list"></div>
+                </div>
+                <button onclick="addSkill()" class="btn-primary" style="padding: 8px 16px; white-space: nowrap;">Add</button>
+            </div>
+            <div id="skillsContainer" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                {% if builder_profile and builder_profile.skills %}
+                    {% for skill in builder_profile.skills %}
+                        <div class="skill-tag" style="background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3); padding: 6px 12px; border-radius: 16px; display: flex; align-items: center; gap: 8px;">
+                            <span>{{ skill }}</span>
+                            <button onclick="this.parentElement.remove()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 0;">&times;</button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div></div>
+
+        <!-- Projects Section -->
+        <div class="card glass-panel fade-in-up stagger-5" style="padding: var(--space-6);">
+            <div class="accordion-header" onclick="toggleAccordion(this)" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 0;"><div style="display:flex; justify-content:space-between; width: 100%; align-items:center;"><div class="flex-between" style="margin-bottom: 0;">
+                <h3 class="card-title text-lg font-semibold" style="margin: 0;">Projects</h3>
+            </div><svg class="accordion-icon collapsed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div><div class="accordion-content collapsed">
+            <div style="margin-bottom: 16px; text-align: right;">
+                <button onclick="addProjectTemplate()" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;">+ Add Project</button>
+            </div>
+            <div id="projectsContainer" style="display: flex; flex-direction: column; gap: 16px;">
+                {% for p in user_projects %}
+                <div class="project-item" style="background: rgba(255,255,255,0.02); border-radius: 8px; padding: 16px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <input type="text" class="settings-input proj-name" value="{{ p.project_name }}" placeholder="Project Name" style="width: 70%;" />
+                        <button onclick="this.closest('.project-item').remove()" class="btn-secondary" style="padding: 6px 12px; font-size: 13px; color: var(--text-muted);">Remove</button>
+                    </div>
+                    <textarea class="settings-input proj-desc" rows="2" placeholder="Description" style="margin-bottom: 12px;">{{ p.description }}</textarea>
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <input type="text" class="settings-input proj-tech" value="{{ p.tech_stack }}" placeholder="Tech Stack (comma separated)" />
+                        <input type="url" class="settings-input proj-github" value="{{ p.github_url }}" placeholder="GitHub URL" />
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div></div>
+
+        <!-- Certifications Section -->
+        <div class="card glass-panel fade-in-up stagger-6" style="padding: var(--space-6);">
+            <div class="accordion-header" onclick="toggleAccordion(this)" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 0;"><div style="display:flex; justify-content:space-between; width: 100%; align-items:center;"><div class="flex-between" style="margin-bottom: 0;">
+                <h3 class="card-title text-lg font-semibold" style="margin: 0;">Certifications</h3>
+            </div><svg class="accordion-icon collapsed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div><div class="accordion-content collapsed">
+            <div style="margin-bottom: 16px; text-align: right;">
+                <button onclick="addCertTemplate()" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;">+ Add Certification</button>
+            </div>
+            <div id="certsContainer" style="display: flex; flex-direction: column; gap: 16px;">
+                {% for c in user_certs %}
+                <div class="cert-item" style="background: rgba(255,255,255,0.02); border-radius: 8px; padding: 16px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <input type="text" class="settings-input cert-name" value="{{ c.name }}" placeholder="Certification Name" style="width: 70%;" oninput="showSaveButton()" />
+                        <button onclick="this.closest('.cert-item').remove(); showSaveButton();" class="btn-secondary" style="padding: 6px 12px; font-size: 13px; color: var(--text-muted);">Remove</button>
+                    </div>
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <input type="text" class="settings-input cert-issuer" value="{{ c.issuer }}" placeholder="Issuer (e.g., Coursera)" />
+                        <input type="month" class="settings-input cert-date" value="{{ c.issue_date.strftime('%Y-%m') if c.issue_date else '' }}" />
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div></div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="grid" style="gap: var(--space-6); align-content: start; position: sticky; top: 100px;">
+        
+        <!-- Profile Strength -->
+        <div class="card glass-panel fade-in-up stagger-1" style="padding: var(--space-6); text-align: center;">
+        <div style="display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <h3 class="card-title text-lg font-semibold" style="margin: 0;">Profile Strength</h3>
+        </div>
+        <div>
+            <h3 style="font-size: 36px; margin: 0 0 8px 0; color: var(--primary); font-weight: 700;">{{ total_profile_strength }}%</h3>
+            <div style="background: rgba(255,255,255,0.05); height: 6px; border-radius: 4px; overflow: hidden; margin-top: 12px;">
+                <div style="background: var(--primary); height: 100%; width: {{ total_profile_strength }}%;"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div class="card glass-panel fade-in-up stagger-2" style="padding: var(--space-6);">
+            <h3 class="card-title text-lg font-semibold" style="margin-bottom: 0;">Resume File</h3>
+            
+            <div id="active-resume-info" class="{{ 'hidden' if not has_resume else '' }}" style="margin-bottom: var(--space-5); padding: var(--space-4); background: rgba(255,255,255,0.03); border-radius: var(--radius-md); ">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <h4 style="margin: 0; font-size: 15px; color: var(--text-primary);">Resume Uploaded</h4>
+                        </div>
+                        <p id="resume-filename" style="margin: 0; font-size: 13px; color: var(--primary);"></p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 16px;">
+                    <button onclick="viewActiveResume()" class="btn-secondary" style="flex: 1; padding: 8px; font-size: 13px; display: flex; justify-content: center; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Resume
+                    </button>
+                    <button onclick="document.getElementById('resume-upload').click()" class="btn-primary" style="flex: 1; padding: 8px; font-size: 13px; display: flex; justify-content: center; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+                        Replace
+                    </button>
+                </div>
+            </div>
+
+            {% if not has_resume %}
+            <div id="no-resume-info" class="upload-zone" id="drop-zone" onclick="document.getElementById('resume-upload').click()" style="margin-bottom: 0;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary); margin-bottom: 12px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <p style="margin: 0 0 4px 0; font-weight: 500;">No Resume Uploaded</p>
+                <p class="muted-text" style="margin: 0; font-size: 13px;">Upload a PDF to pre-fill your profile</p>
+            </div>
+            {% endif %}
+            
+            <input type="file" id="resume-upload" accept=".pdf,.docx" style="display: none;" onchange="handleResumeUpload(this.files)">
+            <div id="upload-status" style="margin-top: 12px; font-size: 13px; text-align: center; color: var(--text-secondary); display: none;">
+                <span class="spinner" style="display: inline-block; width: 14px; height: 14px; border: 2px solid var(--primary); border-right-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle; margin-right: 6px;"></span>
+                Parsing new resume...
+            </div>
+        </div>
+        
+        <!-- Generated Roadmaps Section -->
+        <div class="card glass-panel fade-in-up stagger-3" style="padding: var(--space-6);">
+            <div class="accordion-header" onclick="toggleAccordion(this)" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 0;">
+                <h3 class="card-title text-lg font-semibold" style="margin: 0;">My Roadmaps</h3>
+                <svg class="accordion-icon collapsed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="accordion-content collapsed" style="margin-top: 16px;">
+            
+            {% if roadmaps and roadmaps|length > 0 %}
+                <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                {% for rm in roadmaps %}
+                    <div style="background: rgba(255,255,255,0.02); padding: var(--space-4); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                            <div>
+                                <h4 style="margin: 0 0 4px 0; color: var(--primary);">{{ rm.job_title or 'Target Role' }}</h4>
+                                <div style="display: flex; align-items: center; gap: 8px; margin: 6px 0;">
+                                    <span class="muted-text text-sm" style="margin: 0;">{{ rm.company_name or 'N/A' }}</span>
+                                    {% set score = (rm.match_score|default(0))|int %}
+                                    <span style="background: {% if score >= 50 %}rgba(124, 58, 237, 0.2); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3);{% else %}rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3);{% endif %} padding: 2px 8px; border-radius: 12px; font-weight: 600; font-size: 11px;">
+                                        {{ score }}% match
+                                    </span>
+                                </div>
+                                <p class="muted-text text-sm" style="margin: 4px 0 0 0; font-size: 12px;">Generated: {{ rm.created_at.strftime('%b %d, %Y') if rm.created_at else 'Unknown' }}</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="/api/intelligence/roadmap/{{ rm.id }}/pdf" target="_blank" class="btn-primary" style="flex: 1; padding: 8px; font-size: 13px; text-align: center; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Download PDF
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% else %}
+                <div style="text-align: center; padding: var(--space-5); background: rgba(255,255,255,0.02); border-radius: var(--radius-sm);">
+                    <p class="muted-text" style="margin: 0; font-size: 14px;">No roadmaps generated yet. Go to JD Analyzer to create one!</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.accordion-content {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+    overflow: hidden;
+    opacity: 1;
+}
+.accordion-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0 !important;
+}
+.accordion-icon {
+    transition: transform 0.3s ease;
+    color: var(--text-secondary);
+}
+.accordion-icon.collapsed {
+    transform: rotate(-180deg);
+}
+.form-label {
+    display: block; margin-bottom: var(--space-2); font-weight: 500; color: var(--text-secondary); font-size: 13px;
+}
+.upload-zone {
+  border: 2px dashed rgba(109, 93, 252, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(109, 93, 252, 0.03);
+  transition: all 0.2s ease;
+}
+.upload-zone:hover, .upload-zone.dragover {
+  border-color: var(--primary);
+  background: rgba(109, 93, 252, 0.08);
+}
+
+.settings-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.settings-input:focus {
+  border-color: var(--primary);
+  background: rgba(255,255,255,0.05);
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Custom Autocomplete */
+.autocomplete-wrapper {
+    position: relative;
+    width: 100%;
+}
+.autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    margin-top: 4px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: none;
+}
+.autocomplete-list.active {
+    display: block;
+}
+.autocomplete-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.autocomplete-item:hover, .autocomplete-item.selected {
+    background: rgba(124, 58, 237, 0.15);
+    color: #fff;
+}
+
+</style>
+
+<script>
+function toggleAccordion(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.accordion-icon');
+    
+    // Check current state before modifying
+    const isCollapsed = content.classList.contains('collapsed');
+    
+    if (isCollapsed) {
+        // OPENING
+        content.classList.remove('collapsed');
+        icon.classList.remove('collapsed');
+        header.style.marginBottom = "var(--space-4)";
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => {
+            if (!content.classList.contains('collapsed')) {
+                content.style.maxHeight = 'none';
+            }
+        }, 300);
+    } else {
+        // CLOSING
+        content.style.maxHeight = content.scrollHeight + "px";
+        void content.offsetWidth; // force reflow
+        content.style.maxHeight = "0px";
+        content.classList.add('collapsed');
+        icon.classList.add('collapsed');
+        header.style.marginBottom = "0";
+    }
+}
+
+let currentResumeId = {{ active_resume_id if active_resume_id else 'null' }};
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load Active Resume Details for download
+    try {
+        const res = await apiFetch('/api/resume/list');
+        if (res.resumes && res.resumes.length > 0) {
+            const active = res.resumes[0];
+            currentResumeId = active.resume_id;
+            const nameEl = document.getElementById('resume-filename');
+            if (nameEl) nameEl.textContent = active.filename;
+        }
+    } catch (err) {
+        console.error("Failed to load active resume", err);
+    }
+
+    // Add change listeners to all form inputs to show Save button
+    document.body.addEventListener('input', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+            showSaveButton();
+        }
+    });
+});
+
+function showSaveButton() {
+    const btn = document.getElementById('saveProfileBtn');
+    if (btn) btn.style.display = 'flex';
+}
+
+async function handleResumeUpload(files) {
+    if (!files.length) return;
+    const file = files[0];
+    
+    document.getElementById('upload-status').style.display = 'block';
+    
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    try {
+        const res = await window.apiFetch('/api/resume/upload', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await res.json();
+        if (res.ok) {
+            showToast("Resume activated and profile parsed!", "success");
+            setTimeout(() => window.location.reload(), 1500);
+        } else {
+            showToast(data.error || "Upload failed", "error");
+            document.getElementById('upload-status').style.display = 'none';
+        }
+    } catch (err) {
+        showToast("Network error", "error");
+        document.getElementById('upload-status').style.display = 'none';
+    }
+}
+
+async function downloadActiveResume() {
+    if (!currentResumeId) return;
+    try {
+        const res = await apiFetch(`/api/resume/download/${currentResumeId}`);
+        if (res.url) {
+            window.open(res.url, "_blank");
+        }
+    } catch (err) {
+        showToast("Failed to download resume", "error");
+    }
+}
+
+function viewActiveResume() {
+    if (!currentResumeId) return;
+    window.location.href = `/view-resume/${currentResumeId}`;
+}
+
+function focusSkillInput(event, btn) {
+    event.stopPropagation();
+    const header = btn.closest('.accordion-header');
+    if (header.nextElementSibling.classList.contains('collapsed')) {
+        toggleAccordion(header);
+    }
+    setTimeout(() => document.getElementById('newSkillInput').focus(), 100);
+}
+
+async function addSkill() {
+    const inputEl = document.getElementById('newSkillInput');
+    const skillName = inputEl.value;
+    if (!skillName || !skillName.trim()) return;
+    
+    let skillText = skillName.trim();
+    
+    if (window.globalSkills && window.globalSkills.length > 0) {
+        let validSkill = false;
+        for (let i = 0; i < window.globalSkills.length; i++) {
+            if (window.globalSkills[i].toLowerCase() === skillText.toLowerCase()) { 
+                validSkill = true; 
+                skillText = window.globalSkills[i]; // use properly capitalized version
+                break; 
+            }
+        }
+        if (!validSkill) {
+            showToast("Skill not found. Please select a valid skill from the list.", "error");
+            return;
+        }
+    }
+    
+    const existingSkills = Array.from(document.querySelectorAll('#skillsContainer .skill-tag span')).map(el => el.textContent);
+    if (existingSkills.includes(skillText)) {
+        showToast("Skill already added!", "info");
+        inputEl.value = '';
+        return;
+    }
+    
+    inputEl.value = '';
+    
+    const div = document.createElement('div');
+    div.className = 'skill-tag';
+    div.style.cssText = 'background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3); padding: 6px 12px; border-radius: 16px; display: flex; align-items: center; gap: 8px;';
+    div.innerHTML = `<span>${skillText}</span><button onclick="this.parentElement.remove(); showSaveButton();" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 0;">&times;</button>`;
+    
+    document.getElementById('skillsContainer').appendChild(div);
+    showSaveButton();
+}
+
+function addProjectTemplate() {
+    const div = document.createElement('div');
+    div.className = 'project-item';
+    div.style.cssText = 'background: rgba(255,255,255,0.02); border-radius: 8px; padding: 16px;';
+    div.innerHTML = `
+        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <input type="text" class="settings-input proj-name" placeholder="Project Name" style="width: 70%;" oninput="showSaveButton()" />
+            <button onclick="this.closest('.project-item').remove(); showSaveButton();" class="btn-secondary" style="padding: 6px 12px; font-size: 13px; color: var(--red);">Remove</button>
+        </div>
+        <textarea class="settings-input proj-desc" rows="2" placeholder="Description" style="margin-bottom: 12px;"></textarea>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+            <input type="text" class="settings-input proj-tech" placeholder="Tech Stack (comma separated)" />
+            <input type="url" class="settings-input proj-github" placeholder="GitHub URL" />
+        </div>
+    `;
+    document.getElementById('projectsContainer').appendChild(div);
+    showSaveButton();
+}
+
+function addCertTemplate() {
+    const div = document.createElement('div');
+    div.className = 'cert-item';
+    div.style.cssText = 'background: rgba(255,255,255,0.02); border-radius: 8px; padding: 16px;';
+    div.innerHTML = `
+        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <input type="text" class="settings-input cert-name" placeholder="Certification Name" style="width: 70%;" oninput="showSaveButton()" />
+            <button onclick="this.closest('.cert-item').remove(); showSaveButton();" class="btn-secondary" style="padding: 6px 12px; font-size: 13px; color: var(--red);">Remove</button>
+        </div>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+            <input type="text" class="settings-input cert-issuer" placeholder="Issuer (e.g., Coursera)" />
+            <input type="month" class="settings-input cert-date" />
+        </div>
+    `;
+    document.getElementById('certsContainer').appendChild(div);
+    showSaveButton();
+}
+
+async function saveProfile() {
+    const btn = document.getElementById('saveProfileBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner" style="display: inline-block; width: 14px; height: 14px; border: 2px solid white; border-right-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></span> Saving...';
+    
+    // College Validation
+    const collegeInput = document.getElementById('profCollege').value.trim();
+    if (collegeInput && window.globalUniversities && window.globalUniversities.length > 0) {
+        let validCollege = false;
+        for (let i = 0; i < window.globalUniversities.length; i++) {
+            if (window.globalUniversities[i].toLowerCase() === collegeInput.toLowerCase()) { 
+                validCollege = true; 
+                document.getElementById('profCollege').value = window.globalUniversities[i];
+                break; 
+            }
+        }
+        if (!validCollege) {
+            showToast("Please select a valid College / University from the list.", "error");
+            btn.disabled = false;
+            btn.innerHTML = 'Save Profile Changes';
+            return;
+        }
+    }
+
+    // Gather Skills
+    const skills = [];
+    document.querySelectorAll('#skillsContainer .skill-tag span').forEach(el => {
+        skills.push(el.textContent.trim());
+    });
+    
+    // Gather Projects
+    const projects = [];
+    document.querySelectorAll('.project-item').forEach(el => {
+        const name = el.querySelector('.proj-name').value;
+        if (name) {
+            projects.push({
+                project_name: name,
+                description: el.querySelector('.proj-desc').value,
+                tech_stack: el.querySelector('.proj-tech').value,
+                github_url: el.querySelector('.proj-github').value,
+                live_url: ''
+            });
+        }
+    });
+    
+    // Gather Certs
+    const certs = [];
+    document.querySelectorAll('.cert-item').forEach(el => {
+        const name = el.querySelector('.cert-name').value;
+        if (name) {
+            certs.push({
+                name: name,
+                issuer: el.querySelector('.cert-issuer').value,
+                issue_date: el.querySelector('.cert-date').value
+            });
+        }
+    });
+    
+    // Validate Projects
+    const projectNames = projects.map(p => p.project_name);
+    if (projectNames.length > 0) {
+        try {
+            const res = await window.apiFetch('/api/validate-entity', {
+                method: 'POST',
+                body: JSON.stringify({ type: 'project', values: projectNames })
+            });
+            const data = await res.json();
+            for (const name of projectNames) {
+                if (data.results && data.results[name] === false) {
+                    showToast(`Invalid project name: ${name}. Please enter a real project.`, "error");
+                    btn.disabled = false;
+                    btn.innerHTML = 'Save Profile Changes';
+                    return;
+                }
+            }
+        } catch(e) {}
+    }
+    
+    // Validate Certs
+    const certNames = certs.map(c => c.name);
+    if (certNames.length > 0) {
+        try {
+            const res = await window.apiFetch('/api/validate-entity', {
+                method: 'POST',
+                body: JSON.stringify({ type: 'certificate', values: certNames })
+            });
+            const data = await res.json();
+            for (const name of certNames) {
+                if (data.results && data.results[name] === false) {
+                    showToast(`Invalid certification name: ${name}. Please enter a real certificate.`, "error");
+                    btn.disabled = false;
+                    btn.innerHTML = 'Save Profile Changes';
+                    return;
+                }
+            }
+        } catch(e) {}
+    }
+
+    const payload = {
+        name: document.getElementById('profName').value,
+        phone: document.getElementById('profPhone').value,
+        professional_summary: document.getElementById('profSummary').value,
+        linkedin: document.getElementById('profLinkedin').value,
+        github: document.getElementById('profGithub').value,
+        portfolio: document.getElementById('profPortfolio').value,
+        education: [{
+            school: document.getElementById('profCollege').value,
+            degree: document.getElementById('profDegree').value,
+            field: document.getElementById('profBranch').value,
+            year: document.getElementById('profGradYear').value
+        }],
+        skills: skills,
+        projects: projects,
+        certifications: certs
+    };
+    
+    try {
+        const res = await window.apiFetch('/api/profile/save', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        });
+        
+        if (res.ok) {
+            showToast("Profile saved successfully!", "success");
+            setTimeout(() => window.location.reload(), 1000);
+        } else {
+            const data = await res.json();
+            showToast(data.error || "Failed to save profile", "error");
+        }
+    } catch (err) {
+        showToast("Network error", "error");
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg> Save Profile Changes';
+    }
+}
+
+async function restoreVersion(versionNumber) {
+    if (!confirm(`Are you sure you want to restore Version ${versionNumber}? This will overwrite your current profile.`)) return;
+    try {
+        const res = await window.apiFetch(`/api/builder/restore-version`, {
+            method: 'POST',
+            body: JSON.stringify({ version_number: versionNumber })
+        });
+        if (res.ok) {
+            showToast(`Version ${versionNumber} restored successfully!`, "success");
+            setTimeout(() => window.location.reload(), 1500);
+        } else {
+            const data = await res.json();
+            showToast(data.error || "Failed to restore version", "error");
+        }
+    } catch (err) {
+        showToast("Network error", "error");
+    }
+}
+
+window.globalUniversities = [];
+window.globalSkills = [];
+
+function setupAutocomplete(inputId, listId, dataArray) {
+    const input = document.getElementById(inputId);
+    const list = document.getElementById(listId);
+    if (!input || !list) return;
+    
+    dataArray.sort((a, b) => a.localeCompare(b));
+
+    function renderList(filterText = '') {
+        list.innerHTML = '';
+        const filtered = dataArray.filter(item => item.toLowerCase().includes(filterText.toLowerCase()));
+        
+        if (filtered.length === 0) {
+            list.classList.remove('active');
+            return;
+        }
+        
+        const limit = Math.min(filtered.length, 100);
+        for (let i = 0; i < limit; i++) {
+            const item = filtered[i];
+            const div = document.createElement('div');
+            div.className = 'autocomplete-item';
+            div.textContent = item;
+            div.onmousedown = (e) => {
+                e.preventDefault();
+                input.value = item;
+                list.classList.remove('active');
+                showSaveButton();
+            };
+            list.appendChild(div);
+        }
+        list.classList.add('active');
+        currentIndex = -1;
+    }
+
+    input.addEventListener('focus', () => {
+        renderList(input.value);
+    });
+
+    input.addEventListener('input', () => {
+        renderList(input.value);
+    });
+
+    input.addEventListener('blur', () => {
+        list.classList.remove('active');
+    });
+
+    let currentIndex = -1;
+    input.addEventListener('keydown', (e) => {
+        const items = list.querySelectorAll('.autocomplete-item');
+        if (items.length === 0 || !list.classList.contains('active')) {
+            if (e.key === 'Enter' && inputId === 'newSkillInput') {
+                e.preventDefault();
+                addSkill();
+            }
+            return;
+        }
+        
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % items.length;
+            updateSelection(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateSelection(items);
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentIndex > -1) {
+                input.value = items[currentIndex].textContent;
+                list.classList.remove('active');
+            } else if (inputId === 'newSkillInput') {
+                addSkill();
+            }
+        }
+    });
+    
+    function updateSelection(items) {
+        items.forEach((item, index) => {
+            if (index === currentIndex) {
+                item.classList.add('selected');
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('selected');
+            }
+        });
+    }
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const res = await fetch('/static/data/universities.json');
+        if (res.ok) {
+            window.globalUniversities = await res.json();
+            setupAutocomplete('profCollege', 'universityList', window.globalUniversities);
+        }
+    } catch(e) {}
+
+    try {
+        const res = await fetch('/static/data/skills.json');
+        if (res.ok) {
+            window.globalSkills = await res.json();
+            setupAutocomplete('newSkillInput', 'skillsList', window.globalSkills);
+        }
+    } catch(e) {}
+});
+</script>
+
+{% endblock %}

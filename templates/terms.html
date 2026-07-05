@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Ranked.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <style>
+        body {
+            background-color: var(--bg-main);
+            margin: 0;
+            padding: 0;
+            padding-top: 80px; /* offset for navbar */
+        }
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        .legal-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .legal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .legal-last-updated {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .toc {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem 2rem;
+        }
+        .toc a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .toc a:hover {
+            color: #d946ef;
+        }
+        .legal-section {
+            margin-bottom: 3rem;
+        }
+        .legal-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .legal-section p, .legal-section ul {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .legal-section ul {
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+        .legal-section li {
+            margin-bottom: 0.5rem;
+        }
+        .legal-highlight {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #fca5a5;
+        }
+        .legal-highlight-strong {
+            font-weight: 600;
+            color: #fef2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo">
+                    <div class="logo-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 16l3-9 5 5 5-5 3 9H4z"/></svg>
+                    </div>
+                    <div class="logo-text ranked-gradient">Ranked.ai</div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="javascript:history.back()" class="btn-primary-sm" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                    Go Back
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="legal-container">
+        <div class="legal-header">
+            <h1 class="legal-title">Terms of Service</h1>
+            <p class="legal-last-updated">Last Updated: July 2026</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                <li><a href="#description">2. Service Description</a></li>
+                <li><a href="#employment">3. No Employment Guarantee</a></li>
+                <li><a href="#ai-content">4. AI Generated Content Disclaimer</a></li>
+                <li><a href="#ats-score">5. ATS Score Disclaimer</a></li>
+                <li><a href="#responsibility">6. User Responsibility</a></li>
+                <li><a href="#conduct">7. Prohibited Conduct</a></li>
+                <li><a href="#ip">8. Intellectual Property Rights</a></li>
+                <li><a href="#license">9. User Content License</a></li>
+                <li><a href="#templates-disclaimer">10. Third-Party Templates</a></li>
+                <li><a href="#availability">11. Service Availability</a></li>
+                <li><a href="#liability">12. Limitation of Liability</a></li>
+                <li><a href="#indemnification">13. Indemnification</a></li>
+                <li><a href="#suspension">14. Account Suspension</a></li>
+                <li><a href="#law">15. Governing Law</a></li>
+                <li><a href="#changes">16. Changes to Terms</a></li>
+                <li><a href="#contact">17. Contact Information</a></li>
+            </ul>
+        </div>
+
+        <section id="acceptance" class="legal-section">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using Ranked.ai (the "Service"), you agree to be bound by these Terms of Service. If you do not agree to all of the terms and conditions, you must not access or use the Service. These terms constitute a legally binding agreement between you and Ranked.ai.</p>
+        </section>
+
+        <section id="description" class="legal-section">
+            <h2>2. Service Description</h2>
+            <p>Ranked.ai provides AI-powered career tools, including resume building, ATS (Applicant Tracking System) scoring, job description (JD) analysis, and career readiness roadmaps. The Service is intended solely to assist users in preparing job applications and developing their professional skills.</p>
+        </section>
+
+        <section id="employment" class="legal-section">
+            <h2>3. No Employment Guarantee</h2>
+            <div class="legal-highlight">
+                <span class="legal-highlight-strong">Explicit Disclaimer:</span> Ranked.ai does NOT guarantee employment, internships, job offers, interview calls, ATS success, recruiter responses, career advancement, or salary increases. 
+            </div>
+            <p>The tools and resources provided are meant to improve your application materials based on algorithms and general industry practices. They do not ensure any specific hiring outcome.</p>
+        </section>
+
+        <section id="ai-content" class="legal-section">
+            <h2>4. AI Generated Content Disclaimer</h2>
+            <div class="legal-highlight">
+                <span class="legal-highlight-strong">Accuracy Warning:</span> All AI-generated recommendations, resume suggestions, roadmap plans, career readiness evaluations, ATS reports, and job analysis outputs may contain inaccuracies and must be independently reviewed by users.
+            </div>
+            <p>Ranked.ai utilizes advanced machine learning models to generate content. This content is provided for informational purposes and should not be considered professional or legal career advice.</p>
+        </section>
+
+        <section id="ats-score" class="legal-section">
+            <h2>5. ATS Score Disclaimer</h2>
+            <p>All ATS scores are estimates generated by Ranked.ai's proprietary evaluation methods and are <strong>not official recruiter scores</strong>. Different companies use different Applicant Tracking Systems with varied configurations. A high score on Ranked.ai does not guarantee your resume will bypass a specific employer's filters.</p>
+        </section>
+
+        <section id="responsibility" class="legal-section">
+            <h2>6. User Responsibility</h2>
+            <p>Users remain fully responsible for all decisions made using platform outputs. You agree that you are solely responsible for verifying the accuracy, completeness, and appropriateness of any resume, cover letter, or application material submitted to an employer, regardless of whether it was generated or reviewed by Ranked.ai.</p>
+        </section>
+
+        <section id="conduct" class="legal-section">
+            <h2>7. Prohibited Conduct</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the Service for any illegal purpose or in violation of any local, state, national, or international law.</li>
+                <li>Upload resumes or documents containing malicious code, viruses, or harmful data.</li>
+                <li>Attempt to reverse engineer, decompile, or hack the Ranked.ai platform or its AI engines.</li>
+                <li>Scrape, mine, or automatically extract data from the Service without express written permission.</li>
+                <li>Submit false, misleading, or fraudulent information in your applications.</li>
+            </ul>
+        </section>
+
+        <section id="ip" class="legal-section">
+            <h2>8. Intellectual Property Rights</h2>
+            <p>All intellectual property rights in the Ranked.ai platform, including its software, AI models, algorithms, UI/UX designs, trademarks, and branding, are owned exclusively by Ranked.ai and its licensors. You are granted a limited, non-exclusive, non-transferable license to use the Service for personal career development.</p>
+        </section>
+
+        <section id="license" class="legal-section">
+            <h2>9. User Content License</h2>
+            <p>By uploading your resume, job descriptions, or other materials to the Service, you retain ownership of your data. However, you grant Ranked.ai a worldwide, royalty-free license to host, store, and process this content solely for the purpose of operating the Service and providing its features to you.</p>
+        </section>
+
+        <section id="templates-disclaimer" class="legal-section">
+            <h2>10. Third-Party Templates & Open Source Content</h2>
+            <div class="legal-highlight">
+                <span class="legal-highlight-strong">Intellectual Property Disclaimer:</span> Ranked.ai provides access to various third-party and open-source LaTeX templates (e.g., templates inspired by tech companies or created by community authors). We do NOT claim ownership, copyright, or endorsement over these templates.
+            </div>
+            <p>All third-party templates are provided "AS IS" under their original respective open-source licenses (such as MIT, LPPL, or Creative Commons). Ranked.ai acts as a platform to compile and edit these documents. We are not liable for any copyright infringement or claims arising from your use, distribution, or modification of these templates. You are solely responsible for adhering to the original author's licensing terms when utilizing their template.</p>
+        </section>
+
+        <section id="availability" class="legal-section">
+            <h2>11. Service Availability</h2>
+            <p>Ranked.ai strives to ensure maximum uptime, but we do not guarantee that the Service will be uninterrupted or error-free. We reserve the right to modify, suspend, or discontinue any part of the Service at any time without notice.</p>
+        </section>
+
+        <section id="liability" class="legal-section">
+            <h2>12. Limitation of Liability</h2>
+            <div class="legal-highlight">
+                Platform is provided <span class="legal-highlight-strong">"AS IS"</span> and <span class="legal-highlight-strong">"AS AVAILABLE"</span>.
+            </div>
+            <p>Ranked.ai, its owners, developers, affiliates, employees, and contributors shall not be liable for:</p>
+            <ul>
+                <li>Employment decisions or hiring outcomes</li>
+                <li>Rejected applications or lost opportunities</li>
+                <li>Lost income or career setbacks</li>
+                <li>Data loss or business interruption</li>
+                <li>Reputation damage</li>
+                <li>Indirect, incidental, special, or consequential damages</li>
+            </ul>
+            <p>In no event shall Ranked.ai's total liability exceed the amount you have paid to Ranked.ai in the last six months, or 1,000 INR, whichever is greater.</p>
+        </section>
+
+        <section id="indemnification" class="legal-section">
+            <h2>13. Indemnification</h2>
+            <p>Users agree to indemnify and hold harmless Ranked.ai and its owners against claims, damages, liabilities, legal fees, and losses arising from:</p>
+            <ul>
+                <li>Platform misuse</li>
+                <li>Uploaded content</li>
+                <li>Violation of laws</li>
+                <li>Violation of third-party rights</li>
+            </ul>
+        </section>
+
+        <section id="suspension" class="legal-section">
+            <h2>14. Account Suspension and Termination</h2>
+            <p>We reserve the right to suspend or terminate your account at our sole discretion, without notice or liability, for any reason, including but not limited to a breach of these Terms of Service.</p>
+        </section>
+
+        <section id="law" class="legal-section">
+            <h2>15. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to its conflict of law provisions.</p>
+            <p>Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in <strong>Chennai, Tamil Nadu, India</strong>.</p>
+        </section>
+
+        <section id="changes" class="legal-section">
+            <h2>16. Changes to Terms</h2>
+            <p>We may modify these Terms at any time. We will provide notice of significant changes by updating the "Last Updated" date at the top of this page or by sending an email notification. Your continued use of the Service after changes indicates your acceptance of the updated terms.</p>
+        </section>
+
+        <section id="contact" class="legal-section">
+            <h2>17. Contact Information</h2>
+            <p>If you have any questions or concerns about these Terms of Service, please contact us at <a href="mailto:ranked1ai@gmail.com" style="color: #d946ef; text-decoration: none;">ranked1ai@gmail.com</a>.</p>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+%% DESIGN: Avant Garde (avant) | Single-column metrics-focused | Coral (#E8553D) accent | Bold numbers highlighted
+%% Product Manager style with metrics in bold coral, clean sans-serif, achievement-driven
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{avant}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{E8553D}
+\definecolor{ACCENT}{HTML}{E8553D}
+\definecolor{darktext}{HTML}{2C2C2C}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\color{darktext}
+
+% Section: coral colored with bottom border
+\titleformat{\section}{\normalfont\large\bfseries\color{accent}}{}{0em}{\MakeUppercase}[\color{accent}\rule{3cm}{1.5pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}\textbullet}}
+
+% Command for highlighting metrics
+\newcommand{\metric}[1]{\textbf{\color{accent}#1}}
+
+\begin{document}
+
+% Header: bold name with coral accent line
+{\color{accent}\rule{\textwidth}{3pt}}\\[6pt]
+{\fontsize{20}{24}\selectfont\bfseries Priya Raghavan}\\[3pt]
+{\small Bangalore, India \quad\textbar\quad +91-98765-43210 \quad\textbar\quad \href{mailto:priya.raghavan@email.com}{priya.raghavan@email.com} \quad\textbar\quad \href{https://linkedin.com/in/priyaraghavan}{linkedin.com/in/priyaraghavan}}\\[4pt]
+{\color{accent}\rule{\textwidth}{0.5pt}}
+
+\section{Summary}
+Product Manager with \metric{6+ years} of experience driving 0-to-1 product launches and scaling B2B SaaS platforms. Led cross-functional teams of \metric{15+} across engineering, design, and data science. Track record of delivering \metric{\$12M+} in incremental ARR through data-driven roadmap decisions and customer-centric feature development.
+
+\section{Experience}
+
+\textbf{Senior Product Manager} \hfill Razorpay, Bangalore\\
+\textit{Payments Platform} \hfill \textit{Jan 2022 -- Present}
+\begin{itemize}
+  \item Owned roadmap for merchant checkout platform serving \metric{8M+} businesses; drove \metric{34\%} increase in payment success rate through UPI intent flow optimization
+  \item Led launch of subscription billing product generating \metric{\$4.2M ARR} within 9 months; managed squad of 8 engineers and 2 designers
+  \item Reduced merchant onboarding time from 72 hours to \metric{4 hours} by redesigning KYC workflow; improved activation rate by \metric{28\%}
+  \item Established product analytics framework using Amplitude; defined 15 north-star metrics adopted across 3 product lines
+  \item Conducted \metric{50+} customer discovery interviews; identified 3 unmet needs that shaped H2 roadmap
+\end{itemize}
+
+\textbf{Product Manager} \hfill Freshworks, Chennai\\
+\textit{CRM Suite} \hfill \textit{Jun 2019 -- Dec 2021}
+\begin{itemize}
+  \item Drove \metric{22\%} improvement in user retention (D30) by launching AI-powered lead scoring feature
+  \item Managed integration marketplace with 40+ third-party apps; increased marketplace GMV by \metric{\$1.8M} annually
+  \item Ran \metric{12 A/B tests per quarter} on onboarding flows; improved trial-to-paid conversion by \metric{18\%}
+  \item Collaborated with data science team to build churn prediction model; reduced churn by \metric{15\%}
+\end{itemize}
+
+\textbf{Associate Product Manager} \hfill Flipkart, Bangalore\\
+\textit{Seller Platform} \hfill \textit{Jul 2017 -- May 2019}
+\begin{itemize}
+  \item Launched seller analytics dashboard used by \metric{200K+} sellers; reduced support tickets by \metric{40\%}
+  \item Defined PRDs and user stories for catalog management system; delivered 3 quarters ahead of schedule
+  \item Increased seller NPS from 32 to \metric{51} through systematic pain-point resolution program
+\end{itemize}
+
+\section{Skills}
+\textbf{Product:} Roadmap Strategy, PRDs, User Stories, A/B Testing, RICE/MoSCoW Prioritization, OKRs\\
+\textbf{Analytics:} SQL, Amplitude, Mixpanel, Google Analytics, Tableau, Cohort Analysis\\
+\textbf{Tools:} Jira, Confluence, Figma, Miro, Notion, Productboard\\
+\textbf{Technical:} REST APIs, System Design Basics, Agile/Scrum, Data Pipelines (conceptual)
+
+\section{Education}
+\textbf{MBA -- Product Management \& Strategy} \hfill ISB Hyderabad \hfill 2017\\
+\textbf{B.Tech -- Computer Science} \hfill NIT Trichy \hfill 2015
+
+\section{Certifications}
+Pragmatic Institute Certified (PMC-III) \quad\textbar\quad Google Analytics Certified \quad\textbar\quad Scrum Product Owner (CSPO)
+
+\end{document}

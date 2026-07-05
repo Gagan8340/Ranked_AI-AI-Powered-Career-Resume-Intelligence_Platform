@@ -1,0 +1,299 @@
+{% set active_page = "templates" %}
+{% set page_title = "Resume Templates Gallery" %}
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .gallery-container {
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .gallery-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gallery-header p {
+    color: #888;
+    font-size: 1.1rem;
+  }
+  
+  .template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .template-card {
+    background: #1e1e24;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-color: #4CAF50;
+  }
+  
+  .template-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .template-card:hover::before {
+    opacity: 1;
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+  }
+  
+  .card-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: auto;
+  }
+  
+  .loading-state, .error-state, .empty-state {
+    text-align: center;
+    padding: 4rem;
+    grid-column: 1 / -1;
+  }
+  
+  .loading-state i {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+  
+  .error-state {
+    color: #f44336;
+  }
+  
+  .ats-checklist-container {
+    background: #1e1e24;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .ats-checklist-intro {
+    text-align: center;
+    color: #bbb;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+  
+  .ats-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .ats-column {
+    flex: 1;
+    min-width: 300px;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .ats-green {
+    background: rgba(76, 175, 80, 0.05);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+  
+  .ats-red {
+    background: rgba(244, 67, 54, 0.05);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+  
+  .ats-column h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .ats-green h3 { color: #4CAF50; }
+  .ats-red h3 { color: #f44336; }
+  
+  .ats-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .ats-column li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #dcdcdc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .ats-green li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #4CAF50;
+    margin-top: 3px;
+  }
+  
+  .ats-red li::before {
+    content: '\f00d';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #f44336;
+    margin-top: 3px;
+  }
+</style>
+
+<div class="gallery-container">
+  <div class="gallery-header">
+    <h1>Professional Resume Templates</h1>
+    <p>Select a LaTeX template to launch the editor and build your resume.</p>
+  </div>
+  
+  <div class="ats-checklist-container">
+    <div class="ats-checklist-intro">
+      Before you spend hours customizing a template, run it past this checklist.<br>
+      <strong>If it has more than one or two items from the right column, pick a different template.</strong>
+    </div>
+    
+    <div class="ats-columns">
+      <div class="ats-column ats-green">
+        <h3><i class="fas fa-check"></i> GREEN FLAGS — ATS-Safe</h3>
+        <ul>
+          <li>Single-column layout</li>
+          <li>Standard section headings (Experience, Education, Skills)</li>
+          <li>Black text on a white background</li>
+          <li>One clean font throughout (Arial, Calibri, Helvetica)</li>
+          <li>Plain round or hyphen bullet points</li>
+          <li>Dates clearly aligned to the right of each role</li>
+          <li>Contact info in the body, not the header/footer</li>
+          <li>Saved as .docx or text-based .pdf</li>
+          <li>All text selectable when opened (not images)</li>
+        </ul>
+      </div>
+      
+      <div class="ats-column ats-red">
+        <h3><i class="fas fa-times"></i> RED FLAGS — Likely Rejected</h3>
+        <ul>
+          <li>Two- or three-column designs</li>
+          <li>Sidebars with skills, contact info, or a photo</li>
+          <li>Tables (even invisible ones used for layout)</li>
+          <li>Text inside text boxes or decorative shapes</li>
+          <li>Name and contact details in the header/footer</li>
+          <li>Color blocks or background images behind text</li>
+          <li>Icons next to phone, email, or location</li>
+          <li>Progress bars or star ratings for skills</li>
+          <li>Profile photo, decorative fonts, mixed font families</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="template-grid" id="gallery-grid">
+    <div class="loading-state">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Loading templates...</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    loadGallery();
+  });
+
+  async function loadGallery() {
+    const grid = document.getElementById('gallery-grid');
+    
+    try {
+      const res = await window.apiFetch('/api/latex/templates');
+      
+      if (!res.ok) {
+        throw new Error(`Server returned ${res.status}`);
+      }
+      
+      const data = await res.json();
+      grid.innerHTML = '';
+      
+      if (data.templates && data.templates.length > 0) {
+        data.templates.forEach(t => {
+          const card = document.createElement('div');
+          card.className = 'template-card';
+          
+          // Format the name nicely (e.g. "01 Google SWE" -> "Google SWE")
+          const displayName = t.name.replace(/^\d+_/, '').replace(/_/g, ' ');
+          
+          card.innerHTML = `
+            <i class="fas fa-file-invoice card-icon"></i>
+            <div class="card-title">${displayName}</div>
+            <div class="card-meta">LaTeX Template</div>
+          `;
+          
+          card.onclick = () => {
+            window.location.href = `/template-editor/${t.id}`;
+          };
+          
+          grid.appendChild(card);
+        });
+      } else {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <i class="fas fa-folder-open" style="font-size: 3rem; color: #555; margin-bottom: 1rem;"></i>
+            <p style="color: #888;">No templates found.</p>
+          </div>
+        `;
+      }
+    } catch (err) {
+      console.error("Failed to load gallery:", err);
+      grid.innerHTML = `
+        <div class="error-state">
+          <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+          <p>Failed to load templates. Please try again later.</p>
+        </div>
+      `;
+    }
+  }
+</script>
+{% endblock %}

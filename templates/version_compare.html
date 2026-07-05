@@ -1,0 +1,208 @@
+{% set active_page = "resume_optimizer" %}
+{% set page_title = "Version Compare" %}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard-hero" style="min-height: auto; padding-bottom: 2rem;">
+  <div class="hero-left">
+    <button class="btn-ghost" onclick="window.history.back()" style="margin-bottom: 1rem; padding: 0.5rem 1rem; display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
+       <span>←</span> Back to Optimizer
+    </button>
+    <div class="hero-greeting">
+      <span id="greeting-text">Version Comparison</span>
+    </div>
+    <div class="hero-summary">
+      Review your AI-generated structural and wording improvements side-by-side.
+    </div>
+  </div>
+  <div class="hero-right">
+     <button class="btn-primary" style="padding: 1rem; opacity: 0.5; cursor: not-allowed;" title="PDF generation capability will be unlocked in Phase 4">Download Optimized PDF (Phase 4)</button>
+  </div>
+</section>
+
+<!-- Skeleton Loader State -->
+<section id="compare-skeleton" class="dashboard-grid-12" style="margin-top: 1.5rem;">
+   <div class="widget-card col-6 skeleton-loader" style="height: 600px;"></div>
+   <div class="widget-card col-6 skeleton-loader" style="height: 600px;"></div>
+</section>
+
+<!-- Comparison View -->
+<section id="compare-container" class="dashboard-grid-12" style="margin-top: 1.5rem; display: none;">
+  
+  <!-- Left Panel: Original -->
+  <div class="widget-card col-6 panel-original">
+    <div class="card-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+      <h2 class="card-title muted-text">Original Resume</h2>
+    </div>
+    <!-- Virtualized/lazy layout container -->
+    <div id="original-content" style="white-space: pre-wrap; font-family: 'Inter', sans-serif; line-height: 1.7; color: rgba(255,255,255,0.6); max-height: 75vh; overflow-y: auto; padding-right: 1rem; font-size: 0.95rem;">
+       Loading original document...
+    </div>
+  </div>
+
+  <!-- Right Panel: Optimized -->
+  <div class="widget-card col-6 panel-optimized">
+    <div class="card-header" style="border-bottom: 1px solid rgba(0,255,170,0.2); padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+      <h2 class="card-title" style="color: #00ffaa; display: flex; align-items: center; gap: 0.5rem;">✨ AI Optimized Version</h2>
+      <div class="badge badge-green" id="score-badge">+0 ATS</div>
+    </div>
+    
+    <div id="optimized-content" style="font-family: 'Inter', sans-serif; line-height: 1.8; color: white; max-height: 75vh; overflow-y: auto; padding-right: 1rem; font-size: 0.95rem;">
+       <!-- AI structured JSON blocks are dynamically injected here -->
+    </div>
+  </div>
+
+</section>
+
+<style>
+/* Visual Difference System Implementation */
+.panel-original {
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.2);
+}
+
+.panel-optimized {
+  border: 1px solid rgba(0, 255, 170, 0.1);
+  border-left: 4px solid #00ffaa;
+  background: rgba(0, 255, 170, 0.02);
+  box-shadow: -15px 0 40px rgba(0, 255, 170, 0.05);
+}
+
+.badge-green { 
+  background: rgba(0, 255, 170, 0.1); 
+  color: #00ffaa; 
+  border: 1px solid rgba(0, 255, 170, 0.3); 
+  padding: 0.4rem 0.8rem; 
+  border-radius: 6px; 
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.1);
+}
+
+.opt-section {
+  margin-bottom: 2.5rem;
+}
+.opt-section h3 {
+  color: #a370f0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(163, 112, 240, 0.2);
+  padding-bottom: 0.5rem;
+}
+.opt-section p, .opt-section li {
+  white-space: pre-wrap;
+  margin-bottom: 0.8rem;
+}
+
+.skeleton-loader {
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.02) 75%);
+  background-size: 200% 100%;
+  
+}
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Custom Scrollbars to match premium dark UI */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.3); 
+}
+.panel-optimized ::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 170, 0.2);
+}
+.panel-optimized ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 170, 0.4);
+}
+
+/* Strict Mobile Column Stacking */
+@media (max-width: 900px) {
+  .dashboard-grid-12 .col-6 {
+    grid-column: span 12;
+  }
+}
+</style>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const versionId = "{{ version_id }}";
+  const container = document.getElementById("compare-container");
+  const skeleton = document.getElementById("compare-skeleton");
+  
+  const originalContent = document.getElementById("original-content");
+  const optimizedContent = document.getElementById("optimized-content");
+  const scoreBadge = document.getElementById("score-badge");
+
+  const loadComparison = async () => {
+    try {
+      const res = await window.apiFetch(`/api/resume/compare/${versionId}`);
+      const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to load comparison data.");
+      }
+      
+      // Render Original RAW text efficiently
+      originalContent.textContent = data.original_text;
+      
+      // Render Optimized Sections Dynamically from Gemini JSON Map
+      optimizedContent.innerHTML = "";
+      const sections = data.optimized_sections || {};
+      
+      if (Object.keys(sections).length === 0) {
+         optimizedContent.innerHTML = "<div class='muted-text'>No parsed sections found in AI response.</div>";
+      } else {
+         for (const [key, value] of Object.entries(sections)) {
+            const sec = document.createElement("div");
+            sec.className = "opt-section";
+            
+            let valHTML = "";
+            if (Array.isArray(value)) {
+               valHTML = `<ul style="padding-left: 1.5rem; margin:0;">${value.map(v => `<li>${v}</li>`).join('')}</ul>`;
+            } else {
+               valHTML = `<p>${value}</p>`;
+            }
+            
+            // Reformat underscores to title case for section headers
+            const headerText = key.replace(/_/g, ' ');
+            sec.innerHTML = `
+              <h3>${headerText}</h3>
+              ${valHTML}
+            `;
+            optimizedContent.appendChild(sec);
+         }
+      }
+      
+      // Inject ATS Improvement differential
+      scoreBadge.textContent = `+${data.ats_improvement_score || 0} ATS`;
+      
+      // Transition out Skeleton State
+      skeleton.style.display = "none";
+      container.style.display = "grid";
+      container.animate([{opacity: 0, transform: 'scale(0.98)'}, {opacity: 1, transform: 'scale(1)'}], {duration: 600, easing: 'ease-out', fill: "forwards"});
+      
+    } catch (e) {
+      alert("Verification Failed: " + e.message);
+      window.history.back();
+    }
+  };
+
+  loadComparison();
+});
+</script>
+{% endblock %}

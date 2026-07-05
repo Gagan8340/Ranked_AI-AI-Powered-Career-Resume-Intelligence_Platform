@@ -1,0 +1,78 @@
+%% Style 07: Compact Dense
+%% DESIGN PHILOSOPHY: Maximum information density. Small font (9pt), tight spacing,
+%% two-column skills, Computer Modern font. Every pixel earns its place.
+%% Visual signature: Dense, newspaper-like, information-rich single page.
+
+\documentclass[9pt,letterpaper]{article}
+\usepackage[top=0.4in, bottom=0.4in, left=0.5in, right=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\titleformat{\section}{\normalsize\bfseries\MakeUppercase}{}{0em}{}[\vspace{-4pt}\rule{\textwidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\begin{document}
+
+% --- HEADER: Compact single line ---
+{\large\bfseries Arjun Mehta} \hfill {\small arjun.mehta@email.com | 415-555-0192 | San Francisco, CA | github.com/arjunmehta}
+
+\section{Skills}
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=1em, topsep=0pt, itemsep=0pt, parsep=0pt]
+  \item \textbf{Languages:} Java, Python, Go, TypeScript, Rust, SQL
+  \item \textbf{Frameworks:} Spring Boot, React, gRPC, Kafka
+  \item \textbf{Infra:} AWS, GCP, K8s, Docker, Terraform
+  \item \textbf{Data:} Redis, PostgreSQL, DynamoDB, BigQuery
+  \item \textbf{Practices:} System Design, Distributed Systems
+  \item \textbf{Tools:} Git, Jenkins, Datadog, Prometheus
+\end{itemize}
+\end{multicols}
+
+\vspace{-4pt}
+\section{Experience}
+
+\textbf{Senior Software Engineer | Stripe, Inc.} \hfill 2021 -- Present
+\begin{itemize}[leftmargin=1em, topsep=1pt, itemsep=0pt, parsep=0pt]
+  \item Led redesign of payment processing pipeline, reducing latency by 40\% and handling 50K+ TPS across 30+ microservices
+  \item Architected event-driven platform using Kafka and gRPC serving 200+ internal teams; reduced inter-service coupling by 65\%
+  \item Mentored 5 junior engineers; established code review standards and on-call runbooks adopted org-wide
+  \item Drove migration from monolith to microservices, completing 18-month roadmap 3 months ahead of schedule
+\end{itemize}
+
+\vspace{2pt}
+\textbf{Software Engineer II | Google LLC} \hfill 2018 -- 2021
+\begin{itemize}[leftmargin=1em, topsep=1pt, itemsep=0pt, parsep=0pt]
+  \item Built real-time data pipeline processing 2TB/day for Google Maps traffic predictions with 99.99\% uptime
+  \item Designed and shipped collaborative editing features used by 10M+ Google Docs users across 40+ countries
+  \item Reduced CI/CD build times by 60\% through parallel test execution framework; saved 2000+ eng-hours/quarter
+  \item Led cross-team effort to standardize API contracts, reducing integration bugs by 45\%
+\end{itemize}
+
+\vspace{2pt}
+\textbf{Software Engineer | Amazon Web Services} \hfill 2016 -- 2018
+\begin{itemize}[leftmargin=1em, topsep=1pt, itemsep=0pt, parsep=0pt]
+  \item Developed auto-scaling algorithms for EC2 fleet management serving 1M+ instances across 20+ regions
+  \item Implemented distributed caching layer reducing database load by 70\% and p99 latency by 55\%
+  \item Built automated capacity planning tool saving \$2M/year in over-provisioned resources
+\end{itemize}
+
+\section{Projects}
+
+\textbf{Distributed Task Scheduler} (Go, 2K+ GitHub stars) -- Fault-tolerant job scheduler supporting cron, one-time, and event-driven execution with leader election and exactly-once semantics.
+
+\textbf{Real-time Analytics Engine} (Rust) -- Sub-millisecond streaming aggregation engine processing 100K events/sec with configurable windowing.
+
+\section{Education}
+
+\textbf{M.S. Computer Science,} Stanford University, 2016 \hfill \textbf{B.Tech CS,} IIT Bombay, 2014
+
+\end{document}

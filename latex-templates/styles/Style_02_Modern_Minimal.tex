@@ -1,0 +1,80 @@
+%% Style 02: Modern Minimal
+%% DESIGN PHILOSOPHY: Clean, airy, Scandinavian-inspired design. Helvetica font,
+%% extreme whitespace, thin hairline rules, no bold section headers.
+%% Visual signature: Lightweight typography, left-aligned everything, breathing room.
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=1.2in, bottom=1in, left=1.4in, right=1.4in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\definecolor{lightgray}{gray}{0.65}
+
+\titleformat{\section}{\normalsize\color{lightgray}}{}{0em}{\MakeUppercase}[\vspace{2pt}\textcolor{lightgray}{\rule{\textwidth}{0.2pt}}]
+\titlespacing*{\section}{0pt}{20pt}{8pt}
+
+\begin{document}
+
+\vspace*{-20pt}
+{\huge\fontseries{l}\selectfont Arjun Mehta}
+
+\vspace{8pt}
+{\small\color{lightgray} arjun.mehta@email.com \enspace / \enspace 415-555-0192 \enspace / \enspace San Francisco, CA}
+
+\vspace{4pt}
+{\small\color{lightgray} github.com/arjunmehta \enspace / \enspace linkedin.com/in/arjunmehta}
+
+\section{experience}
+
+{\normalsize Senior Software Engineer} \\[1pt]
+{\small\color{lightgray} Stripe \enspace · \enspace 2021 -- present}
+\vspace{4pt}
+\begin{itemize}[leftmargin=1em, label={\textcolor{lightgray}{--}}, topsep=0pt, itemsep=3pt, parsep=0pt]
+  \item Led redesign of payment processing pipeline, reducing latency by 40\%
+  \item Architected event-driven microservices platform using Kafka and gRPC
+  \item Mentored 5 junior engineers; established org-wide code review standards
+\end{itemize}
+
+\vspace{10pt}
+{\normalsize Software Engineer II} \\[1pt]
+{\small\color{lightgray} Google \enspace · \enspace 2018 -- 2021}
+\vspace{4pt}
+\begin{itemize}[leftmargin=1em, label={\textcolor{lightgray}{--}}, topsep=0pt, itemsep=3pt, parsep=0pt]
+  \item Built real-time data pipeline processing 2TB/day for Maps traffic predictions
+  \item Designed collaborative editing features for 10M+ Google Docs users
+  \item Reduced CI/CD build times by 60\% through parallel test execution
+\end{itemize}
+
+\vspace{10pt}
+{\normalsize Software Engineer} \\[1pt]
+{\small\color{lightgray} Amazon Web Services \enspace · \enspace 2016 -- 2018}
+\vspace{4pt}
+\begin{itemize}[leftmargin=1em, label={\textcolor{lightgray}{--}}, topsep=0pt, itemsep=3pt, parsep=0pt]
+  \item Developed auto-scaling algorithms for EC2 fleet management
+  \item Implemented distributed caching layer reducing database load by 70\%
+\end{itemize}
+
+\section{education}
+
+{\normalsize M.S. Computer Science} \\[1pt]
+{\small\color{lightgray} Stanford University \enspace · \enspace 2016}
+
+\vspace{8pt}
+{\normalsize B.Tech Computer Science} \\[1pt]
+{\small\color{lightgray} IIT Bombay \enspace · \enspace 2014}
+
+\section{skills}
+
+{\small
+Java \enspace · \enspace Python \enspace · \enspace Go \enspace · \enspace TypeScript \enspace · \enspace Rust \enspace · \enspace SQL \enspace · \enspace React \enspace · \enspace Kafka \enspace · \enspace Kubernetes \enspace · \enspace AWS \enspace · \enspace GCP \enspace · \enspace Terraform \enspace · \enspace Docker \enspace · \enspace PostgreSQL \enspace · \enspace Redis \enspace · \enspace gRPC
+}
+
+\end{document}

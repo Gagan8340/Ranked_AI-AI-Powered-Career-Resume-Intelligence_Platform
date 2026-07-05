@@ -1,0 +1,116 @@
+%% DESIGN: Latin Modern | Two-column (minipage sidebar) | Charcoal accent | Sidebar with skills, left-aligned
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{37474F}
+\definecolor{ACCENT}{HTML}{37474F}
+\definecolor{sidebg}{HTML}{ECEFF1}
+
+\titleformat{\section}{\bfseries\small\color{accent}\uppercase}{}{0em}{}[\color{accent}\rule{\linewidth}{0.5pt}]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+
+\setlist[itemize]{nosep, leftmargin=8pt, label={\color{accent}\textbullet}, itemsep=0pt}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.30\textwidth}
+\colorbox{sidebg}{\parbox[t][\textheight][t]{\dimexpr\textwidth-8pt}{%
+\vspace{8pt}
+\centering
+{\large\bfseries\color{accent} Aditya Nair}\\[4pt]
+{\tiny Mumbai, India\\+91-9765432100\\aditya.nair@email.com\\[2pt]
+\href{https://linkedin.com/in/adityanair-tech}{LinkedIn}\\
+\href{https://github.com/adityanair}{GitHub}}\\[10pt]
+
+\raggedright\hspace{4pt}\begin{minipage}{\dimexpr\textwidth-8pt}
+{\bfseries\tiny\color{accent}\uppercase{Technical Skills}}\\[3pt]
+{\tiny
+\textbf{Languages}\\Java, Python, JavaScript, SQL\\[3pt]
+\textbf{Web}\\React.js, Spring Boot, REST APIs\\[3pt]
+\textbf{Cloud \& Data}\\AWS, Power BI, Tableau\\[3pt]
+\textbf{Methodologies}\\Agile/Scrum, SDLC, Design Thinking\\[3pt]
+\textbf{Tools}\\Git, JIRA, Confluence, Docker, Postman\\[8pt]
+}
+
+{\bfseries\tiny\color{accent}\uppercase{Education}}\\[3pt]
+{\tiny
+\textbf{B.Tech in CSE}\\
+VJTI Mumbai\\
+2020 -- 2024\\
+CGPA: 8.34/10\\[4pt]
+\textbf{Class XII}\\
+Maharashtra Board\\
+91.5\% -- 2020\\[8pt]
+}
+
+{\bfseries\tiny\color{accent}\uppercase{Certifications}}\\[3pt]
+{\tiny
+Google Project Management Professional (2024)\\[2pt]
+SAFe 5 Agilist (2023)\\[8pt]
+}
+
+{\bfseries\tiny\color{accent}\uppercase{Leadership}}\\[3pt]
+{\tiny
+President, CSI -- VJTI Chapter (2023-24)\\[2pt]
+Toastmasters CC -- 15+ speeches\\[2pt]
+IIM Bangalore Case Challenge -- Top 10\\[2pt]
+Teach For India Volunteer\\
+}
+\end{minipage}
+}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.67\textwidth}
+\vspace{0pt}
+
+{\color{accent}\bfseries\footnotesize PROFESSIONAL SUMMARY}\\[2pt]
+{\tiny Computer Science graduate with strong full-stack development skills and demonstrated leadership in cross-functional team settings. Passionate about leveraging technology to solve business problems. Experienced in client-facing roles through internships. Effective communicator with presentation experience to both technical and non-technical audiences.}
+
+\vspace{4pt}
+\section{Experience}
+
+{\footnotesize\bfseries Technology Consulting Intern} -- KPMG India \hfill {\tiny Jan 2024 -- Apr 2024}
+\begin{itemize}
+    \item Collaborated with 4-member team to deliver digital transformation assessment for retail client
+    \item Created technical feasibility reports and presented recommendations to senior stakeholders
+    \item Developed proof-of-concept automation tool saving client 15 hours/week in manual reporting
+    \item Documented as-is and to-be process flows using BPMN notation for 3 business processes
+\end{itemize}
+
+{\footnotesize\bfseries Web Developer Intern} -- Tech Mahindra \hfill {\tiny May 2023 -- Jul 2023}
+\begin{itemize}
+    \item Built internal dashboard consolidating data from 5 sources for project managers
+    \item Conducted 3 requirement-gathering sessions with end users; translated needs into user stories
+    \item Delivered project 1 week ahead of schedule; received ``Exceptional Intern'' recognition
+\end{itemize}
+
+\section{Projects}
+
+{\footnotesize\bfseries Supply Chain Visibility Dashboard}\\
+{\tiny React, Python Flask, PostgreSQL, Power BI \hfill Aug 2023}
+\begin{itemize}
+    \item Built real-time supply chain tracking dashboard for college industry collaboration project
+    \item Enabled inventory optimization insights reducing simulated stockout scenarios by 30\%
+    \item Presented solution to industry panel; received ``Best Business Impact'' award
+\end{itemize}
+
+{\footnotesize\bfseries Customer Feedback Analysis Platform}\\
+{\tiny Python, NLP, Streamlit, AWS \hfill Mar 2023}
+\begin{itemize}
+    \item Developed sentiment analysis tool processing 10,000+ customer reviews with 87\% accuracy
+    \item Created executive summary dashboard with actionable insights and trend visualization
+\end{itemize}
+
+\end{minipage}
+
+\end{document}

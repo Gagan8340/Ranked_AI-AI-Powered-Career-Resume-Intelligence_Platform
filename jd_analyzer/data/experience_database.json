@@ -1,0 +1,241 @@
+{
+    "dsa": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "communication": {
+        "missing_evidence": [
+            "Teaching Experience",
+            "Technical Presentations",
+            "Mentorship Activities"
+        ],
+        "recommendations": [
+            "Add mentoring/tutoring activities",
+            "Add workshop presentations",
+            "Highlight cross-functional team collaboration"
+        ]
+    },
+    "open source": {
+        "missing_evidence": [
+            "Open Source Contributions",
+            "Public Code Repositories",
+            "Community Involvement"
+        ],
+        "recommendations": [
+            "Add GitHub contribution history",
+            "Link to accepted pull requests in popular repos",
+            "Highlight issues raised and resolved in OSS"
+        ]
+    },
+    "system design": {
+        "missing_evidence": [
+            "Architecture Documentation",
+            "Scalability Improvements",
+            "Database Design Experience"
+        ],
+        "recommendations": [
+            "Describe how you scaled an application",
+            "Quantify performance improvements (e.g., reduced latency by X%)",
+            "Mention architectural patterns used (Microservices, Monolith)"
+        ]
+    },
+    "default": {
+        "missing_evidence": [
+            "Practical application of {skill}",
+            "Projects utilizing {skill}"
+        ],
+        "recommendations": [
+            "Add bullet points quantifying your impact using {skill}",
+            "Link a GitHub repository demonstrating {skill}",
+            "Mention any certifications related to {skill}"
+        ]
+    },
+    "dummy_expanded_5": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_6": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_7": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_8": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_9": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_10": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_11": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_12": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_13": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_14": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_15": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_16": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_17": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_18": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    },
+    "dummy_expanded_19": {
+        "missing_evidence": [
+            "Competitive Programming Achievements",
+            "Problem Solving Metrics",
+            "Algorithm Implementations"
+        ],
+        "recommendations": [
+            "Add LeetCode Knight/Master Badge",
+            "Add Codeforces Rating",
+            "Highlight participation in coding competitions"
+        ]
+    }
+}

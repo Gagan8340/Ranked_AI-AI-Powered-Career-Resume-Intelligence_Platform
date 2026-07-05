@@ -1,0 +1,100 @@
+%% Style 20: Dark Mode - Dark background, light text, monospace headers, modern tech aesthetic
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pagecolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome5}
+\usepackage{lmodern}
+\usepackage{tikz}
+
+\definecolor{darkbg}{HTML}{1A1A2E}
+\definecolor{lighttext}{HTML}{E0E0E0}
+\definecolor{dimtext}{HTML}{A0A0A0}
+\definecolor{neonblue}{HTML}{00D4FF}
+\definecolor{neongreen}{HTML}{00FF88}
+\definecolor{neonyellow}{HTML}{FFD700}
+
+\pagecolor{darkbg}
+\color{lighttext}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\titleformat{\section}{\color{neonblue}\ttfamily\large\bfseries}{}{0em}{}[\color{neonblue!50}\rule{\textwidth}{0.3pt}]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\fontsize{30pt}{34pt}\selectfont\ttfamily\bfseries\color{neongreen}> Arjun Mehta}\\[6pt]
+{\large\color{dimtext}\ttfamily Senior Software Engineer}\\[8pt]
+{\small\color{neonblue}%
+\faEnvelope\ arjun.mehta@email.com \quad
+\faPhone\ +91-98765-43210 \quad
+\faLinkedin\ arjunmehta \quad
+\faGithub\ arjunmehta}
+\end{center}
+\vspace{8pt}
+
+\section{// Experience}
+
+\noindent{\bfseries\color{neonyellow}Senior Software Engineer} \hfill {\ttfamily\small\color{dimtext}Jan 2023 -- Present}\\
+{\color{neongreen}\ttfamily\small Amazon Web Services} {\color{dimtext}| Bangalore, India}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=3pt, label={\color{neonblue}$\rightarrow$}]
+\item \small\color{lighttext} Designed distributed microservices handling 50K+ requests/second using Java and AWS Lambda
+\item \small\color{lighttext} Led monolith-to-microservices migration, reducing latency by 40\%
+\item \small\color{lighttext} Mentored 4 junior engineers and conducted 50+ technical interviews
+\end{itemize}
+\vspace{8pt}
+
+\noindent{\bfseries\color{neonyellow}Software Engineer} \hfill {\ttfamily\small\color{dimtext}Jun 2020 -- Dec 2022}\\
+{\color{neongreen}\ttfamily\small Microsoft} {\color{dimtext}| Hyderabad, India}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=3pt, label={\color{neonblue}$\rightarrow$}]
+\item \small\color{lighttext} Built real-time data pipeline processing 10TB+ daily using Kafka and Spark
+\item \small\color{lighttext} Developed REST APIs serving 1M+ users with 99.9\% uptime SLA
+\item \small\color{lighttext} Reduced CI/CD pipeline execution time by 60\%
+\end{itemize}
+
+\section{// Education}
+
+\noindent{\bfseries\color{neonyellow}B.Tech Computer Science} \hfill {\ttfamily\small\color{dimtext}2016 -- 2020}\\
+{\color{neongreen}\ttfamily\small IIT Bombay} \hfill {\color{dimtext}GPA: 3.8/4.0}
+
+\section{// Projects}
+
+\noindent{\bfseries\color{neonyellow}Distributed Task Scheduler} \hfill {\ttfamily\small\color{dimtext}2023}\\
+{\color{dimtext}\ttfamily\small Go | gRPC | Redis | Kubernetes}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=3pt, label={\color{neonblue}$\rightarrow$}]
+\item \small\color{lighttext} Fault-tolerant scheduler supporting 100K+ concurrent jobs
+\item \small\color{lighttext} Implemented Raft consensus algorithm for leader election
+\end{itemize}
+\vspace{6pt}
+
+\noindent{\bfseries\color{neonyellow}Real-time Analytics Dashboard} \hfill {\ttfamily\small\color{dimtext}2022}\\
+{\color{dimtext}\ttfamily\small React | TypeScript | D3.js | WebSocket}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=3pt, label={\color{neonblue}$\rightarrow$}]
+\item \small\color{lighttext} Interactive streaming data visualization with sub-second refresh
+\end{itemize}
+
+\section{// Skills}
+
+\noindent\begin{minipage}[t]{0.32\textwidth}
+{\small\color{neonblue}\ttfamily\bfseries Languages}\\[3pt]
+{\small\color{lighttext}Java, Python, Go,\\TypeScript, SQL}
+\end{minipage}%
+\begin{minipage}[t]{0.36\textwidth}
+{\small\color{neonblue}\ttfamily\bfseries Frameworks}\\[3pt]
+{\small\color{lighttext}Spring Boot, React,\\Kafka, Spark, Node.js}
+\end{minipage}%
+\begin{minipage}[t]{0.32\textwidth}
+{\small\color{neonblue}\ttfamily\bfseries Infrastructure}\\[3pt]
+{\small\color{lighttext}AWS, Docker, K8s,\\Terraform, Git, Jenkins}
+\end{minipage}
+
+\end{document}

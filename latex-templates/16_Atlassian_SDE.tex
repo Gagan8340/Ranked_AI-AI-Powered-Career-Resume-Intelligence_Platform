@@ -1,0 +1,78 @@
+%% DESIGN: Helvetica | Single-column modern | Blue accent | Icon-style bullets (fontawesome5), left-aligned header
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\definecolor{accent}{HTML}{0052CC}
+\definecolor{ACCENT}{HTML}{0052CC}
+
+\titleformat{\section}{\bfseries\normalsize\color{accent}}{}{0em}{\faIcon{chevron-right}\hspace{4pt}\uppercase}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}\faIcon{check-circle}}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\large\bfseries Rohit Nair} \quad {\color{accent}\faIcon{map-marker-alt}} {\small Bangalore} \quad {\color{accent}\faIcon{phone}} {\small +91-96543-21098} \quad {\color{accent}\faIcon{envelope}} {\small rohit.nair@email.com}\\[2pt]
+{\color{accent}\faIcon{linkedin}} {\small \href{https://linkedin.com/in/rohitnair}{linkedin.com/in/rohitnair}} \quad {\color{accent}\faIcon{github}} {\small \href{https://github.com/rohitnair}{github.com/rohitnair}}
+
+\vspace{4pt}{\color{accent}\hrule height 1.5pt}
+
+\section{Summary}
+
+{\small Software engineer with 5+ years building collaborative SaaS platforms used by 200K+ teams globally. Expertise in real-time collaboration, extensible plugin architectures, and developer platform APIs. Passionate about developer experience and building tools that make teams more productive.}
+
+\section{Experience}
+
+\textbf{Senior Software Engineer} $\mid$ Atlassian \hfill {\small Aug 2022 -- Present}
+\begin{itemize}
+    \item Built Confluence real-time co-editing backend (OT/CRDT) supporting 50+ simultaneous editors per document with <100ms sync
+    \item Designed Forge app platform APIs enabling 3rd-party developers to build 500+ marketplace apps with sandboxed execution
+    \item Implemented smart notifications system reducing notification noise by 40\% through ML-based relevance scoring
+    \item Led migration of Jira workflow engine from monolith to event-driven microservices, reducing P99 latency by 60\%
+    \item Built automated performance regression detection in CI pipeline, catching 15+ regressions/quarter before production
+    \item Contributed to Atlassian Design System; built 8 accessible React components used across 4 products
+\end{itemize}
+
+\textbf{Software Engineer} $\mid$ Freshworks \hfill {\small Jun 2020 -- Jul 2022}
+\begin{itemize}
+    \item Developed Freshdesk ticket automation engine processing 2M+ tickets/day with custom workflow rules
+    \item Built multi-tenant data isolation layer supporting 50K+ customer accounts with zero data leakage
+    \item Implemented real-time chat widget (WebSocket) handling 100K concurrent connections with message persistence
+    \item Designed plugin marketplace architecture enabling 200+ third-party integrations with OAuth2 and webhook support
+\end{itemize}
+
+\textbf{Software Engineer} $\mid$ Zoho Corporation \hfill {\small Jul 2019 -- May 2020}
+\begin{itemize}
+    \item Built collaborative document editor with conflict resolution for Zoho Writer, supporting 20 concurrent editors
+    \item Developed REST API gateway handling 10K RPS with rate limiting, authentication, and request transformation
+\end{itemize}
+
+\section{Projects}
+
+{\color{accent}\faIcon{code-branch}} \textbf{Open-Source Kanban Board} {\small$\mid$ React, TypeScript, WebSocket, PostgreSQL} -- Real-time collaborative project board with drag-and-drop, swimlanes, and WIP limits; 800+ stars\\[3pt]
+{\color{accent}\faIcon{terminal}} \textbf{Developer Portal Generator} {\small$\mid$ Kotlin, OpenAPI} -- CLI tool auto-generating interactive API documentation from OpenAPI specs
+
+\section{Skills}
+
+{\small
+\textbf{Languages:} Java, Kotlin, TypeScript, Python \quad \textbf{Frontend:} React, TypeScript, Atlassian Design System, Web Components\\
+\textbf{Backend:} Spring Boot, Kotlin Coroutines, GraphQL, REST \quad \textbf{Databases:} PostgreSQL, DynamoDB, Redis, Elasticsearch\\
+\textbf{Infrastructure:} AWS (ECS, Lambda, SQS), Docker, Kubernetes, Terraform
+}
+
+\section{Education}
+
+{\color{accent}\faIcon{graduation-cap}} \textbf{B.Tech in Computer Science} -- College of Engineering, Guindy (Anna University) \hfill 2015 -- 2019 \quad CGPA: 9.0/10
+
+\end{document}

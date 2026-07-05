@@ -1,0 +1,89 @@
+%% DESIGN: Raleway | Scrappy/energetic, diagonal header, multi-role | Startup Orange (#F57C00) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage[thin]{raleway}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{tcolorbox}
+
+\definecolor{startorange}{HTML}{F57C00}
+\definecolor{lightorange}{HTML}{FFF3E0}
+
+\tcbset{colback=lightorange,colframe=startorange,boxrule=0.4pt,arc=4pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+\titleformat{\section}{\normalsize\bfseries\color{startorange}}{}{0em}{\faIcon{rocket}\hspace{4pt}}[\vspace{-0.3em}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{leftmargin=1em,itemsep=1pt,parsep=0pt,label=\color{startorange}\faIcon{bolt}}
+
+\hypersetup{colorlinks=true,urlcolor=startorange}
+
+\begin{document}
+
+% Energetic header with orange bar
+\noindent\begin{tikzpicture}[remember picture,overlay]
+\fill[startorange] (-0.55in,0.4cm) rectangle (\paperwidth,-0.1cm);
+\end{tikzpicture}
+
+\vspace{0.2cm}
+\begin{center}
+{\LARGE\bfseries SIDDHARTH MENON}\\[3pt]
+{\normalsize Early Employee \#4 $\rightarrow$ Engineering Lead $\rightarrow$ 0-to-1 Builder}\\[4pt]
+{\small \faIcon{envelope} sid.menon@email.com \quad \faIcon{phone} +91-99887-11223 \quad \faIcon{map-marker-alt} Bangalore \quad \faIcon{github} \href{https://github.com/sidm}{sidm}}
+\end{center}
+
+\vspace{4pt}
+\begin{tcolorbox}
+\textbf{Why me:} I've been employee \#4 at a startup that grew to 200+ people and \$50M ARR. I've worn every hat -- backend, frontend, DevOps, hiring, on-call, customer support. I thrive in chaos and build things that scale from 0 to millions of users.
+\end{tcolorbox}
+
+\section{Startup Journey: Postman (Employee \#4)}
+
+\textbf{Postman} \hfill Bangalore\\[2pt]
+\textit{\color{startorange}Role 4: Engineering Manager -- Platform} \hfill Jan 2022 -- Present
+\begin{itemize}
+\item Managing team of 12 building API collaboration platform (30M+ users)
+\item Drove architecture for Postman Flows -- visual API workflow builder
+\item Hiring: conducted 200+ interviews, built engineering hiring rubric
+\end{itemize}
+
+\textit{\color{startorange}Role 3: Senior Engineer -- Core API Client} \hfill Jul 2019 -- Dec 2021
+\begin{itemize}
+\item Built real-time collaboration engine (CRDT-based) for shared workspaces
+\item Designed plugin architecture enabling 500+ community integrations
+\item Led performance optimization: app startup time reduced from 8s to 1.2s
+\end{itemize}
+
+\textit{\color{startorange}Role 2: Full Stack Engineer} \hfill Mar 2017 -- Jun 2019
+\begin{itemize}
+\item Built entire collections/environments feature (now used by 25M+ developers)
+\item Developed Electron desktop app from scratch (Mac, Windows, Linux)
+\item Set up CI/CD, monitoring, and on-call rotation (we had none before)
+\end{itemize}
+
+\textit{\color{startorange}Role 1: Founding Engineer (\#4)} \hfill Jun 2015 -- Feb 2017
+\begin{itemize}
+\item Joined when product was a Chrome extension with 500K users
+\item Built first version of cloud sync, team workspaces, and API documentation
+\item Wore all hats: backend, frontend, DevOps, customer support, hiring
+\end{itemize}
+
+\section{Technical Skills}
+\textbf{Languages:} JavaScript/TypeScript, Go, Python, Rust\\
+\textbf{Frontend:} React, Electron, Web Workers, IndexedDB\\
+\textbf{Backend:} Node.js, Go microservices, GraphQL, gRPC\\
+\textbf{Infra:} AWS, Kubernetes, Terraform, Datadog\\
+\textbf{Special:} CRDTs, real-time sync, desktop apps, developer tools
+
+\section{Education}
+\textbf{B.Tech Computer Science} -- IIIT Bangalore \hfill 2011 -- 2015
+
+\section{Why Startups}
+Built side projects with 10K+ users: \texttt{api-mocker} (npm, 5K weekly downloads), \texttt{devdash} (developer dashboard)
+
+\end{document}

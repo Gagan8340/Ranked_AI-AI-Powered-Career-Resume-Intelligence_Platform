@@ -1,0 +1,54 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "AI Career Platform",
+  "dateExported": "2024-01-01T00:00:00.000Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "containerId": "",
+      "sortNum": 10000,
+      "headers": [],
+      "colId": "col_ai_career_1",
+      "name": "Login",
+      "url": "http://127.0.0.1:5000/auth/login",
+      "method": "POST",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "created": "2024-01-01T00:00:00.000Z",
+      "_id": "req_login_1",
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "set-env-var",
+          "custom": "json.token",
+          "action": "setto",
+          "value": "{{jwt_token}}"
+        }
+      ]
+    },
+    {
+      "containerId": "",
+      "sortNum": 20000,
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{jwt_token}}"
+        }
+      ],
+      "colId": "col_ai_career_1",
+      "name": "Get Dashboard Stats",
+      "url": "http://127.0.0.1:5000/api/dashboard/stats",
+      "method": "GET",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "created": "2024-01-01T00:00:00.000Z",
+      "_id": "req_dashboard_1",
+      "params": [],
+      "tests": []
+    }
+  ]
+}

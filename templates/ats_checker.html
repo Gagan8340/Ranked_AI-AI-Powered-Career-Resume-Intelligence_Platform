@@ -1,0 +1,531 @@
+{% set active_page = "ats_score_checker" %}
+{% set page_title = "ATS Compatibility Score" %}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard-hero" style="margin-bottom: var(--space-6);">
+  <div class="hero-left">
+    <h1 class="hero-greeting text-gradient-primary">
+      <span id="greeting-text">Know Your Rank Before You Apply.</span>
+    </h1>
+    <p class="hero-summary muted-text">
+      Improve your ATS Compatibility Score and increase your chances of landing interviews.
+    </p>
+  </div>
+</section>
+
+<section class="grid" style="grid-template-columns: 5fr 7fr; gap: var(--space-6);">
+  
+  <!-- Left Column: Input Form -->
+  <div class="card" style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 class="card-title" style="margin: 0;">Setup Analysis</h2>
+      <button type="button" onclick="document.getElementById('scoringModal').classList.add('open')" style="background: rgba(109, 93, 252, 0.1); border: 1px solid rgba(109, 93, 252, 0.2); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
+        View Scoring System
+      </button>
+    </div>
+    
+    <div>
+      <label style="display: block; margin-bottom: var(--space-2); font-weight: 500; color: var(--text-secondary);">Upload Resume</label>
+      <select id="resume-select" style="width: 100%; padding: 16px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary); outline: none; cursor: pointer; transition: border-color 0.2s ease, box-shadow 0.2s ease; font-size: 15px;">
+        <option value="">Loading resumes...</option>
+      </select>
+      <p class="muted-text text-sm" style="margin-top: 8px;">Select an existing resume from your profile to analyze.</p>
+    </div>
+
+    <div>
+      <label style="display: block; margin-bottom: var(--space-2); font-weight: 500; color: var(--text-secondary);">Target Job Description (Optional)</label>
+      <select id="jd-select" style="width: 100%; padding: 16px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary); outline: none; cursor: pointer; transition: border-color 0.2s ease, box-shadow 0.2s ease; font-size: 15px;">
+        <option value="">None (General ATS Check)</option>
+      </select>
+      <p class="muted-text text-sm" style="margin-top: 8px;">Select a JD you analyzed earlier to unlock keyword matching.</p>
+    </div>
+
+    <div id="error-alert" style="display: none; color: var(--danger); font-size: 14px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-sm); border: 1px solid rgba(239, 68, 68, 0.2);"></div>
+
+    <div style="margin-top: auto; padding-top: 8px;">
+      <button class="btn-primary" id="analyze-btn" type="button" style="width: 100%; font-size: 16px; padding: 14px;">
+        <span id="btn-text">Analyze ATS Compatibility</span>
+        <span id="btn-icon">✨</span>
+      </button>
+    </div>
+    
+    <div id="loading-status" style="display: none; text-align: center; margin-top: var(--space-4);">
+      <div class="activity-dot" style=" width: 12px; height: 12px; margin: 0 auto 12px auto; background: var(--primary); border-radius: 50%; border: 3px solid rgba(109, 93, 252, 0.4);"></div>
+      <div id="loading-text" style="font-weight: 500; color: var(--primary-strong); transition: all 0.3s;">AI is grading your resume...</div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" id="empty-state">
+    <div class="empty-state-icon">📊</div>
+    <div class="empty-state-title">No ATS Compatibility Analysis Yet</div>
+    <div class="empty-state-desc">
+      Select a resume and click Analyze ATS Compatibility to see your formatting, readability, and missing sections.
+    </div>
+  </div>
+
+  <!-- Right Column: Results & Skeletons -->
+  <div class="card" id="results-skeleton" style="display: none; padding: var(--space-6); flex-direction: column; gap: var(--space-5);">
+     <div class="card-header"><h2 class="card-title">Analysis Results</h2></div>
+     <div class="skeleton" style="height: 120px; border-radius: var(--radius-sm);"></div>
+     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+        <div class="skeleton" style="height: 100px; border-radius: var(--radius-sm);"></div>
+        <div class="skeleton" style="height: 100px; border-radius: var(--radius-sm);"></div>
+     </div>
+     <div class="skeleton" style="height: 180px; border-radius: var(--radius-sm);"></div>
+  </div>
+
+  <!-- Real Results Container -->
+  <div class="card" id="results-container" style="display: none; flex-direction: column; gap: var(--space-5); background: transparent; border: none; box-shadow: none;">
+    
+    <!-- Top Header Card -->
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: stretch;">
+      <!-- Score Circle -->
+      <div class="card" style="padding: var(--space-6); display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 250px;">
+        <div id="score-ring" style="width: 160px; height: 160px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 8px solid var(--border-subtle); transition: all 1s ease;">
+          <div style="font-size: 3.5rem; font-weight: 800; line-height: 1; color: var(--text-primary);" id="score-val">0</div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; margin-top: 4px;">ATS SCORE</div>
+        </div>
+        <div id="grade-badge" style="margin-top: 16px; padding: 6px 20px; background: rgba(109, 93, 252, 0.1); color: var(--primary); font-weight: 600; border-radius: 20px; font-size: 0.95rem;">Grade: -</div>
+      </div>
+      
+      <!-- Summary Box -->
+      <div class="card" style="flex: 1; padding: var(--space-6);">
+        <h3 style="color: var(--primary); font-size: 1.1rem; margin: 0 0 12px 0; font-weight: 700;">Summary</h3>
+        <p id="summary-text" class="muted-text" style="line-height: 1.6; font-size: 0.95rem;"></p>
+      </div>
+    </div>
+
+    <!-- Section Scores -->
+    <div style="margin-top: var(--space-4);">
+      <h3 style="color: var(--primary); font-size: 1.1rem; margin: 0 0 16px 0; font-weight: 700;">Section Scores</h3>
+      <div id="section-scores-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+    
+    <!-- ATS Risks -->
+    <div class="card" style="margin-top: var(--space-4); padding: var(--space-6);">
+      <h3 style="color: var(--primary); font-size: 1.1rem; margin: 0 0 16px 0; font-weight: 700;">ATS Risks (Fix These)</h3>
+      <div id="ats-risks-list" style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+    
+    <!-- Strong Keywords -->
+    <div style="margin-top: var(--space-4);">
+      <h3 style="color: var(--primary); font-size: 1.1rem; margin: 0 0 16px 0; font-weight: 700;">Strong Keywords</h3>
+      <div class="card" style="padding: var(--space-6);">
+        <div id="strong-keywords-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Suggestions -->
+    <div style="margin-top: var(--space-4);">
+      <h3 style="color: var(--primary); font-size: 1.1rem; margin: 0 0 16px 0; font-weight: 700;">Top Suggestions</h3>
+      <div class="card" style="padding: var(--space-6);">
+        <div id="top-suggestions-list" style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</section>
+
+<style>
+#resume-select:focus {
+  border-color: var(--primary);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 0 4px rgba(109, 93, 252, 0.1);
+}
+
+.badge-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--text-primary);
+}
+.progress-bar-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8B5CF6, #3B82F6);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+.risk-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.risk-bullet {
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 2px;
+}
+.severity-high { color: #ef4444; }
+.severity-medium { color: #f59e0b; }
+.severity-low { color: var(--text-muted); }
+</style>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const resumeSelect = document.getElementById("resume-select");
+  const jdSelect = document.getElementById("jd-select");
+  const analyzeBtn = document.getElementById("analyze-btn");
+  const btnText = document.getElementById("btn-text");
+  const loadingStatus = document.getElementById("loading-status");
+  const loadingText = document.getElementById("loading-text");
+  const errorAlert = document.getElementById("error-alert");
+  
+  const resultsContainer = document.getElementById("results-container");
+  const resultsSkeleton = document.getElementById("results-skeleton");
+
+  // Fetch Resumes
+  const fetchResumes = async () => {
+    try {
+      const res = await window.apiFetch("/api/resume/list");
+      const data = await res.json();
+      
+      resumeSelect.innerHTML = `<option value="">Select an uploaded resume...</option>`;
+      if (res.ok && data.resumes && data.resumes.length > 0) {
+        data.resumes.forEach(resume => {
+          const opt = document.createElement("option");
+          opt.value = resume.resume_id;
+          opt.textContent = `${resume.filename}`;
+          resumeSelect.appendChild(opt);
+        });
+      } else if (res.ok) {
+        resumeSelect.innerHTML = `<option value="">No resumes found. Please upload one first.</option>`;
+      }
+    } catch (e) {
+      resumeSelect.innerHTML = `<option value="">Network error loading resumes.</option>`;
+    }
+  };
+  fetchResumes();
+
+  // Fetch Job Descriptions
+  let savedJds = [];
+  const fetchJds = async () => {
+    try {
+      const res = await window.apiFetch("/api/jd/list");
+      const data = await res.json();
+      
+      jdSelect.innerHTML = `<option value="">None (General ATS Check)</option>`;
+      if (res.ok && data.jds && data.jds.length > 0) {
+        savedJds = data.jds;
+        data.jds.forEach(jd => {
+          const opt = document.createElement("option");
+          opt.value = jd.id;
+          opt.textContent = jd.title || "Saved Job Description";
+          jdSelect.appendChild(opt);
+        });
+      }
+    } catch (e) {
+      jdSelect.innerHTML = `<option value="">Network error loading JDs.</option>`;
+    }
+  };
+  fetchJds();
+  // Analyze Request
+  analyzeBtn.addEventListener("click", async () => {
+    const resumeId = resumeSelect.value;
+    
+    errorAlert.style.display = "none";
+    if (!resumeId) {
+      errorAlert.textContent = "Please select a resume before analyzing.";
+      errorAlert.style.display = "block";
+      return;
+    }
+
+    analyzeBtn.disabled = true;
+    btnText.textContent = "Checking...";
+    loadingStatus.style.display = "block";
+    loadingText.textContent = "Running ATS evaluation...";
+    
+    resultsContainer.style.display = "none";
+    resultsSkeleton.style.display = "flex";
+    const emptyState = document.getElementById("empty-state");
+    if (emptyState) emptyState.style.display = "none";
+
+    // Prepare Payload
+    const payload = { resume_id: parseInt(resumeId) };
+    if (jdSelect.value) {
+      const selectedJd = savedJds.find(j => j.id == jdSelect.value);
+      if (selectedJd) payload.jd_text = selectedJd.jd_text;
+    }
+
+    // Call the dedicated ATS analyze API
+    try {
+      const res = await window.apiFetch("/api/ats/analyze", {
+        method: "POST",
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Analysis failed.");
+      renderResults(data.analysis);
+    } catch (e) {
+      errorAlert.textContent = e.message;
+      errorAlert.style.display = "block";
+      resultsSkeleton.style.display = "none";
+    } finally {
+      analyzeBtn.disabled = false;
+      btnText.textContent = "Analyze ATS Compatibility";
+      loadingStatus.style.display = "none";
+    }
+  });
+
+  const renderResults = (analysis) => {
+    resultsSkeleton.style.display = "none";
+    resultsContainer.style.display = "flex";
+    
+    // Overall ATS Score
+    const score = analysis.overall_score || 0;
+    const scoreVal = document.getElementById("score-val");
+    const scoreRing = document.getElementById("score-ring");
+    
+    // Grade and Summary
+    document.getElementById("grade-badge").textContent = `Grade: ${analysis.grade || 'C'}`;
+    // Provide a standard summary since the backend might just send the disclaimer right now
+    document.getElementById("summary-text").textContent = "Strong technical skills detected. Review the section breakdowns below to see where formatting inconsistencies or keyword optimizations can improve your ATS compatibility.";
+    
+    // Overall ATS Score logic
+    let currentScore = 0;
+    const duration = 1000;
+    const step = 20;
+    const inc = score / (duration / step);
+    
+    const animateScore = setInterval(() => {
+      currentScore += inc;
+      if (currentScore >= score) {
+        currentScore = score;
+        clearInterval(animateScore);
+      }
+      scoreVal.textContent = Math.round(currentScore);
+    }, step);
+    
+    if (score < 60) {
+      scoreRing.style.borderColor = "#ef4444";
+      scoreVal.style.color = "#ef4444";
+    } else if (score < 80) {
+      scoreRing.style.borderColor = "#f59e0b";
+      scoreVal.style.color = "#f59e0b";
+    } else {
+      scoreRing.style.borderColor = "#10b981";
+      scoreVal.style.color = "#10b981";
+    }
+    
+    // Render Section Scores
+    const sectionsGrid = document.getElementById("section-scores-grid");
+    sectionsGrid.innerHTML = "";
+    
+    const renderSection = (title, scoreValue) => {
+        return `
+        <div class="card" style="padding: var(--space-4);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">${title}</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem;">${scoreValue}/100</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: ${scoreValue}%;"></div>
+            </div>
+        </div>`;
+    };
+
+    const comps = analysis.components || {};
+    let html = "";
+    if (comps.ats_formatting) html += renderSection("Formatting", comps.ats_formatting.percentage);
+    if (comps.experience_section) html += renderSection("Experience", comps.experience_section.percentage);
+    if (comps.skills_section) html += renderSection("Skills", comps.skills_section.percentage);
+    if (comps.education_section) html += renderSection("Education", comps.education_section.percentage);
+    if (comps.keyword_coverage && comps.keyword_coverage.percentage > 0) html += renderSection("Keywords", comps.keyword_coverage.percentage);
+    
+    // Map backend legacy readability for completion
+    const readScore = analysis.breakdown && analysis.breakdown.readability ? analysis.breakdown.readability.score : 85;
+    html += renderSection("Readability", Math.round(readScore));
+    sectionsGrid.innerHTML = html;
+
+    // Render ATS Risks
+    const risksList = document.getElementById("ats-risks-list");
+    let risksHtml = "";
+    const topIssues = analysis.top_issues || [];
+    if (topIssues.length === 0) {
+        risksHtml = "<div class='muted-text'>No major formatting or content risks detected!</div>";
+    } else {
+        topIssues.forEach((issue, idx) => {
+            const severity = idx === 0 ? "high" : "medium";
+            risksHtml += `
+            <div class="risk-item">
+                <div class="risk-bullet">•</div>
+                <div>
+                    <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 4px;">
+                        Risk Identified <span class="severity-${severity}">(${severity})</span>
+                    </div>
+                    <div class="muted-text" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 6px;">
+                        ATS parsers may struggle with this issue, reducing your score.
+                    </div>
+                    <div style="font-size: 0.9rem; color: var(--text-primary);">
+                        <strong>Fix:</strong> ${issue}
+                    </div>
+                </div>
+            </div>`;
+        });
+    }
+    risksList.innerHTML = risksHtml;
+
+    // Render Strong Keywords
+    const keywordsList = document.getElementById("strong-keywords-list");
+    const matches = analysis.keyword_matches || [];
+    if (matches.length === 0) {
+        keywordsList.innerHTML = "<div class='muted-text'>No specific keywords matched. Try pasting a Job Description!</div>";
+    } else {
+        keywordsList.innerHTML = matches.map(k => `<div class="badge-item">${k}</div>`).join("");
+    }
+
+    // Render Top Suggestions
+    const suggList = document.getElementById("top-suggestions-list");
+    const recs = analysis.recommendations || [];
+    let recsHtml = "";
+    if (recs.length === 0) {
+        recsHtml = "<div class='muted-text'>No further suggestions.</div>";
+    } else {
+        recs.slice(0, 3).forEach((rec, idx) => {
+            const priority = idx === 0 ? "high" : "medium";
+            recsHtml += `
+            <div class="risk-item">
+                <div class="risk-bullet">•</div>
+                <div style="width: 100%;">
+                    <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 4px;">
+                        Improvement Opportunity <span style="color: var(--text-muted); font-weight: normal;">(${priority})</span>
+                    </div>
+                    <div class="muted-text" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px;">
+                        ${rec}
+                    </div>
+                    <div style="padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; color: var(--text-secondary); font-size: 0.85rem;">
+                        <em>Apply this feedback to your resume text to increase your section scores.</em>
+                    </div>
+                </div>
+            </div>`;
+        });
+    }
+    suggList.innerHTML = recsHtml;
+    
+    resultsContainer.animate([{opacity: 0}, {opacity: 1}], {duration: 400, fill: "forwards"});
+  };
+
+});
+</script>
+
+  <!-- Scoring Modal -->
+  <div class="modal-backdrop" id="scoringModal">
+    <div class="profile-onboarding-modal" style="max-width: 500px;">
+      <div class="modal-hero" style="background: linear-gradient(135deg, rgba(109, 93, 252, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%); padding: 32px 24px; text-align: center; border-bottom: 1px solid var(--border-subtle);">
+        <div style="background: var(--bg-surface); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 16px auto; box-shadow: 0 8px 20px rgba(109, 93, 252, 0.15); border: 1px solid rgba(109, 93, 252, 0.2);">💯</div>
+        <h2 class="modal-title text-gradient-primary" style="margin-bottom: 8px; font-size: 1.5rem;">How We Score Resumes</h2>
+        <p class="modal-desc muted-text" style="margin: 0; font-size: 15px;">Our ATS algorithm is fully transparent. Here is the exact 100-point breakdown used by Fortune 500 companies.</p>
+      </div>
+      
+      <div class="modal-body" style="padding: 24px 32px; background: var(--bg-card);">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- Score Items -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">💼</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Experience</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">25 pts</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">🎯</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Keyword Match</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">20 pts</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">📄</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Formatting & Readability</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">15 pts</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">⚡</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Skills Section</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">10 pts</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">📝</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Professional Summary</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">8 pts</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">🎓</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Education</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">7 pts</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 4px;">
+            <div style="text-align: center; padding: 12px 8px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 20px; margin-bottom: 4px;">🚀</div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Projects</div>
+              <div style="font-weight: 700; color: var(--primary); font-size: 13px;">5 pts</div>
+            </div>
+            <div style="text-align: center; padding: 12px 8px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 20px; margin-bottom: 4px;">📜</div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Certificates</div>
+              <div style="font-weight: 700; color: var(--primary); font-size: 13px;">5 pts</div>
+            </div>
+            <div style="text-align: center; padding: 12px 8px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 20px; margin-bottom: 4px;">📱</div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Contact</div>
+              <div style="font-weight: 700; color: var(--primary); font-size: 13px;">5 pts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions" style="padding: 24px 32px; background: var(--bg-card); border-top: 1px solid var(--border-subtle); display: flex; justify-content: center; border-radius: 0 0 24px 24px;">
+        <button type="button" class="btn-primary" onclick="document.getElementById('scoringModal').classList.remove('open')" style="width: 100%; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 12px;">Got It, Let's Analyze!</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Automatically show the scoring modal EVERY time the user opens the page
+    setTimeout(() => {
+        const modal = document.getElementById('scoringModal');
+        if (modal) {
+            modal.classList.add('open');
+        }
+    }, 50);
+  });
+</script>
+{% endblock %}

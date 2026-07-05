@@ -1,0 +1,80 @@
+%% DESIGN: Cabin | Warm/friendly, relationship-focused | Teal (#00897B) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.7in,right=0.7in,top=0.6in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{cabin}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz}
+
+\definecolor{accent}{HTML}{00897B}
+\definecolor{ACCENT}{HTML}{00897B}
+\definecolor{warm}{HTML}{E0F2F1}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{-0.5em}]
+\titlespacing{\section}{0pt}{1em}{0.4em}
+
+\begin{document}
+
+% Warm, approachable header
+\noindent
+\begin{tikzpicture}
+\fill[warm] (0,0) rectangle (\textwidth,2.4);
+\fill[accent] (0,2.2) rectangle (\textwidth,2.4);
+\node[anchor=west,font=\Huge\bfseries\color{accent}] at (0.4,1.5) {DANA REEVES};
+\node[anchor=west,font=\large] at (0.4,0.8) {Customer Success Manager};
+\node[anchor=west,font=\small\color{accent!80}] at (0.4,0.25) {dana.reeves@email.com \quad\textbullet\quad (555) 901-2345 \quad\textbullet\quad Chicago, IL \quad\textbullet\quad linkedin.com/in/danareeves};
+\end{tikzpicture}
+
+\vspace{0.6em}
+
+\section{About Me}
+Customer Success Manager passionate about building lasting client relationships and driving measurable business outcomes. 6+ years helping SaaS companies achieve best-in-class retention (net revenue retention: 125\%+). I believe great CS is about being a trusted partner, not just a vendor.
+
+\section{Key Metrics}
+\noindent
+\begin{tikzpicture}
+\foreach \x/\val/\lab in {0/\$8M+/ARR Managed, 3.5/125\%/Net Revenue Retention, 7/95\%/CSAT Score, 10.5/60+/Enterprise Accounts} {
+  \node[fill=warm,rounded corners=4pt,minimum width=3cm,minimum height=1.2cm,align=center] at (\x+1.5,0) {\textbf{\large\color{accent}\val}\\\small\lab};
+}
+\end{tikzpicture}
+
+\section{Experience}
+
+\noindent\textbf{Senior Customer Success Manager} \hfill \textcolor{accent}{Mar 2022 -- Present}\\
+\textit{SaaSPlatform Inc., Chicago, IL}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Manage portfolio of 25 enterprise accounts (\$8M ARR) with 98\% gross retention
+\item Drove expansion revenue of \$1.5M through strategic upsell and cross-sell initiatives
+\item Built customer health scoring model predicting churn risk 60 days in advance (85\% accuracy)
+\item Designed and launched customer advisory board with 12 strategic accounts
+\item Mentored 3 junior CSMs; created onboarding playbook reducing ramp time from 90 to 45 days
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Customer Success Manager} \hfill \textcolor{accent}{Jun 2019 -- Feb 2022}\\
+\textit{DataTools Corp., San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Managed 40+ mid-market accounts through full customer lifecycle
+\item Achieved 125\% net revenue retention through proactive value realization
+\item Created QBR framework adopted company-wide, improving executive engagement by 50\%
+\item Partnered with Product team to prioritize roadmap based on customer feedback (15 features shipped)
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Account Manager} \hfill \textcolor{accent}{Aug 2017 -- May 2019}\\
+\textit{TechVendor, Austin, TX}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}\textbullet}]
+\item Managed renewal process for 60+ accounts (92\% renewal rate)
+\item Identified and closed \$500K in expansion opportunities
+\end{itemize}
+
+\section{Education}
+\noindent\textbf{B.A. Communications \& Business} \hfill Northwestern University, 2017
+
+\section{Skills \& Certifications}
+\noindent\textbf{Tools:} Gainsight, Salesforce, Tableau, Looker, Intercom, Pendo\\
+\textbf{Skills:} Executive Communication, Value Realization, Renewal Management, Stakeholder Mapping\\
+\textbf{Certifications:} Gainsight Level 3 \quad\textcolor{accent}{\textbullet}\quad SuccessHACKER Certified \quad\textcolor{accent}{\textbullet}\quad Salesforce Admin
+
+\end{document}

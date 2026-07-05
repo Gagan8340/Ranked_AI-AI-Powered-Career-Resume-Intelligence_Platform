@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranked.ai — Verify Your Email</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    body { min-height: 100vh; background: linear-gradient(-45deg, #09090b, #18181b, #121214, #0a0a0c); background-size: 400% 400%; animation: gradientShift 15s ease infinite; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; padding: 24px; color: #fff; }
+    .card { background: transparent; border: none; border-radius: 16px; padding: 40px; text-align: center; max-width: 440px; width: 100%; box-shadow: none; animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+    .icon { width: 64px; height: 64px; background: rgba(139,109,253,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(139,109,253,0.3); color: #8b6dfd; }
+    h1 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; margin-bottom: 12px; }
+    p { color: #8892b0; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+    .error-msg { background: rgba(226,75,74,0.1); border: 1px solid rgba(226,75,74,0.3); color: #e24b4a; padding: 12px; border-radius: 8px; font-size: 13px; margin-bottom: 24px; display: none; }
+    .success-msg { background: rgba(93,202,165,0.1); border: 1px solid rgba(93,202,165,0.3); color: #5dcaa5; padding: 12px; border-radius: 8px; font-size: 13px; margin-bottom: 24px; display: none; }
+    .btn { display: block; width: 100%; padding: 12px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: 'Space Grotesk', sans-serif; transition: all .2s; }
+    .btn-primary { background: linear-gradient(135deg, #d946ef, #6366F1, #7C3AED, #10B981); color: #fff; border: none; margin-bottom: 12px; }
+    .btn-primary:hover { filter: brightness(1.1); }
+    .btn-secondary { background: #0a0d1a; border: 1px solid #1e2340; color: #8892b0; }
+    .btn-secondary:hover { color: #fff; border-color: #3a4060; }
+    .input-wrap { position: relative; margin-bottom: 24px; text-align: left; }
+    .input-wrap input { width: 100%; padding: 12px 16px; background: rgba(10, 13, 26, 0.5); border: 1px solid #1e2340; border-radius: 10px; color: #fff; font-size: 14px; outline: none; transition: border .2s; }
+    .input-wrap input:focus { border-color: #8b6dfd; box-shadow: 0 0 0 3px rgba(139,109,253,0.12); }
+    .input-wrap label { position: absolute; left: 16px; top: -8px; background: transparent; padding: 0 4px; font-size: 12px; color: #8b6dfd; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <h1>Verify Your Email</h1>
+    
+    {% if error %}
+      <div class="error-msg" style="display: block;">{{ error }}</div>
+      <p>We need to verify your email address before you can continue using Ranked.ai.</p>
+    {% else %}
+      <div id="status-error" class="error-msg"></div>
+      <div id="status-success" class="success-msg"></div>
+      <p>We've sent a verification email to your inbox. Please click the verification link to activate your account.<br><br><strong>Check your spam/junk folder for the mails.</strong></p>
+    {% endif %}
+
+    <div class="input-wrap" id="email-group" style="{% if not error %}display: none;{% endif %}">
+      <label>Email Address</label>
+      <input type="email" id="resend-email" placeholder="Enter your email to resend" />
+    </div>
+
+    <button type="button" class="btn btn-primary" id="resendBtn">Resend Verification Email</button>
+    <a href="/login" class="btn btn-secondary">Back To Login</a>
+  </div>
+
+  <script>
+    document.getElementById('resendBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('resendBtn');
+      const emailInput = document.getElementById('resend-email');
+      const emailGroup = document.getElementById('email-group');
+      const errorEl = document.getElementById('status-error') || document.querySelector('.error-msg');
+      const successEl = document.getElementById('status-success') || document.createElement('div');
+      
+      if (!document.getElementById('status-success')) {
+         successEl.className = 'success-msg';
+         successEl.id = 'status-success';
+         document.querySelector('.card').insertBefore(successEl, emailGroup);
+      }
+      if (!document.getElementById('status-error')) {
+         errorEl.className = 'error-msg';
+         errorEl.id = 'status-error';
+         document.querySelector('.card').insertBefore(errorEl, successEl);
+      }
+
+      // If email input is not visible, show it (if they came from a generic error)
+      // or if they registered, they might not have it. Let's just ask for email.
+      if (emailGroup.style.display === 'none') {
+          emailGroup.style.display = 'block';
+          emailInput.focus();
+          return;
+      }
+
+      const email = emailInput.value.trim();
+      if (!email) {
+          errorEl.textContent = 'Please enter your email address.';
+          errorEl.style.display = 'block';
+          successEl.style.display = 'none';
+          return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      errorEl.style.display = 'none';
+      successEl.style.display = 'none';
+
+      try {
+        const res = await fetch('/auth/resend-verification', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        
+        if (res.ok && data.success) {
+          successEl.textContent = data.message || 'A new verification email has been sent.';
+          successEl.style.display = 'block';
+          emailGroup.style.display = 'none'; // hide it after success
+        } else {
+          errorEl.textContent = data.message || 'Failed to resend email.';
+          errorEl.style.display = 'block';
+        }
+      } catch (err) {
+        errorEl.textContent = 'An error occurred. Please try again.';
+        errorEl.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Resend Verification Email';
+      }
+    });
+  </script>
+</body>
+</html>

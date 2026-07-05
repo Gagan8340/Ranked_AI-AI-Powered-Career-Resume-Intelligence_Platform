@@ -1,0 +1,512 @@
+{% set active_page = "dashboard" %}
+{% set page_title = "Dashboard" %}
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-container">
+  
+  <!-- Modern SaaS Header -->
+  <header class="dashboard-header" style="margin-bottom: var(--space-8); display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem;">
+    
+    <div class="header-content" style="flex: 1;">
+      <h1 class="font-bold text-xxl mb-2" style="color: var(--text-primary);">Welcome back, <span style="color: var(--primary);">{{ student.name.split(' ')[0] if student and student.name else 'User' }}</span></h1>
+      <div class="tagline mt-2 tagline-container" style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0; letter-spacing: 0.5px;">
+        <span class="tagline-word-loop-1"><span class="ranked-gradient">Get Found.</span></span>
+        <span class="tagline-word-loop-2" style="margin: 0 0.25rem;"><span class="ranked-gradient">Get Ranked.</span></span>
+        <span class="tagline-word-loop-3"><span class="ranked-gradient">Get Hired.</span></span>
+      </div>
+    </div>
+
+    <div class="header-actions fade-in-up" style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 16px; flex: 1; max-width: 480px;">
+      <a href="/templates" class="btn btn-premium" style="padding: 10px 24px; font-weight: 600; text-decoration: none; border-radius: 8px;">Create Resume</a>
+    </div>
+
+  </header>
+
+  <!-- Content Grid -->
+  <div class="grid" style="grid-template-columns: 2fr 1fr; gap: var(--space-6);">
+    
+    <!-- Left Column -->
+    <div class="grid" style="gap: var(--space-6);">
+      
+      {% if not has_resume %}
+      <!-- Empty State -->
+      <div class="empty-state">
+        <div class="empty-state-icon">📄</div>
+        <div class="empty-state-title">Upload Your Resume</div>
+        <div class="empty-state-desc">
+          Upload a resume to unlock ATS analysis, JD matching, and Career Intelligence.
+        </div>
+        <a href="/templates" class="btn primary-btn mt-4" style="background: var(--primary); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+          Create or Upload Resume
+        </a>
+      </div>
+      {% endif %}
+
+      <!-- Quick Action Cards -->
+      <div class="card glass-panel fade-in-up stagger-1" style="padding: var(--space-6);">
+        <div class="card-header" style="margin-bottom: var(--space-6);">
+          <h2 class="card-title text-lg font-semibold">Quick Actions</h2>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-4);">
+          
+          <a href="/jd-analyzer" class="action-card flex column center card glass-panel hover-lift" style="padding: var(--space-5); text-align: center; gap: var(--space-3); border-radius: var(--radius-sm);">
+            <div class="card-icon" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: rgba(76, 175, 80, 0.1); border-radius: 50%; color: var(--primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"/><path d="m9 18-1.5-1.5"/><circle cx="5" cy="14" r="3"/></svg>
+            </div>
+            <h3 class="font-medium text-md m-0">Analyze JD</h3>
+            <p class="muted-text text-sm m-0">Extract required skills</p>
+          </a>
+
+          <a href="/templates" class="action-card flex column center card glass-panel hover-lift" style="padding: var(--space-5); text-align: center; gap: var(--space-3); border-radius: var(--radius-sm);">
+            <div class="card-icon" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: rgba(76, 175, 80, 0.1); border-radius: 50%; color: var(--primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v10"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10.4 12.6a2 2 0 1 1 3 3L8 21l-4 1 1-4Z"/></svg>
+            </div>
+            <h3 class="font-medium text-md m-0">Open Templates</h3>
+            <p class="muted-text text-sm m-0">Create new resume</p>
+          </a>
+
+          <a href="/ats-score-checker" class="action-card flex column center card glass-panel hover-lift" style="padding: var(--space-5); text-align: center; gap: var(--space-3); border-radius: var(--radius-sm);">
+            <div class="card-icon" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: rgba(76, 175, 80, 0.1); border-radius: 50%; color: var(--primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m3 15 2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-medium text-md m-0">Analyze ATS Compatibility</h3>
+            <p class="muted-text text-sm m-0">Test your match rate</p>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ATS Trend Chart -->
+      <div class="card glass-panel fade-in-up stagger-2" style="padding: var(--space-6);">
+        <div class="card-header flex-between" style="margin-bottom: var(--space-4);">
+          <div>
+            <h2 class="card-title text-lg font-semibold" style="display:inline-block; margin-right:8px;">ATS Compatibility Score Progression</h2>
+            <div class="tooltip-container" style="display: inline-block;">
+
+            </div>
+          </div>
+          <span class="badge-soft text-sm">Total {{ total_ats_scans }} Scans</span>
+        </div>
+        
+        <div class="flex justify-between mb-4" style="gap: 10px;">
+          <div style="text-align: center; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 8px; border-radius: 8px; flex: 1;">
+             <div class="text-sm muted-text">Highest</div>
+             <div class="font-bold text-lg" style="color: var(--primary);">{{ highest_ats_score }}</div>
+          </div>
+          <div style="text-align: center; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 8px; border-radius: 8px; flex: 1;">
+             <div class="text-sm muted-text">Latest</div>
+             <div class="font-bold text-lg" style="color: var(--primary);">{{ latest_ats_score }}</div>
+          </div>
+          <div style="text-align: center; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 8px; border-radius: 8px; flex: 1;">
+             <div class="text-sm muted-text">Average</div>
+             <div class="font-bold text-lg" style="color: var(--primary);">{{ average_ats_score }}</div>
+          </div>
+        </div>
+        
+        <div class="chart-container" style="position: relative; height: 230px; width: 100%; overflow-y: auto;">
+          {% if not ats_trend %}
+          <div class="empty-state flex column center" style="height: 100%; opacity: 0.7;">
+            <div style="font-size: 40px; margin-bottom: 16px;">📄</div>
+            <p class="muted-text mb-4">No ATS scans available yet.</p>
+            <a href="/ats-score-checker" class="btn-primary-sm">Analyze ATS Compatibility</a>
+          </div>
+          {% else %}
+          <canvas id="atsChart"></canvas>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Column -->
+    <div class="card glass-panel fade-in-up stagger-3" style="padding: var(--space-6);">
+      <div class="card-header accordion-header" onclick="toggleAccordion(this)" style="margin-bottom: var(--space-6); display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+        <div>
+            <h2 class="card-title text-lg font-semibold" style="margin: 0; color: var(--text-secondary); font-size: 15px; text-transform: uppercase; letter-spacing: 1px;">Profile Strength</h2>
+            <div class="animated-gradient" style="font-size: 3rem; font-weight: 800; line-height: 1.1; margin-top: 4px; display: inline-block;">{{ total_profile_strength }}%</div>
+        </div>
+        <svg class="accordion-icon collapsed" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s ease; color: var(--text-muted);"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="profile-strength-container accordion-content collapsed" style="display: flex; flex-direction: column; gap: var(--space-4);">
+        {% if total_profile_strength < 50 %}
+        <div class="profile-banner card" style="padding: 16px; background: rgba(124, 58, 237, 0.1); border: 1px solid var(--primary); border-radius: 8px; margin-bottom: 8px;">
+          <h4 style="margin: 0 0 8px 0; color: var(--text-primary); font-size: 15px;">Complete your profile to improve ATS Compatibility Scores and job matching.</h4>
+          <a href="/settings" class="btn-primary-sm">Complete Profile</a>
+        </div>
+        {% endif %}
+
+        {% if total_profile_strength == 0 %}
+        <div style="text-align: center; padding: 1rem 0;">
+           <p style="color: var(--text-muted); font-size: var(--text-sm); line-height: 1.5; margin-bottom: 1.5rem;">No profile data available yet.<br>Go to your profile to add information.</p>
+           <a href="/settings" class="btn-primary-sm" style="display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 600; text-decoration: none;">Update Profile</a>
+        </div>
+        {% else %}
+        
+        {% if missing_items %}
+        <div class="missing-items-box mb-3" style="background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b; border-radius: 4px; padding: 12px;">
+            <div class="text-sm font-semibold mb-2" style="color: #f59e0b;">Complete these to reach 100%:</div>
+            <ul style="margin: 0; padding-left: 20px; color: var(--text-muted); font-size: 13px;">
+                {% for missing in missing_items %}
+                <li style="margin-bottom: 4px;">{{ missing }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% for cat_name, items in profile_categories.items() %}
+        <div class="metric-category mb-3" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px; border-radius: 8px;">
+            <h4 class="text-sm font-semibold mb-2" style="color: var(--text-primary); margin-top: 0;">{{ cat_name }}</h4>
+            {% for item_name, is_complete in items.items() %}
+            <div class="flex-between mb-1">
+                <span class="text-sm" style="color: {{ 'var(--text-color)' if is_complete else 'var(--text-muted)' }}">{{ item_name }}</span>
+                {% if is_complete %}
+                <span style="color: var(--primary); font-weight: bold; font-size: 14px;">✓</span>
+                {% else %}
+                <span style="color: var(--border-color); font-size: 12px;">○</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <a href="/settings" class="btn-primary-sm mt-4 text-center" style="width: 100%; text-decoration: none;">Edit Profile</a>
+        {% endif %}
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Onboarding Modal -->
+<div class="modal-backdrop" id="onboardingModal">
+  <div class="profile-onboarding-modal">
+    <div class="modal-hero">
+      <!-- Professional SVG Illustration -->
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <polyline points="16 11 18 13 22 9"></polyline>
+      </svg>
+    </div>
+    <div class="modal-body">
+      <h2 class="modal-title">Complete Your Profile To Rank Higher</h2>
+      <p class="modal-desc">
+        Your profile strength is currently low.<br><br>
+        Students with complete profiles receive better ATS Compatibility Scores, stronger job matches, and more accurate career recommendations.
+      </p>
+      
+      <div style="text-align: left; margin-bottom: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 16px; border-radius: var(--radius-sm); ">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="font-weight: 500; font-size: 14px; color: var(--text-color);">Current Profile Strength:</span>
+          <span style="font-weight: 700; font-size: 14px; color: var(--primary);">{{ total_profile_strength }}%</span>
+        </div>
+        <div class="strength-bar">
+          <div class="strength-fill progress-fill-element" data-progress="{{ total_profile_strength | default(0) }}" style="width: 0;"></div>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <a href="/settings" class="btn-primary" style="text-decoration: none; display: flex; justify-content: center; align-items: center;">Complete My Profile</a>
+        <button type="button" class="btn-secondary" onclick="document.getElementById('onboardingModal').classList.remove('open')">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.flex { display: flex; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.column { flex-direction: column; }
+.center { justify-content: center; align-items: center; }
+.gap-4 { gap: 1rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.m-0 { margin: 0; }
+.py-6 { padding: 1.5rem 0; }
+.text-sm { font-size: 0.875rem; }
+.text-md { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-uppercase { text-transform: uppercase; }
+.tracking-wider { letter-spacing: 0.05em; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.btn-primary-sm { padding: 8px 16px; background: var(--primary); color: white; border-radius: 6px; font-weight: 500; display: inline-block; }
+
+.icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.bg-primary-light { background: rgba(109, 93, 252, 0.15); }
+.glow-primary { box-shadow: 4px 4px 0 rgba(109, 93, 252, 0.2); border: 1px solid rgba(109, 93, 252, 0.5); }
+.glow-blue { box-shadow: 4px 4px 0 rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); }
+.glow-green { box-shadow: 4px 4px 0 rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); }
+.glow-amber { box-shadow: 4px 4px 0 rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.5); }
+.bg-blue-light { background: rgba(59, 130, 246, 0.15); }
+.bg-green-light { background: rgba(16, 185, 129, 0.15); }
+.bg-amber-light { background: rgba(245, 158, 11, 0.15); }
+
+.badge-soft {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: var(--text-muted);
+}
+</style>
+{% if ats_trend %}
+<script id="ats-data" type="application/json">
+  {{ ats_trend | default([]) | tojson }}
+</script>
+{% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Check auto-show rules for onboarding modal
+    const profileStrength = parseInt("{{ total_profile_strength }}", 10);
+    const hasResume = "{{ has_resume }}" === "True";
+    
+    if (profileStrength < 50 || !hasResume) {
+      // Small delay for smooth entry
+      setTimeout(() => {
+        document.getElementById('onboardingModal').classList.add('open');
+      }, 500);
+    }
+    // Format relative times
+    document.querySelectorAll('.time-ago').forEach(el => {
+      const dateStr = el.getAttribute('data-time');
+      if (dateStr) {
+        const date = new Date(dateStr);
+        const now = new Date();
+        const seconds = Math.floor((now - date) / 1000);
+        let interval = seconds / 31536000;
+        if (interval > 1) { el.textContent = Math.floor(interval) + "y ago"; return; }
+        interval = seconds / 2592000;
+        if (interval > 1) { el.textContent = Math.floor(interval) + "mo ago"; return; }
+        interval = seconds / 86400;
+        if (interval > 1) { el.textContent = Math.floor(interval) + "d ago"; return; }
+        interval = seconds / 3600;
+        if (interval > 1) { el.textContent = Math.floor(interval) + "h ago"; return; }
+        interval = seconds / 60;
+        if (interval > 1) { el.textContent = Math.floor(interval) + "m ago"; return; }
+        el.textContent = "Just now";
+      }
+    });
+
+    // Apply data-progress widths
+    document.querySelectorAll('.progress-fill-element[data-progress]').forEach(el => {
+        el.style.width = el.getAttribute('data-progress') + '%';
+    });
+
+    // Initialize Chart.js safely using JSON data island
+    const atsDataEl = document.getElementById('ats-data');
+    if (atsDataEl) {
+      const ctx = document.getElementById('atsChart').getContext('2d');
+      const rawData = JSON.parse(atsDataEl.textContent);
+      
+      let processedData = rawData;
+      // Python already reverses the data so it's in ASC chronological order (oldest to newest)
+      
+      if (processedData.length > 100) {
+        // Aggregate by week (group every 7 records roughly or just chunk it to max 100 points)
+        const chunkSize = Math.ceil(processedData.length / 100);
+        const aggregated = [];
+        for (let i = 0; i < processedData.length; i += chunkSize) {
+            const chunk = processedData.slice(i, i + chunkSize);
+            const avg = chunk.reduce((sum, val) => sum + val.score, 0) / chunk.length;
+            aggregated.push({ score: Math.round(avg), date: chunk[chunk.length-1].date });
+        }
+        processedData = aggregated;
+      } else if (processedData.length === 1) {
+        // If there's only 1 scan, duplicate it with a 0 baseline so Chart.js can draw a line
+        processedData = [
+          { score: 0, date: processedData[0].date },
+          processedData[0]
+        ];
+      }
+      
+      const labels = processedData.length === 2 && processedData[0].score === 0 ? ['Start', 'Current'] : processedData.map((_, i) => `Scan ${i + 1}`);
+      const dataPoints = processedData.map(d => d.score);
+    
+    const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, 'rgba(109, 93, 252, 0.4)');
+    gradient.addColorStop(1, 'rgba(109, 93, 252, 0.0)');
+    
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'ATS Compatibility Score',
+          data: dataPoints,
+          borderColor: '#6D5DFC',
+          backgroundColor: gradient,
+          borderWidth: 3,
+          pointBackgroundColor: '#171B21',
+          pointBorderColor: '#6D5DFC',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(17, 20, 24, 0.95)',
+            titleColor: '#9CA3AF',
+            bodyColor: '#FFFFFF',
+            borderColor: 'rgba(255,255,255,0.1)',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: false,
+            callbacks: {
+              label: function(context) { return `Score: ${context.parsed.y}%`; }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+            ticks: { color: '#9CA3AF', stepSize: 20 }
+          },
+          x: {
+            grid: { display: false, drawBorder: false },
+            ticks: { display: false }
+          }
+        },
+        animation: {
+          y: { duration: 1200, easing: 'easeOutQuart' }
+        }
+      }
+    });
+    }
+  });
+</script>
+
+<style>
+.accordion-content {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+    overflow: hidden;
+    opacity: 1;
+}
+.accordion-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0 !important;
+}
+.accordion-icon {
+    transition: transform 0.3s ease;
+    color: var(--text-secondary);
+}
+.accordion-icon.collapsed {
+    transform: rotate(-180deg);
+}
+
+/* Colorful Animated Number */
+.animated-gradient {
+    background-image: linear-gradient(90deg, #ff007f, #7c3aed, #00d2ff, #7c3aed, #ff007f);
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Landing Page Tagline Animation (Looping, No Blur) */
+.tagline-word-loop-1, .tagline-word-loop-2, .tagline-word-loop-3 {
+    display: inline-block;
+    opacity: 0;
+    transform-origin: center;
+}
+.tagline-word-loop-1 { animation: wordPopLoop1 6s infinite; }
+.tagline-word-loop-2 { animation: wordPopLoop2 6s infinite; }
+.tagline-word-loop-3 { animation: wordPopLoop3 6s infinite; }
+
+@keyframes wordPopLoop1 {
+    0% { opacity: 0; transform: translateY(30px) scale(0.8); }
+    8% { opacity: 1; transform: translateY(-10px) scale(1.15); }
+    13% { opacity: 1; transform: translateY(0) scale(1); }
+    80% { opacity: 1; transform: translateY(0) scale(1); }
+    85% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    100% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+}
+
+@keyframes wordPopLoop2 {
+    0%, 20% { opacity: 0; transform: translateY(30px) scale(0.8); }
+    28% { opacity: 1; transform: translateY(-10px) scale(1.15); }
+    33% { opacity: 1; transform: translateY(0) scale(1); }
+    80% { opacity: 1; transform: translateY(0) scale(1); }
+    85% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    100% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+}
+
+@keyframes wordPopLoop3 {
+    0%, 40% { opacity: 0; transform: translateY(30px) scale(0.8); }
+    48% { opacity: 1; transform: translateY(-10px) scale(1.15); }
+    53% { opacity: 1; transform: translateY(0) scale(1); }
+    80% { opacity: 1; transform: translateY(0) scale(1); }
+    85% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    100% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+}
+
+.ranked-gradient { 
+    background: linear-gradient(90deg, #d946ef, #6366F1, #7C3AED, #10B981); 
+    background-size: 300% 300%; 
+    animation: gradientFlow 3s ease infinite; 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    display: inline-block; 
+}
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
+
+<script>
+function toggleAccordion(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.accordion-icon');
+    
+    if (content.classList.contains('collapsed')) {
+        content.classList.remove('collapsed');
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.classList.remove('collapsed');
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px"; 
+        setTimeout(() => {
+            content.classList.add('collapsed');
+            content.style.maxHeight = null;
+        }, 10);
+        icon.classList.add('collapsed');
+    }
+}
+</script>
+{% endblock %}

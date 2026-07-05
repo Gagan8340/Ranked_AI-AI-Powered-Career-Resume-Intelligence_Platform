@@ -1,0 +1,312 @@
+{% set active_page = "resume_optimizer" %}
+{% set page_title = "Resume Optimizer" %}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard-hero" style="margin-bottom: var(--space-6);">
+  <div class="hero-left">
+    <h1 class="hero-greeting text-gradient-primary">
+      <span id="greeting-text">Resume Optimizer</span>
+    </h1>
+    <p class="hero-summary muted-text">
+      Automatically rewrite and structure your resume to perfectly match targeted job descriptions.
+    </p>
+  </div>
+</section>
+
+<section class="grid" style="grid-template-columns: 5fr 7fr; gap: var(--space-6);">
+  
+  <!-- Left Column: Input Form -->
+  <div class="card" style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="card-header">
+      <h2 class="card-title">Setup Optimization</h2>
+    </div>
+    
+    <!-- Step 1: Resume Selector -->
+    <div>
+      <label style="display: block; margin-bottom: var(--space-2); font-weight: 500; color: var(--text-secondary);">Step 1: Select Resume</label>
+      <select id="resume-select" style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); color: var(--text-primary); outline: none; cursor: pointer; transition: border-color 0.2s ease;">
+        <option value="">Loading resumes...</option>
+      </select>
+    </div>
+
+    <!-- Step 2: JD Selector -->
+    <div>
+      <label style="display: block; margin-bottom: var(--space-2); font-weight: 500; color: var(--text-secondary);">Step 2: Select Analyzed JD</label>
+      <select id="jd-select" disabled style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); color: var(--text-primary); outline: none; cursor: pointer; transition: border-color 0.2s ease;">
+        <option value="">Select a resume first...</option>
+      </select>
+    </div>
+    
+    <!-- Error Alert -->
+    <div id="error-alert" style="display: none; color: var(--danger); font-size: 14px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-sm); border: 1px solid rgba(239, 68, 68, 0.2);"></div>
+
+    <!-- Step 3: Optimize Button -->
+    <div style="margin-top: 8px;">
+      <button class="btn-primary" id="optimize-btn" type="button" style="width: 100%;">
+        <span id="btn-text">Optimize Resume</span>
+        <span id="btn-icon">✨</span>
+      </button>
+    </div>
+    
+    <div id="loading-status" style="display: none; text-align: center; margin-top: var(--space-4);">
+      <div class="activity-dot" style=" width: 12px; height: 12px; margin: 0 auto 12px auto; background: var(--primary); border-radius: 50%; border: 3px solid rgba(109, 93, 252, 0.4);"></div>
+      <div id="loading-text" style="font-weight: 500; color: var(--primary-strong); transition: all 0.3s;">AI is improving your resume...</div>
+    </div>
+  </div>
+
+  <!-- Right Column: Results & Skeletons -->
+  <!-- Skeleton loader state -->
+  <div class="card" id="results-skeleton" style="display: none; padding: var(--space-6); flex-direction: column; gap: var(--space-5);">
+     <div class="card-header"><h2 class="card-title">Optimization Complete</h2></div>
+     <div class="skeleton" style="height: 120px; border-radius: var(--radius-sm);"></div>
+     <div class="skeleton" style="height: 200px; border-radius: var(--radius-sm);"></div>
+  </div>
+
+  <!-- Real Results Container -->
+  <div class="card" id="results-container" style="display: none; padding: var(--space-6); flex-direction: column; gap: var(--space-5);">
+    <div class="card-header">
+      <h2 class="card-title">Optimization Complete</h2>
+    </div>
+    
+    <div style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); padding: var(--space-5); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: space-between;">
+      <div>
+         <h3 style="color: var(--success); margin: 0 0 8px 0; font-size: 18px;">ATS Improvement Score</h3>
+         <div class="muted-text">The AI successfully boosted keyword density and action verbs.</div>
+      </div>
+      <div style="font-size: 2.5rem; font-weight: 700; color: var(--success); display: flex; align-items: baseline;">
+         +<span id="improvement-score">0</span>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.03); padding: var(--space-5); border-radius: var(--radius-sm); ">
+      <h4 style="margin: 0 0 16px 0; font-size: 16px;">Improvements Made</h4>
+      <ul id="improvements-list" style="padding-left: 20px; line-height: 1.6; color: var(--text-secondary); margin: 0;"></ul>
+    </div>
+    
+    <div style="margin-top: auto; padding-top: var(--space-4); display: flex; gap: var(--space-4);">
+       <button id="compare-btn" class="action-btn" style="flex: 1;">Compare Versions</button>
+    </div>
+  </div>
+  
+  <!-- Right Column: Version History (Shown when not analyzing) -->
+  <div class="card" id="history-container" style="display: flex; padding: var(--space-6); flex-direction: column; gap: var(--space-5);">
+    <div class="card-header">
+      <h2 class="card-title">Optimization History</h2>
+    </div>
+    <div id="history-list" style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="empty-state" style="padding: 40px 20px; text-align: center; border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm);">
+        <p class="muted-text">Select a resume to view its version history.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+#resume-select:focus, #jd-select:focus {
+  border-color: var(--primary);
+  background: rgba(255,255,255,0.05);
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+.history-item:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(124, 58, 237, 0.3);
+  transform: translateX(4px);
+}
+</style>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const resumeSelect = document.getElementById("resume-select");
+  const jdSelect = document.getElementById("jd-select");
+  const optimizeBtn = document.getElementById("optimize-btn");
+  const btnText = document.getElementById("btn-text");
+  const loadingStatus = document.getElementById("loading-status");
+  const loadingText = document.getElementById("loading-text");
+  const errorAlert = document.getElementById("error-alert");
+  
+  const resultsContainer = document.getElementById("results-container");
+  const resultsSkeleton = document.getElementById("results-skeleton");
+  const historyContainer = document.getElementById("history-container");
+  const historyList = document.getElementById("history-list");
+  
+  let currentVersionId = null;
+
+  // Step 1: Fetch Resumes
+  const fetchResumes = async () => {
+    try {
+      const res = await window.apiFetch("/api/resume/list");
+      const data = await res.json();
+      
+      resumeSelect.innerHTML = `<option value="">Select an uploaded resume...</option>`;
+      if (res.ok && data.resumes.length > 0) {
+        data.resumes.forEach(r => {
+          const opt = document.createElement("option");
+          opt.value = r.resume_id;
+          opt.textContent = `${r.filename}`;
+          resumeSelect.appendChild(opt);
+        });
+      }
+    } catch (e) {
+      resumeSelect.innerHTML = `<option value="">Network error loading resumes.</option>`;
+    }
+  };
+  fetchResumes();
+
+  // Step 2: Fetch JDs and History when Resume changes
+  resumeSelect.addEventListener("change", async (e) => {
+    const resumeId = e.target.value;
+    jdSelect.innerHTML = `<option value="">Select a Job Description...</option>`;
+    jdSelect.disabled = true;
+    historyList.innerHTML = `<div class="muted-text" style="padding: 1rem;">Loading history...</div>`;
+    resultsContainer.style.display = "none";
+    historyContainer.style.display = "flex";
+    
+    if (!resumeId) {
+      historyList.innerHTML = `<div class="empty-state" style="padding: 40px 20px; text-align: center; border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm);"><p class="muted-text">Select a resume to view its version history.</p></div>`;
+      return;
+    }
+    
+    try {
+      // Fetch Analyzed JDs for this resume
+      const jdRes = await window.apiFetch(`/api/jd/list/${resumeId}`);
+      const jdData = await jdRes.json();
+      
+      if (jdRes.ok && jdData.jds.length > 0) {
+        jdSelect.disabled = false;
+        jdData.jds.forEach(jd => {
+          const opt = document.createElement("option");
+          opt.value = jd.id;
+          opt.textContent = `Analyzed JD • Base Score: ${jd.ats_score}% • ${new Date(jd.created_at).toLocaleDateString()}`;
+          jdSelect.appendChild(opt);
+        });
+      } else {
+         jdSelect.innerHTML = `<option value="">No JDs found. Analyze a JD against this resume first.</option>`;
+      }
+      
+      // Fetch Output History
+      fetchHistory(resumeId);
+    } catch (e) {
+      console.error(e);
+    }
+  });
+
+  const fetchHistory = async (resumeId) => {
+    try {
+      const histRes = await window.apiFetch(`/api/resume/versions/${resumeId}`);
+      const histData = await histRes.json();
+      
+      if (histRes.ok && histData.versions.length > 0) {
+        historyList.innerHTML = "";
+        histData.versions.forEach(v => {
+          const item = document.createElement("div");
+          item.className = "history-item";
+          item.innerHTML = `
+            <div>
+               <div style="font-weight: 500; margin-bottom: 4px; font-size: 16px;">Optimization Run v${v.id}</div>
+               <div class="muted-text text-sm" style="display: flex; gap: 8px;">
+                  <span>${new Date(v.created_at).toLocaleString()}</span>
+                  <span style="color: var(--success);">(+${v.ats_improvement_score} ATS)</span>
+               </div>
+            </div>
+            <button class="btn-secondary" style="padding: 8px 16px;" onclick="window.location.href='/version-compare/${v.id}'">Compare</button>
+          `;
+          historyList.appendChild(item);
+        });
+      } else {
+        historyList.innerHTML = `<div class="empty-state" style="padding: 40px 20px; text-align: center; border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm);"><p class="muted-text">No optimizations performed yet.</p></div>`;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  // Step 3: Optimize Action
+  optimizeBtn.addEventListener("click", async () => {
+    const resumeId = resumeSelect.value;
+    const jdId = jdSelect.value;
+    
+    errorAlert.style.display = "none";
+    
+    if (!resumeId || !jdId) {
+      errorAlert.textContent = "Please select both a Resume and a Job Description to begin.";
+      errorAlert.style.display = "block";
+      return;
+    }
+
+    // Interactive UX Constraints
+    optimizeBtn.disabled = true;
+    btnText.textContent = "Optimizing...";
+    loadingStatus.style.display = "block";
+    historyContainer.style.display = "none";
+    resultsContainer.style.display = "none";
+    resultsSkeleton.style.display = "flex";
+    
+    let interval = setTimeout(() => {
+      loadingText.textContent = "This may take up to 15 seconds. Please wait...";
+    }, 5000);
+
+    try {
+      const res = await window.apiFetch("/api/resume/optimize", {
+        method: "POST",
+        body: JSON.stringify({
+          resume_id: parseInt(resumeId),
+          jd_id: parseInt(jdId)
+        })
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.error || "Optimization failed.");
+      }
+      
+      currentVersionId = data.version_id;
+      
+      // Render the AI improvements
+      document.getElementById("improvement-score").textContent = data.ats_improvement_score;
+      const list = document.getElementById("improvements-list");
+      list.innerHTML = data.improvements_made.map(i => `<li>${i}</li>`).join('');
+      
+      resultsSkeleton.style.display = "none";
+      resultsContainer.style.display = "flex";
+      resultsContainer.animate([{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'translateY(0)'}], {duration: 500, fill: "forwards"});
+      
+      // Background reload history
+      fetchHistory(resumeId);
+      
+    } catch (e) {
+      errorAlert.textContent = e.message;
+      errorAlert.style.display = "block";
+      resultsSkeleton.style.display = "none";
+      historyContainer.style.display = "flex";
+    } finally {
+      clearTimeout(interval);
+      optimizeBtn.disabled = false;
+      btnText.textContent = "Optimize Resume";
+      loadingStatus.style.display = "none";
+      loadingText.textContent = "AI is improving your resume...";
+    }
+  });
+
+  // Action: Navigate to Comparison
+  document.getElementById("compare-btn").addEventListener("click", () => {
+     if(currentVersionId) {
+       window.location.href = `/version-compare/${currentVersionId}`;
+     }
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,85 @@
+%% DESIGN: Open Sans | Media/entertainment, left red bar accent | Red (#C62828) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in,left=0.8in]{geometry}
+\usepackage[default]{opensans}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+
+\definecolor{mediared}{HTML}{C62828}
+\definecolor{lightred}{HTML}{FFEBEE}
+
+% Left red bar decoration
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{%
+\AtPageLowerLeft{\color{mediared}\rule{4pt}{\paperheight}}}
+
+\titleformat{\section}{\normalsize\bfseries\color{mediared}}{}{0em}{\faIcon{play}\hspace{4pt}}[\vspace{-0.3em}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{mediared}$\blacktriangleright$}
+
+\hypersetup{colorlinks=true,urlcolor=mediared}
+
+\begin{document}
+
+\noindent{\LARGE\bfseries\color{mediared} ADITYA KAPOOR}\\[3pt]
+\noindent{\normalsize Media \& OTT Streaming Engineer}\\[6pt]
+\noindent{\small \faIcon{envelope} aditya.kapoor@email.com \quad \faIcon{phone} +91-98765-55443 \quad \faIcon{map-marker-alt} Mumbai \quad \faIcon{linkedin} \href{https://linkedin.com/in/adityak}{adityak}}
+
+\vspace{8pt}
+\noindent\colorbox{lightred}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small
+\textbf{Streaming infrastructure engineer} with 7 years building video delivery platforms at scale. Expertise in adaptive bitrate streaming, CDN optimization, and real-time content delivery for 100M+ concurrent viewers.}}
+
+\section{Experience}
+
+\textbf{Disney+ Hotstar} \hfill Mumbai\\
+\textit{Senior Staff Engineer -- Video Platform} \hfill Apr 2021 -- Present
+\begin{itemize}
+\item Architected live streaming infrastructure for IPL cricket (25M+ concurrent viewers)
+\item Built adaptive bitrate encoding pipeline reducing bandwidth costs by 30\% (VMAF-optimized)
+\item Designed multi-CDN routing system with real-time quality-of-experience switching
+\item Implemented DRM integration (Widevine, FairPlay) for premium content protection
+\item Led latency reduction initiative: live stream delay from 45s to 4s (LL-HLS)
+\end{itemize}
+
+\textbf{Zee5} \hfill Mumbai\\
+\textit{Backend Engineer -- Content Delivery} \hfill Jan 2019 -- Mar 2021
+\begin{itemize}
+\item Built recommendation engine using collaborative filtering (15\% watch-time increase)
+\item Developed content ingestion pipeline processing 500+ hours of video daily
+\item Implemented server-side ad insertion (SSAI) with 99.9\% fill rate
+\end{itemize}
+
+\textbf{Akamai Technologies} \hfill Bangalore\\
+\textit{Software Engineer -- Media Delivery} \hfill Jun 2017 -- Dec 2018
+\begin{itemize}
+\item Developed CDN edge logic for video segment caching (cache hit ratio: 98\%)
+\item Built real-time analytics dashboard for streaming QoE metrics
+\end{itemize}
+
+\section{Technical Skills}
+\begin{multicols}{2}
+\begin{itemize}[label=\color{mediared}\faIcon{server}]
+\item \textbf{Video:} FFmpeg, HLS, DASH, CMAF, LL-HLS
+\item \textbf{Encoding:} x264/x265, AV1, VP9, per-title
+\item \textbf{CDN:} Akamai, CloudFront, Fastly
+\item \textbf{DRM:} Widevine, FairPlay, PlayReady
+\item \textbf{Languages:} Go, C++, Python, Rust
+\item \textbf{Infra:} Kubernetes, Kafka, Redis, gRPC
+\end{itemize}
+\end{multicols}
+
+\section{Education}
+\textbf{B.Tech Electronics \& Communication} -- BITS Pilani \hfill 2013 -- 2017
+
+\section{Talks \& Publications}
+\faIcon{microphone}\hspace{4pt} ``Scaling Live Streaming to 25M Concurrent'' -- \textit{Demuxed 2023}\\
+\faIcon{microphone}\hspace{4pt} ``Low-Latency HLS in Production'' -- \textit{Video Tech India 2022}
+
+\end{document}

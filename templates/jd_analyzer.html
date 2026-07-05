@@ -1,0 +1,616 @@
+{% set active_page = "jd_analyzer" %}
+{% set page_title = "JD Analyzer" %}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard-hero" style="margin-bottom: var(--space-6);">
+  <div class="hero-left">
+    <h1 class="hero-greeting text-gradient-primary">
+      <span id="greeting-text">Match Smarter. Get Hired Faster.</span>
+    </h1>
+    <p class="hero-summary muted-text">
+      Paste a job description to instantly see how well you rank and discover missing skills.
+    </p>
+  </div>
+</section>
+
+<section class="grid" style="grid-template-columns: 5fr 7fr; gap: var(--space-6);">
+  
+  <!-- Left Column: Input Form -->
+  <div class="card" style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 class="card-title" style="margin: 0;">Setup Analysis</h2>
+      <button type="button" onclick="document.getElementById('jdScoringModal').classList.add('open')" style="background: rgba(109, 93, 252, 0.1); border: 1px solid rgba(109, 93, 252, 0.2); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
+        View Scoring System
+      </button>
+    </div>
+    
+    <!-- JD Text Area -->
+    <div>
+      <label style="display: block; margin-bottom: var(--space-2); font-weight: 500; color: var(--text-secondary);">Paste Job Description</label>
+      <textarea id="jd-input" placeholder="Paste the full job description here..." style="width: 100%; height: 350px; padding: 16px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); color: var(--text-primary); resize: none; font-family: inherit; line-height: 1.6; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease;"></textarea>
+      <div style="display: flex; justify-content: center; margin-top: 8px;">
+        <span id="char-counter" class="muted-text text-sm" style="transition: color 0.3s;">0 characters</span>
+      </div>
+    </div>
+    
+    <!-- Error Alert -->
+    <div id="error-alert" style="display: none; color: var(--danger); font-size: 14px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-sm); border: 1px solid rgba(239, 68, 68, 0.2);"></div>
+
+    <!-- Analyze Button -->
+    <div style="margin-top: auto; padding-top: 8px;">
+      <button class="btn-primary" id="analyze-btn" type="button" style="width: 100%; font-size: 16px; padding: 14px;">
+        <span id="btn-text">Analyze Job Description</span>
+        <span id="btn-icon">✨</span>
+      </button>
+    </div>
+    
+    <div id="loading-status" style="display: none; text-align: center; margin-top: var(--space-4);">
+      <div class="activity-dot" style=" width: 12px; height: 12px; margin: 0 auto 12px auto; background: var(--primary); border-radius: 50%; border: 3px solid rgba(109, 93, 252, 0.4);"></div>
+      <div id="loading-text" style="font-weight: 500; color: var(--primary-strong); transition: all 0.3s;">AI is extracting insights...</div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" id="empty-state">
+    <div class="empty-state-icon">🔍</div>
+    <div class="empty-state-title">Analyze a Job Description</div>
+    <div class="empty-state-desc">
+      Paste a job description and click Analyze to discover missing skills, important keywords, and improvement suggestions.
+    </div>
+  </div>
+
+  <!-- Invalid JD State -->
+  <div class="card" id="invalid-jd-state" style="display: none; padding: var(--space-6); flex-direction: column; gap: var(--space-4); border: 1px solid var(--warning); background: rgba(245, 158, 11, 0.05);">
+    <div style="display: flex; align-items: center; gap: 12px; color: var(--warning);">
+      <span style="font-size: 24px;">⚠</span>
+      <h2 class="card-title" style="margin: 0; color: var(--warning);">Invalid Job Description</h2>
+    </div>
+    <div style="color: var(--text-primary); font-size: 15px; line-height: 1.6;">
+      <p style="margin-top: 0;">We could not identify a valid job description.</p>
+      <p style="margin-bottom: 8px;">Please provide:</p>
+      <ul style="list-style-type: none; padding-left: 10px; margin: 0 0 12px 0; color: var(--text-secondary);">
+        <li>✓ Job Title</li>
+        <li>✓ Responsibilities</li>
+        <li>✓ Requirements</li>
+        <li>✓ Skills</li>
+        <li>✓ Company Details</li>
+      </ul>
+      <p style="margin-bottom: 0;">and try again.</p>
+    </div>
+  </div>
+
+  <!-- Right Column: Results & Skeletons -->
+  <!-- Skeleton loader state -->
+  <div class="card" id="results-skeleton" style="display: none; padding: var(--space-6); flex-direction: column; gap: var(--space-5);">
+     <div class="card-header"><h2 class="card-title">Analysis Results</h2></div>
+     <div class="skeleton" style="height: 100px; border-radius: var(--radius-sm);"></div>
+     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+        <div class="skeleton" style="height: 120px; border-radius: var(--radius-sm);"></div>
+        <div class="skeleton" style="height: 120px; border-radius: var(--radius-sm);"></div>
+     </div>
+     <div class="skeleton" style="height: 180px; border-radius: var(--radius-sm);"></div>
+  </div>
+
+  <!-- Real Results Container -->
+  <div class="card" id="results-container" style="display: none; padding: var(--space-6); flex-direction: column; gap: var(--space-6);">
+    
+    <!-- HERO ANALYSIS AREA -->
+    <div>
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">Analysis Results</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-4);">
+        <div class="card" style="padding: var(--space-4); text-align: center; background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; cursor: default;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'; this.style.borderColor='rgba(34, 197, 94, 0.3)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.05)'">
+          <div style="font-size: 20px; margin-bottom: 6px;">🚀</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Readiness</div>
+          <div id="hero-readiness" style="font-size: 36px; font-weight: 800; color: var(--success); text-shadow: 0 2px 10px rgba(34, 197, 94, 0.2);">--</div>
+        </div>
+        <div class="card" style="padding: var(--space-4); text-align: center; background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; cursor: default;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.3)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.05)'">
+          <div style="font-size: 20px; margin-bottom: 6px;">📌</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Req Skills</div>
+          <div id="hero-req-skills" style="font-size: 36px; font-weight: 800; color: var(--blue); text-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);">--</div>
+        </div>
+        <div class="card" style="padding: var(--space-4); text-align: center; background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; cursor: default;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'; this.style.borderColor='rgba(245, 158, 11, 0.3)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.05)'">
+          <div style="font-size: 20px; margin-bottom: 6px;">⚠️</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Missing</div>
+          <div id="hero-missing-skills" style="font-size: 36px; font-weight: 800; color: var(--warning); text-shadow: 0 2px 10px rgba(245, 158, 11, 0.2);">--</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <div style="padding-top: var(--space-2);">
+      <h3 style="margin: 0 0 16px 0; font-size: var(--text-lg); font-weight: 600;">Skills Analysis</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-5);">
+        
+        <div style="background: rgba(255,255,255,0.01); padding: var(--space-4); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05);">
+          <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 500; color: var(--text-secondary);">Required Skills</h4>
+          <div id="required-skills-badges" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.01); padding: var(--space-4); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05);">
+          <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 500; color: var(--text-secondary);">Missing Skills <span style="color:var(--warning); font-size:12px; margin-left:6px;">(Action Needed)</span></h4>
+          <div id="missing-skills-badges" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--space-4);"></div>
+          
+          <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 500; color: var(--text-secondary);">Missing Keywords (ATS)</h4>
+          <div id="ats-keywords-badges" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ANALYSIS INSIGHTS -->
+    <div style="padding-top: var(--space-3);">
+      <h3 style="margin: 0 0 16px 0; font-size: var(--text-lg); font-weight: 600;">Analysis Insights</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+        
+        <details class="insight-details" style="background: rgba(255,255,255,0.015); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--primary-strong);">
+          <summary style="padding: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 10px; outline: none; user-select: none;">
+            <span style="font-size: 16px;">📝</span> Summary Improvements 
+            <span class="detail-toggle-btn">Show Details <span class="arrow">▾</span></span>
+          </summary>
+          <div id="summary-text" class="muted-text" style="padding: 0 16px 16px 42px; line-height: 1.6; font-size: 14px;">Insight rendering...</div>
+        </details>
+        
+        <details class="insight-details" style="background: rgba(255,255,255,0.015); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--border-subtle);">
+          <summary style="padding: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 10px; outline: none; user-select: none;">
+            <span style="font-size: 16px;">💼</span> Experience Improvements 
+            <span class="detail-toggle-btn">Show Details <span class="arrow">▾</span></span>
+          </summary>
+          <ul id="experience-list" style="margin: 0; padding: 0 16px 16px 42px; padding-left: 56px; line-height: 1.6; color: var(--text-secondary); font-size: 14px;"></ul>
+        </details>
+        
+        <details class="insight-details" style="background: rgba(255,255,255,0.015); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--text-muted);">
+          <summary style="padding: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 10px; outline: none; user-select: none;">
+            <span style="font-size: 16px;">💻</span> Project Recommendations 
+            <span class="detail-toggle-btn">Show Details <span class="arrow">▾</span></span>
+          </summary>
+          <div id="technologies-badges" style="padding: 0 16px 16px 42px; display: flex; flex-wrap: wrap; gap: 8px;"></div>
+        </details>
+
+        <details class="insight-details" style="background: rgba(255,255,255,0.015); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--primary);">
+          <summary style="padding: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 10px; outline: none; user-select: none;">
+            <span style="font-size: 16px;">🎤</span> Interview Preparation 
+            <span class="detail-toggle-btn">Show Details <span class="arrow">▾</span></span>
+          </summary>
+          <div style="padding: 0 16px 16px 42px;">
+            <div id="important-keywords-badges" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;"></div>
+            <h5 style="margin: 0 0 10px 0; font-size: 14px; font-weight: 600; color: var(--text-primary);">Questions To Prepare</h5>
+            <ul id="interview-questions-list" style="margin: 0; padding-left: 20px; line-height: 1.6; color: var(--text-secondary); font-size: 14px;"></ul>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ROADMAP CTA -->
+    <div style="background: rgba(109, 93, 252, 0.05); border: 1px solid rgba(109, 93, 252, 0.2); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; margin-top: var(--space-4);">
+      <h2 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 700;" class="text-gradient-primary">Professional Career Roadmap</h2>
+      <p class="muted-text" style="max-width: 500px; margin: 0 auto 24px auto; line-height: 1.5; font-size: 14px;">
+        Generate a personalized, multi-phase learning roadmap to master your missing skills and prepare for interviews at this target company.
+      </p>
+      
+      <button id="generate-roadmap-btn" class="btn-primary" style="display: none; margin: 0 auto; padding: 12px 24px; font-size: 15px; font-weight: 600;">
+        Generate Professional Roadmap PDF
+      </button>
+
+      <div id="roadmap-container" style="display: none; align-items: center; justify-content: center; gap: 12px; margin-top: 20px; background: rgba(139,92,246,0.1); border: 1px solid var(--primary); padding: 12px 20px; border-radius: var(--radius-md); max-width: 400px; margin-left: auto; margin-right: auto;">
+        <span style="font-size: 20px;">📄</span>
+        <div style="text-align: left;">
+          <h4 style="margin: 0; color: var(--primary); font-size: 15px;">Success!</h4>
+          <p style="margin: 2px 0 0 0; color: var(--text-primary); font-size: 13px;">Your dynamic roadmap has been generated.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+#jd-input:focus {
+  border-color: var(--primary);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 0 4px rgba(109, 93, 252, 0.1);
+}
+
+.badge-item {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+.badge-purple { background: rgba(139, 92, 246, 0.1); color: var(--primary); border-color: rgba(139, 92, 246, 0.2); }
+.badge-yellow { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border-color: var(--border-subtle); }
+.badge-cyan { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border-color: var(--border-subtle); }
+.badge-green { background: rgba(139, 92, 246, 0.1); color: var(--primary); border-color: rgba(139, 92, 246, 0.2); }
+.badge-blue { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border-color: var(--border-subtle); }
+
+.insight-details summary::-webkit-details-marker {
+  display: none;
+}
+.insight-details {
+  transition: all 0.2s ease;
+}
+.insight-details:hover {
+  background: rgba(255,255,255,0.03) !important;
+}
+.detail-toggle-btn {
+  margin-left: auto; 
+  font-size: 12px; 
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.05);
+  padding: 4px 10px;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.insight-details:hover .detail-toggle-btn {
+  background: rgba(255,255,255,0.1);
+  color: var(--text-primary);
+}
+.insight-details[open] .detail-toggle-btn .arrow {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+.insight-details[open] summary {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: var(--space-3);
+}
+.insight-details[open] .detail-toggle-btn {
+  background: var(--primary);
+  color: #fff;
+}
+</style>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const jdInput = document.getElementById("jd-input");
+  const charCounter = document.getElementById("char-counter");
+  const analyzeBtn = document.getElementById("analyze-btn");
+  const btnText = document.getElementById("btn-text");
+  const loadingStatus = document.getElementById("loading-status");
+  const loadingText = document.getElementById("loading-text");
+  const errorAlert = document.getElementById("error-alert");
+  
+  const resultsContainer = document.getElementById("results-container");
+  const resultsSkeleton = document.getElementById("results-skeleton");
+
+  // Since we can't change the API, we fetch the user's resumes and pick the first one to satisfy the backend.
+  let silentResumeId = null;
+  const fetchResumes = async () => {
+    try {
+      const res = await window.apiFetch("/api/resume/list");
+      const data = await res.json();
+      if (res.ok && data.resumes && data.resumes.length > 0) {
+        silentResumeId = data.resumes[0].resume_id;
+      }
+    } catch (e) {
+      console.warn("Could not load resumes silently.");
+    }
+  };
+  fetchResumes();
+
+  // Debounced JD Input Counter
+  let debounceTimer;
+  jdInput.addEventListener("input", (e) => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      const len = e.target.value.length;
+      charCounter.textContent = `${len} characters`;
+    }, 300);
+  });
+
+  // Analyze Request
+  analyzeBtn.addEventListener("click", async () => {
+    const jdText = jdInput.value.trim();
+    
+    errorAlert.style.display = "none";
+    
+    // Validations
+    if (!silentResumeId) {
+      errorAlert.textContent = "You need to upload at least one resume to use this feature.";
+      errorAlert.style.display = "block";
+      return;
+    }
+    
+    if (jdText.length < 50) {
+      errorAlert.textContent = "Job description must be at least 50 characters to process.";
+      errorAlert.style.display = "block";
+      return;
+    }
+
+    // Trigger Loading State
+    analyzeBtn.disabled = true;
+    btnText.textContent = "Analyzing...";
+    loadingStatus.style.display = "block";
+    loadingText.textContent = "AI is extracting insights...";
+    
+    resultsContainer.style.display = "none";
+    resultsSkeleton.style.display = "flex";
+    document.getElementById("invalid-jd-state").style.display = "none";
+    const emptyState = document.getElementById("empty-state");
+    if (emptyState) emptyState.style.display = "none";
+    
+    let interval = setTimeout(() => {
+      loadingText.textContent = "Almost done...";
+    }, 3500);
+
+    try {
+      const res = await window.apiFetch("/api/jd/analyze", {
+        method: "POST",
+        body: JSON.stringify({
+          resume_id: parseInt(silentResumeId),
+          jd_text: jdText
+        })
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.error || "Analysis failed.");
+      }
+      
+      if (data.fallback_mode) {
+        throw new Error(data.message || "AI analysis is temporarily unavailable. Please try again in a few moments.");
+      }
+      
+      if (data.valid_jd === false) {
+        document.getElementById("invalid-jd-state").style.display = "flex";
+        resultsSkeleton.style.display = "none";
+        resultsContainer.style.display = "none";
+        return;
+      }
+      
+      currentJdId = data.jd_id;
+      
+      renderResults(data.analysis);
+      
+      // Phase 4: Automatically fetch Career Intelligence
+      fetchCareerIntelligence(silentResumeId, jdText);
+      
+    } catch (e) {
+      errorAlert.textContent = e.message;
+      errorAlert.style.display = "block";
+      resultsSkeleton.style.display = "none";
+    } finally {
+      clearTimeout(interval);
+      analyzeBtn.disabled = false;
+      btnText.textContent = "Analyze Job Description";
+      loadingStatus.style.display = "none";
+    }
+  });
+
+  let currentPrioritySkills = [];
+  let currentJdId = null;
+
+  const fetchCareerIntelligence = async (resId, jdStr) => {
+      try {
+          const res = await window.apiFetch("/api/intelligence/gap-analysis", {
+              method: "POST",
+              body: JSON.stringify({ resume_id: parseInt(resId), jd_text: jdStr })
+          });
+          const data = await res.json();
+          if(res.ok) {
+              // Populate Intelligence Panel
+              document.getElementById("hero-readiness").textContent = data.readiness_score + "%";
+              
+              currentPrioritySkills = data.gap_analysis.priority_skills || [];
+              const qts = data.gap_analysis.questions_to_prepare || [];
+              document.getElementById("interview-questions-list").innerHTML = qts.map(q => `<li style="margin-bottom:6px;">${q}</li>`).join('');
+              
+              const roadmapBtn = document.getElementById("generate-roadmap-btn");
+              if (currentPrioritySkills.length > 0) {
+                  roadmapBtn.style.display = "inline-block";
+              }
+              
+              if (data.roadmap_id) {
+                  handleRoadmapSuccess(data.roadmap_id);
+              }
+          }
+      } catch(e) {
+          console.error("Failed to fetch career intelligence:", e);
+      }
+  };
+
+  const handleRoadmapSuccess = (roadmapId) => {
+      const container = document.getElementById("roadmap-container");
+      document.getElementById("generate-roadmap-btn").style.display = "none";
+      
+      container.style.display = "flex";
+      container.animate([{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'translateY(0)'}], {duration: 400, fill: "forwards"});
+      
+      // Auto-trigger download
+      window.location.href = `/api/intelligence/roadmap/${roadmapId}/pdf`;
+  };
+
+  document.getElementById("generate-roadmap-btn").addEventListener("click", async () => {
+      const btn = document.getElementById("generate-roadmap-btn");
+      btn.disabled = true;
+      btn.textContent = "Generating Roadmap...";
+      try {
+          const res = await window.apiFetch("/api/intelligence/roadmap", {
+              method: "POST",
+              body: JSON.stringify({ 
+                  priority_skills: currentPrioritySkills,
+                  resume_id: parseInt(silentResumeId),
+                  jd_id: parseInt(currentJdId),
+                  jd_text: document.getElementById("jd-input").value
+              })
+          });
+          const data = await res.json();
+          if(res.ok && data.roadmap_id) {
+              handleRoadmapSuccess(data.roadmap_id);
+          } else {
+              throw new Error(data.error || "Failed");
+          }
+      } catch(e) {
+          alert(e.message || "Roadmap generation failed.");
+          btn.disabled = false;
+          btn.textContent = "Generate Professional Roadmap";
+      }
+  });
+
+  const buildBadges = (arr, colorClass) => {
+    if (!arr || arr.length === 0) return '<span class="muted-text text-sm">None found</span>';
+    const uniqueArr = [...new Set(arr)];
+    return uniqueArr.map(k => `<span class="badge-item ${colorClass}">${k}</span>`).join('');
+  };
+
+  // Result Rendering Engine
+  const renderResults = (analysis) => {
+    resultsSkeleton.style.display = "none";
+    resultsContainer.style.display = "flex";
+    
+    const extractVal = (arr) => (arr || []).map(x => typeof x === 'string' ? x : (x.value || ""));
+
+    // Updated parsing for jd_required_skills and resume_existing_skills
+    const requiredSkills = extractVal(analysis.jd_required_skills);
+    const missingSkills = extractVal(analysis.missing_skills);
+    const atsKeywords = extractVal(analysis.missing_keywords);
+    const importantKeywords = extractVal(analysis.interview_topics);
+    const techSkills = extractVal(analysis.project_gaps); 
+    
+    document.getElementById("hero-req-skills").textContent = requiredSkills.length;
+    document.getElementById("hero-missing-skills").textContent = missingSkills.length;
+    
+    document.getElementById("required-skills-badges").innerHTML = buildBadges(requiredSkills, "badge-purple");
+    document.getElementById("missing-skills-badges").innerHTML = buildBadges(missingSkills, "badge-yellow");
+    document.getElementById("ats-keywords-badges").innerHTML = buildBadges(atsKeywords, "badge-green");
+    
+    // Rich Project Cards
+    const projContainer = document.getElementById("technologies-badges");
+    if (analysis.project_gaps && analysis.project_gaps.length > 0 && typeof analysis.project_gaps[0] === 'object') {
+        projContainer.style.display = "flex";
+        projContainer.style.flexDirection = "column";
+        projContainer.style.gap = "12px";
+        projContainer.innerHTML = analysis.project_gaps.map(p => `
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px;">
+                <h4 style="margin: 0 0 4px 0; font-size: 14px; font-weight: 600; color: var(--blue);">${p.title || 'Project'}</h4>
+                <p style="margin: 0 0 8px 0; font-size: 13px; color: var(--text-secondary); line-height: 1.4;">${p.description || ''}</p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span class="badge-item badge-green" style="font-size: 11px;">Difficulty: ${p.difficulty || 'Intermediate'}</span>
+                    <span class="badge-item badge-purple" style="font-size: 11px;">Value: ${p.portfolio_value || 'High'}</span>
+                </div>
+            </div>
+        `).join('');
+    } else {
+        projContainer.innerHTML = buildBadges(techSkills, "badge-blue");
+    }
+    
+    // Rich Interview Prep
+    const intContainer = document.getElementById("important-keywords-badges");
+    if (analysis.interview_topics && analysis.interview_topics.length > 0 && typeof analysis.interview_topics[0] === 'object') {
+        intContainer.style.display = "flex";
+        intContainer.style.flexDirection = "column";
+        intContainer.style.gap = "12px";
+        intContainer.innerHTML = analysis.interview_topics.map(t => {
+            let html = `<div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px;">
+                <h4 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; color: var(--cyan);">${t.category || 'Topic'}</h4>`;
+            if (t.questions && t.questions.length > 0) {
+                html += `<div style="margin-bottom: 10px; display: flex; flex-direction: column; gap: 8px;">`;
+                t.questions.forEach(q => {
+                    html += `
+                    <div>
+                        <div style="font-size: 13px; font-weight: 500; color: var(--text-primary);">Q: ${q.question}</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;"><em>A: ${q.explanation || 'Prepare core concepts.'}</em></div>
+                    </div>`;
+                });
+                html += `</div>`;
+            }
+            if (t.videos && t.videos.length > 0) {
+                html += `<div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px;">`;
+                t.videos.forEach(v => {
+                    html += `<a href="${v.url}" target="_blank" style="font-size: 12px; color: var(--primary-light); text-decoration: none; display: flex; align-items: center; gap: 6px;">📺 ${v.channel} Playlist</a>`;
+                });
+                html += `</div>`;
+            }
+            html += `</div>`;
+            return html;
+        }).join('');
+        document.getElementById("interview-questions-list").parentElement.querySelector('h5').style.display = "none";
+        document.getElementById("interview-questions-list").style.display = "none";
+    } else {
+        intContainer.innerHTML = buildBadges(importantKeywords, "badge-cyan");
+    }
+    
+    const expList = document.getElementById("experience-list");
+    const expImps = extractVal(analysis.experience_improvements);
+    if (!expImps || expImps.length === 0) {
+       expList.innerHTML = `<li><span class="muted-text">General professional experience required.</span></li>`;
+    } else {
+       expList.innerHTML = expImps.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
+    }
+    
+    const summaryImps = extractVal(analysis.summary_improvements);
+    document.getElementById("summary-text").innerHTML = summaryImps.join('<br><br>') || "No summary provided.";
+
+    resultsContainer.animate([{opacity: 0}, {opacity: 1}], {duration: 400, fill: "forwards"});
+  };
+
+});
+</script>
+
+  <!-- JD Scoring Modal -->
+  <div class="modal-backdrop" id="jdScoringModal">
+    <div class="profile-onboarding-modal" style="max-width: 500px;">
+      <div class="modal-hero" style="background: linear-gradient(135deg, rgba(109, 93, 252, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%); padding: 32px 24px; text-align: center; border-bottom: 1px solid var(--border-subtle);">
+        <div style="background: var(--bg-surface); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 16px auto; box-shadow: 0 8px 20px rgba(109, 93, 252, 0.15); border: 1px solid rgba(109, 93, 252, 0.2);">💯</div>
+        <h2 class="modal-title text-gradient-primary" style="margin-bottom: 8px; font-size: 1.5rem;">How JD Match is Scored</h2>
+        <p class="modal-desc muted-text" style="margin: 0; font-size: 15px;">Our AI compares your resume to the job description using a 100-point rubric.</p>
+      </div>
+      
+      <div class="modal-body" style="padding: 24px 32px; background: var(--bg-card);">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- Score Items -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">⚡</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Skill Gap & Match</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">50 pts</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">🧠</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Semantic Similarity</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">20 pts</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">💼</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Experience Match</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">20 pts</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 20px;">🎓</span>
+              <span style="font-weight: 600; color: var(--text-primary);">Education Match</span>
+            </div>
+            <span style="background: rgba(109, 93, 252, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 14px;">10 pts</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions" style="padding: 24px 32px; background: var(--bg-card); border-top: 1px solid var(--border-subtle); display: flex; justify-content: center; border-radius: 0 0 24px 24px;">
+        <button type="button" class="btn-primary" onclick="document.getElementById('jdScoringModal').classList.remove('open')" style="width: 100%; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 12px;">Got It, Let's Analyze!</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Automatically show the scoring modal EVERY time the user opens the page
+    setTimeout(() => {
+        const modal = document.getElementById('jdScoringModal');
+        if (modal) {
+            modal.classList.add('open');
+        }
+    }, 50);
+  });
+</script>
+{% endblock %}

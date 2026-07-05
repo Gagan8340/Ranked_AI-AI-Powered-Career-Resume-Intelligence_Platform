@@ -1,0 +1,97 @@
+%% DESIGN: Fira Mono | GitHub-inspired, monospace, code-block sections | Green (#2E7D32) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{FiraMono}
+\usepackage[sfdefault]{FiraSans}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{fontawesome5}
+\usepackage{tcolorbox}
+
+\definecolor{ghgreen}{HTML}{2E7D32}
+\definecolor{ghbg}{HTML}{F6F8FA}
+\definecolor{ghborder}{HTML}{D0D7DE}
+
+\tcbset{colback=ghbg,colframe=ghborder,boxrule=0.5pt,arc=4pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\ttfamily\small}
+
+\titleformat{\section}{\normalsize\bfseries\ttfamily\color{ghgreen}}{}{0em}{\#\#\hspace{4pt}}[]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.5em,itemsep=1pt,parsep=0pt,label=\color{ghgreen}\texttt{+}}
+
+\hypersetup{colorlinks=true,urlcolor=ghgreen}
+
+\begin{document}
+
+\begin{tcolorbox}[colframe=ghgreen,colback=ghbg]
+\begin{center}
+{\Large\bfseries\ttfamily HARISH KUMAR}\\[2pt]
+{\small\ttfamily // Open Source Contributor | Systems Programmer | Rust Enthusiast}\\[4pt]
+{\footnotesize\ttfamily \faIcon{github} \href{https://github.com/harishk}{github.com/harishk} | \faIcon{envelope} harish@kernel.dev | \faIcon{map-marker-alt} Hyderabad, IN}
+\end{center}
+\end{tcolorbox}
+
+\section{Open Source Contributions}
+
+\begin{tcolorbox}
+\texttt{\textbf{\color{ghgreen}tokio-rs/tokio}} -- Async runtime for Rust\\
+\texttt{Role: Core Contributor | 150+ commits | Maintainer of tokio-util}
+\end{tcolorbox}
+\begin{itemize}
+\item Implemented io\_uring backend reducing syscall overhead by 45\%
+\item Fixed critical race condition in task scheduler (CVE-2023-XXXX)
+\item Authored RFC for structured concurrency API (accepted, in progress)
+\end{itemize}
+
+\begin{tcolorbox}
+\texttt{\textbf{\color{ghgreen}rust-lang/rust}} -- The Rust Programming Language\\
+\texttt{Role: Contributor | 30+ merged PRs}
+\end{tcolorbox}
+\begin{itemize}
+\item Improved borrow checker diagnostics for async code (compiler team review)
+\item Optimized standard library HashMap implementation (12\% throughput gain)
+\end{itemize}
+
+\begin{tcolorbox}
+\texttt{\textbf{\color{ghgreen}harishk/kv-engine}} -- Embedded key-value store in Rust\\
+\texttt{Role: Creator \& Maintainer | 3.2K stars | 200+ forks}
+\end{tcolorbox}
+\begin{itemize}
+\item LSM-tree based storage engine with MVCC and snapshot isolation
+\item Used in production by 3 companies for embedded analytics
+\end{itemize}
+
+\section{Professional Experience}
+
+\textbf{Red Hat} \hfill Remote (Hyderabad)\\
+\textit{Senior Software Engineer -- Kernel/Storage} \hfill Apr 2020 -- Present
+\begin{itemize}
+\item Contributing to Linux kernel block layer and io\_uring subsystem
+\item Developed Stratis storage management tool (Rust, D-Bus, devicemapper)
+\item Upstream kernel patches: 25+ merged in mainline Linux
+\end{itemize}
+
+\textbf{Samsung R\&D} \hfill Bangalore\\
+\textit{Systems Engineer -- Storage} \hfill Jul 2017 -- Mar 2020
+\begin{itemize}
+\item Developed F2FS filesystem optimizations for mobile flash storage
+\item Built benchmarking framework for NVMe SSD performance characterization
+\end{itemize}
+
+\section{Stats}
+
+\begin{tcolorbox}
+\texttt{GitHub: 4,200+ contributions (2024) | 8K+ stars across repos}\\
+\texttt{Languages: Rust (primary), C, Go, Python}\\
+\texttt{Kernel: 25+ patches in mainline Linux}\\
+\texttt{Talks: RustConf 2023, Linux Plumbers 2022, FOSDEM 2024}
+\end{tcolorbox}
+
+\section{Education}
+\textbf{B.Tech Computer Science} -- IIIT Hyderabad \hfill 2013 -- 2017
+
+\end{document}

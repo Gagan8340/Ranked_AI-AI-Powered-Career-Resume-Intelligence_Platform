@@ -1,0 +1,67 @@
+%% Style 06: Executive
+%% DESIGN PHILOSOPHY: Garamond font, centered name with title below, elegant thin rules,
+%% generous margins, sophisticated spacing. Understated luxury.
+%% Visual signature: Centered header, wide margins, refined typography, no bullets.
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[top=1.3in, bottom=1.2in, left=1.5in, right=1.5in]{geometry}
+\usepackage{ebgaramond}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\definecolor{darkgold}{HTML}{8B7355}
+\definecolor{charcoal}{HTML}{333333}
+
+\titleformat{\section}{\normalsize\scshape\color{darkgold}}{}{0em}{\centering}[\vspace{2pt}\centering\textcolor{darkgold}{\rule{3in}{0.3pt}}]
+\titlespacing*{\section}{0pt}{18pt}{10pt}
+
+\begin{document}
+
+\begin{center}
+\vspace*{-10pt}
+{\fontsize{26}{32}\selectfont Arjun Mehta}\\[8pt]
+{\normalsize\itshape Senior Software Engineer}\\[12pt]
+\textcolor{darkgold}{\rule{4in}{0.5pt}}\\[8pt]
+{\small 415-555-0192 \quad\textcolor{darkgold}{|}\quad arjun.mehta@email.com \quad\textcolor{darkgold}{|}\quad San Francisco, CA}\\[3pt]
+{\small linkedin.com/in/arjunmehta \quad\textcolor{darkgold}{|}\quad github.com/arjunmehta}
+\end{center}
+
+\section{Experience}
+
+\noindent\textbf{Senior Software Engineer} \hfill 2021 -- Present\\
+\textit{Stripe, Inc., San Francisco, CA}\\[4pt]
+Led redesign of payment processing pipeline, reducing latency by 40\% and handling 50K+ transactions per second. Architected event-driven microservices platform using Kafka and gRPC serving 200+ internal teams. Mentored 5 junior engineers and established code review standards adopted organization-wide.
+
+\vspace{10pt}
+\noindent\textbf{Software Engineer II} \hfill 2018 -- 2021\\
+\textit{Google LLC, Mountain View, CA}\\[4pt]
+Built real-time data pipeline processing 2TB daily for Google Maps traffic predictions. Designed and shipped collaborative editing features used by 10M+ Google Docs users. Reduced CI/CD build times by 60\% through parallel test execution framework.
+
+\vspace{10pt}
+\noindent\textbf{Software Engineer} \hfill 2016 -- 2018\\
+\textit{Amazon Web Services, Seattle, WA}\\[4pt]
+Developed auto-scaling algorithms for EC2 fleet management serving 1M+ instances. Implemented distributed caching layer reducing database load by 70\%.
+
+\section{Education}
+
+\noindent\textbf{Master of Science, Computer Science} \hfill 2016\\
+\textit{Stanford University}
+
+\vspace{6pt}
+\noindent\textbf{Bachelor of Technology, Computer Science} \hfill 2014\\
+\textit{Indian Institute of Technology, Bombay}
+
+\section{Expertise}
+
+\begin{center}
+{\small System Design \quad\textcolor{darkgold}{·}\quad Distributed Systems \quad\textcolor{darkgold}{·}\quad Java \quad\textcolor{darkgold}{·}\quad Python \quad\textcolor{darkgold}{·}\quad Go \quad\textcolor{darkgold}{·}\quad AWS \quad\textcolor{darkgold}{·}\quad Kubernetes}
+\end{center}
+
+\end{document}

@@ -1,0 +1,96 @@
+%% DESIGN: Bookman (bookman) | Single-column structured | Burgundy (#800020) accent | Tabular skills section
+%% Business analyst style with structured tables, burgundy accents, formal yet readable
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{bookman}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{amssymb}
+
+\definecolor{accent}{HTML}{800020}
+\definecolor{ACCENT}{HTML}{800020}
+\definecolor{lightbg}{HTML}{FDF2F4}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: burgundy with thick left bar
+\titleformat{\section}{\normalfont\large\bfseries\color{accent}}{{\color{accent}\vrule width 3pt}\hspace{6pt}}{0em}{}
+\titlespacing{\section}{0pt}{9pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}\small$\blacksquare$}}
+
+\begin{document}
+
+% Header: centered, burgundy name
+\begin{center}
+{\fontsize{19}{23}\selectfont\bfseries\color{accent}Sneha Kulkarni}\\[5pt]
+{\small Pune, India \quad$\diamond$\quad +91-99887-65432 \quad$\diamond$\quad \href{mailto:sneha.kulkarni@email.com}{sneha.kulkarni@email.com} \quad$\diamond$\quad \href{https://linkedin.com/in/snehakulkarni}{linkedin.com/in/snehakulkarni}}
+\end{center}
+\vspace{2pt}
+{\color{accent}\rule{\textwidth}{1pt}}
+
+\section{Summary}
+Business Analyst with 5+ years of experience in requirements engineering, process optimization, and stakeholder management across BFSI and e-commerce domains. Successfully delivered 12+ projects valued at \$15M+ by bridging business needs with technology solutions. CBAP-certified with expertise in Agile and Waterfall methodologies.
+
+\section{Core Competencies}
+\vspace{2pt}
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|>{\columncolor{lightbg}}p{4.2cm}|p{4.2cm}|>{\columncolor{lightbg}}p{4.2cm}|p{4.2cm}|}
+\hline
+\rowcolor{accent}\color{white}\textbf{BA Core} & \color{white}\textbf{Analysis} & \color{white}\textbf{Tools} & \color{white}\textbf{Methods}\\
+\hline
+Requirements Elicitation & Gap Analysis & JIRA & Agile (Scrum)\\
+BRD/FRD Writing & Root Cause Analysis & Confluence & Waterfall\\
+User Stories/Use Cases & SWOT Analysis & MS Visio & SAFe\\
+Process Mapping (BPMN) & Cost-Benefit Analysis & SQL & Six Sigma\\
+Stakeholder Mgmt & Feasibility Studies & Balsamiq & Kanban\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Experience}
+
+\textbf{Senior Business Analyst} \hfill \textbf{Infosys, Pune}\\
+\textit{Banking \& Financial Services} \hfill Apr 2022 -- Present
+\begin{itemize}
+  \item Led requirements gathering for core banking transformation (\$8M budget); conducted 60+ stakeholder workshops across 5 business units with 40+ SMEs
+  \item Authored 15 BRDs and 30+ user stories for digital lending platform; achieved 95\% first-pass acceptance rate
+  \item Identified process bottlenecks in loan origination; proposed automation reducing processing time from 14 days to 3 days (78\% improvement)
+  \item Managed UAT coordination across 3 releases with 200+ test cases; achieved 98\% defect-free deployment
+  \item Facilitated bi-weekly steering committee meetings with C-suite stakeholders
+\end{itemize}
+
+\textbf{Business Analyst} \hfill \textbf{Tata Consultancy Services, Mumbai}\\
+\textit{Retail \& E-commerce} \hfill Jan 2020 -- Mar 2022
+\begin{itemize}
+  \item Documented functional requirements for omnichannel inventory system serving 500+ stores; reduced stock-out incidents by 32\%
+  \item Created AS-IS and TO-BE process maps using BPMN; identified 8 redundant approval steps saving 120 person-hours monthly
+  \item Performed gap analysis between legacy ERP and cloud solution; delivered feasibility report influencing \$3M migration decision
+  \item Conducted data validation using SQL on 2M+ transaction records; identified 15 data integrity issues
+\end{itemize}
+
+\textbf{Associate Business Analyst} \hfill \textbf{Wipro, Bangalore}\\
+\textit{Healthcare IT} \hfill Jul 2018 -- Dec 2019
+\begin{itemize}
+  \item Gathered requirements for patient portal serving 500K+ users; documented 80+ functional and non-functional requirements
+  \item Supported 3 Agile sprints per month; maintained product backlog of 150+ items
+  \item Reduced requirement ambiguity by 40\% through structured templates and review checklists
+\end{itemize}
+
+\section{Education}
+\textbf{MBA -- Information Systems} \hfill Symbiosis Institute, Pune \hfill 2018\\
+\textbf{B.E. -- Information Technology} \hfill Pune University \hfill 2016
+
+\section{Certifications}
+CBAP (Certified Business Analysis Professional) \quad$\diamond$\quad Six Sigma Green Belt \quad$\diamond$\quad SAFe Agilist
+
+\end{document}

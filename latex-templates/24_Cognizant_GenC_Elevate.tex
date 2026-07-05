@@ -1,0 +1,93 @@
+%% DESIGN: Charter | Single-column | Orange accent | Bold headers with underline, right-aligned dates
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{E65100}
+\definecolor{ACCENT}{HTML}{E65100}
+
+\titleformat{\section}{\bfseries\normalsize}{}{0em}{\color{accent}\uppercase}[\vspace{1pt}\color{accent}\hrule height 1pt\vspace{1pt}\hrule height 0.3pt]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}$\triangleright$}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Sneha Patel}\\[4pt]
+{\small Chennai, India $\mid$ +91-8877665544 $\mid$ sneha.patel@email.com $\mid$ \href{https://linkedin.com/in/snehapatel-fullstack}{LinkedIn} $\mid$ \href{https://github.com/snehapatel}{GitHub}}
+\end{center}
+
+\section{Education}
+
+\textbf{B.E. in Computer Science and Engineering} \hfill 2020 -- 2024\\
+Anna University -- SSN College of Engineering, Chennai \hfill \textbf{CGPA: 8.62/10}\\[2pt]
+\textbf{Class XII (CBSE)} -- DAV Public School, Chennai \hfill \textbf{93.2\%} \hfill 2020
+
+\section{Certifications}
+
+\begin{itemize}
+    \item \textbf{AWS Certified Solutions Architect -- Associate} (2024)
+    \item \textbf{Microsoft Certified: Azure Fundamentals (AZ-900)} (2023)
+    \item \textbf{Certified Kubernetes Application Developer (CKAD)} (2024)
+    \item \textbf{Oracle Certified Java SE 11 Developer} (2023)
+    \item \textbf{Professional Scrum Master I (PSM I)} -- Scrum.org (2023)
+    \item \textbf{Google Cloud Digital Leader} (2023)
+\end{itemize}
+
+\section{Technical Skills}
+
+{\small
+\textbf{Frontend:} React.js, Angular 14+, TypeScript, Redux, Tailwind CSS, Material UI\\
+\textbf{Backend:} Java (Spring Boot), Node.js, Python (Django), REST APIs, GraphQL\\
+\textbf{Cloud:} AWS (EC2, Lambda, RDS, S3, CloudFormation), Azure (App Service, Functions)\\
+\textbf{DevOps:} Docker, Kubernetes, Jenkins, Terraform, GitHub Actions
+}
+
+\section{Projects}
+
+\textbf{Healthcare Appointment System} $\mid$ {\small\itshape React, Spring Boot, PostgreSQL, AWS} \hfill {\color{accent}\small Jan -- Apr 2024}
+\begin{itemize}
+    \item Built end-to-end appointment booking platform with role-based access (patient, doctor, admin)
+    \item Implemented real-time slot availability using WebSocket; integrated Twilio for SMS reminders
+    \item Deployed on AWS using ECS with auto-scaling; achieved 99.5\% uptime over 3-month testing
+    \item Followed microservices architecture with API Gateway pattern and centralized logging (ELK)
+\end{itemize}
+
+\textbf{Expense Tracker with Analytics} $\mid$ {\small\itshape Angular, Django, MongoDB, Chart.js} \hfill {\color{accent}\small Aug -- Nov 2023}
+\begin{itemize}
+    \item Developed personal finance app with OCR-based receipt scanning for auto-categorization
+    \item Built predictive spending alerts using linear regression on historical data
+    \item Implemented PWA features enabling offline access; 200+ active beta users
+\end{itemize}
+
+\textbf{CI/CD Pipeline Automation Tool} $\mid$ {\small\itshape Python, Docker, Jenkins, Terraform} \hfill {\color{accent}\small May -- Jul 2023}
+\begin{itemize}
+    \item Created IaC templates automating deployment of 3-tier web applications
+    \item Reduced deployment time from 45 minutes to 8 minutes with automated testing gates
+\end{itemize}
+
+\section{Internship}
+
+\textbf{Software Developer Intern} -- Freshworks, Chennai \hfill {\color{accent}\small May 2023 -- Jul 2023}
+\begin{itemize}
+    \item Developed reusable React component library used across 3 product teams (12 components)
+    \item Improved accessibility compliance from 72\% to 96\% (WCAG 2.1 AA standards)
+    \item Participated in agile sprints; delivered features 2 days ahead of sprint deadlines
+\end{itemize}
+
+\section{Achievements}
+
+{\small
+Cognizant GenC Elevate -- Qualified with distinction $\cdot$ Published technical blog on Medium with 5,000+ monthly readers $\cdot$ Open-source contributor -- 15+ merged PRs in React ecosystem libraries
+}
+
+\end{document}

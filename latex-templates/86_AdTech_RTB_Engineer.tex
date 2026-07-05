@@ -1,0 +1,87 @@
+%% DESIGN: Inconsolata + Helvetica | Data-heavy, monospace metrics | Dark Blue (#1A237E) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{helvet}
+\usepackage{inconsolata}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{fancybox}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{adblue}{HTML}{1A237E}
+\definecolor{lightblue}{HTML}{E8EAF6}
+
+\titleformat{\section}{\normalsize\bfseries\color{adblue}}{}{0em}{\fbox{\color{adblue}\rule{3pt}{0pt}}\hspace{6pt}}[\vspace{-0.4em}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{adblue}$\triangleright$}
+
+\hypersetup{colorlinks=true,urlcolor=adblue}
+
+\begin{document}
+
+\noindent\colorbox{adblue}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\color{white}\bfseries\large\vspace{3pt}\hspace{6pt}AMIT JOSHI\hfill{\normalsize AdTech / RTB Engineer}\hspace{6pt}\vspace{3pt}}}
+
+\vspace{6pt}
+\noindent{\small amit.joshi@email.com $\vert$ +91-98765-43210 $\vert$ Bangalore, India $\vert$ \href{https://linkedin.com/in/amitjoshi}{LinkedIn} $\vert$ \href{https://github.com/amitj}{GitHub}}
+
+\section{Performance Metrics}
+\noindent\begin{tabularx}{\linewidth}{@{}|X|X|X|X|@{}}
+\hline
+\rowcolor{lightblue}
+\textbf{\texttt{QPS Handled}} & \textbf{\texttt{Bid Latency}} & \textbf{\texttt{Daily Spend}} & \textbf{\texttt{Revenue Impact}}\\
+\hline
+\texttt{2M+ QPS} & \texttt{<10ms P99} & \texttt{\$5M+/day} & \texttt{+\$40M ARR}\\
+\hline
+\end{tabularx}
+
+\section{Experience}
+
+\textbf{InMobi} \hfill Bangalore\\
+\textit{Principal Engineer -- Real-Time Bidding Platform} \hfill Mar 2021 -- Present
+\begin{itemize}
+\item Architect of RTB platform processing 2M+ bid requests/second across 12 global PoPs
+\item Redesigned bidding engine in Rust reducing P99 latency from 45ms to 8ms
+\item Built ML-based bid optimization (contextual bandits) increasing eCPM by 34\%
+\item Implemented header bidding adapter supporting 50+ demand partners (OpenRTB 2.6)
+\item Designed fraud detection pipeline blocking 15\% invalid traffic saving \$2M/month
+\end{itemize}
+
+\textbf{Media.net (Directi)} \hfill Mumbai\\
+\textit{Senior Engineer -- Ad Serving} \hfill Jul 2018 -- Feb 2021
+\begin{itemize}
+\item Built contextual targeting engine analyzing page content in real-time (<5ms)
+\item Developed A/B testing framework for ad layout optimization (1000+ experiments)
+\item Implemented GDPR/CCPA consent management reducing compliance violations to zero
+\item Scaled ad serving from 500K to 1.5M QPS through connection pooling and caching
+\end{itemize}
+
+\textbf{Pubmatic} \hfill Pune\\
+\textit{Software Engineer -- Supply Side Platform} \hfill Jun 2016 -- Jun 2018
+\begin{itemize}
+\item Developed real-time reporting pipeline processing 50B+ daily events
+\item Built yield optimization algorithms increasing publisher revenue by 18\%
+\end{itemize}
+
+\section{Technical Stack}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Core:} & Rust, C++, Go, Java, Python\\
+\textbf{Data:} & Kafka, Flink, ClickHouse, Aerospike, Redis, ScyllaDB\\
+\textbf{ML:} & XGBoost, contextual bandits, real-time feature stores\\
+\textbf{Infra:} & Kubernetes, Envoy, bare-metal optimization, DPDK\\
+\textbf{Protocols:} & OpenRTB 2.6, VAST 4.2, ads.txt, sellers.json\\
+\end{tabularx}
+
+\section{Education}
+\textbf{B.Tech Computer Science} -- IIT Roorkee \hfill 2012 -- 2016
+
+\section{Open Source}
+\texttt{rust-rtb} -- Open-source RTB bidder framework in Rust (1.8K GitHub stars)
+
+\end{document}

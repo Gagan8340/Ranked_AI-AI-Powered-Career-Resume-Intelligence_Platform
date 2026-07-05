@@ -1,0 +1,91 @@
+%% DESIGN: Palatino (palatino) | Traditional single-column | Navy (#1B2A4A) accent | Classic with modern date placement
+%% Traditional serif with navy accents, dates right-aligned in italics, diamond bullets
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{ACCENT}{HTML}{1B2A4A}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: navy uppercase with double rule
+\titleformat{\section}{\normalfont\bfseries\color{accent}}{}{0em}{\MakeUppercase}[\color{accent}\rule{\textwidth}{0.6pt}]
+\titlespacing{\section}{0pt}{9pt}{5pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}\small$\diamond$}}
+
+\begin{document}
+
+% Header: centered, traditional
+\begin{center}
+{\fontsize{20}{24}\selectfont\bfseries\color{accent}Rohan Iyer}\\[5pt]
+{\small Bangalore, India \enspace|\enspace +91-9876012345 \enspace|\enspace rohan.iyer@email.com}\\[2pt]
+{\small \href{https://linkedin.com/in/rohaniyer-sde}{linkedin.com/in/rohaniyer-sde} \enspace|\enspace \href{https://github.com/rohaniyer}{github.com/rohaniyer}}
+\end{center}
+
+\section{Professional Summary}
+Software Developer with 1.5 years of experience building scalable backend services at TCS Digital. Progressed from individual contributor to technical lead for a 3-member sub-team within 12 months. Specialized in Java microservices, cloud-native development, and performance optimization. Seeking challenging roles with greater ownership and technical depth.
+
+\section{Technical Skills}
+\textbf{Languages:} Java, Python, JavaScript, SQL, Go (learning)\\
+\textbf{Backend:} Spring Boot, Microservices, REST APIs, GraphQL, Kafka\\
+\textbf{Cloud:} AWS (EC2, ECS, Lambda, RDS, SQS, CloudWatch), Terraform\\
+\textbf{Databases:} PostgreSQL, Redis, Elasticsearch, DynamoDB\\
+\textbf{DevOps:} Docker, Kubernetes, Jenkins, GitHub Actions, SonarQube\\
+\textbf{Practices:} TDD, Code Reviews, Agile/Scrum, System Design
+
+\section{Professional Experience}
+\textbf{Software Developer} -- TCS Digital, Bangalore \hfill \textit{\color{accent}Jul 2022 -- Present}
+
+\textit{Project: Payment Processing Platform for European Banking Client}
+\begin{itemize}
+    \item Developed 8 microservices handling 2M+ daily transactions with 99.97\% uptime SLA
+    \item Reduced API response time from 450ms to 120ms by implementing Redis caching and query optimization
+    \item Designed and implemented event-driven architecture using Kafka for real-time fraud detection
+    \item Led migration of monolithic batch processing to serverless (AWS Lambda), cutting costs by 40\%
+    \item Mentored 2 junior developers; conducted code reviews averaging 15 PRs/week
+\end{itemize}
+
+\textit{Project: Internal DevOps Automation (First 6 months)}
+\begin{itemize}
+    \item Built CI/CD pipeline templates reducing new project setup time from 2 days to 30 minutes
+    \item Automated infrastructure provisioning using Terraform; managed 20+ AWS resources
+    \item Created monitoring dashboards (Grafana + CloudWatch) reducing incident detection time by 60\%
+\end{itemize}
+
+\section{Key Achievements at TCS}
+\begin{itemize}
+    \item \textbf{Star Performer Award} (Q2 2023) -- Delivered payment reconciliation module 2 weeks early
+    \item \textbf{Promoted to Technical Lead} -- Sub-team of 3 within 12 months (typical: 18-24 months)
+    \item \textbf{Innovation Award} -- Built internal tool automating test data generation (saved 100+ hrs/quarter)
+    \item \textbf{Client Appreciation} -- Direct appreciation from client CTO for production incident resolution
+\end{itemize}
+
+\section{Side Projects \& Open Source}
+\textbf{Rate Limiter Library (Open Source)} $\mid$ \textit{Java, Published on Maven Central} \hfill 2023
+\begin{itemize}
+    \item Built configurable rate limiting library supporting token bucket and sliding window algorithms
+    \item 50+ GitHub stars; used by 3 production applications; comprehensive documentation
+\end{itemize}
+
+\textbf{System Design Blog} $\mid$ \textit{hashnode.dev/@rohaniyer} \hfill 2023 -- Present
+\begin{itemize}
+    \item Published 12 deep-dive articles on distributed systems; 10,000+ monthly readers
+\end{itemize}
+
+\section{Education}
+\textbf{B.Tech in Computer Science and Engineering} \hfill 2018 -- 2022\\
+NIT Karnataka, Surathkal \hfill \textbf{CGPA: 8.54/10}
+
+\section{Certifications}
+AWS Certified Solutions Architect -- Associate (2023) \enspace|\enspace Certified Kubernetes Administrator (CKA) (2024)
+
+\end{document}

@@ -1,0 +1,101 @@
+%% Style 14: Awesome CV - Colored header bar, vertical colored line on left of sections
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.6in,right=0.6in,top=0.4in,bottom=0.5in]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{eso-pic}
+\usepackage{lmodern}
+
+\definecolor{awesome}{HTML}{00838F}
+\definecolor{darktext}{HTML}{1D1D1D}
+\definecolor{text}{HTML}{333333}
+\definecolor{lighttext}{HTML}{666666}
+
+\pagestyle{empty}
+\color{text}
+
+% Header bar background
+\AddToShipoutPictureBG*{%
+  \AtPageUpperLeft{%
+    \color{awesome}\rule{\paperwidth}{1.8in}%
+  }%
+}
+
+% Section with left colored bar
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt}%
+  \noindent\begin{tikzpicture}
+    \fill[awesome] (0,0) rectangle (3pt,12pt);
+    \node[right, anchor=base west, inner sep=0pt] at (8pt,3pt) {\large\bfseries\color{awesome}\MakeUppercase{#1}};
+  \end{tikzpicture}%
+  \par\vspace{2pt}%
+  {\color{awesome}\hrule height 0.4pt}\vspace{6pt}%
+}
+
+\newcommand{\cventry}[4]{%
+  \noindent\begin{tabularx}{\textwidth}{X r}
+    \textbf{\color{darktext}#1} & \textit{\color{lighttext}#3} \\
+    \textit{\color{text}#2} & \textit{\color{lighttext}#4}
+  \end{tabularx}\vspace{2pt}%
+}
+
+\begin{document}
+
+% Header content (white text on colored bar)
+\vspace*{0.15in}
+\begin{center}
+{\fontsize{30pt}{34pt}\selectfont\color{white}\textbf{Arjun Mehta}}\\[6pt]
+{\large\color{white}Senior Software Engineer}\\[8pt]
+{\color{white}\faEnvelope\ arjun.mehta@email.com \quad \faPhone\ +91-98765-43210 \quad \faLinkedin\ arjunmehta \quad \faGithub\ arjunmehta}
+\end{center}
+\vspace{0.35in}
+
+\cvsection{Experience}
+
+\cventry{Senior Software Engineer}{Amazon Web Services, Bangalore}{Jan 2023 -- Present}{}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt]
+\item \small\color{text} Designed distributed microservices handling 50K+ requests/second using Java and AWS Lambda
+\item \small\color{text} Led monolith-to-microservices migration, reducing latency by 40\%
+\item \small\color{text} Mentored 4 junior engineers and conducted 50+ technical interviews
+\end{itemize}
+\vspace{6pt}
+
+\cventry{Software Engineer}{Microsoft, Hyderabad}{Jun 2020 -- Dec 2022}{}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt]
+\item \small\color{text} Built real-time data pipeline processing 10TB+ daily using Kafka and Spark
+\item \small\color{text} Developed REST APIs serving 1M+ users with 99.9\% uptime SLA
+\item \small\color{text} Reduced CI/CD pipeline execution time by 60\%
+\end{itemize}
+
+\cvsection{Education}
+
+\cventry{B.Tech in Computer Science}{Indian Institute of Technology, Bombay}{Aug 2016 -- May 2020}{GPA: 3.8/4.0}
+
+\cvsection{Projects}
+
+\cventry{Distributed Task Scheduler}{Go, gRPC, Redis, Kubernetes}{2023}{}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt]
+\item \small\color{text} Fault-tolerant distributed scheduler supporting 100K+ concurrent jobs
+\item \small\color{text} Implemented Raft consensus algorithm for leader election
+\end{itemize}
+\vspace{4pt}
+
+\cventry{Real-time Analytics Dashboard}{React, TypeScript, D3.js, WebSocket}{2022}{}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt]
+\item \small\color{text} Interactive streaming data visualization with sub-second refresh rates
+\end{itemize}
+
+\cvsection{Skills}
+
+\noindent\textbf{Languages:} Java, Python, Go, TypeScript, SQL \quad
+\textbf{Frameworks:} Spring Boot, React, Kafka, Spark\\
+\textbf{Tools:} AWS, Docker, Kubernetes, Terraform, Git, Jenkins
+
+\end{document}

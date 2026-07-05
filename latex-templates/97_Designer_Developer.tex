@@ -1,0 +1,103 @@
+%% DESIGN: Poppins | Design-forward, generous whitespace, pink accent | Pink (#AD1457) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{helvet}\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{parskip}
+
+\definecolor{designpink}{HTML}{AD1457}
+\definecolor{lightpink}{HTML}{FCE4EC}
+
+\titleformat{\section}{\large\color{designpink}}{}{0em}{}[\vspace{2pt}]
+\titlespacing*{\section}{0pt}{20pt}{8pt}
+
+\setlist[itemize]{leftmargin=1em,itemsep=3pt,parsep=0pt,label=\color{designpink}$\diamond$}
+
+\hypersetup{colorlinks=true,urlcolor=designpink}
+
+\begin{document}
+
+\vspace{20pt}
+\begin{center}
+{\Huge\color{designpink} Riya Chatterjee}\\[12pt]
+{\large Designer $\times$ Developer}\\[8pt]
+{\normalsize Creating beautiful, accessible, performant digital experiences}\\[12pt]
+{\small \faIcon{dribbble} \href{https://dribbble.com/riyac}{Dribbble} \quad \faIcon{github} \href{https://github.com/riyac}{GitHub} \quad \faIcon{globe} \href{https://riyachatterjee.design}{Portfolio} \quad \faIcon{envelope} riya@design.dev}
+\end{center}
+
+\vspace{16pt}
+
+\section{What I Do}
+
+I bridge the gap between design and engineering. I prototype in Figma, build in React, and ship pixel-perfect, accessible interfaces that delight users. I care deeply about typography, motion, and the invisible details that make products feel \textit{right}.
+
+\section{Experience}
+
+\textbf{Figma} \hfill Remote (Bangalore)\\
+{\color{designpink}\textit{Design Engineer}} \hfill 2022 -- Present
+
+\begin{itemize}
+\item Building design system components used by 4M+ designers worldwide
+\item Implemented complex canvas interactions (drag, resize, constraints) in WebGL
+\item Created motion design system with spring-based animations (60fps)
+\item Collaborated with design team on FigJam whiteboard features
+\end{itemize}
+
+\vspace{12pt}
+\textbf{Razorpay} \hfill Bangalore\\
+{\color{designpink}\textit{Frontend Engineer -- Design Systems}} \hfill 2020 -- 2022
+
+\begin{itemize}
+\item Built ``Blade'' design system from scratch (50+ components, 100\% accessible)
+\item Created interactive documentation site with live code playgrounds
+\item Reduced design-to-dev handoff time by 60\% through token automation
+\end{itemize}
+
+\vspace{12pt}
+\textbf{Freelance} \hfill Various\\
+{\color{designpink}\textit{UI/UX Designer \& Developer}} \hfill 2018 -- 2020
+
+\begin{itemize}
+\item Designed and built 15+ client websites and web applications
+\item Specialized in creative agency sites, portfolios, and e-commerce
+\end{itemize}
+
+\section{Skills}
+
+\begin{minipage}[t]{0.45\linewidth}
+\textbf{\color{designpink}Design}\\[4pt]
+Figma, Framer, After Effects\\
+Typography, Color Theory\\
+Motion Design, Prototyping\\
+Design Systems, Accessibility
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\textbf{\color{designpink}Engineering}\\[4pt]
+React, TypeScript, Next.js\\
+CSS/Tailwind, Framer Motion\\
+WebGL, Canvas API, Three.js\\
+Storybook, Testing Library
+\end{minipage}
+
+\vspace{16pt}
+
+\section{Education}
+
+\textbf{B.Des Communication Design} -- NID Ahmedabad \hfill 2014 -- 2018\\
+{\small Minor: Interactive Media \& Technology}
+
+\vspace{12pt}
+
+\section{Recognition}
+
+\faIcon{award}\hspace{4pt} Awwwards Site of the Day (2x) \quad
+\faIcon{award}\hspace{4pt} CSS Design Awards (3x) \quad
+\faIcon{award}\hspace{4pt} Featured on Product Hunt (5x)
+
+\end{document}

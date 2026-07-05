@@ -1,0 +1,85 @@
+{
+  "programming_languages": {
+    "skills": ["python", "java", "javascript", "c++", "go", "ruby", "c#", "rust"],
+    "aliases": {
+      "js": "javascript",
+      "golang": "go",
+      "cxx": "c++"
+    }
+  },
+  "frontend": {
+    "skills": ["react", "angular", "vue", "html", "css", "typescript", "svelte"],
+    "aliases": {
+      "react.js": "react",
+      "reactjs": "react",
+      "ts": "typescript"
+    }
+  },
+  "backend": {
+    "skills": ["node.js", "django", "flask", "spring boot", "express", "fastapi", "laravel"],
+    "aliases": {
+      "nodejs": "node.js"
+    }
+  },
+  "database": {
+    "skills": ["sql", "mysql", "postgresql", "mongodb", "redis", "oracle", "elasticsearch", "nosql"],
+    "aliases": {
+      "postgres": "postgresql",
+      "mongo": "mongodb"
+    }
+  },
+  "cloud": {
+    "skills": ["aws", "azure", "gcp", "google cloud", "heroku", "digitalocean"],
+    "aliases": {
+      "amazon web services": "aws",
+      "google cloud platform": "gcp"
+    }
+  },
+  "devops": {
+    "skills": ["docker", "kubernetes", "jenkins", "github actions", "gitlab ci", "terraform", "ansible"],
+    "aliases": {
+      "k8s": "kubernetes",
+      "ci/cd": "jenkins"
+    }
+  },
+  "ai_ml": {
+    "skills": ["machine learning", "deep learning", "tensorflow", "pytorch", "keras", "scikit-learn", "nlp", "computer vision"],
+    "aliases": {
+      "ml": "machine learning",
+      "cv": "computer vision",
+      "sklearn": "scikit-learn"
+    }
+  },
+  "data_science": {
+    "skills": ["data science", "pandas", "numpy", "matplotlib", "seaborn", "data analysis", "statistics", "data engineering", "spark", "hadoop"],
+    "aliases": {}
+  },
+  "soft_skills": {
+    "skills": ["communication", "leadership", "problem solving", "teamwork", "critical thinking", "dsa", "data structures", "algorithms", "system design", "competitive coding"],
+    "aliases": {
+      "data structures and algorithms": "dsa"
+    }
+  },
+  "tools": {
+    "skills": ["jira", "trello", "slack", "confluence", "linux", "bash", "agile", "scrum", "git", "github", "gitlab", "bitbucket", "postman"],
+    "aliases": {}
+  },
+  "learning_resources": {
+    "python": {
+      "courses": ["https://www.coursera.org/specializations/python"],
+      "books": ["Python Crash Course"]
+    },
+    "react": {
+      "courses": ["https://react.dev/learn"],
+      "books": ["Learning React"]
+    },
+    "aws": {
+      "courses": ["https://aws.amazon.com/training/"],
+      "books": ["AWS Certified Solutions Architect Official Study Guide"]
+    },
+    "default": {
+      "courses": ["https://www.udemy.com/"],
+      "books": ["Check O'Reilly Media for relevant books"]
+    }
+  }
+}

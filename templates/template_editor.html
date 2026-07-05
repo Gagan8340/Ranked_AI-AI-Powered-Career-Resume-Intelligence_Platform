@@ -1,0 +1,599 @@
+{% set active_page = "templates" %}
+{% set page_title = "Template Editor" %}
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .overleaf-layout {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    background-color: #1e1e1e;
+    color: white;
+    margin: -1.5rem; /* negate the padding of the main container if any */
+  }
+  .top-nav {
+    height: 40px;
+    background: #252526;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid #1e1e1e;
+    justify-content: space-between;
+  }
+  .back-btn {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .back-btn:hover {
+    color: white;
+  }
+  .template-name {
+    font-weight: 600;
+    color: #e0e0e0;
+    font-size: 0.95em;
+  }
+  .split-pane {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  .editor-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #000;
+    min-width: 0;
+  }
+  .editor-toolbar {
+    height: 35px;
+    background: #2d2d2d;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 0.85em;
+    color: #ccc;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .preview-pane {
+    flex: 1;
+    background: #525659;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .preview-toolbar {
+    height: 35px;
+    background: #333333;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  #recompile-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  #recompile-btn:hover {
+    background: #45a049;
+  }
+  #recompile-btn:disabled {
+    background: #555 !important;
+    cursor: not-allowed;
+    color: #888 !important;
+  }
+  #pdf-preview {
+    width: 100%;
+    flex: 1;
+    border: none;
+  }
+  .loading-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(30, 30, 30, 0.8);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    display: flex; /* visible by default while loading */
+    font-size: 1.2em;
+  }
+  
+  /* Make sure the text layer glyphs remain invisible even when highlighted */
+  .textLayer span::selection {
+    color: transparent !important;
+    background: rgba(0, 120, 255, 0.3) !important;
+  }
+  .textLayer span::-moz-selection {
+    color: transparent !important;
+    background: rgba(0, 120, 255, 0.3) !important;
+  }
+  .textLayer {
+    opacity: 1.0 !important; /* The spans are transparent, the container shouldn't be */
+  }
+</style>
+
+<div class="overleaf-layout">
+  <div class="top-nav">
+    <div class="template-name">{{ template_id | replace('_', ' ') }}</div>
+    <a href="/templates" class="back-btn"><i class="fas fa-times"></i> Close Editor</a>
+  </div>
+  
+  <div class="split-pane">
+    <div class="editor-pane" style="position: relative;">
+      <div class="editor-toolbar">
+        <span><i class="fas fa-file-code" style="color: #4CAF50; margin-right: 5px;"></i> main.tex</span>
+      </div>
+      <div style="position: absolute; top: 35px; bottom: 0; left: 0; right: 0;">
+        <div id="editor-container" style="width: 100%; height: 100%;"></div>
+        <div class="loading-overlay" id="editor-loading">
+          <div><i class="fas fa-spinner fa-spin fa-2x"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-pane" style="position: relative;">
+      <div class="preview-toolbar" style="display: flex; align-items: center;">
+        <button id="recompile-btn" disabled>
+          <i class="fas fa-sync-alt"></i> Recompile
+        </button>
+        <div class="auto-compile-container" style="margin-left: 15px; display: flex; align-items: center; gap: 5px; color: #ccc; font-size: 0.85em;">
+           <label for="auto-compile-toggle" style="cursor: pointer;">Auto compile:</label>
+           <select id="auto-compile-toggle" style="background: #333; color: white; border: 1px solid #555; padding: 2px; border-radius: 3px; cursor: pointer; outline: none;">
+             <option value="off">Off</option>
+             <option value="on">On</option>
+           </select>
+        </div>
+        <div style="display: flex; gap: 15px; align-items: center; margin-left: auto;">
+          <button id="invert-colors-btn" style="background: none; border: none; color: #ccc; cursor: pointer; padding: 5px;" title="Invert PDF preview colors"><i class="fas fa-adjust"></i></button>
+          <button id="download-pdf-btn" style="background: none; border: none; color: #ccc; cursor: pointer; padding: 5px;" title="Download PDF"><i class="fas fa-download"></i></button>
+          <div style="width: 1px; height: 20px; background: #555; margin: 0 5px;"></div>
+          <button id="zoom-out-btn" style="background: none; border: none; color: #ccc; cursor: pointer; padding: 5px;"><i class="fas fa-search-minus"></i></button>
+          <span id="zoom-level" style="color: #ccc; font-size: 0.9em; user-select: none; cursor: pointer; min-width: 40px; text-align: center;" title="Click to Fit Page">Fit</span>
+          <button id="zoom-in-btn" style="background: none; border: none; color: #ccc; cursor: pointer; padding: 5px;"><i class="fas fa-search-plus"></i></button>
+        </div>
+      </div>
+      <div id="pdf-viewer-container" style="position: absolute; top: 35px; bottom: 0; left: 0; right: 0; overflow: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; background: #525659; padding: 20px;">
+        <!-- Pages will be dynamically injected here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<!-- FontAwesome for the loading spinner and toolbar icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- PDF.js from cdnjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+</script>
+
+<!-- Monaco Editor from cdnjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script>
+<script>
+  window.onerror = function(msg, url, lineNo, columnNo, error) {
+    alert("Global Error: " + msg + "\nLine: " + lineNo);
+    return false;
+  };
+  let editor = null;
+  const currentTemplateId = "{{ template_id }}";
+  
+  // 1. Fetch data immediately (decoupled from Monaco)
+  async function fetchAndRender() {
+    try {
+      const token = localStorage.getItem("token");
+      const headers = { 'Authorization': `Bearer ${token}` };
+      
+      // Fetch code
+      const res = await fetch(`/api/latex/template/${currentTemplateId}`, { headers });
+      const data = await res.json();
+      
+      if (data.error) throw new Error(data.error);
+      
+      // Try to set code in Monaco, or fallback
+      if (editor) {
+        editor.setValue(data.content);
+      } else {
+        // If Monaco isn't ready or failed, create a fallback textarea
+        const container = document.getElementById('editor-container');
+        container.innerHTML = '<textarea id="fallback-editor" style="width:100%; height:100%; background:#1e1e1e; color:#d4d4d4; font-family:monospace; padding:10px; border:none; resize:none;"></textarea>';
+        document.getElementById('fallback-editor').value = data.content;
+      }
+      
+      // Fetch PDF
+      if (data.has_default_pdf) {
+        const pdfRes = await fetch(`${data.pdf_url}?t=${new Date().getTime()}`, { headers });
+        if (pdfRes.ok) {
+          const pdfBlob = await pdfRes.blob();
+          await renderPdfBlob(pdfBlob);
+        } else {
+          document.getElementById('page-container').style.display = 'none';
+        }
+      } else {
+        document.getElementById('page-container').style.display = 'none';
+      }
+      
+      document.getElementById('recompile-btn').disabled = false;
+    } catch (err) {
+      console.error(err);
+      alert("Error loading template data: " + err.message);
+    } finally {
+      document.getElementById('editor-loading').style.display = 'none';
+    }
+  }
+
+  // 2. Try to initialize Monaco
+  try {
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+      // Define custom LaTeX grammar for rich syntax highlighting
+      monaco.languages.register({ id: 'custom-latex' });
+      monaco.languages.setMonarchTokensProvider('custom-latex', {
+        tokenizer: {
+          root: [
+            [/%.*/, 'comment'],
+            [/\\[a-zA-Z@]+/, 'keyword'],
+            [/\{/, { token: 'delimiter.curly', bracket: '@open', next: '@insideBraces' }],
+            [/\[/, { token: 'delimiter.square', bracket: '@open', next: '@insideBrackets' }],
+            [/\$.*?\$/, 'string.math'],
+            [/-?\d*\.\d+/, 'number.float'],
+            [/-?\d+/, 'number'],
+          ],
+          insideBraces: [
+            [/\\[a-zA-Z@]+/, 'keyword'],
+            [/[^{}\\]+/, 'string'],
+            [/\{/, { token: 'delimiter.curly', bracket: '@open', next: '@push' }],
+            [/\}/, { token: 'delimiter.curly', bracket: '@close', next: '@pop' }]
+          ],
+          insideBrackets: [
+            [/\\[a-zA-Z@]+/, 'keyword'],
+            [/[^\[\]\\]+/, 'string'],
+            [/\[/, { token: 'delimiter.square', bracket: '@open', next: '@push' }],
+            [/\]/, { token: 'delimiter.square', bracket: '@close', next: '@pop' }]
+          ]
+        }
+      });
+      
+      monaco.editor.defineTheme('latex-theme', {
+        base: 'vs-dark',
+        inherit: true,
+        rules: [
+          { token: 'keyword', foreground: 'c586c0' }, // Pink
+          { token: 'comment', foreground: '6a9955', fontStyle: 'italic' }, // Green
+          { token: 'string', foreground: 'ce9178' }, // Orange
+          { token: 'number', foreground: 'b5cea8' }, // Light Green
+          { token: 'string.math', foreground: 'd16969' } // Red
+        ],
+        colors: {
+          'editor.background': '#1e1e1e'
+        }
+      });
+
+      editor = monaco.editor.create(document.getElementById('editor-container'), {
+        value: '% Loading template content...\n',
+        language: 'custom-latex',
+        theme: 'latex-theme',
+        automaticLayout: true,
+        wordWrap: 'on',
+        minimap: { enabled: false },
+        fontSize: 14,
+        fontFamily: "'Fira Code', 'Consolas', 'Courier New', monospace"
+      });
+      // In case fetch finished before Monaco
+      const fallback = document.getElementById('fallback-editor');
+      if (fallback) {
+        editor.setValue(fallback.value);
+        fallback.remove();
+      }
+      
+      // Auto compile logic
+      let autoCompileTimeout = null;
+      editor.onDidChangeModelContent(() => {
+        const select = document.getElementById('auto-compile-toggle');
+        if (select && select.value === 'on') {
+          clearTimeout(autoCompileTimeout);
+          autoCompileTimeout = setTimeout(() => {
+            const btn = document.getElementById('recompile-btn');
+            if (btn && !btn.disabled) {
+              btn.click();
+            }
+          }, 1500); // Recompile 1.5s after typing stops
+        }
+      });
+    });
+  } catch (e) {
+    console.warn("Monaco editor failed to load, using fallback.", e);
+  }
+
+  // Kick off the fetch immediately
+  fetchAndRender();
+
+  // Handle compilation
+  document.getElementById('recompile-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('recompile-btn');
+    const originalHtml = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Compiling...';
+    btn.disabled = true;
+    
+    try {
+      const token = localStorage.getItem("token");
+      const headers = { 
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json' 
+      };
+      
+      let latexCode = "";
+      if (editor) {
+        latexCode = editor.getValue();
+      } else {
+        latexCode = document.getElementById('fallback-editor').value;
+      }
+      
+      const res = await fetch('/api/latex/compile', {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ latex_code: latexCode })
+      });
+      
+      if (res.ok) {
+        const blob = await res.blob();
+        await renderPdfBlob(blob);
+      } else {
+        const errData = await res.json();
+        alert('Compilation failed!\n\n' + (errData.error || 'Check console.'));
+      }
+    } catch (err) {
+      alert('An error occurred during compilation: ' + err.message);
+    } finally {
+      btn.innerHTML = originalHtml;
+      btn.disabled = false;
+    }
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
+      e.preventDefault();
+      document.getElementById('recompile-btn').click();
+    }
+  }, false);
+  // Custom PDF.js rendering logic
+  let currentPdfDocument = null;
+  let currentZoom = 'fit';
+  
+  async function renderPage() {
+    if (!currentPdfDocument) return;
+    try {
+      const container = document.getElementById('pdf-viewer-container');
+      container.innerHTML = ''; // Clear previous pages
+      
+      for (let pageNum = 1; pageNum <= currentPdfDocument.numPages; pageNum++) {
+        const page = await currentPdfDocument.getPage(pageNum);
+        
+        // Create container for this page
+        const pageContainer = document.createElement('div');
+        pageContainer.className = 'page-container';
+        pageContainer.style.position = 'relative';
+        pageContainer.style.background = 'white';
+        pageContainer.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+        if (colorsInverted) {
+          pageContainer.style.filter = 'invert(1) hue-rotate(180deg)';
+        }
+        
+        const canvas = document.createElement('canvas');
+        canvas.style.display = 'block';
+        
+        const textLayer = document.createElement('div');
+        textLayer.className = 'textLayer';
+        textLayer.style.position = 'absolute';
+        textLayer.style.left = '0';
+        textLayer.style.top = '0';
+        textLayer.style.right = '0';
+        textLayer.style.bottom = '0';
+        textLayer.style.overflow = 'hidden';
+        textLayer.style.opacity = '1.0';
+        textLayer.style.lineHeight = '1.0';
+        textLayer.id = 'pdf-text-layer-' + pageNum;
+        
+        pageContainer.appendChild(canvas);
+        pageContainer.appendChild(textLayer);
+        container.appendChild(pageContainer);
+        
+        const unscaledViewport = page.getViewport({ scale: 1.0 });
+        let scale;
+        
+        if (currentZoom === 'fit') {
+          const scaleW = (container.clientWidth - 40) / unscaledViewport.width;
+          const scaleH = (container.clientHeight - 40) / unscaledViewport.height;
+          scale = Math.min(scaleW, scaleH);
+        } else {
+          scale = currentZoom;
+        }
+        
+        const viewport = page.getViewport({ scale: scale });
+        
+        const outputScale = Math.max(window.devicePixelRatio || 1, 3);
+        const context = canvas.getContext('2d');
+        canvas.width = Math.floor(viewport.width * outputScale);
+        canvas.height = Math.floor(viewport.height * outputScale);
+        canvas.style.width = Math.floor(viewport.width) + 'px';
+        canvas.style.height = Math.floor(viewport.height) + 'px';
+        
+        pageContainer.style.width = Math.floor(viewport.width) + 'px';
+        pageContainer.style.height = Math.floor(viewport.height) + 'px';
+
+        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+        const renderContext = { 
+          canvasContext: context, 
+          transform: transform,
+          viewport: viewport 
+        };
+        await page.render(renderContext).promise;
+        
+        // Render text layer
+        const textContent = await page.getTextContent();
+        
+        textContent.items.forEach(item => {
+          const tx = pdfjsLib.Util.transform(viewport.transform, item.transform);
+          const fontHeight = Math.sqrt((tx[2] * tx[2]) + (tx[3] * tx[3]));
+          const fontAscent = fontHeight * 0.8; 
+          
+          const div = document.createElement('span');
+          div.textContent = item.str;
+          div.style.left = tx[4] + 'px';
+          div.style.top = (tx[5] - fontAscent) + 'px';
+          div.style.fontSize = fontHeight + 'px';
+          div.style.fontFamily = 'sans-serif';
+          div.style.color = 'transparent';
+          div.style.position = 'absolute';
+          div.style.whiteSpace = 'pre';
+          div.style.cursor = 'text';
+          div.style.transformOrigin = '0% 0%';
+          
+          const scaledWidth = item.width * viewport.scale;
+          div.style.width = scaledWidth + 'px';
+          div.style.display = 'inline-block';
+          
+          textLayer.appendChild(div);
+        });
+      }
+      
+    } catch (err) {
+      console.error("PDF rendering error: ", err);
+      alert("PDF rendering error: " + err.message + "\nCheck console for more details.");
+    }
+  }
+
+  async function renderPdfBlob(blob) {
+    const url = URL.createObjectURL(blob);
+    const loadingTask = pdfjsLib.getDocument(url);
+    try {
+      currentPdfDocument = await loadingTask.promise;
+      await renderPage();
+    } catch (err) {
+      console.error("PDF loading error: ", err);
+      alert("PDF loading error: " + err.message);
+    }
+  }
+  
+  function updateZoomUI() {
+    const txt = document.getElementById('zoom-level');
+    if (currentZoom === 'fit') {
+      txt.textContent = 'Fit';
+    } else {
+      txt.textContent = Math.round(currentZoom * 100) + '%';
+    }
+  }
+
+  document.getElementById('zoom-in-btn').addEventListener('click', async () => {
+    if (currentZoom === 'fit') {
+      if (currentPdfDocument) {
+        const page = await currentPdfDocument.getPage(1);
+        const container = document.getElementById('pdf-viewer-container');
+        const unscaled = page.getViewport({scale: 1.0});
+        const fitScale = Math.min((container.clientWidth - 40)/unscaled.width, (container.clientHeight - 40)/unscaled.height);
+        currentZoom = fitScale + 0.2;
+      } else {
+        currentZoom = 1.2;
+      }
+    } else {
+      currentZoom += 0.2;
+    }
+    updateZoomUI();
+    renderPage();
+  });
+
+  document.getElementById('zoom-out-btn').addEventListener('click', () => {
+    if (currentZoom === 'fit') return;
+    currentZoom -= 0.2;
+    if (currentZoom < 0.4) currentZoom = 0.4;
+    updateZoomUI();
+    renderPage();
+  });
+
+  document.getElementById('zoom-level').addEventListener('click', () => {
+    currentZoom = 'fit';
+    updateZoomUI();
+    renderPage();
+  });
+  
+  // Invert colors logic
+  let colorsInverted = false;
+  document.getElementById('invert-colors-btn').addEventListener('click', () => {
+    colorsInverted = !colorsInverted;
+    const containers = document.querySelectorAll('.page-container');
+    containers.forEach(container => {
+      if (colorsInverted) {
+        container.style.filter = 'invert(1) hue-rotate(180deg)';
+      } else {
+        container.style.filter = 'none';
+      }
+    });
+  });
+
+  // Download PDF logic
+  document.getElementById('download-pdf-btn').addEventListener('click', async () => {
+    if (!currentPdfDocument) {
+      alert("No PDF has been generated yet.");
+      return;
+    }
+    try {
+      // Re-fetch the exact compiled PDF blob to ensure we have the latest version for download
+      const token = localStorage.getItem("token");
+      const headers = { 'Authorization': `Bearer ${token}` };
+      const res = await fetch(`/api/latex/template/${currentTemplateId}`, { headers });
+      const data = await res.json();
+      if (data.has_default_pdf) {
+        const pdfRes = await fetch(`${data.pdf_url}?t=${new Date().getTime()}`, { headers });
+        if (pdfRes.ok) {
+          const blob = await pdfRes.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = currentTemplateId + ".pdf";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        } else {
+          alert("Could not fetch PDF for download.");
+        }
+      }
+    } catch (e) {
+      alert("Error downloading PDF: " + e.message);
+    }
+  });
+
+  // Bind double click event for Text Sync
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('pdf-viewer-container').addEventListener('dblclick', () => {
+      const selectedText = window.getSelection().toString().trim();
+      if (selectedText && editor) {
+        // Use Monaco's search API to find the exact text
+        const matches = editor.getModel().findMatches(selectedText, true, false, false, null, true);
+        if (matches && matches.length > 0) {
+          editor.revealLineInCenter(matches[0].range.startLineNumber);
+          editor.setSelection(matches[0].range);
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

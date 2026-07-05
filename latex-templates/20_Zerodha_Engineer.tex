@@ -1,0 +1,75 @@
+%% DESIGN: Libertine | Single-column | Forest green accent | Clean rules, right-aligned dates
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{2E7D32}
+\definecolor{ACCENT}{HTML}{2E7D32}
+
+\titleformat{\section}{\bfseries\normalsize}{}{0em}{{\color{accent}\rule{3pt}{10pt}}\hspace{6pt}\uppercase}[\vspace{2pt}{\color{accent}\rule{\textwidth}{0.4pt}}]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}\textendash}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\Large\bfseries Siddharth Joshi}\\[3pt]
+{\small Bangalore, India $\cdot$ +91-92109-87654 $\cdot$ siddharth.joshi@email.com}\\
+{\small \href{https://linkedin.com/in/siddharthjoshi}{linkedin.com/in/siddharthjoshi} $\cdot$ \href{https://github.com/siddharthjoshi}{github.com/siddharthjoshi}}
+
+\vspace{4pt}
+{\small\itshape Systems engineer with 5+ years building low-latency trading platforms processing 15M+ orders/day. Expert in order management systems, market data distribution, and exchange connectivity. Deep understanding of Indian capital markets (NSE/BSE), SEBI regulations, and FIX protocol.}
+
+\section{Experience}
+
+\textbf{Senior Engineer} -- Zerodha \hfill {\color{accent}\small Jan 2022 -- Present}
+\begin{itemize}
+    \item Built order management system (OMS) processing 15M+ orders/day with P99 latency of 800 microseconds from client to exchange
+    \item Designed market data distribution system streaming real-time tick data for 5000+ instruments to 10M+ WebSocket connections
+    \item Implemented risk management engine performing pre-trade checks (margin, position limits) in <100 microseconds per order
+    \item Developed Kite Connect API v4 serving 3M+ API calls/day for algo traders with rate limiting and fair-use policies
+    \item Optimized Go garbage collection for trading hot path, reducing GC pauses from 5ms to <500 microseconds using object pooling
+    \item Built exchange reconciliation system matching 15M+ daily trades with NSE/BSE settlement files with zero discrepancy
+\end{itemize}
+
+\textbf{Backend Engineer} -- Groww \hfill {\color{accent}\small Jun 2020 -- Dec 2021}
+\begin{itemize}
+    \item Developed mutual fund SIP engine processing 2M+ monthly SIP orders with automated NAV allocation and failure retry
+    \item Built portfolio analytics service computing real-time P\&L, XIRR, and asset allocation for 8M+ users
+    \item Implemented KYC verification pipeline (DigiLocker + CKYC) processing 200K+ verifications/day with 95\% straight-through rate
+    \item Designed stock watchlist service supporting 50M+ watchlist entries with real-time price updates via Server-Sent Events
+\end{itemize}
+
+\textbf{Software Engineer} -- Goldman Sachs (Bangalore) \hfill {\color{accent}\small Jul 2019 -- May 2020}
+\begin{itemize}
+    \item Built trade booking system for equity derivatives processing 500K+ trades/day with regulatory reporting (MiFID II)
+    \item Developed market data aggregation service normalizing feeds from 8 exchanges into unified format
+\end{itemize}
+
+\section{Projects}
+
+\textbf{Open-Source Market Data Simulator} {\small$\mid$ Go, WebSocket, FIX} -- NSE-like market data simulator for backtesting with order book depth, trades, and indices; 700+ stars\\[3pt]
+\textbf{Low-Latency Order Router} {\small$\mid$ Rust, io\_uring, DPDK} -- Sub-microsecond order routing framework with kernel bypass networking; benchmarked at 2M orders/sec
+
+\section{Skills}
+
+{\small
+\textbf{Languages:} Go, C++, Python, Rust \quad \textbf{Databases:} PostgreSQL, Redis, TimescaleDB, ClickHouse, KDB+\\
+\textbf{Infrastructure:} Kafka, ZeroMQ, NATS, Linux (kernel tuning), bare-metal servers\\
+\textbf{Trading:} FIX Protocol, OMS/EMS, Market Data (NSE/BSE), SEBI compliance\\
+\textbf{Performance:} Lock-free data structures, DPDK, io\_uring, CPU pinning, NUMA-aware
+}
+
+\section{Education}
+
+\textbf{B.Tech in Computer Science} -- IIT Kharagpur \hfill 2015 -- 2019 \quad CGPA: 9.3/10
+
+\end{document}

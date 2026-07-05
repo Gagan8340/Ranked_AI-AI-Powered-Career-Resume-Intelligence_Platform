@@ -1,0 +1,82 @@
+%% DESIGN: Garamond (ebgaramond) | Executive premium, wide margins | Gold (#8B6914) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=1.1in,right=1.1in,top=0.9in,bottom=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz}
+
+\definecolor{accent}{HTML}{8B6914}
+\definecolor{ACCENT}{HTML}{8B6914}
+\definecolor{goldlight}{HTML}{FDF8E8}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\color{accent}}{}{0em}{\textsc}[\vspace{-0.3em}\textcolor{accent!50}{\rule{\linewidth}{0.5pt}}]
+\titlespacing{\section}{0pt}{1.3em}{0.6em}
+
+\begin{document}
+
+% Premium executive header
+\begin{center}
+\textcolor{accent}{\rule{3cm}{0.5pt}}\\[0.8em]
+{\Huge\textsc{Richard Harrington}}\\[0.5em]
+{\Large Vice President of Engineering}\\[0.5em]
+{\small richard.harrington@email.com \quad$\diamond$\quad (555) 567-8901 \quad$\diamond$\quad Palo Alto, CA}\\[0.2em]
+{\small linkedin.com/in/richardharrington}\\[0.3em]
+\textcolor{accent}{\rule{3cm}{0.5pt}}
+\end{center}
+
+\vspace{0.5em}
+
+\section{Executive Profile}
+Vice President of Engineering with 15+ years of progressive leadership experience scaling engineering organizations from 50 to 300+ engineers. Proven ability to drive technical strategy, build world-class teams, and deliver platforms serving hundreds of millions of users. Board advisor to 3 startups.
+
+\section{Leadership Experience}
+
+\noindent\textbf{Vice President of Engineering} \hfill 2021 -- Present\\
+\textit{Apex Technologies (Public, \$5B market cap), Palo Alto, CA}\\
+\textit{Scope: 4 Directors, 12 Managers, 180+ Engineers, \$45M annual budget}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}---}]
+\item Own technical strategy and execution for core platform serving 200M+ monthly active users
+\item Grew organization from 80 to 180 engineers while improving delivery velocity by 40\%
+\item Led architecture modernization enabling 10x scale, supporting \$2B revenue growth
+\item Established engineering excellence program: reduced incidents 60\%, improved DORA metrics to Elite
+\item Partnered with CPO and CEO on 3-year product roadmap and M\&A technical due diligence
+\end{itemize}
+\vspace{0.6em}
+
+\noindent\textbf{Senior Director of Engineering} \hfill 2018 -- 2021\\
+\textit{CloudScale Inc., San Francisco, CA}\\
+\textit{Scope: 6 Managers, 75 Engineers}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}---}]
+\item Built and led Platform Engineering organization from greenfield
+\item Delivered cloud migration (on-prem to AWS) saving \$8M annually in infrastructure costs
+\item Established SRE practice achieving 99.99\% uptime for Tier-1 services
+\item Drove engineering culture transformation: eNPS improved from 32 to 72
+\end{itemize}
+\vspace{0.6em}
+
+\noindent\textbf{Director of Engineering} \hfill 2015 -- 2018\\
+\textit{Meta (Facebook), Menlo Park, CA}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}---}]
+\item Led infrastructure team supporting Facebook Marketplace (launch to 1B+ users)
+\item Managed 40+ engineers across 3 teams; promoted 5 to Staff/Principal level
+\end{itemize}
+\vspace{0.6em}
+
+\noindent\textbf{Engineering Manager $\rightarrow$ Senior Manager} \hfill 2011 -- 2015\\
+\textit{Google, Mountain View, CA}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}---}]
+\item Progressed from IC to managing 25+ engineers on Google Cloud Platform
+\end{itemize}
+
+\section{Education}
+\noindent\textbf{MBA} \hfill Stanford Graduate School of Business, 2018\\
+\textbf{M.S. Computer Science} \hfill Carnegie Mellon University, 2011\\
+\textbf{B.S. Computer Science} (\textit{summa cum laude}) \hfill MIT, 2009
+
+\section{Board \& Advisory}
+\noindent Technical Advisor, 3 venture-backed startups (combined \$200M+ raised)\\
+Board Observer, TechForGood Foundation \quad$\diamond$\quad LP, Operator Collective
+
+\end{document}

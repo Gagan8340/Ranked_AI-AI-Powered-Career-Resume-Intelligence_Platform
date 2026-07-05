@@ -1,0 +1,406 @@
+{
+    "dsa": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "system design": {
+        "projects": [
+            {
+                "title": "Online Coding Judge System",
+                "description": "A scalable backend system to evaluate code submissions in real-time.",
+                "features": [
+                    "Code execution sandbox",
+                    "Ranking system",
+                    "Contest mode",
+                    "Submission evaluation"
+                ],
+                "skills_covered": [
+                    "System Design",
+                    "Backend",
+                    "Scalability",
+                    "DSA"
+                ],
+                "difficulty": "Advanced",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "competitive coding": {
+        "projects": [
+            {
+                "title": "Competitive Programming Tracker",
+                "description": "Dashboard to track progress across multiple competitive programming platforms.",
+                "features": [
+                    "LeetCode API Integration",
+                    "Codeforces Rating Tracking",
+                    "Contest Analytics Dashboard"
+                ],
+                "skills_covered": [
+                    "API Integration",
+                    "Data Visualization",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "Medium"
+            }
+        ]
+    },
+    "python": {
+        "projects": [
+            {
+                "title": "Automated Web Scraper & Data Pipeline",
+                "description": "A Python script that scrapes e-commerce data and stores it in a structured database.",
+                "features": [
+                    "Rate limiting",
+                    "Data cleaning with Pandas",
+                    "SQL persistence"
+                ],
+                "skills_covered": [
+                    "Python",
+                    "Pandas",
+                    "SQL",
+                    "Web Scraping"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "Medium"
+            }
+        ]
+    },
+    "machine learning": {
+        "projects": [
+            {
+                "title": "Real-time Fraud Detection Model",
+                "description": "An end-to-end ML pipeline predicting fraudulent transactions from streaming data.",
+                "features": [
+                    "Feature Engineering",
+                    "Model Training",
+                    "REST API Deployment"
+                ],
+                "skills_covered": [
+                    "Machine Learning",
+                    "Scikit-Learn",
+                    "Python",
+                    "API"
+                ],
+                "difficulty": "Advanced",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "react": {
+        "projects": [
+            {
+                "title": "E-Commerce Frontend Dashboard",
+                "description": "A fully responsive React application for managing products and viewing analytics.",
+                "features": [
+                    "State Management",
+                    "Routing",
+                    "Chart Integration"
+                ],
+                "skills_covered": [
+                    "React",
+                    "JavaScript",
+                    "Frontend"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "sql": {
+        "projects": [
+            {
+                "title": "Database Schema Design & Optimization",
+                "description": "A complex relational database schema for a ride-sharing application with optimized indexes.",
+                "features": [
+                    "Entity Relationship Diagrams",
+                    "Complex Joins",
+                    "Performance Tuning"
+                ],
+                "skills_covered": [
+                    "SQL",
+                    "Database Design",
+                    "Performance Optimization"
+                ],
+                "difficulty": "Advanced",
+                "portfolio_value": "Medium"
+            }
+        ]
+    },
+    "default": {
+        "projects": [
+            {
+                "title": "Full Stack Task Manager",
+                "description": "A comprehensive CRUD application to manage daily tasks with authentication.",
+                "features": [
+                    "User Authentication",
+                    "REST API",
+                    "Responsive UI"
+                ],
+                "skills_covered": [
+                    "Backend",
+                    "Frontend",
+                    "Database"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "Medium"
+            }
+        ]
+    },
+    "dummy_expanded_8": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_9": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_10": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_11": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_12": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_13": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_14": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_15": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_16": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_17": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_18": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    },
+    "dummy_expanded_19": {
+        "projects": [
+            {
+                "title": "Visual Data Structures Simulator",
+                "description": "A web application that visualizes standard data structures and algorithms.",
+                "features": [
+                    "Tree Visualization",
+                    "Graph Traversal Animation",
+                    "Sorting Visualizer"
+                ],
+                "skills_covered": [
+                    "DSA",
+                    "Algorithms",
+                    "Problem Solving"
+                ],
+                "difficulty": "Intermediate",
+                "portfolio_value": "High"
+            }
+        ]
+    }
+}

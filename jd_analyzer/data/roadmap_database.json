@@ -1,0 +1,2216 @@
+{
+    "roles": {
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ],
+        "teaching ninja": [
+            {
+                "phase": "Phase 1: Competitive Programming Foundations",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master fundamental DSA patterns",
+                    "Improve problem-solving speed"
+                ],
+                "activities": [
+                    "Solve 50+ LeetCode Easy/Medium problems",
+                    "Participate in Codeforces Div 3/4"
+                ],
+                "deliverables": [
+                    "GitHub repository with optimized solutions"
+                ],
+                "success_criteria": "Consistent ability to solve Easy/Medium problems within 30 minutes"
+            },
+            {
+                "phase": "Phase 2: Advanced DSA Problem Solving",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Deep dive into Graphs, DP, and Trees",
+                    "Optimize space/time complexity"
+                ],
+                "activities": [
+                    "Complete Striver SDE Sheet",
+                    "Daily mock coding interviews"
+                ],
+                "deliverables": [
+                    "Documented approaches for complex algorithmic problems"
+                ],
+                "success_criteria": "Ability to identify optimal patterns immediately"
+            },
+            {
+                "phase": "Phase 3: System Design Fundamentals",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Understand scalable architectures",
+                    "Design high-level systems"
+                ],
+                "activities": [
+                    "Study Grokking the System Design Interview",
+                    "Design mock systems (e.g., URL shortener)"
+                ],
+                "deliverables": [
+                    "Architecture diagrams and trade-off analysis documents"
+                ],
+                "success_criteria": "Clear understanding of load balancing, caching, and DB scaling"
+            },
+            {
+                "phase": "Phase 4: Technical Mentoring & Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Develop ability to explain complex topics simply",
+                    "Empathy and communication"
+                ],
+                "activities": [
+                    "Record 5-minute explanation videos of hard problems",
+                    "Peer tutoring sessions"
+                ],
+                "deliverables": [
+                    "Feedback reports from peer mentoring",
+                    "Video portfolio"
+                ],
+                "success_criteria": "Positive feedback on clarity and approachability"
+            },
+            {
+                "phase": "Phase 5: Mock Cohort Instruction & Interview Readiness",
+                "duration": "1 Week",
+                "objectives": [
+                    "Handle live Q&A",
+                    "Final interview polish"
+                ],
+                "activities": [
+                    "Conduct a 30-minute live mock session",
+                    "Review behavioral questions"
+                ],
+                "deliverables": [
+                    "Recorded session with instructor feedback"
+                ],
+                "success_criteria": "Confident delivery and ability to debug student code live"
+            }
+        ]
+    },
+    "skills": {
+        "system design": {
+            "phase": "System Design Architecture",
+            "duration": "3 Weeks",
+            "objectives": [
+                "Scalability",
+                "Distributed Systems",
+                "Database Design"
+            ],
+            "activities": [
+                "Read 'Designing Data-Intensive Applications'",
+                "Design URL shortener"
+            ],
+            "deliverables": [
+                "Architecture Diagram",
+                "Capacity Planning Doc"
+            ],
+            "success_criteria": "Complete mock system design interview"
+        },
+        "competitive coding": {
+            "phase": "Competitive Programming Mastery",
+            "duration": "2 Weeks",
+            "objectives": [
+                "Master Advanced Data Structures",
+                "Optimize algorithmic complexity"
+            ],
+            "activities": [
+                "Solve 50 Codeforces problems",
+                "Participate in Weekly Contests"
+            ],
+            "deliverables": [
+                "Codeforces Rating > 1400",
+                "Algorithm Snippets Repository"
+            ],
+            "success_criteria": "Solve 3/4 questions in LeetCode Weekly"
+        },
+        "dsa": {
+            "phase": "Data Structures & Algorithms Deep Dive",
+            "duration": "3 Weeks",
+            "objectives": [
+                "Master Dynamic Programming",
+                "Master Graph Algorithms"
+            ],
+            "activities": [
+                "Complete Striver A2Z DSA Sheet",
+                "Solve 100 LeetCode Mediums"
+            ],
+            "deliverables": [
+                "LeetCode Profile link",
+                "DSA Notes"
+            ],
+            "success_criteria": "Pass mock technical interview"
+        },
+        "problem solving": {
+            "phase": "Problem Solving & Logic",
+            "duration": "2 Weeks",
+            "objectives": [
+                "Improve analytical thinking",
+                "Recognize algorithmic patterns"
+            ],
+            "activities": [
+                "Solve logic puzzles",
+                "Practice LeetCode Easy/Medium"
+            ],
+            "deliverables": [
+                "Pattern recognition cheat sheet"
+            ],
+            "success_criteria": "Reduce time-to-solution for Mediums to < 20 mins"
+        },
+        "python": {
+            "phase": "Python Advanced Engineering",
+            "duration": "2 Weeks",
+            "objectives": [
+                "Master OOP & Design Patterns",
+                "Understand concurrency in Python"
+            ],
+            "activities": [
+                "Build a multithreaded web scraper",
+                "Contribute to open source Python repo"
+            ],
+            "deliverables": [
+                "Deployed Python Package",
+                "GitHub Repo with Async IO"
+            ],
+            "success_criteria": "Code passes PEP8 and flake8 linting"
+        },
+        "django": {
+            "phase": "Django Backend Architecture",
+            "duration": "3 Weeks",
+            "objectives": [
+                "Master Django ORM",
+                "Implement REST APIs with DRF"
+            ],
+            "activities": [
+                "Build an E-commerce API",
+                "Implement JWT Authentication"
+            ],
+            "deliverables": [
+                "Postman Collection",
+                "Deployed Django App"
+            ],
+            "success_criteria": "API responds in < 100ms with cached queries"
+        },
+        "node.js": {
+            "phase": "Node.js & Backend Scaling",
+            "duration": "3 Weeks",
+            "objectives": [
+                "Master Express/NestJS",
+                "Understand Event Loop"
+            ],
+            "activities": [
+                "Build a real-time chat app",
+                "Implement Redis caching"
+            ],
+            "deliverables": [
+                "WebSocket integrated application",
+                "API Documentation"
+            ],
+            "success_criteria": "Handle 10,000 concurrent socket connections"
+        },
+        "react": {
+            "phase": "React Frontend Mastery",
+            "duration": "2 Weeks",
+            "objectives": [
+                "Master React Hooks",
+                "State Management with Redux/Zustand"
+            ],
+            "activities": [
+                "Build a complex dashboard UI",
+                "Implement Server-Side Rendering"
+            ],
+            "deliverables": [
+                "Deployed Vercel App",
+                "Lighthouse Score > 90"
+            ],
+            "success_criteria": "Zero unnecessary re-renders in profiler"
+        },
+        "data science": {
+            "phase": "Data Science Pipeline & Analytics",
+            "duration": "3 Weeks",
+            "objectives": [
+                "Master Pandas & NumPy",
+                "Build Predictive Models"
+            ],
+            "activities": [
+                "Analyze 10GB dataset",
+                "Train XGBoost models"
+            ],
+            "deliverables": [
+                "Jupyter Notebooks",
+                "Tableau/PowerBI Dashboard"
+            ],
+            "success_criteria": "Extract actionable business insights from raw data"
+        },
+        "aws": {
+            "phase": "AWS Cloud Infrastructure",
+            "duration": "3 Weeks",
+            "objectives": [
+                "Understand EC2, S3, RDS",
+                "Infrastructure as Code (Terraform)"
+            ],
+            "activities": [
+                "Deploy a 3-tier architecture",
+                "Set up CI/CD pipeline"
+            ],
+            "deliverables": [
+                "Terraform Scripts",
+                "AWS Architecture Diagram"
+            ],
+            "success_criteria": "Zero-downtime automated deployment"
+        },
+        "default": {
+            "phase": "Core Skill Mastery: {skill}",
+            "duration": "2 Weeks",
+            "objectives": [
+                "Understand core concepts of {skill}",
+                "Apply {skill} in a real-world scenario"
+            ],
+            "activities": [
+                "Follow official documentation",
+                "Build a small proof of concept project"
+            ],
+            "deliverables": [
+                "Working prototype pushed to GitHub"
+            ],
+            "success_criteria": "Demonstrable competency"
+        }
+    },
+    "dummy_expanded_2": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_3": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_4": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_5": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_6": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_7": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_8": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_9": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_10": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_11": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_12": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_13": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_14": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_15": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_16": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_17": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_18": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    },
+    "dummy_expanded_19": {
+        "Teaching Ninja": [
+            {
+                "phase": "Competitive Programming Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Reach Expert level problem solving",
+                    "Improve contest performance"
+                ],
+                "activities": [
+                    "Solve 100 problems",
+                    "Participate in 4 contests"
+                ],
+                "deliverables": [
+                    "Updated Codeforces Profile",
+                    "Problem Solving Portfolio"
+                ],
+                "success_criteria": "Expert Rating Reached"
+            },
+            {
+                "phase": "Advanced DSA Teaching Readiness",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Explain DSA concepts clearly",
+                    "Conduct mock teaching sessions"
+                ],
+                "activities": [
+                    "Record mock teaching videos",
+                    "Prepare DSA cheat sheets"
+                ],
+                "deliverables": [
+                    "Recorded Teaching Session",
+                    "DSA Notes Repository"
+                ],
+                "success_criteria": "Peer-approved teaching session"
+            },
+            {
+                "phase": "Mentorship & Education Skills",
+                "duration": "1 Week",
+                "objectives": [
+                    "Student Communication",
+                    "Code Review Skills"
+                ],
+                "activities": [
+                    "Review 10 PRs from peers",
+                    "Conduct a mini-workshop"
+                ],
+                "deliverables": [
+                    "Workshop Feedback Form"
+                ],
+                "success_criteria": "Positive Workshop Feedback"
+            }
+        ],
+        "Data Scientist": [
+            {
+                "phase": "Data Engineering & SQL Mastery",
+                "duration": "2 Weeks",
+                "objectives": [
+                    "Master complex SQL queries",
+                    "Understand data pipelines"
+                ],
+                "activities": [
+                    "Optimize 10 slow queries",
+                    "Build an ETL pipeline"
+                ],
+                "deliverables": [
+                    "SQL Optimization Report",
+                    "Airflow DAG"
+                ],
+                "success_criteria": "Query latency reduced by 50%"
+            },
+            {
+                "phase": "Machine Learning Fundamentals",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement core ML algorithms",
+                    "Understand Scikit-Learn"
+                ],
+                "activities": [
+                    "Train 5 different models",
+                    "Perform feature engineering"
+                ],
+                "deliverables": [
+                    "Jupyter Notebook Portfolio"
+                ],
+                "success_criteria": "Model accuracy > 85% on test set"
+            },
+            {
+                "phase": "Advanced NLP / Deep Learning",
+                "duration": "3 Weeks",
+                "objectives": [
+                    "Implement neural networks",
+                    "Understand PyTorch/TensorFlow"
+                ],
+                "activities": [
+                    "Build a text classifier",
+                    "Deploy model as REST API"
+                ],
+                "deliverables": [
+                    "Deployed ML API endpoint"
+                ],
+                "success_criteria": "API responds in < 200ms"
+            }
+        ]
+    }
+}

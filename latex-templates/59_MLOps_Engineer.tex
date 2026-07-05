@@ -1,0 +1,90 @@
+%% DESIGN: Cabin | DevOps-meets-ML pipeline visual style | Green (#2E8B57) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.6in,right=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{cabin}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz}
+
+\definecolor{accent}{HTML}{2E8B57}
+\definecolor{ACCENT}{HTML}{2E8B57}
+\definecolor{pipebg}{HTML}{F0FAF5}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{\raisebox{-0.1em}{\tikz{\draw[accent,thick,->] (0,0) -- (0.4,0);}}~}[]
+\titlespacing{\section}{0pt}{1em}{0.4em}
+
+% Pipeline step command
+\newcommand{\pipestep}[1]{\tikz[baseline=(n.base)]{\node[draw=accent,rounded corners=2pt,inner sep=3pt,font=\small\bfseries] (n) {#1};}\,\textcolor{accent}{$\rightarrow$}\,}
+\newcommand{\pipelast}[1]{\tikz[baseline=(n.base)]{\node[draw=accent,fill=accent!10,rounded corners=2pt,inner sep=3pt,font=\small\bfseries] (n) {#1};}}
+
+\begin{document}
+
+% Header
+\noindent
+\begin{tikzpicture}
+\fill[accent] (0,0) rectangle (\textwidth,1.8);
+\node[anchor=west,text=white,font=\Huge\bfseries] at (0.3,1.1) {AVERY SINGH};
+\node[anchor=west,text=white!90,font=\large] at (0.3,0.4) {MLOps Engineer};
+\node[anchor=east,text=white!80,font=\small] at (\textwidth-0.3,1.1) {avery.singh@email.com};
+\node[anchor=east,text=white!80,font=\small] at (\textwidth-0.3,0.5) {(555) 901-2345 | Seattle, WA};
+\end{tikzpicture}
+
+\vspace{0.6em}
+
+\section{Pipeline Overview}
+MLOps Engineer with 5+ years bridging ML research and production systems. Expert in building reliable, scalable ML infrastructure that enables data scientists to deploy models with confidence.
+
+\vspace{0.3em}
+\noindent\colorbox{pipebg}{\parbox{\dimexpr\textwidth-2\fboxsep}{%
+\centering\vspace{0.3em}
+\pipestep{Data} \pipestep{Train} \pipestep{Validate} \pipestep{Registry} \pipestep{Deploy} \pipelast{Monitor}
+\vspace{0.3em}}}
+
+\section{Technical Stack}
+\begin{tabular}{@{}l l@{}}
+\textbf{\color{accent}ML Platforms:} & Kubeflow, MLflow, SageMaker, Vertex AI, Weights \& Biases\\
+\textbf{\color{accent}Infrastructure:} & Kubernetes, Terraform, Docker, Helm, ArgoCD\\
+\textbf{\color{accent}CI/CD:} & GitHub Actions, Jenkins, GitLab CI, Tekton\\
+\textbf{\color{accent}Monitoring:} & Prometheus, Grafana, Evidently AI, WhyLabs\\
+\textbf{\color{accent}Languages:} & Python, Go, Bash, HCL, YAML\\
+\textbf{\color{accent}Cloud:} & AWS (primary), GCP, Azure\\
+\end{tabular}
+
+\section{Experience}
+
+\noindent\textbf{Senior MLOps Engineer} \hfill \textcolor{accent}{Mar 2022 -- Present}\\
+\textit{ScaleAI Platform, Seattle, WA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}$\triangleright$}]
+\item Built end-to-end ML platform on Kubernetes serving 50+ models with 99.95\% uptime
+\item Implemented automated model retraining pipelines triggered by data drift detection
+\item Reduced model deployment time from 2 weeks to 2 hours through CI/CD automation
+\item Designed feature store serving 10K+ features with sub-10ms latency
+\item Created model monitoring system detecting performance degradation within 15 minutes
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{MLOps Engineer} \hfill \textcolor{accent}{Jul 2019 -- Feb 2022}\\
+\textit{CloudML Inc., Portland, OR}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}$\triangleright$}]
+\item Migrated ML workloads from on-premise to AWS, reducing infrastructure costs by 40\%
+\item Built GPU cluster management system optimizing utilization from 30\% to 85\%
+\item Implemented A/B testing infrastructure for ML models with automated rollback
+\item Created standardized ML project templates adopted by 20+ data scientists
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{DevOps Engineer} \hfill \textcolor{accent}{Jun 2017 -- Jun 2019}\\
+\textit{TechOps Solutions, San Jose, CA}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{accent}$\triangleright$}]
+\item Managed Kubernetes clusters (500+ pods) for microservices architecture
+\item Built CI/CD pipelines reducing deployment frequency from weekly to multiple daily
+\end{itemize}
+
+\section{Education}
+\noindent\textbf{B.S. Computer Science} \hfill University of Washington, 2017
+
+\section{Certifications}
+\noindent CKA (Certified Kubernetes Administrator) \quad\textcolor{accent}{|}\quad AWS ML Specialty \quad\textcolor{accent}{|}\quad HashiCorp Terraform Associate
+
+\end{document}

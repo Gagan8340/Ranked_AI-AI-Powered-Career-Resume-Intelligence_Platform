@@ -1,0 +1,80 @@
+%% DESIGN: Palatino | Academic CV style, numbered sections | Dark Red (#8B0000) accent
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{palatino}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{longtable}
+
+\definecolor{darkred}{HTML}{8B0000}
+
+\titleformat{\section}{\large\bfseries\color{darkred}}{}{0em}{}[\vspace{-0.6em}{\color{darkred}\hrule height 0.5pt}]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\titleformat{\subsection}[runin]{\bfseries}{}{0em}{}[.]
+\titlespacing*{\subsection}{0pt}{6pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.5em,itemsep=1pt,parsep=0pt,label=--}
+
+\hypersetup{colorlinks=true,urlcolor=darkred,linkcolor=darkred}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Dr.\ Rajesh Venkataraman}\\[4pt]
+{\small Postdoctoral Researcher $\rightarrow$ Industry Transition}\\[4pt]
+{\footnotesize Chennai, India \quad $\bullet$ \quad rajesh.v@email.com \quad $\bullet$ \quad +91-94567-12345 \quad $\bullet$ \quad \href{https://scholar.google.com}{Google Scholar} \quad $\bullet$ \quad \href{https://github.com/rajeshv}{GitHub}}
+\end{center}
+
+\section{Research Summary}
+Machine learning researcher with 6 publications (h-index: 8) transitioning to industry ML/AI roles. Expertise in NLP, transformer architectures, and large-scale distributed training. Seeking applied research or senior ML engineer positions.
+
+\section{Education}
+\textbf{Ph.D.\ Computer Science} -- IIT Madras \hfill 2019 -- 2024\\
+\textit{Thesis: ``Efficient Attention Mechanisms for Low-Resource Language Models''}\\
+Advisor: Prof.\ Balaraman Ravindran\\[4pt]
+\textbf{M.Tech Computer Science} -- IIT Madras \hfill 2017 -- 2019\\[2pt]
+\textbf{B.Tech Information Technology} -- Anna University \hfill 2013 -- 2017
+
+\section{Selected Publications}
+\begin{enumerate}[leftmargin=2em,itemsep=3pt]
+\item \textbf{Venkataraman, R.}, Kumar, S. ``Sparse Attention is All You Need for Low-Resource NLP.'' \textit{ACL 2024}. (Oral)
+\item \textbf{Venkataraman, R.}, et al. ``Efficient Fine-tuning of Billion-Parameter Models with Adapter Fusion.'' \textit{NeurIPS 2023}.
+\item \textbf{Venkataraman, R.}, Ravindran, B. ``Cross-lingual Transfer for Dravidian Languages.'' \textit{EMNLP 2022}.
+\item Kumar, S., \textbf{Venkataraman, R.} ``Distillation Strategies for Multilingual Transformers.'' \textit{ICLR 2022}.
+\end{enumerate}
+
+\section{Industry Experience}
+\textbf{Google Research India} \hfill Bangalore\\
+\textit{Research Intern} \hfill Summer 2022
+\begin{itemize}
+\item Developed novel tokenization strategy for Indian languages improving BLEU scores by 4.2 points
+\item Contributed to production multilingual model serving 100M+ users
+\item Filed 1 patent on efficient inference for on-device language models
+\end{itemize}
+
+\textbf{Microsoft Research Lab} \hfill Hyderabad\\
+\textit{Research Intern} \hfill Summer 2021
+\begin{itemize}
+\item Built few-shot learning pipeline for code generation reducing annotation needs by 70\%
+\item Published findings at AAAI 2022 workshop on AI for Code
+\end{itemize}
+
+\section{Technical Skills}
+\textbf{Languages:} Python, C++, CUDA, Julia\\
+\textbf{Frameworks:} PyTorch, JAX, Hugging Face, DeepSpeed, Megatron-LM\\
+\textbf{Infrastructure:} AWS (SageMaker, EC2), GCP (Vertex AI), Docker, Kubernetes\\
+\textbf{Specializations:} NLP, Transformers, Distributed Training, Model Compression
+
+\section{Awards \& Service}
+\begin{itemize}
+\item Best Paper Award -- ACL 2024 Student Research Workshop
+\item Google PhD Fellowship Finalist (2022)
+\item Reviewer: NeurIPS, ICML, ACL, EMNLP (2021--2024)
+\item Teaching Assistant: Deep Learning (CS6910) -- 4 semesters
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,87 @@
+%% DESIGN: Sans-serif (helvet) | Dark theme header | Red (#D32F2F) accent on dark gray (#263238) | Security/hacker aesthetic
+%% Cybersecurity style with dark header block, red warning-color accents, shield-like feel, threat-level styling
+
+\documentclass[9.5pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+
+\definecolor{accent}{HTML}{D32F2F}
+\definecolor{ACCENT}{HTML}{D32F2F}
+\definecolor{darkbg}{HTML}{263238}
+\definecolor{darktext}{HTML}{37474F}
+\definecolor{lightgray}{HTML}{ECEFF1}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\color{darktext}
+
+% Section: red text with dark underline
+\titleformat{\section}{\bfseries\normalsize\color{accent}}{}{0em}{\MakeUppercase}[\vspace{1pt}{\color{darkbg}\rule{\textwidth}{0.8pt}}]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=4pt,itemsep=1pt,label={\color{accent}$\vartriangleright$}}
+
+\begin{document}
+
+% Header: dark background block with red accent
+\begin{tcolorbox}[colback=darkbg,colframe=accent,boxrule=1.5pt,arc=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt]
+{\color{accent}\fontsize{18}{22}\selectfont\bfseries JORDAN MITCHELL}\\[3pt]
+{\color{white}\small Cybersecurity Analyst | Offensive Security | Incident Response}\\[4pt]
+{\color{lightgray}\small Washington, D.C. \quad|\quad (202) 555-0789 \quad|\quad jordan.mitchell@email.com}\\[2pt]
+{\color{lightgray}\small \href{https://linkedin.com/in/jordanmitchell-sec}{linkedin.com/in/jordanmitchell-sec} \quad|\quad \href{https://jordansec.blog}{jordansec.blog}}
+\end{tcolorbox}
+
+\vspace{4pt}
+
+\section{Threat Profile}
+Cybersecurity Analyst with 7+ years in offensive security, incident response, and compliance. Conducted 150+ penetration tests identifying 2,000+ vulnerabilities across enterprise environments. Led incident response for Fortune 500 clients, reducing mean-time-to-containment by 65\%. Expertise in NIST, SOC 2, and PCI-DSS compliance frameworks.
+
+\section{Arsenal (Technical Skills)}
+\textbf{Offensive:} Burp Suite, Metasploit, Cobalt Strike, Nmap, Wireshark, OWASP ZAP\\
+\textbf{Defensive:} Splunk, CrowdStrike, Palo Alto, Snort/Suricata, YARA, Velociraptor\\
+\textbf{Cloud Security:} AWS Security Hub, GuardDuty, Azure Sentinel, GCP Security Command Center\\
+\textbf{Languages:} Python, Bash, PowerShell, Go, C\\
+\textbf{Compliance:} NIST CSF/800-53, SOC 2 Type II, PCI-DSS, HIPAA, ISO 27001, FedRAMP\\
+\textbf{Practices:} Threat Modeling, MITRE ATT\&CK, Purple Teaming, Digital Forensics, SIEM Tuning
+
+\section{Operations (Experience)}
+
+\textbf{Senior Security Engineer} \quad|\quad CyberShield Consulting, Washington D.C. \hfill Apr 2021 -- Present
+\begin{itemize}
+  \item Led penetration testing program (60+ engagements/year) across web, network, cloud, mobile; identified 800+ critical/high vulns
+  \item Designed red team operations simulating APT campaigns for 3 Fortune 500 clients; achieved initial access in 100\% of engagements
+  \item Built automated vulnerability scanning pipeline: 40\% faster assessments, 95\% attack surface coverage (up from 70\%)
+  \item Led incident response for ransomware attack (5,000+ endpoints); contained in 4 hours, full recovery in 48 hours, zero data loss
+  \item Developed Splunk detection rules: 60\% fewer false positives, true positive rate from 72\% to 94\%
+\end{itemize}
+
+\textbf{Cybersecurity Analyst} \quad|\quad SecureNet Federal, Arlington, VA \hfill Jan 2019 -- Mar 2021
+\begin{itemize}
+  \item Managed SOC monitoring 10,000+ endpoints; triaged 500+ alerts daily, escalated 15-20 confirmed incidents monthly
+  \item Achieved SOC 2 Type II and FedRAMP Moderate compliance; coordinated remediation of 45 control gaps in 6 months
+  \item Conducted 40+ web app pentests (OWASP methodology); found SQLi, XSS, and auth bypass vulnerabilities
+  \item Implemented SOAR playbooks automating 70\% of Tier-1 triage; freed 25 analyst hours/week for threat hunting
+\end{itemize}
+
+\textbf{Junior Security Analyst} \quad|\quad DefenseFirst Corp, Baltimore, MD \hfill Aug 2017 -- Dec 2018
+\begin{itemize}
+  \item Monitored SIEM alerts and performed initial triage for 3,000+ endpoint environment
+  \item Conducted vulnerability assessments (Nessus, Qualys); tracked 500+ findings to closure
+  \item Developed Python scripts automating log analysis; reduced investigation time by 50\%
+\end{itemize}
+
+\section{Certifications}
+OSCP \quad|\quad CISSP \quad|\quad AWS Certified Security -- Specialty \quad|\quad GCIH (GIAC Incident Handler)
+
+\section{Education}
+\textbf{M.S. Cybersecurity} -- Georgetown University, 2017 \quad|\quad \textbf{B.S. Computer Science} -- University of Maryland, 2015
+
+\end{document}

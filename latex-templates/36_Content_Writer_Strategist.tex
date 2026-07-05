@@ -1,0 +1,84 @@
+%% DESIGN: Libertine (libertine) | Editorial/magazine layout | Olive (#556B2F) accent | Drop-cap style, literary feel
+%% Content writer style with editorial flair, olive green accents, italic subheadings, magazine-inspired
+
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[top=0.6in,bottom=0.5in,left=0.75in,right=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage{xcolor}
+\usepackage{lettrine}
+
+\definecolor{accent}{HTML}{556B2F}
+\definecolor{ACCENT}{HTML}{556B2F}
+\definecolor{lightolive}{HTML}{F0F4E8}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: olive italic small caps with decorative rule
+\titleformat{\section}{\large\scshape\itshape\color{accent}}{}{0em}{}[\vspace{1pt}{\color{accent}\rule{2in}{0.5pt}}]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+\setlist[itemize]{nosep,left=4pt,labelsep=6pt,itemsep=2pt,label={\color{accent}\guillemotright}}
+
+\begin{document}
+
+% Header: editorial style, name as masthead
+\begin{center}
+{\color{accent}\rule{0.3\textwidth}{0.4pt}}\\[6pt]
+{\fontsize{22}{26}\selectfont\scshape Ananya Desai}\\[4pt]
+{\color{accent}\rule{0.3\textwidth}{0.4pt}}\\[6pt]
+{\small\itshape Content Strategist \& Writer}\\[4pt]
+{\small Mumbai, India \enspace\textperiodcentered\enspace +91-91234-56789 \enspace\textperiodcentered\enspace ananya.desai@email.com}\\[2pt]
+{\small \href{https://ananyawrites.com}{\color{accent}ananyawrites.com} (Portfolio) \enspace\textperiodcentered\enspace \href{https://linkedin.com/in/ananyaDesai}{linkedin.com/in/ananyaDesai}}
+\end{center}
+
+\section{Profile}
+\lettrine[lines=2,loversize=0.1,nindent=0pt]{\color{accent}C}{}ontent Strategist with 6 years of experience building content engines that drive organic growth and brand authority. Grew blog traffic from 20K to 500K monthly sessions for SaaS brands through SEO-driven content strategy. Published 400+ pieces across blogs, whitepapers, email, and social. Skilled at translating complex topics into engaging narratives that convert.
+
+\section{Experience}
+
+\textbf{Senior Content Strategist} \enspace\textbar\enspace {\color{accent}Zoho Corporation, Chennai}\\
+\textit{B2B SaaS -- CRM \& Productivity Suite} \hfill Jan 2022 -- Present
+\begin{itemize}
+  \item Developed content strategy for 5 product lines; grew organic blog traffic from 150K to 500K monthly sessions (233\% increase)
+  \item Built content cluster framework targeting 200+ keywords; achieved 85 featured snippets and 45\% increase in organic lead generation
+  \item Managed editorial calendar producing 40+ pieces/month; maintained 98\% on-time delivery
+  \item Created thought leadership program with 8 executive contributors; 2M+ LinkedIn impressions
+  \item Led team of 4 writers + 3 freelancers; established style guide and peer review process
+\end{itemize}
+
+\textbf{Content Marketing Manager} \enspace\textbar\enspace {\color{accent}Clevertap, Mumbai}\\
+\textit{B2B SaaS -- Marketing Automation} \hfill Mar 2019 -- Dec 2021
+\begin{itemize}
+  \item Authored 12 long-form guides (5000+ words each) generating 180K organic visits/month and 2,400+ MQLs annually
+  \item Launched email nurture sequences (8 workflows, 45 emails); improved open rates from 18\% to 32\%
+  \item Produced 6 customer case studies per quarter; case study pages converted at 8.5\% (3x site average)
+  \item Managed content distribution across 5 channels; grew social engagement by 150\%
+\end{itemize}
+
+\textbf{Content Writer} \enspace\textbar\enspace {\color{accent}YourStory Media, Bangalore}\\
+\textit{Startup Media \& Publishing} \hfill Jul 2017 -- Feb 2019
+\begin{itemize}
+  \item Published 200+ articles on startups, technology, and business; averaged 15K views per article
+  \item Conducted 50+ founder interviews; 3 features selected for homepage spotlight (100K+ reads each)
+  \item Improved article SEO scores by 40\% through keyword optimization and internal linking
+\end{itemize}
+
+\section{Skills}
+\textbf{Content:} Long-form Writing, Copywriting, Email Marketing, Case Studies, Whitepapers, Social Media\\
+\textbf{SEO:} Keyword Research, Content Clusters, On-page SEO, Link Building Strategy\\
+\textbf{Tools:} WordPress, SEMrush, Ahrefs, Grammarly, Mailchimp, HubSpot, Google Analytics, Notion\\
+\textbf{Strategy:} Editorial Planning, Content Ops, Brand Voice Development, Audience Segmentation
+
+\section{Education}
+\textbf{MA -- English Literature} \hfill Mumbai University \hfill 2017\\
+\textbf{BA -- Journalism \& Mass Communication} \hfill Xavier's College, Mumbai \hfill 2015
+
+\section{Certifications}
+HubSpot Content Marketing \enspace\textperiodcentered\enspace Google Analytics Certified \enspace\textperiodcentered\enspace Semrush SEO Toolkit
+
+\end{document}

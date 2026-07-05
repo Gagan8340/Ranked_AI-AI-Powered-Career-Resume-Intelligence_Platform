@@ -1,0 +1,80 @@
+%% DESIGN: Helvetica | Single-column minimal | Teal accent | Thin rules, right-aligned dates
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{008080}
+\definecolor{ACCENT}{HTML}{008080}
+
+\titleformat{\section}{\color{accent}\normalsize\bfseries\uppercase}{}{0em}{}[\color{accent}\hrule height 0.4pt]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}\textbullet}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Alex Chen}} \\[4pt]
+{\small San Francisco, CA \,$\cdot$\, (415) 555-0142 \,$\cdot$\, alex.chen@email.com \,$\cdot$\, \href{https://github.com/alexchen}{github.com/alexchen} \,$\cdot$\, \href{https://linkedin.com/in/alexchen}{linkedin.com/in/alexchen}}
+\end{center}
+
+\section{Experience}
+
+\textbf{Senior Software Engineer, Stripe} \hfill {\color{accent}\small Jan 2021 -- Present} \\
+{\small\itshape Payments Infrastructure Team}
+\begin{itemize}
+    \item Designed and implemented a distributed rate-limiting service handling 2.4M requests/sec, reducing payment processing failures by 34\%
+    \item Optimized critical-path database queries using B-tree index restructuring, cutting P99 latency from 180ms to 45ms across 12 microservices
+    \item Led migration of monolithic payment routing engine to event-driven architecture serving 50M+ daily transactions with 99.99\% uptime
+    \item Mentored 4 junior engineers through design doc reviews and pair programming, resulting in 2 promotions within 12 months
+\end{itemize}
+
+\textbf{Software Engineer, Dropbox} \hfill {\color{accent}\small Jun 2018 -- Dec 2020} \\
+{\small\itshape Storage Infrastructure}
+\begin{itemize}
+    \item Built content-addressable storage layer that deduplicated 40\% of stored data, saving \$2.8M annually in cloud storage costs
+    \item Implemented consistent hashing for data distribution across 500+ nodes, improving load balancing by 60\%
+    \item Developed automated chaos testing framework that identified 23 critical failure modes before production deployment
+    \item Contributed to open-source Rust SDK used by 3,000+ developers, authoring 15 merged PRs
+\end{itemize}
+
+\textbf{Software Engineer Intern, Google} \hfill {\color{accent}\small May 2017 -- Aug 2017} \\
+{\small\itshape Search Quality Team}
+\begin{itemize}
+    \item Developed query understanding model using TensorFlow that improved search relevance by 2.1\% (measured via NDCG@10)
+    \item Processed 500TB of search logs using MapReduce pipelines to generate training data for ranking models
+\end{itemize}
+
+\section{Education}
+
+\textbf{M.S. Computer Science} -- Stanford University \hfill {\color{accent}\small 2018} \\
+{\small Specialization: Systems and Networking \hfill GPA: 3.9/4.0}
+
+\textbf{B.S. Computer Science} -- UC Berkeley \hfill {\color{accent}\small 2016} \\
+{\small Dean's List, ACM ICPC Regional Finalist \hfill GPA: 3.8/4.0}
+
+\section{Projects}
+
+\textbf{Distributed Key-Value Store} -- Built Raft-consensus KV store in Go supporting linearizable reads, 100K ops/sec on 5-node cluster. 800+ GitHub stars.
+
+\textbf{Real-time Code Search Engine} -- Trigram-based code indexing over 10M+ files with sub-100ms query response.
+
+\section{Technical Skills}
+
+{\small
+\textbf{Languages:} C++, Go, Python, Java, Rust, SQL \quad
+\textbf{Systems:} Distributed systems, gRPC, Protocol Buffers, Kubernetes, Docker, Terraform \\
+\textbf{Data:} BigQuery, Spanner, Redis, PostgreSQL, Apache Kafka, MapReduce \quad
+\textbf{ML:} TensorFlow, PyTorch, scikit-learn
+}
+
+\end{document}

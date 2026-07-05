@@ -1,0 +1,83 @@
+%% DESIGN: EB Garamond (serif) | Distinguished, wide margins | Subtle gold (#9E8A4F) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=1.1in,right=1.1in,top=0.85in,bottom=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz}
+
+\definecolor{accent}{HTML}{9E8A4F}
+\definecolor{ACCENT}{HTML}{9E8A4F}
+\definecolor{goldlight}{HTML}{FAF6ED}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\normalsize\scshape\color{accent}}{}{0em}{}[\vspace{-0.3em}\textcolor{accent!40}{\rule{\linewidth}{0.6pt}}]
+\titlespacing{\section}{0pt}{1.3em}{0.5em}
+
+\begin{document}
+
+% Distinguished header
+\begin{center}
+\textcolor{accent}{\rule{4cm}{0.8pt}}\\[0.7em]
+{\fontsize{28}{32}\selectfont\bfseries David Okonkwo}\\[0.4em]
+{\Large Staff / Principal Engineer}\\[0.4em]
+{\small david.okonkwo@email.com \quad$\diamond$\quad (555) 456-7890 \quad$\diamond$\quad Seattle, WA}\\[0.2em]
+{\small linkedin.com/in/davidokonkwo \quad$\diamond$\quad 12 patents \quad$\diamond$\quad 15+ years}\\[0.4em]
+\textcolor{accent}{\rule{4cm}{0.8pt}}
+\end{center}
+
+\vspace{0.5em}
+
+\section{Professional Identity}
+Staff/Principal Engineer with 15+ years shaping technical direction at scale. I operate at the intersection of deep technical expertise and organizational influence---setting architectural vision, solving the hardest cross-cutting problems, and multiplying the effectiveness of engineering organizations. My work has directly impacted systems serving billions of users.
+
+\section{Scope of Influence}
+
+\noindent\textbf{Principal Engineer} \hfill 2021 -- Present\\
+\textit{Google, Seattle, WA --- Cloud Infrastructure}\\[0.3em]
+\textit{Scope: Technical direction for 200+ engineer organization; report to VP Engineering}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}\textendash}]
+\item Define 3-year technical strategy for Google Cloud's compute platform (\$10B+ revenue)
+\item Designed next-generation container orchestration system (successor to internal Borg components)
+\item Led cross-organization initiative standardizing service mesh across 500+ services
+\item Authored company-wide design principles document adopted by 3,000+ engineers
+\item Resolved 5 critical architectural disputes between senior teams through technical mediation
+\item Sponsor for 4 Staff Engineer promotions; active in calibration across the organization
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Staff Engineer} \hfill 2017 -- 2021\\
+\textit{Google, Mountain View, CA --- Kubernetes / GKE}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}\textendash}]
+\item Technical lead for GKE autoscaling, serving 50K+ clusters globally
+\item Designed multi-cluster federation architecture adopted as industry standard
+\item Published 3 papers at OSDI/SOSP on cluster scheduling and resource management
+\item Represented Google on CNCF Technical Oversight Committee
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Senior Staff Engineer} \hfill 2014 -- 2017\\
+\textit{Amazon, Seattle, WA --- AWS EC2}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}\textendash}]
+\item Architected EC2 placement system handling millions of instance launches daily
+\item Led design of Nitro hypervisor's resource isolation mechanisms
+\item Filed 8 patents in virtualization and resource scheduling
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{Senior SDE $\rightarrow$ Principal SDE} \hfill 2009 -- 2014\\
+\textit{Microsoft, Redmond, WA --- Azure}
+\begin{itemize}[leftmargin=1.5em,nosep,label={\color{accent}\textendash}]
+\item Early Azure team member; designed core storage subsystem
+\item Progressed from Senior to Principal based on cross-team architectural impact
+\end{itemize}
+
+\section{Education}
+\noindent\textbf{Ph.D. Computer Science} (Distributed Systems) \hfill MIT, 2009\\
+\textbf{B.S. Computer Science \& Mathematics} (\textit{summa cum laude}) \hfill Stanford, 2004
+
+\section{Impact Markers}
+\noindent 12 patents (distributed systems, scheduling, virtualization) \quad$\diamond$\quad 8 publications (OSDI, SOSP, NSDI)\\
+Keynote: KubeCon 2022, 2023 \quad$\diamond$\quad CNCF TOC Member \quad$\diamond$\quad ACM Distinguished Member
+
+\end{document}

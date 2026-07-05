@@ -1,0 +1,93 @@
+%% DESIGN: Sans-serif (lmodern sans) | Grid/structured layout | Gray (#546E7A) accent | Checklist-style bullets, tabular
+%% QA/SDET style: structured grid feel, gray professional, checkbox bullets, test-report inspired layout
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{amssymb}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{546E7A}
+\definecolor{ACCENT}{HTML}{546E7A}
+\definecolor{lightgray}{HTML}{ECEFF1}
+\definecolor{pass}{HTML}{4CAF50}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: gray background stripe
+\titleformat{\section}{\normalfont\bfseries\color{accent}}{}{0em}{\MakeUppercase}[\color{accent}\rule{\textwidth}{1.5pt}]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{pass}$\checkmark$}}
+
+\begin{document}
+
+% Header: structured, grid-inspired
+\noindent{\fontsize{18}{22}\selectfont\bfseries\color{accent}Natasha Volkov}\hfill{\small Boston, MA}\\[2pt]
+{\small SDET / QA Automation Engineer}\hfill{\small (617) 555-0234}\\[2pt]
+{\small \href{https://linkedin.com/in/natashavolkov-qa}{\color{accent}linkedin.com/in/natashavolkov-qa} \quad\textbar\quad \href{https://github.com/nvolkov-sdet}{\color{accent}github.com/nvolkov-sdet}}\hfill{\small natasha.volkov@email.com}
+
+\vspace{2pt}
+{\color{accent}\rule{\textwidth}{2pt}}
+
+\section{Summary}
+SDET/QA Engineer with 7+ years building test automation frameworks and quality infrastructure for enterprise applications. Designed automation suites achieving 92\% code coverage with 15-minute CI feedback loops. Reduced production defect escape rate by 85\% while cutting manual testing effort by 70\%.
+
+\section{Technical Skills}
+\vspace{2pt}
+{\small
+\begin{tabularx}{\textwidth}{@{}>{\columncolor{lightgray}\bfseries}p{2.3cm}X@{}}
+Automation & Selenium WebDriver, Cypress, Playwright, Appium, RestAssured\\
+\rowcolor{white}
+Languages & Java, Python, TypeScript, JavaScript\\
+Frameworks & TestNG, JUnit 5, pytest, Robot Framework, Cucumber (BDD)\\
+\rowcolor{white}
+Performance & JMeter, Gatling, k6, Locust, Artillery\\
+CI/CD & Jenkins, GitHub Actions, GitLab CI, Docker, Kubernetes\\
+\rowcolor{white}
+API Testing & Postman, REST Assured, GraphQL Testing, Pact\\
+Tools & Allure Reports, TestRail, Jira, Selenium Grid, BrowserStack\\
+\end{tabularx}}
+
+\section{Experience}
+
+\textbf{Senior SDET} \quad|\quad FinanceHub Platform, Boston \hfill May 2021 -- Present
+\begin{itemize}
+  \item Architected E2E test framework (Playwright + TypeScript) covering 1,200+ test cases; reduced regression from 5 days to 4 hours
+  \item Designed performance testing strategy (Gatling, 50K concurrent users); identified 12 critical bottlenecks pre-launch (est. \$2M saved)
+  \item Implemented contract testing (Pact) across 30+ microservices; catching 95\% of integration issues at build time
+  \item Built test data management platform for 200+ scenarios; reduced env setup from 2 hours to 5 minutes
+  \item Integrated quality gates in CI/CD; blocking deploys on coverage drops below 85\% or perf regression >10\%
+\end{itemize}
+
+\textbf{QA Automation Engineer} \quad|\quad HealthCare Systems Inc., Cambridge \hfill Aug 2019 -- Apr 2021
+\begin{itemize}
+  \item Built Selenium Grid running 500+ parallel browser tests (Chrome, Firefox, Safari); execution 6hrs to 45min
+  \item Developed API test suite (RestAssured) covering 400+ endpoints at 98\% automation rate; 30+ critical defects/sprint
+  \item Implemented visual regression testing (Percy); caught 200+ UI inconsistencies across 15 browsers/devices
+  \item Created BDD framework (Cucumber) enabling POs to write executable acceptance criteria; +40\% requirement clarity
+\end{itemize}
+
+\textbf{QA Engineer} \quad|\quad RetailTech Corp, Boston \hfill Jun 2017 -- Jul 2019
+\begin{itemize}
+  \item Automated 300+ manual test cases (Selenium + TestNG); 70\% automation coverage, saved 120 hrs/sprint
+  \item Conducted load testing (JMeter) identifying memory leaks at 10K concurrent users; prevented Black Friday outage
+  \item Established defect triage process reducing avg resolution time from 5 days to 1.5 days
+\end{itemize}
+
+\section{Certifications}
+ISTQB Advanced Test Automation Engineer \quad|\quad AWS Certified Developer -- Associate
+
+\section{Education}
+\textbf{M.S. Software Engineering} -- Northeastern University, 2017 \quad|\quad \textbf{B.S. Computer Science} -- UMass Amherst, 2015
+
+\end{document}

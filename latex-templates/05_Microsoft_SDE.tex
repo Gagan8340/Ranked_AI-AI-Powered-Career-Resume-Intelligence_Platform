@@ -1,0 +1,70 @@
+%% DESIGN: Latin Modern | Single-column | Blue accent | Colored underlines, compact bullets
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1565C0}
+\definecolor{ACCENT}{HTML}{1565C0}
+
+\titleformat{\section}{\bfseries\normalsize\color{accent}}{}{0em}{\uppercase}[\vspace{1pt}{\color{accent}\hrule height 2pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=10pt, label={\color{accent}$\circ$}, itemsep=0pt, parsep=0pt}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+{\large\bfseries Sarah Kim} \hfill {\footnotesize Redmond, WA $\mid$ (425) 555-0189 $\mid$ sarah.kim@email.com}\\
+{\footnotesize \href{https://linkedin.com/in/sarahkim}{linkedin.com/in/sarahkim} $\mid$ \href{https://github.com/skim-dev}{github.com/skim-dev}}
+
+\section{Experience}
+
+{\bfseries Senior Software Engineer} -- Salesforce \hfill {\footnotesize\color{accent} Apr 2020 -- Present}\\[-2pt]
+{\footnotesize\itshape Platform Infrastructure}
+\begin{itemize}
+    \item Architected multi-tenant query execution engine supporting 150K+ enterprise customers, achieving 99.99\% availability with sub-second query response for datasets up to 10TB
+    \item Led cross-org initiative with Security, Compliance, and Platform teams to implement zero-trust data access model, achieving SOC 2 Type II and FedRAMP certification
+    \item Ramped up on distributed database internals within 3 months to redesign sharding strategy, reducing hotspot-related incidents by 80\%
+    \item Championed accessibility in developer tooling, implementing screen reader support and keyboard navigation across internal IDE extensions used by 5,000+ engineers
+    \item Established team's technical mentorship program pairing 12 senior and junior engineers, improving team retention rate from 75\% to 92\%
+\end{itemize}
+
+{\bfseries Software Engineer II} -- Atlassian \hfill {\footnotesize\color{accent} Aug 2017 -- Mar 2020}\\[-2pt]
+{\footnotesize\itshape Jira Cloud Platform}
+\begin{itemize}
+    \item Designed circuit breaker and bulkhead patterns for Jira's plugin system, isolating third-party failures and improving platform uptime from 99.9\% to 99.97\%
+    \item Built real-time collaboration engine enabling simultaneous editing by 50+ users per board, adopted by 40K+ enterprise teams within 6 months of launch
+    \item Optimized GraphQL query resolver reducing API response times by 55\%, directly improving customer satisfaction scores (NPS +8 points)
+    \item Partnered with PM and UX Research to conduct 20+ customer interviews, translating pain points into technical roadmap adopted by leadership
+\end{itemize}
+
+{\bfseries Software Engineer} -- IBM \hfill {\footnotesize\color{accent} Jun 2015 -- Jul 2017}\\[-2pt]
+{\footnotesize\itshape Watson AI Platform}
+\begin{itemize}
+    \item Developed NLP pipeline processing 2M documents/day for enterprise knowledge extraction, improving answer accuracy by 15\%
+    \item Built automated model retraining pipeline reducing model staleness from 2 weeks to 6 hours, serving 500+ enterprise clients
+\end{itemize}
+
+\section{Education}
+
+{\bfseries M.S. Computer Science} -- Georgia Institute of Technology, 2015 \hfill {\footnotesize Specialization: Computing Systems $\mid$ GPA: 3.85/4.0}\\
+{\bfseries B.S. Computer Engineering} -- Purdue University, 2013
+
+\section{Technical Skills}
+
+{\footnotesize
+\textbf{Languages:} C\#, TypeScript, Python, Java, Go, SQL \quad \textbf{Cloud:} Azure (App Service, Cosmos DB, Service Bus, AKS), AWS, GCP\\
+\textbf{Systems:} .NET Core, Node.js, Kubernetes, Docker, Terraform, GraphQL \quad \textbf{Practices:} Agile/Scrum, CI/CD, Inclusive Design, Site Reliability}
+
+\section{Leadership \& Community}
+
+{\footnotesize Women in Engineering ERG Lead (2021--Present) $\cdot$ Conference Speaker: KubeCon 2022, QCon 2023 $\cdot$ Open Source: 30+ contributions to .NET runtime and TypeScript compiler}
+
+\end{document}

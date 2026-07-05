@@ -1,0 +1,83 @@
+%% DESIGN: Charter serif (charter) | Enterprise-formal | Dark blue (#1A237E) accent | Traditional corporate, thick rules
+%% Java/Spring backend style: enterprise-formal serif, dark blue accents, heavy horizontal rules, structured
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+\definecolor{accent}{HTML}{1A237E}
+\definecolor{ACCENT}{HTML}{1A237E}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: dark blue, bold, thick rule below
+\titleformat{\section}{\normalfont\bfseries\color{accent}\large}{}{0em}{}[\color{accent}\rule{\textwidth}{1.5pt}]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1.5pt,label={\color{accent}\small$\blacksquare$}}
+
+\begin{document}
+
+% Header: formal centered with dark blue
+\begin{center}
+{\fontsize{20}{24}\selectfont\bfseries\color{accent}Rajesh Patel}\\[5pt]
+{\small Chicago, IL \quad\textbar\quad (312) 555-0456 \quad\textbar\quad rajesh.patel@email.com}\\[2pt]
+{\small \href{https://linkedin.com/in/rajeshpatel-java}{linkedin.com/in/rajeshpatel-java} \quad\textbar\quad \href{https://github.com/rpatel-backend}{github.com/rpatel-backend}}
+\end{center}
+
+\section{Professional Summary}
+Backend Engineer with 8+ years building high-throughput distributed systems in Java and Spring Boot. Designed microservices processing 200K+ TPS for enterprise financial platforms. Expert in event-driven architecture, database optimization, and building systems that scale from startup to Fortune 100.
+
+\section{Technical Expertise}
+\textbf{Languages:} Java 17/21, Kotlin, SQL, Python\\
+\textbf{Frameworks:} Spring Boot, Spring Cloud, Spring Security, Micronaut, Quarkus\\
+\textbf{Data:} PostgreSQL, MySQL, Redis, Elasticsearch, Apache Kafka, RabbitMQ\\
+\textbf{Architecture:} Microservices, Event Sourcing, CQRS, Domain-Driven Design, Saga Pattern\\
+\textbf{Cloud \& DevOps:} AWS (ECS, RDS, SQS, DynamoDB), Docker, Kubernetes, Terraform\\
+\textbf{Testing:} JUnit 5, Mockito, Testcontainers, WireMock, Gatling, JMeter\\
+\textbf{Observability:} Micrometer, Prometheus, Grafana, Jaeger, Sleuth/Zipkin
+
+\section{Professional Experience}
+
+\textbf{Staff Backend Engineer} \hfill Feb 2021 -- Present\\
+\textit{\color{accent}PayFlow Financial, Chicago, IL}
+\begin{itemize}
+  \item Architected payment processing platform handling 200K TPS with p99 latency under 45ms, processing \$2.8B daily
+  \item Designed event-driven microservices (Kafka, 15 services, 40+ topics) with exactly-once semantics and 99.999\% uptime
+  \item Led monolith-to-microservices migration (Strangler Fig pattern); 14 months, zero downtime, 60\% less deployment risk
+  \item Implemented Redis Cluster caching reducing DB load by 75\%; avg response time from 120ms to 18ms
+  \item Designed multi-tenant SaaS architecture for 500+ enterprise clients with data isolation and per-tenant SLAs
+\end{itemize}
+
+\textbf{Senior Java Developer} \hfill May 2018 -- Jan 2021\\
+\textit{\color{accent}TradeTech Solutions, New York, NY}
+\begin{itemize}
+  \item Built real-time trading platform processing 50K orders/second with sub-10ms order matching latency
+  \item Optimized PostgreSQL queries: p95 from 800ms to 35ms for reporting service (10M+ records)
+  \item Implemented circuit breakers (Resilience4j) and bulkhead isolation; cascading failures from 12/quarter to 0
+  \item Designed API gateway (Spring Cloud Gateway) handling 100K concurrent connections with OAuth2/JWT
+\end{itemize}
+
+\textbf{Java Developer} \hfill Jun 2016 -- Apr 2018\\
+\textit{\color{accent}Enterprise Systems Inc., Chicago, IL}
+\begin{itemize}
+  \item Developed RESTful APIs serving 30K DAU for insurance claims processing platform
+  \item Implemented Spring Batch processing 5M records nightly with 99.9\% success rate
+  \item Reduced memory footprint by 40\% through JVM tuning and GC optimization
+\end{itemize}
+
+\section{Certifications}
+AWS Certified Solutions Architect -- Associate \quad\textbar\quad Oracle Certified Professional Java SE 17
+
+\section{Education}
+\textbf{M.S. Computer Science} \hfill University of Illinois at Chicago \hfill 2016\\
+\textbf{B.Tech Computer Science} \hfill IIT Bombay \hfill 2014
+
+\end{document}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranked.ai</title>
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    {% set active_page = active_page if active_page is defined else "dashboard" %}
+    
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px;">
+                <div class="logo" style="margin-bottom: 0;">
+                    <div class="logo-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 20h20"/>
+                        <path d="M4 16l3-9 5 5 5-5 3 9H4z"/>
+                      </svg>
+                    </div>
+                    <div class="logo-text ranked-gradient">Ranked.ai</div>
+                </div>
+                <button class="sidebar-toggle-btn" id="sidebar-toggle" type="button" aria-label="Toggle Sidebar" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 6px; transition: all 0.2s; width: 32px; height: 32px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="nav-menu" aria-label="Main Navigation">
+                <a href="/dashboard" class="nav-item {{ 'active' if active_page == 'dashboard' else '' }}">
+                    <div class="sidebar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                    </div>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/jd-analyzer" class="nav-item {{ 'active' if active_page == 'jd-analyzer' else '' }}">
+                    <div class="sidebar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"/><path d="m9 18-1.5-1.5"/><circle cx="5" cy="14" r="3"/></svg>
+                    </div>
+                    <span>JD Analyzer</span>
+                </a>
+                <a href="/templates" class="nav-item {{ 'active' if active_page == 'templates' else '' }}">
+                    <div class="sidebar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v10"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10.4 12.6a2 2 0 1 1 3 3L8 21l-4 1 1-4Z"/></svg>
+                    </div>
+                    <span>Resume Templates</span>
+                </a>
+                <a href="/ats-score-checker" class="nav-item {{ 'active' if active_page == 'ats-score' else '' }}">
+                    <div class="sidebar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m3 15 2 2 4-4"/></svg>
+                    </div>
+                    <span>ATS Score Analysis</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer" style="margin-top: auto; position: relative;">
+                <div class="sidebar-avatar-btn" id="avatar-btn" style="cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 12px; transition: background 0.2s;">
+                    <div class="avatar" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #7c5cfc, #4f9ef8); display: flex; align-items: center; justify-content: center; font-weight: 600; color: white;">
+                        {{ (student.name[0] if student and student.name else "S") | upper }}
+                    </div>
+                    <div class="avatar-info logo-text" style="display: flex; flex-direction: column; overflow: hidden; white-space: nowrap;">
+                        <span style="font-weight: 600; font-size: 14px; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ student.name if student else "Student" }}</span>
+                    </div>
+                </div>
+                <div class="avatar-dropdown" id="avatar-dropdown">
+                    <div class="avatar-dropdown-menu">
+                        <a href="/settings" class="dropdown-item" style="display: flex; align-items: center; gap: 8px;">
+                            <div class="dropdown-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                            <span class="dropdown-text">My Profile</span>
+                        </a>
+                        <button type="button" id="theme-toggle" class="dropdown-item" style="width: 100%; text-align: left; background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                            <div class="dropdown-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
+                            <span class="dropdown-text">Theme</span>
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <button type="button" data-logout class="dropdown-item text-danger" style="width: 100%; text-align: left; background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                            <div class="dropdown-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg></div>
+                            <span class="dropdown-text">Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="topbar">
+                <div class="page-title">{{ page_title if page_title is defined else "Dashboard" }}</div>
+            </header>
+
+            <main class="page-content">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+    
+    <div class="toast-container" id="toast-container"></div>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>

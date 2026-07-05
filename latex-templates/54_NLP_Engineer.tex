@@ -1,0 +1,72 @@
+%% DESIGN: Fira Sans | Modern sans-serif, tag-style skills | Violet (#7B2D8B) accent
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.6in,right=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{FiraSans}
+\usepackage{xcolor,titlesec,enumitem,hyperref,tikz,tabularx}
+
+\definecolor{accent}{HTML}{7B2D8B}
+\definecolor{ACCENT}{HTML}{7B2D8B}
+\definecolor{tagbg}{HTML}{F3E8F9}
+\hypersetup{colorlinks=true,urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{-0.6em}{\color{accent!30}\hrule height 2pt}]
+\titlespacing{\section}{0pt}{1em}{0.5em}
+
+% Tag command for skills
+\newcommand{\tag}[1]{\tikz[baseline=(t.base)]{\node[fill=tagbg,text=accent,rounded corners=3pt,inner sep=3pt,font=\small\bfseries] (t) {#1};}}
+
+\begin{document}
+
+% Header - left aligned modern
+\noindent{\Huge\bfseries\color{accent} SAM PATEL}\\[0.2em]
+{\large NLP Engineer}\\[0.3em]
+{\small sam.patel@email.com \quad\textcolor{accent}{$\diamond$}\quad (555) 456-7890 \quad\textcolor{accent}{$\diamond$}\quad New York, NY \quad\textcolor{accent}{$\diamond$}\quad \href{https://github.com/sampatel}{github.com/sampatel}}
+
+\section{Skills}
+\tag{Transformers} \tag{BERT} \tag{GPT} \tag{LLaMA} \tag{spaCy} \tag{Hugging Face} \tag{LangChain}
+\tag{PyTorch} \tag{TensorFlow} \tag{ONNX} \tag{vLLM} \tag{RAG} \tag{Fine-tuning}
+\tag{Python} \tag{Rust} \tag{SQL} \tag{Docker} \tag{AWS} \tag{MLflow}
+\tag{NER} \tag{Sentiment Analysis} \tag{Summarization} \tag{Question Answering} \tag{Text Classification}
+
+\section{Experience}
+
+\noindent\textbf{Senior NLP Engineer} \hfill \textcolor{accent}{Apr 2022 -- Present}\\
+\textit{LinguaTech AI, New York, NY}
+\begin{itemize}[leftmargin=1em,nosep,label={\color{accent}\footnotesize$\blacksquare$}]
+\item Built production RAG system combining vector search with LLM generation, serving 10K+ queries/day
+\item Fine-tuned LLaMA-70B for domain-specific legal document analysis, achieving 92\% accuracy on entity extraction
+\item Designed multi-language NLP pipeline supporting 12 languages with shared embedding space
+\item Reduced model serving costs 60\% through ONNX optimization and dynamic batching
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{NLP Engineer} \hfill \textcolor{accent}{Aug 2019 -- Mar 2022}\\
+\textit{SearchSmart Inc., Boston, MA}
+\begin{itemize}[leftmargin=1em,nosep,label={\color{accent}\footnotesize$\blacksquare$}]
+\item Developed intent classification system for conversational AI (F1: 0.96 across 150+ intents)
+\item Implemented custom NER model for healthcare domain, extracting medications, dosages, and conditions
+\item Built text summarization pipeline processing 100K+ documents daily for news aggregation
+\item Created evaluation framework for LLM outputs measuring factuality, coherence, and relevance
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{ML Engineer (NLP Focus)} \hfill \textcolor{accent}{Jun 2017 -- Jul 2019}\\
+\textit{DataWorks, Cambridge, MA}
+\begin{itemize}[leftmargin=1em,nosep,label={\color{accent}\footnotesize$\blacksquare$}]
+\item Built sentiment analysis system for social media monitoring (500K+ posts/day)
+\item Developed topic modeling pipeline using LDA and neural approaches for customer feedback
+\end{itemize}
+
+\section{Education}
+\noindent\textbf{M.S. Computational Linguistics} \hfill Columbia University, 2017\\
+\textbf{B.A. Linguistics \& Computer Science} \hfill University of Michigan, 2015
+
+\section{Publications \& Talks}
+\begin{itemize}[leftmargin=1em,nosep,label={\color{accent}\footnotesize$\blacksquare$}]
+\item ``Efficient Domain Adaptation for Production NLP'' -- EMNLP Industry Track, 2023
+\item ``Building Reliable RAG Systems'' -- PyData NYC 2023 (Keynote)
+\end{itemize}
+
+\end{document}

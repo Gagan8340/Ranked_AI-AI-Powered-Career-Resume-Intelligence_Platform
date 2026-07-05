@@ -1,0 +1,100 @@
+%% DESIGN: Archivo Black + Source Serif | Founder-bold, unconventional story-driven | Black (#000000) accent
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{sourceserifpro}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+
+\definecolor{founder}{HTML}{000000}
+\definecolor{foundergray}{HTML}{424242}
+
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{-0.2em}]
+\titlespacing*{\section}{0pt}{18pt}{6pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=2pt,parsep=0pt,label=\textbf{/}}
+
+\hypersetup{colorlinks=true,urlcolor=foundergray}
+
+\begin{document}
+
+% Bold unconventional header
+\noindent{\fontsize{28}{32}\selectfont\bfseries NIKHIL RAO}\\[4pt]
+\noindent{\large\color{foundergray} Technical Co-founder $\vert$ 0 $\rightarrow$ \$20M ARR $\vert$ Builder}\\[8pt]
+\noindent{\small nikhil@founder.dev \quad $\bullet$ \quad \href{https://nikhilrao.dev}{nikhilrao.dev} \quad $\bullet$ \quad Bangalore \quad $\bullet$ \quad \href{https://twitter.com/nikhilr}{@nikhilr}}
+
+\vspace{8pt}
+\noindent\rule{\linewidth}{2pt}
+
+\section{The Story}
+
+I co-founded a developer tools company at 23, grew it to \$20M ARR and 150 employees, then stepped back after a successful acquisition. Now I'm looking for my next technical challenge -- either as a founding engineer or technical co-founder at an ambitious early-stage company.
+
+\section{Founded: DevStack (2018--2024)}
+
+\textit{Developer productivity platform -- acquired by Atlassian (2024)}
+
+\vspace{4pt}
+\textbf{What I built as CTO \& Co-founder:}
+\begin{itemize}
+\item Grew from 2 founders in a bedroom to 150 employees, \$20M ARR, 50K+ paying teams
+\item Architected entire platform from first commit to serving 2M+ daily active developers
+\item Raised \$35M across Seed, Series A, and Series B (led technical due diligence)
+\item Built engineering team from 0 to 60 (hired first 20 engineers personally)
+\item Made all technical architecture decisions: chose the stack, designed the systems
+\item Hands-on coding through Series A -- wrote 40\% of core codebase personally
+\end{itemize}
+
+\textbf{Technical decisions that mattered:}
+\begin{itemize}
+\item Chose Rust for core engine -- 10x performance advantage over competitors
+\item Built real-time collaboration using CRDTs (before it was trendy)
+\item Designed multi-tenant architecture that scaled from 10 to 50K teams without rewrite
+\item Open-sourced core SDK -- built community of 5K+ plugin developers
+\end{itemize}
+
+\section{Before Founding}
+
+\textbf{Stripe} \hfill San Francisco (Remote from India)\\
+\textit{Software Engineer -- Developer Experience} \hfill 2016 -- 2018
+\begin{itemize}
+\item Built Stripe CLI and local testing tools (used by 500K+ developers)
+\item This experience inspired founding DevStack
+\end{itemize}
+
+\section{What I Bring}
+
+\begin{minipage}[t]{0.48\linewidth}
+\textbf{Technical}\\
+Rust, Go, TypeScript, Python\\
+Distributed systems at scale\\
+Real-time collaboration (CRDTs)\\
+System design \& architecture
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\textbf{Founder Skills}\\
+0-to-1 product development\\
+Technical hiring (60+ engineers)\\
+Fundraising \& investor relations\\
+Technical due diligence (M\&A)
+\end{minipage}
+
+\vspace{12pt}
+
+\section{Education}
+
+\textbf{B.Tech Computer Science} -- IIT Bombay \hfill 2012 -- 2016\\
+{\small President, Entrepreneurship Cell}
+
+\vspace{8pt}
+\noindent\rule{\linewidth}{2pt}
+\begin{center}
+\textit{\color{foundergray}Looking for: Technical Co-founder role or Founding Engineer at ambitious seed-stage startup}
+\end{center}
+
+\end{document}

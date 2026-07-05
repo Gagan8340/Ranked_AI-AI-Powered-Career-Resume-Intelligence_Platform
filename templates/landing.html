@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranked.ai - Get More Interviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 16l3-9 5 5 5-5 3 9H4z"/></svg>
+                </div>
+                <div class="logo-text ranked-gradient">Ranked.ai</div>
+            </div>
+            <div class="nav-links">
+                <a href="/login" class="nav-login">Log In</a>
+                <a href="/register" class="btn-primary-sm">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title reveal reveal-delay-1 ranked-gradient">Rank Higher.<br>Get More Interviews.</h1>
+            <div class="tagline-container" style="font-size: 1.8rem; font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.02em;">
+                <span class="tagline-word word-delay-1"><span class="ranked-gradient" style="animation-delay: 0s;">Get Found.</span></span>
+                <span class="tagline-word word-delay-2" style="margin: 0 0.25rem;"><span class="ranked-gradient" style="animation-delay: 1.5s;">Get Ranked.</span></span>
+                <span class="tagline-word word-delay-3"><span class="ranked-gradient" style="animation-delay: 3s;">Get Hired.</span></span>
+            </div>
+            <p class="hero-subtitle reveal reveal-delay-2">Build powerful resumes, match with the right jobs,<br>improve your ATS score, and climb to the top of recruiter searches.</p>
+            <div class="hero-ctas reveal reveal-delay-3">
+                <a href="/register" class="btn-primary">Get Started Free</a>
+            </div>
+            <div class="hero-stats reveal reveal-delay-3">
+                <div class="stat"><span class="stat-number">10K+</span> Resumes Ranked</div>
+                <div class="stat"><span class="stat-number">95%</span> Interview Success Rate</div>
+                <div class="stat"><span class="stat-number">4.9/5</span> Student Rating</div>
+            </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay-2">
+            
+            <div class="glass-card mockup-card">
+                <div class="mockup-header">
+                    <div class="dots"><span></span><span></span><span></span></div>
+                    <div class="mockup-title">Resume Optimizer</div>
+                </div>
+                <div class="mockup-body">
+                    <div class="score-circle">92<span>ATS</span></div>
+                    <div class="mockup-lines">
+                        <div class="line w-80"></div>
+                        <div class="line w-60"></div>
+                        <div class="line w-40"></div>
+                        <div class="badge-row">
+                            <span class="mockup-badge">Python</span>
+                            <span class="mockup-badge">React</span>
+                            <span class="mockup-badge">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section bg-light">
+        <div class="section-container">
+            <h2 class="section-title reveal">What our users say</h2>
+            <div class="grid testimonial-grid">
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="stars">
+                        <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span>
+                    </div>
+                    <p>"I was applying for months with no response. I ran my resume through the optimizer and landed 3 interviews the next week at TCS and Wipro. The ATS score is a game changer."</p>
+                    <div class="user-info">
+                        <div class="user-avatar">P</div>
+                        <div>
+                            <h4>Priya Sharma</h4>
+                            <span>SDE at TCS (IIT Madras)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="stars">
+                        <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span>
+                    </div>
+                    <p>"The roadmap generator saves me so much time. It actually reads the JD and generates a precise learning roadmap that helped me prepare and crack Cognizant. Highly recommend!"</p>
+                    <div class="user-info">
+                        <div class="user-avatar">J</div>
+                        <div>
+                            <h4>John Peter</h4>
+                            <span>Analyst at Cognizant (VIT Vellore)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="stars">
+                        <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span>
+                    </div>
+                    <p>"As a new grad from NIT Trichy, I had no idea how to write a resume. The builder gave me actionable bullet points that made my limited experience sound incredibly professional. Landed a role at Infosys!"</p>
+                    <div class="user-info">
+                        <div class="user-avatar">M</div>
+                        <div>
+                            <h4>Mohammed Tariq</h4>
+                            <span>Data Analyst at Infosys (NIT Trichy)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="stars">
+                        <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-empty">★</span>
+                    </div>
+                    <p>"The JD Analyzer is brilliant. It told me exactly what was missing. The tailored roadmap generator by the given JD helped me prepare perfectly for the Accenture interview."</p>
+                    <div class="user-info">
+                        <div class="user-avatar">R</div>
+                        <div>
+                            <h4>Rahul V.</h4>
+                            <span>SDE at Accenture (SRM KTR Campus)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="stars">
+                        <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-half">★</span>
+                    </div>
+                    <p>"Amazing tool! The resume optimizer helped me beat the ATS filter. The roadmap generator by the given JD is exactly what I needed to focus my learning and get hired at Capgemini."</p>
+                    <div class="user-info">
+                        <div class="user-avatar">A</div>
+                        <div>
+                            <h4>Abdul Rahman</h4>
+                            <span>Software Engineer at Capgemini (VR Siddhardha)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <div class="footer-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; margin: 0 auto; max-width: 100%;">
+            <div class="logo" style="justify-content: center;">
+                <div class="logo-icon" style="width: 48px; height: 48px;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 16l3-9 5 5 5-5 3 9H4z"/></svg>
+                </div>
+                <div class="logo-text ranked-gradient" style="font-size: 2rem;">Ranked.ai</div>
+            </div>
+            <p class="ranked-gradient" style="font-size: 1.25rem; font-weight: 500; margin: 0; max-width: none; letter-spacing: 0.05em;">The smartest way to build your career and land your dream job.</p>
+            <div style="display: flex; gap: 1.5rem; margin-top: 1rem;">
+                <a href="/terms" style="color: var(--text-muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#d946ef'" onmouseout="this.style.color='var(--text-muted)'">Terms of Service</a>
+                <a href="/privacy" style="color: var(--text-muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#d946ef'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+            
+            // Trigger immediately for above-the-fold elements
+            setTimeout(() => {
+                const aboveFold = document.querySelectorAll('.hero .reveal');
+                aboveFold.forEach(el => el.classList.add('active'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+%% Style 08: Creative/Design
+%% DESIGN PHILOSOPHY: Accent color sidebar stripe, icon-style bullets using
+%% fontawesome5, modern sans-serif, asymmetric margins.
+%% Visual signature: Left color stripe, FA icons, modern asymmetric layout.
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.6in, bottom=0.6in, left=1.2in, right=0.7in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\hypersetup{hidelinks}
+\pagestyle{empty}
+
+\definecolor{accent}{HTML}{6C63FF}
+\definecolor{dark}{HTML}{1A1A2E}
+\definecolor{mid}{HTML}{4A4A6A}
+
+% Draw left accent stripe
+\AddToHook{shipout/background}{%
+  \put(28pt,-\paperheight){\textcolor{accent}{\rule{4pt}{\paperheight}}}%
+}
+
+\titleformat{\section}{\large\bfseries\color{dark}}{}{0em}{}[\vspace{-2pt}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\begin{document}
+
+% --- HEADER ---
+{\fontsize{24}{28}\selectfont\bfseries\color{dark} Arjun Mehta}\\[4pt]
+{\large\color{accent} Senior Software Engineer}
+
+\vspace{8pt}
+{\small\color{mid}
+\faIcon{envelope} \enspace arjun.mehta@email.com \quad
+\faIcon{phone} \enspace 415-555-0192 \quad
+\faIcon{map-marker-alt} \enspace San Francisco, CA \\[3pt]
+\faIcon{github} \enspace github.com/arjunmehta \quad
+\faIcon{linkedin} \enspace linkedin.com/in/arjunmehta
+}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\textwidth}{1.5pt}}
+
+\section{\faIcon{briefcase} \enspace Experience}
+
+\noindent{\bfseries Senior Software Engineer} \hfill {\small\color{mid} 2021 -- Present}\\
+{\color{accent}\textit{Stripe, Inc.}} \hfill {\small\color{mid} San Francisco, CA}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{accent}{\faIcon{chevron-right}}}, topsep=2pt, itemsep=1pt]
+  \item Led redesign of payment processing pipeline, reducing latency by 40\%
+  \item Architected event-driven microservices (Kafka/gRPC) serving 200+ teams
+  \item Mentored 5 engineers; established org-wide code review standards
+\end{itemize}
+
+\vspace{6pt}
+\noindent{\bfseries Software Engineer II} \hfill {\small\color{mid} 2018 -- 2021}\\
+{\color{accent}\textit{Google LLC}} \hfill {\small\color{mid} Mountain View, CA}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{accent}{\faIcon{chevron-right}}}, topsep=2pt, itemsep=1pt]
+  \item Built real-time data pipeline processing 2TB/day for Maps predictions
+  \item Designed collaborative editing features for 10M+ Docs users
+  \item Reduced CI/CD build times by 60\% through parallel test framework
+\end{itemize}
+
+\vspace{6pt}
+\noindent{\bfseries Software Engineer} \hfill {\small\color{mid} 2016 -- 2018}\\
+{\color{accent}\textit{Amazon Web Services}} \hfill {\small\color{mid} Seattle, WA}
+\begin{itemize}[leftmargin=1.2em, label={\textcolor{accent}{\faIcon{chevron-right}}}, topsep=2pt, itemsep=1pt]
+  \item Developed auto-scaling for EC2 fleet management (1M+ instances)
+  \item Implemented distributed caching reducing database load by 70\%
+\end{itemize}
+
+\section{\faIcon{code} \enspace Skills}
+
+{\small
+\textcolor{accent}{\faIcon{terminal}} \enspace Java, Python, Go, TypeScript, Rust, SQL \quad
+\textcolor{accent}{\faIcon{layer-group}} \enspace Spring Boot, React, gRPC, Kafka \\[4pt]
+\textcolor{accent}{\faIcon{cloud}} \enspace AWS, GCP, Kubernetes, Docker \quad
+\textcolor{accent}{\faIcon{database}} \enspace Redis, PostgreSQL, Terraform
+}
+
+\section{\faIcon{graduation-cap} \enspace Education}
+
+\noindent{\bfseries M.S. Computer Science} -- Stanford University \hfill {\small 2016}\\
+{\bfseries B.Tech Computer Science} -- IIT Bombay \hfill {\small 2014}
+
+\end{document}

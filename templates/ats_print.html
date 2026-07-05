@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ATS Resume</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 2cm;
+  }
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.4;
+    color: #111827;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #0F766E;
+    text-transform: uppercase;
+  }
+  .contact-info {
+    text-align: center;
+    font-size: 9pt;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 12pt;
+    border-bottom: 1px solid #0F766E;
+    color: #0F766E;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+  }
+  h3 {
+    font-size: 10pt;
+    margin: 5px 0 2px 0;
+  }
+  p {
+    margin: 0 0 5px 0;
+  }
+  ul {
+    margin: 0 0 10px 0;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+  .flex-row {
+    width: 100%;
+  }
+  .left-col {
+    float: left;
+    width: 70%;
+  }
+  .right-col {
+    float: right;
+    width: 30%;
+    text-align: right;
+  }
+  .clear {
+    clear: both;
+  }
+</style>
+</head>
+<body>
+
+  <h1>{{ user.name if user and user.name else "Your Name" }}</h1>
+  <div class="contact-info">
+    {% set parts = [] %}
+    {% if user and user.email %}{% set _ = parts.append(user.email) %}{% endif %}
+    {% if user and user.phone %}{% set _ = parts.append(user.phone) %}{% endif %}
+    {% if profile and profile.hidden_sections and profile.hidden_sections.location %}{% set _ = parts.append(profile.hidden_sections.location) %}{% endif %}
+    {% if profile and profile.linkedin %}{% set _ = parts.append(profile.linkedin) %}{% endif %}
+    {{ " | ".join(parts) }}
+  </div>
+
+  {% if profile and profile.professional_summary %}
+  <h2>Professional Summary</h2>
+  <p>{{ profile.professional_summary }}</p>
+  {% endif %}
+
+  {% if profile and profile.education and profile.education|length > 0 %}
+  <h2>Education</h2>
+  {% for edu in profile.education %}
+    <div class="flex-row">
+      <div class="left-col"><strong>{{ edu.institution }}</strong></div>
+      <div class="right-col">{{ edu.dates }}</div>
+    </div>
+    <div class="clear"></div>
+    <div class="flex-row">
+      <div class="left-col"><em>{{ edu.degree }}</em></div>
+      <div class="right-col">{{ edu.info }}</div>
+    </div>
+    <div class="clear"></div>
+  {% endfor %}
+  {% endif %}
+
+  {% if profile and profile.skills %}
+  <h2>Skills</h2>
+  <p>
+    {% if profile.skills is string %}
+      {{ profile.skills }}
+    {% else %}
+      {{ profile.skills | join(', ') }}
+    {% endif %}
+  </p>
+  {% endif %}
+
+  {% if profile and profile.experience and profile.experience|length > 0 %}
+  <h2>Experience</h2>
+  {% for exp in profile.experience %}
+    <div class="flex-row">
+      <div class="left-col"><strong>{{ exp.role }}</strong></div>
+      <div class="right-col">{{ exp.dates }}</div>
+    </div>
+    <div class="clear"></div>
+    <div><em>{{ exp.company }}</em></div>
+    <ul>
+      {% for bullet in exp.description.split('\n') %}
+        {% if bullet.strip() %}
+          <li>{{ bullet.strip() }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+  {% endif %}
+
+  {% if projects and projects|length > 0 %}
+  <h2>Projects</h2>
+  {% for p in projects %}
+    <div><strong>{{ p.project_name }}</strong> | <em>{{ p.tech_stack }}</em></div>
+    <ul>
+      {% for bullet in p.description.split('\n') %}
+        {% if bullet.strip() %}
+          <li>{{ bullet.strip() }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+  {% endif %}
+
+  {% if portfolio_items and portfolio_items|length > 0 %}
+    {# Group items by type using Jinja #}
+    {% set types = [] %}
+    {% for i in portfolio_items %}
+      {% if i.item_type not in types %}
+        {% set _ = types.append(i.item_type) %}
+      {% endif %}
+    {% endfor %}
+
+    {% for t in types %}
+      <h2>{{ t }}</h2>
+      <ul>
+      {% for item in portfolio_items %}
+        {% if item.item_type == t %}
+          <li>
+            <strong>{{ item.title }}</strong>
+            {% if item.organization %} - {{ item.organization }}{% endif %}
+            {% if item.description %}: {{ item.description }}{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    {% endfor %}
+  {% endif %}
+
+  {% if certs and certs|length > 0 %}
+  <h2>Certifications</h2>
+  <ul>
+    {% for c in certs %}
+      <li><strong>{{ c.name }}</strong> {% if c.issuer %}- {{ c.issuer }}{% endif %} {% if c.issue_date %}({{ c.issue_date }}){% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+</body>
+</html>

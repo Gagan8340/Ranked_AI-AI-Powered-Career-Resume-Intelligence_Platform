@@ -1,0 +1,77 @@
+%% DESIGN: Multiple font sizes showcase (Latin Modern) | Clean typography, minimal decoration | No color accent (black/gray)
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=0.8in,right=0.8in,top=0.7in,bottom=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor,titlesec,enumitem,hyperref}
+
+\definecolor{gray60}{HTML}{666666}
+\definecolor{gray30}{HTML}{B0B0B0}
+\hypersetup{colorlinks=true,urlcolor=gray60}
+\pagestyle{empty}
+
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{-0.3em}]
+\titlespacing{\section}{0pt}{1.2em}{0.4em}
+
+\begin{document}
+
+% Typography-focused header
+\noindent{\fontsize{36}{40}\selectfont\bfseries Taylor Kim}\\[0.1em]
+{\fontsize{14}{18}\selectfont\color{gray60} Technical Writer \& Documentation Engineer}\\[0.5em]
+{\small\color{gray60} taylor.kim@email.com \quad\textbar\quad (555) 789-0123 \quad\textbar\quad Portland, OR \quad\textbar\quad taylorkim.dev}
+
+\vspace{0.8em}
+{\color{gray30}\hrule height 0.5pt}
+\vspace{0.5em}
+
+{\large Technical writer with 6+ years creating developer documentation, API references, and educational content. Expert in docs-as-code workflows, information architecture, and making complex systems understandable.}
+
+\section{Experience}
+
+{\fontsize{12}{14}\selectfont\bfseries Senior Technical Writer} \hfill {\color{gray60}\small Feb 2022 -- Present}\\
+{\color{gray60}\textit{Stripe, Portland, OR (Remote)}}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{gray60}\textbullet}]
+\item Own API documentation for Stripe Connect (used by 100K+ developers monthly)
+\item Redesigned onboarding documentation reducing developer time-to-first-integration by 35\%
+\item Built interactive code samples in 6 languages with automated testing (zero stale examples)
+\item Established style guide and content templates adopted across 4 documentation teams
+\item Collaborate with engineering to document new features pre-launch; review 50+ PRs monthly
+\end{itemize}
+\vspace{0.6em}
+
+{\fontsize{12}{14}\selectfont\bfseries Technical Writer} \hfill {\color{gray60}\small Aug 2019 -- Jan 2022}\\
+{\color{gray60}\textit{Twilio, San Francisco, CA}}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{gray60}\textbullet}]
+\item Authored 200+ pages of API documentation, tutorials, and quickstart guides
+\item Created video tutorials (50K+ views) explaining complex messaging APIs
+\item Implemented docs-as-code pipeline (Markdown, Git, CI/CD) replacing legacy CMS
+\item Reduced support tickets by 25\% through improved troubleshooting documentation
+\end{itemize}
+\vspace{0.6em}
+
+{\fontsize{12}{14}\selectfont\bfseries Documentation Specialist} \hfill {\color{gray60}\small Jun 2017 -- Jul 2019}\\
+{\color{gray60}\textit{Atlassian, Austin, TX}}
+\begin{itemize}[leftmargin=1.2em,nosep,label={\color{gray60}\textbullet}]
+\item Wrote end-user and admin documentation for Jira Cloud features
+\item Conducted user research to identify documentation gaps and pain points
+\item Managed localization workflow for documentation in 8 languages
+\end{itemize}
+
+\section{Skills}
+
+\noindent{\bfseries Writing:} API Documentation, Tutorials, Conceptual Guides, Release Notes, Style Guides\\[0.3em]
+{\bfseries Tools:} Markdown, reStructuredText, AsciiDoc, OpenAPI/Swagger, Postman, ReadMe.io\\[0.3em]
+{\bfseries Technical:} Python, JavaScript, Git, CI/CD, HTML/CSS, Static Site Generators (Hugo, Docusaurus)\\[0.3em]
+{\bfseries Methods:} Docs-as-Code, DITA, Information Architecture, User Research, Content Strategy
+
+\section{Education}
+
+\noindent{\bfseries B.A. English \& Computer Science} \hfill University of Oregon, 2017
+
+\section{Portfolio \& Publications}
+\noindent\textit{``The Art of API Documentation''} -- Write the Docs Conference 2023 (Speaker)\\
+Open-source contributor: Docusaurus, MDX, OpenAPI Generator\\
+Blog: taylorkim.dev/writing (15K monthly readers)
+
+\end{document}

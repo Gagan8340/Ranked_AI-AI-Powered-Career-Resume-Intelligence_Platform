@@ -1,0 +1,85 @@
+%% DESIGN: Merriweather Sans | International-clean, globe motifs, relocation-ready | Blue (#0277BD) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[light]{merriweather}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+
+\definecolor{intblue}{HTML}{0277BD}
+\definecolor{lightblue}{HTML}{E1F5FE}
+
+\tcbset{colback=lightblue,colframe=intblue,boxrule=0.4pt,arc=4pt,left=8pt,right=8pt,top=4pt,bottom=4pt}
+
+\titleformat{\section}{\normalsize\bfseries\color{intblue}}{}{0em}{\faIcon{globe-americas}\hspace{4pt}}[\color{intblue}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,label=\color{intblue}\faIcon{plane}}
+
+\hypersetup{colorlinks=true,urlcolor=intblue}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{intblue} POOJA RAGHAVAN}\\[4pt]
+{\normalsize Senior Software Engineer $\vert$ Returning to India after 6 years in the US}\\[6pt]
+{\small \faIcon{envelope} pooja.r@email.com \quad \faIcon{phone} +91-98765-44332 \quad \faIcon{linkedin} \href{https://linkedin.com/in/poojar}{poojar} \quad \faIcon{map-marker-alt} Relocating to Bangalore}
+\end{center}
+
+\vspace{4pt}
+\begin{tcolorbox}
+\faIcon{info-circle}\hspace{4pt}\textbf{Relocation Status:} Returning to India (currently in Seattle, WA). Available to start in Bangalore/Hyderabad from August 2025. 6 years of US Big Tech experience (Meta, Microsoft). No visa sponsorship needed -- Indian citizen.
+\end{tcolorbox}
+
+\section{US Experience}
+
+\textbf{Meta (Facebook)} \hfill Seattle, WA, USA\\
+\textit{Senior Software Engineer (E5) -- Instagram Backend} \hfill Mar 2022 -- Present
+\begin{itemize}
+\item Tech lead for Instagram Stories backend serving 500M+ daily users
+\item Designed content ranking system improving story completion rate by 8\%
+\item Built privacy-preserving analytics pipeline (differential privacy) for EU compliance
+\item Led cross-functional project with 3 teams (12 engineers) across US and London
+\item Promoted from E4 to E5 in 18 months (top 10\% performance rating)
+\end{itemize}
+
+\textbf{Microsoft} \hfill Redmond, WA, USA\\
+\textit{Software Engineer II -- Azure Cloud} \hfill Jul 2019 -- Feb 2022
+\begin{itemize}
+\item Built auto-scaling engine for Azure Kubernetes Service (AKS) -- 100K+ clusters
+\item Implemented cost optimization recommendations saving customers \$50M+ annually
+\item Developed chaos engineering framework for Azure reliability testing
+\item Received ``Azure Hero'' award for cross-team reliability improvements
+\end{itemize}
+
+\section{India Experience (Pre-US)}
+
+\textbf{Flipkart} \hfill Bangalore, India\\
+\textit{Software Engineer} \hfill Jun 2017 -- Jun 2019
+\begin{itemize}
+\item Built recommendation engine for Flipkart's homepage (collaborative filtering)
+\item Developed real-time inventory tracking system for 100M+ SKUs
+\end{itemize}
+
+\section{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Languages:} & Python, Java, Go, C++, Hack (PHP)\\
+\textbf{Systems:} & Distributed systems, microservices, event-driven architecture\\
+\textbf{Cloud:} & AWS, Azure (certified), GCP\\
+\textbf{Data:} & Spark, Kafka, Presto, MySQL, Redis, TAO (graph DB)\\
+\textbf{ML:} & PyTorch, ranking systems, recommendation engines\\
+\end{tabularx}
+
+\section{Education}
+\textbf{M.S.\ Computer Science} -- University of Washington, Seattle \hfill 2017 -- 2019\\
+\textbf{B.Tech Computer Science} -- NIT Karnataka (Surathkal) \hfill 2013 -- 2017
+
+\section{Why Returning to India}
+Personal choice to be closer to family. Seeking Staff/Principal Engineer roles at top Indian tech companies or MNC engineering centers (Google, Amazon, Microsoft India). Open to startups at Series B+ with strong engineering culture.
+
+\end{document}

@@ -1,0 +1,77 @@
+%% DESIGN: Helvetica | Single-column | Red accent | Dark header bar (black bg, white text)
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.5in, top=0pt]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\definecolor{accent}{HTML}{E50914}
+\definecolor{ACCENT}{HTML}{E50914}
+\definecolor{darkbg}{HTML}{141414}
+
+\titleformat{\section}{\bfseries\normalsize}{}{0em}{{\color{accent}\vrule width 3pt}\hspace{6pt}\uppercase}
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}--}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\noindent\colorbox{darkbg}{\parbox{\dimexpr\textwidth+0pt}{%
+\vspace{10pt}
+\centering
+{\color{white}\LARGE\bfseries Daniel Park}\\[5pt]
+{\color{gray!60}\small Los Gatos, CA $\cdot$ (408) 555-0523 $\cdot$ daniel.park@email.com $\cdot$ \href{https://github.com/dpark}{\color{accent}github.com/dpark} $\cdot$ \href{https://linkedin.com/in/danielpark}{\color{accent}linkedin.com/in/danielpark}}
+\vspace{10pt}
+}}
+
+\vspace{8pt}
+
+{\small\itshape Senior Software Engineer with 10+ years building high-throughput distributed systems. Proven ability to independently drive technical strategy, make architecture decisions with incomplete information, and deliver outsized impact with minimal oversight.}
+
+\section{Experience}
+
+\textbf{Staff Engineer} -- Datadog \hfill {\small Feb 2020 -- Present}\\
+{\footnotesize\color{accent}\itshape Metrics Ingestion Platform}
+\begin{itemize}
+    \item Independently identified and drove migration from pull-based to push-based metrics collection after analyzing 6 months of scaling bottlenecks, resulting in 10x throughput improvement (500M to 5B data points/min)
+    \item Challenged team's planned Kafka adoption by prototyping custom write-ahead log, demonstrating 3x better write amplification for time-series workloads; team adopted new approach saving \$4M/year
+    \item Authored technical strategy document for multi-region active-active architecture, presented to VP Engineering, and led 18-month execution across 3 teams without direct authority
+    \item Investigated mysterious 2\% data loss during peak ingestion by building custom kernel-level tracing tools, discovered TCP buffer overflow in container networking; fix deployed across 10K+ nodes
+    \item Designed adaptive sampling algorithm that reduced storage costs by 40\% while maintaining 99.5\% query accuracy for tail latency percentiles
+\end{itemize}
+
+\textbf{Senior Software Engineer} -- Cloudflare \hfill {\small Jun 2016 -- Jan 2020}\\
+{\footnotesize\color{accent}\itshape Edge Computing Platform}
+\begin{itemize}
+    \item Solely designed and implemented V8 isolate-based serverless runtime deployed to 200+ edge locations, processing 10M+ requests/sec with <5ms cold start
+    \item Made deliberate trade-off to sacrifice strict consistency for availability in edge cache layer, documenting decision rationale; approach became standard pattern for 5 subsequent edge services
+    \item Established performance benchmarking culture by building automated regression detection in CI/CD, catching 40+ performance regressions before production over 2 years
+    \item Reduced customer-reported latency complaints by 70\% through implementation of intelligent request routing based on real-time network quality signals
+\end{itemize}
+
+\textbf{Software Engineer} -- Akamai Technologies \hfill {\small Jul 2013 -- May 2016}\\
+{\footnotesize\color{accent}\itshape CDN Platform}
+\begin{itemize}
+    \item Built adaptive bitrate streaming optimization reducing video rebuffer rate by 35\% across 30+ CDN PoPs serving 4TB/sec peak traffic
+    \item Implemented predictive cache warming algorithm using access pattern analysis, improving cache hit ratio from 85\% to 94\%
+\end{itemize}
+
+\section{Education}
+
+\textbf{M.S. Computer Science} -- University of Illinois Urbana-Champaign, 2013\\
+\textbf{B.S. Computer Science} -- Korea Advanced Institute of Science (KAIST), 2011
+
+\section{Technical Skills}
+
+{\small\textbf{Languages:} Java, Go, Rust, Python, C++ \quad \textbf{Systems:} Distributed systems, streaming architectures, CDN, edge computing\\
+\textbf{Infrastructure:} Kubernetes, Envoy, gRPC, Cassandra, FoundationDB, Consul \quad \textbf{Specialties:} Performance engineering, chaos engineering, observability}
+
+\end{document}

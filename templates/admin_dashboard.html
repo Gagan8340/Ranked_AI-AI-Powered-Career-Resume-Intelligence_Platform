@@ -1,0 +1,249 @@
+{% set page_title = "Admin Dashboard" %}
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Ranked.ai{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="header-left">
+        <h1 class="page-title">System Telemetry</h1>
+        <p class="text-secondary">Real-time performance metrics</p>
+    </div>
+    <div class="header-actions">
+        <button id="refresh-btn" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.13 15.57a9 9 0 1 0 3.84-10.36L2 8"/></svg>
+            <span class="btn-label">Refresh</span>
+        </button>
+    </div>
+</div>
+
+<div class="admin-dashboard-container" style="max-width: 1200px; margin: 0 auto; padding-top: 1.5rem;">
+    <!-- AI Stability -->
+    <h3 class="section-title" style="margin-bottom: 1rem; color: var(--text-primary);">AI Engine Stability</h3>
+    <div class="action-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2.5rem;">
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value" id="val-gemini-success">--</h3>
+                <p class="text-secondary">Gemini Success Count</p>
+            </div>
+        </div>
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value" id="val-gemini-fallback">--</h3>
+                <p class="text-secondary">Gemini Fallback Triggers</p>
+            </div>
+        </div>
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M5 20V4"/><path d="M19 20V8"/><path d="M12 20v-8"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value" id="val-gemini-rate">--%</h3>
+                <p class="text-secondary">Success Rate</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Caching Performance -->
+    <h3 class="section-title" style="margin-bottom: 1rem; color: var(--text-primary);">Cache Performance</h3>
+    <div class="action-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2.5rem;">
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #9333ea;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value"><span id="val-ats-hits">--</span> / <span id="val-ats-misses">--</span></h3>
+                <p class="text-secondary">ATS Hits / Misses</p>
+            </div>
+        </div>
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value"><span id="val-intel-hits">--</span> / <span id="val-intel-misses">--</span></h3>
+                <p class="text-secondary">Intelligence Hits / Misses</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latency Metrics -->
+    <h3 class="section-title" style="margin-bottom: 1rem; color: var(--text-primary);">Average Latency</h3>
+    <div class="action-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2.5rem;">
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value"><span id="val-ats-time">--</span> ms</h3>
+                <p class="text-secondary">Avg ATS Analysis Time</p>
+            </div>
+        </div>
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value"><span id="val-jd-time">--</span> ms</h3>
+                <p class="text-secondary">Avg JD Match Time</p>
+            </div>
+        </div>
+        <div class="card stat-card glass-panel fade-in-up hover-lift stagger-1">
+            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-content">
+                <h3 class="stat-value"><span id="val-gap-time">--</span> ms</h3>
+                <p class="text-secondary">Avg Gap Analysis Time</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registered Users -->
+    <h3 class="section-title" style="margin-bottom: 1rem; color: var(--text-primary); margin-top: 2rem;">Registered Users</h3>
+    <div class="card" style="padding: 1rem; overflow-x: auto;">
+        <table style="width: 100%; text-align: left; border-collapse: collapse; color: var(--text-secondary);">
+            <thead>
+                <tr style="border-bottom: 1px solid var(--border-subtle); color: var(--text-primary);">
+                    <th style="padding: 12px;">Email</th>
+                    <th style="padding: 12px;">Verified Status</th>
+                    <th style="padding: 12px;">Verified Date</th>
+                    <th style="padding: 12px;">Registration Date</th>
+                </tr>
+            </thead>
+            <tbody id="users-table-body">
+                <tr><td colspan="4" style="text-align: center; padding: 12px;">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    async function loadMetrics() {
+        const btn = document.getElementById("refresh-btn");
+        if(btn) btn.classList.add("loading");
+        
+        try {
+            const res = await window.apiFetch('/api/admin/metrics');
+            if(!res) return;
+            const data = await res.json();
+            
+            if(data.error) {
+                window.showToast(data.error, "error");
+                return;
+            }
+            
+            // Populate Gemini
+            const geminiSuccess = data.gemini.success_count || 0;
+            const geminiFallback = data.gemini.fallback_count || 0;
+            const geminiRate = data.gemini.success_rate || 100;
+            const fallbackRate = geminiSuccess + geminiFallback > 0 ? (geminiFallback / (geminiSuccess + geminiFallback) * 100) : 0;
+            
+            document.getElementById("val-gemini-success").textContent = geminiSuccess;
+            document.getElementById("val-gemini-fallback").textContent = geminiFallback;
+            document.getElementById("val-gemini-rate").textContent = `${geminiRate}%`;
+            
+            if (fallbackRate > 20) {
+                document.getElementById("val-gemini-fallback").parentElement.parentElement.style.border = "1px solid #ef4444";
+                document.getElementById("val-gemini-fallback").parentElement.parentElement.style.boxShadow = "0 0 10px rgba(239, 68, 68, 0.2)";
+            }
+            
+            // Populate Cache
+            const atsHits = data.cache.ats_hits || 0;
+            const atsMisses = data.cache.ats_misses || 0;
+            const atsHitRate = atsHits + atsMisses > 0 ? (atsHits / (atsHits + atsMisses)) * 100 : 100;
+            
+            document.getElementById("val-ats-hits").textContent = atsHits;
+            document.getElementById("val-ats-misses").textContent = atsMisses;
+            document.getElementById("val-intel-hits").textContent = data.cache.intel_hits || 0;
+            document.getElementById("val-intel-misses").textContent = data.cache.intel_misses || 0;
+            
+            if (atsHitRate < 50 && (atsHits + atsMisses > 10)) { // Require at least 10 requests to show warning
+                document.getElementById("val-ats-hits").parentElement.parentElement.style.border = "1px solid #f59e0b";
+                document.getElementById("val-ats-hits").parentElement.parentElement.style.boxShadow = "0 0 10px rgba(245, 158, 11, 0.2)";
+            }
+            
+            // Populate Latency
+            const atsTime = data.latency.avg_ats_time_ms || 0;
+            const jdTime = data.latency.avg_jd_time_ms || 0;
+            
+            document.getElementById("val-ats-time").textContent = atsTime;
+            document.getElementById("val-jd-time").textContent = jdTime;
+            document.getElementById("val-gap-time").textContent = data.latency.avg_gap_analysis_time_ms || 0;
+            
+            if (atsTime > 3000) {
+                document.getElementById("val-ats-time").parentElement.parentElement.style.border = "1px solid #ef4444";
+                document.getElementById("val-ats-time").style.color = "#ef4444";
+            }
+            if (jdTime > 5000) {
+                document.getElementById("val-jd-time").parentElement.parentElement.style.border = "1px solid #ef4444";
+                document.getElementById("val-jd-time").style.color = "#ef4444";
+            }
+            
+        } catch(e) {
+            console.error(e);
+            window.showToast("Failed to load metrics", "error");
+        } finally {
+            if(btn) btn.classList.remove("loading");
+        }
+    }
+    
+    async function loadUsers() {
+        try {
+            const res = await window.apiFetch('/api/admin/users');
+            if(!res) return;
+            const data = await res.json();
+            
+            const tbody = document.getElementById('users-table-body');
+            if(data.error) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 12px; color: #ef4444;">${data.error}</td></tr>`;
+                return;
+            }
+            
+            if (data.users && data.users.length > 0) {
+                tbody.innerHTML = '';
+                data.users.forEach(user => {
+                    const verifiedBadge = user.email_verified 
+                        ? `<span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Verified</span>` 
+                        : `<span style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Pending</span>`;
+                    
+                    const verifiedDate = user.verified_at ? new Date(user.verified_at).toLocaleString() : 'N/A';
+                    const regDate = user.created_at ? new Date(user.created_at).toLocaleString() : 'N/A';
+                    
+                    const tr = document.createElement('tr');
+                    tr.style.borderBottom = '1px solid var(--border-subtle)';
+                    tr.innerHTML = `
+                        <td style="padding: 12px; font-weight: 500; color: var(--text-primary);">${user.email}</td>
+                        <td style="padding: 12px;">${verifiedBadge}</td>
+                        <td style="padding: 12px; font-size: 13px;">${verifiedDate}</td>
+                        <td style="padding: 12px; font-size: 13px;">${regDate}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 12px;">No users found.</td></tr>`;
+            }
+        } catch(e) {
+            console.error(e);
+            document.getElementById('users-table-body').innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 12px; color: #ef4444;">Failed to load users</td></tr>`;
+        }
+    }
+    
+    document.getElementById("refresh-btn").addEventListener("click", () => {
+        loadMetrics();
+        loadUsers();
+    });
+    loadMetrics();
+    loadUsers();
+});
+</script>
+{% endblock %}

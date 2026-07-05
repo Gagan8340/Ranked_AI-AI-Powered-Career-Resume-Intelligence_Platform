@@ -1,0 +1,59 @@
+Kalvium Teaching Ninjas (DSA + Tech Skilling) (Internship + PPO)
+Opportunity
+Come build the future of b.tech education - working with masters from Google/Amazon and
+others, developing content and teaching students top skills that industry needs.
+In this role, you will:
+❖ Develop content working closely with industry experts (masters from google / amazon
+among others) to develop students in DSA and competitive coding / among other tech mastery
+tracks.
+❖ Teach / mentor a cohort of students. Deliver high-impact training sessions on Data Structures
+& Algorithms (DSA), System Design, and Data Sciences.
+❖ Help students debug their code and their thought processes. Move them from brute-force
+thinking to optimized solutions.
+❖ Be an architect of career success for a cohort of students.
+Who is it for:
+Someone who:
+● Is a master on DSA (on competitive coding sites)
+● Has a large portfolio of work in open source or commercial work
+● An educator at heart - You have a deep interest in DSA, System Design, and Data Science -
+and an equally deep interest in teaching / mentoring peers on the topics.
+● Is a competitive programmer who loves the thrill of solving hard problems but finds more joy
+in explaining how you solved them?
+What this role is not
+● This is not a developer role. You will not be building tech products / features.
+What’s in it for you:
+● Impact: You are in the centre of building for the future of B.Tech Computer Science.
+● Mastery: Become a master by teaching skills in depth.
+● Identity: Craft an influencer pathway by building your own identity.
+Qualifying criteria
+❖ You are in your Final Year of your B.E/B.Tech/M.E//M.Tech (2027 Pass-Outs) and are able to
+join us in the Office for Internship (And then potential PPO).
+❖ LeetCode: "Knight" Badge.
+❖ Codeforces: "Expert" Rating.
+❖ CodeChef: "4-Star" Rating.
+Location, Timings and Pay:
+❖ Location: In-office in Bangalore.
+❖ Work Mode: Onsite.
+❖ Timings: 6-days a Week, 9:30AM to 6.30PM.
+❖ Duration of internship: 12 Months.
+❖ Stipend: Rs. 40,000/Month.
+❖ PPO: Based on performance in internship. Quarterly reviews and pathway to PPO will be
+clearly reviewed and communicated.
+❖ CTC After Conversion to Full Time: Between 12-14 LPA Fixed Pay component.
+About Kalvium:
+Kalvium is an Education Company that runs a B.Tech in Computer Science Program in association
+with Universities. It exists to give high-potential Students the environment, tools and guidance to
+become ethical, joyful, professional Software Engineers — regardless of where they come from.
+Kalvium is about building 10x Engineers — not just in skill, but in values, discipline, mindset and joy.
+We are backed by 30+ industry stalwarts like top executives from Google, Microsoft, Flipkart and
+PhonePe, as well as luminaries of India's unicorn ecosystem like Anupam Mittal, Kunal Shah, Rahul
+Chari, and Ankit Bhati.
+Our Website: https://kalvium.com/
+Kalvium’s core values:
+❖ We obsess about student experience and outcomes above all.
+❖ We respect and trust each other. We disagree with candor and courtesy.
+❖ We improve things regularly, rather than chase perfection.
+❖ We embrace extreme ownership, championing outcomes not just tasks
+❖ We learn continuously and seek discovery.
+BYOD Policy: Kalvium operates on a Bring Your Own Device (BYOD) policy. Employees are
+expected to use their own Laptops for work purposes.

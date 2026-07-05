@@ -1,0 +1,99 @@
+%% DESIGN: Latin Modern (lmodern) | Clean single-column | Blue (#1A5276) accent | Education-first layout
+%% Clean academic style with blue section underlines, education prominently placed first
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1A5276}
+\definecolor{ACCENT}{HTML}{1A5276}
+\definecolor{lightblue}{HTML}{D6EAF8}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: blue colored text with blue underline
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\color{accent}\rule{\textwidth}{0.8pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=5pt,itemsep=1pt,label={\color{accent}\small$\circ$}}
+
+\begin{document}
+
+% Header: centered with blue name
+\begin{center}
+{\fontsize{18}{22}\selectfont\bfseries\color{accent} Ananya Gupta}\\[5pt]
+Delhi, India $\cdot$ +91-9876501234 $\cdot$ \href{mailto:ananya.gupta@email.com}{ananya.gupta@email.com}\\[2pt]
+\href{https://linkedin.com/in/ananyagupta-dev}{linkedin.com/in/ananyagupta-dev} $\cdot$ \href{https://github.com/ananyagupta}{github.com/ananyagupta}
+\end{center}
+
+\section{Education}
+\textbf{B.Tech in Computer Science and Engineering} \hfill 2020 -- 2024\\
+Jaypee Institute of Information Technology, Noida \hfill \textbf{\color{accent}CGPA: 8.15/10}\\[4pt]
+\textbf{Class XII (CBSE)} -- Modern School, New Delhi \hfill \textbf{91.8\%} \hfill 2020\\
+\textbf{Class X (CBSE)} -- Modern School, New Delhi \hfill \textbf{94.6\%} \hfill 2018
+
+\section{Technical Skills}
+\textbf{Languages:} Java, Python, JavaScript, C, SQL\\
+\textbf{Frontend:} React.js, HTML5, CSS3, Bootstrap, Tailwind CSS\\
+\textbf{Backend:} Node.js, Express.js, Spring Boot, REST APIs\\
+\textbf{Databases:} MySQL, MongoDB, Firebase Realtime Database\\
+\textbf{Tools \& Platforms:} Git, GitHub, VS Code, Postman, Netlify, Heroku\\
+\textbf{Concepts:} OOP, DBMS, Operating Systems, Computer Networks, Agile/Scrum
+
+\section{Projects}
+\textbf{\color{accent}Job Portal Application} $\mid$ \textit{React.js, Node.js, MongoDB, JWT} \hfill Feb -- Apr 2024
+\begin{itemize}
+    \item Built full-stack job portal with separate dashboards for recruiters and job seekers
+    \item Implemented resume upload, job matching algorithm (keyword-based), and application tracking
+    \item Added JWT authentication, role-based access control, and email notifications
+    \item Deployed on Render with CI/CD pipeline; 50+ test users during college placement season
+\end{itemize}
+
+\vspace{3pt}
+\textbf{\color{accent}Weather Monitoring \& Alert System} $\mid$ \textit{Python, Flask, OpenWeatherMap API} \hfill Oct -- Dec 2023
+\begin{itemize}
+    \item Developed weather monitoring app with configurable alerts for temperature/humidity thresholds
+    \item Implemented data aggregation storing 30-day historical trends with visualization (Chart.js)
+    \item Built Telegram bot integration for real-time weather alerts to 100+ subscribed users
+\end{itemize}
+
+\vspace{3pt}
+\textbf{\color{accent}Library Management System} $\mid$ \textit{Java, Spring Boot, MySQL, Thymeleaf} \hfill Jun -- Aug 2023
+\begin{itemize}
+    \item Designed and implemented complete CRUD application with book issue/return tracking
+    \item Added fine calculation, overdue notifications, and search with filters (author, genre, ISBN)
+    \item Wrote 30+ JUnit test cases; maintained 80\% code coverage
+\end{itemize}
+
+\vspace{3pt}
+\textbf{\color{accent}Personal Portfolio with Blog} $\mid$ \textit{React.js, Markdown, Netlify} \hfill Mar 2023
+\begin{itemize}
+    \item Created responsive portfolio website with integrated blog using markdown rendering
+    \item Achieved 95+ Lighthouse score for performance, accessibility, and SEO
+\end{itemize}
+
+\section{Hackathons \& Open Source}
+\begin{itemize}
+    \item \textbf{HackJIIT 2024} -- 2nd place; built AI study planner using GPT API (36-hour hackathon)
+    \item \textbf{Hacktoberfest 2023} -- Completed with 10 merged PRs across 5 repositories
+    \item \textbf{GirlScript Summer of Code 2023} -- Contributor; added features to open-source LMS
+    \item \textbf{LeetCode} -- 250+ problems solved; consistent 60-day streak
+    \item \textbf{HackerRank} -- 5-star in Java and SQL; Gold badge in Problem Solving
+\end{itemize}
+
+\section{Certifications}
+Java Programming Masterclass (Udemy) $\cdot$ Complete Web Developer Bootcamp (Udemy) $\cdot$ Cloud Computing -- IBM (Coursera) $\cdot$ Git and GitHub (freeCodeCamp)
+
+\section{Extra-Curricular}
+\begin{itemize}
+    \item Technical Content Writer -- GeeksforGeeks Campus Ambassador (published 8 articles)
+    \item Event Coordinator -- College Technical Festival ``Jigyasa 2023'' (1,500+ footfall)
+\end{itemize}
+
+\end{document}

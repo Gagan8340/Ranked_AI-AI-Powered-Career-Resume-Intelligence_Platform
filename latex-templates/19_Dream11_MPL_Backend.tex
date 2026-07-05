@@ -1,0 +1,84 @@
+%% DESIGN: Helvetica bold sans-serif | Single-column | Purple accent | Skill bars (tikz)
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\definecolor{accent}{HTML}{7B1FA2}
+\definecolor{ACCENT}{HTML}{7B1FA2}
+\definecolor{barbg}{HTML}{E1BEE7}
+
+\newcommand{\skillbar}[2]{%
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\fill[barbg] (0,0) rectangle (3,0.2);
+\fill[accent] (0,0) rectangle (#2*3,0.2);
+\node[right, font=\tiny] at (3.1,0.1) {#1};
+\end{tikzpicture}\hspace{4pt}%
+}
+
+\titleformat{\section}{\bfseries\normalsize\color{white}}{}{0em}{\colorbox{accent}{\parbox{\dimexpr\textwidth-8pt}{\strut\hspace{4pt}\uppercase{#1}\strut}}}[]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{nosep, leftmargin=10pt, label={\color{accent}\textbullet}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Aditya Kulkarni}\\[4pt]
+{\small Mumbai, India $\mid$ +91-93210-98765 $\mid$ aditya.kulkarni@email.com $\mid$ \href{https://linkedin.com/in/adityakulkarni}{LinkedIn} $\mid$ \href{https://github.com/adityakulkarni}{GitHub}}
+\end{center}
+
+\section{Skills}
+
+\skillbar{Go}{0.9}\skillbar{Java}{0.85}\skillbar{Python}{0.75}\skillbar{Rust}{0.6}\\[4pt]
+\skillbar{Redis}{0.95}\skillbar{Kafka}{0.9}\skillbar{PostgreSQL}{0.85}\skillbar{K8s}{0.8}
+
+\section{Summary}
+
+{\small Backend engineer with 4+ years building high-concurrency gaming platforms handling 100M+ concurrent users during IPL. Expert in real-time leaderboard systems, contest engines, and event-driven architectures designed for 10x traffic spikes within seconds.}
+
+\section{Experience}
+
+\textbf{Senior Backend Engineer} $\mid$ Dream11 \hfill {\small\color{accent} Apr 2022 -- Present}
+\begin{itemize}
+    \item Architected real-time leaderboard system ranking 15M+ users per contest with <200ms update latency using Redis Sorted Sets and sharding
+    \item Built contest entry engine handling 500K entries/sec during IPL toss time with zero overselling through distributed locking
+    \item Designed wallet service processing 50M+ transactions/day with double-entry bookkeeping and zero-balance-mismatch guarantee
+    \item Implemented live score ingestion pipeline processing ball-by-ball cricket data with <1sec end-to-end latency
+    \item Led capacity planning for IPL 2024; pre-scaled infrastructure to handle 150M+ concurrent connections with 99.95\% availability
+    \item Built automated contest settlement engine distributing winnings to 10M+ users within 5 minutes of match completion
+\end{itemize}
+
+\textbf{Backend Engineer} $\mid$ MPL (Mobile Premier League) \hfill {\small\color{accent} Jul 2020 -- Mar 2022}
+\begin{itemize}
+    \item Developed matchmaking engine pairing 2M+ players/day based on skill rating (Elo/Glicko-2) with <3sec queue time
+    \item Built anti-fraud system detecting collusion and bot usage, blocking 50K+ fraudulent accounts/month
+    \item Implemented tournament bracket system supporting 1M+ player single-elimination tournaments with real-time progression
+    \item Designed withdrawal service integrating with 5 payment providers, processing \$20M+/month with T+0 instant payouts
+\end{itemize}
+
+\textbf{Software Engineer} $\mid$ Hike Messenger \hfill {\small\color{accent} Jun 2019 -- Jun 2020}
+\begin{itemize}
+    \item Built real-time multiplayer game server (WebSocket) supporting 50K concurrent game sessions
+    \item Developed in-app currency system with atomic transactions and rollback capabilities
+\end{itemize}
+
+\section{Projects}
+
+\textbf{Distributed Rate Limiter} {\small$\mid$ Go, Redis, Lua} -- Token bucket rate limiter supporting 1M+ keys with sliding window; 400+ stars\\[2pt]
+\textbf{Real-time Scoreboard} {\small$\mid$ Rust, WebSocket, Redis} -- Low-latency leaderboard supporting 1M concurrent users with <50ms rank computation
+
+\section{Education}
+
+\textbf{B.Tech in Computer Science} -- VJTI Mumbai \hfill 2015 -- 2019 \quad CGPA: 8.8/10
+
+\end{document}

@@ -1,0 +1,83 @@
+%% DESIGN: Avant Garde | Single-column modern | Purple accent | Skill tags with tikz rounded boxes
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{avant}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\definecolor{accent}{HTML}{6A1B9A}
+\definecolor{ACCENT}{HTML}{6A1B9A}
+\definecolor{tagbg}{HTML}{F3E5F5}
+
+\newcommand{\skilltag}[1]{\tikz[baseline=(tag.base)]{\node[fill=tagbg, draw=accent!40, rounded corners=3pt, inner sep=2pt, font=\footnotesize] (tag) {#1};}\hspace{1pt}}
+
+\titleformat{\section}{\color{accent}\bfseries\normalsize}{}{0em}{\uppercase}
+\titlespacing{\section}{0pt}{10pt}{3pt}
+
+\setlist[itemize]{nosep, leftmargin=12pt, label={\color{accent}\textgreater}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\color{accent}\rule{0.3\textwidth}{2pt}}\\[6pt]
+{\LARGE\bfseries Rachel Liu}\\[4pt]
+{\small New York, NY $\cdot$ (212) 555-0445 $\cdot$ rachel.liu@email.com}\\[2pt]
+{\small \href{https://linkedin.com/in/rachelliu}{linkedin.com/in/rachelliu} $\cdot$ \href{https://github.com/rliu-ds}{github.com/rliu-ds}}\\[4pt]
+{\color{accent}\rule{0.3\textwidth}{2pt}}
+\end{center}
+
+\section{Skills}
+
+\skilltag{Causal Inference} \skilltag{A/B Testing} \skilltag{Bayesian Methods} \skilltag{Deep Learning} \skilltag{NLP}
+\skilltag{Python} \skilltag{R} \skilltag{SQL (Presto/Hive)} \skilltag{Scala}
+\skilltag{PyTorch} \skilltag{scikit-learn} \skilltag{Spark} \skilltag{Airflow} \skilltag{Tableau} \skilltag{dbt}
+\skilltag{Experimentation Design} \skilltag{Synthetic Control} \skilltag{DiD} \skilltag{Uplift Modeling}
+
+\section{Experience}
+
+\textbf{Senior Data Scientist} $\mid$ Spotify \hfill {\small\color{accent} Mar 2021 -- Present}\\
+{\footnotesize\itshape Personalization \& Recommendations}
+\begin{itemize}
+    \item Designed and analyzed 40+ A/B experiments per quarter for recommendation algorithms, establishing experiment guardrails that prevented 3 metric-regressive launches
+    \item Built collaborative filtering model combining implicit feedback and contextual features, improving playlist recommendation CTR by 18\% (validated via interleaving experiments)
+    \item Applied synthetic control methods to measure long-term impact of algorithmic changes on user retention, identifying that short-term engagement gains masked 5\% 30-day retention decline
+    \item Partnered with PM to define success metrics framework for Discovery org (North Star: weekly exploratory listening hours), adopted by 4 product teams
+    \item Developed real-time feature pipeline processing 500M daily user interactions for model training, reducing feature freshness from 24 hours to 15 minutes
+\end{itemize}
+
+\textbf{Data Scientist} $\mid$ Airbnb \hfill {\small\color{accent} Jul 2018 -- Feb 2021}\\
+{\footnotesize\itshape Search Ranking \& Marketplace}
+\begin{itemize}
+    \item Owned experimentation platform for Search team, running 200+ concurrent experiments with automated power analysis and false discovery rate control
+    \item Developed two-sided marketplace pricing model using gradient boosted trees, increasing booking revenue by 12\% while maintaining host satisfaction (NPS stable at 72)
+    \item Designed quasi-experimental study using difference-in-differences to measure impact of new cancellation policy, informing \$50M policy decision
+    \item Built automated anomaly detection system monitoring 500+ business metrics, reducing time-to-detection for metric regressions from 48 hours to 2 hours
+\end{itemize}
+
+\textbf{Data Scientist} $\mid$ Wayfair \hfill {\small\color{accent} Jun 2016 -- Jun 2018}\\
+{\footnotesize\itshape Marketing Analytics}
+\begin{itemize}
+    \item Built multi-touch attribution model using Shapley values, reallocating \$20M ad spend to higher-ROI channels (15\% improvement in ROAS)
+    \item Developed customer lifetime value prediction model (XGBoost) with 0.85 AUC, enabling targeted retention campaigns saving \$8M in annual churn
+\end{itemize}
+
+\section{Education}
+
+\textbf{Ph.D. Statistics} -- Columbia University, 2016\\
+{\footnotesize Dissertation: ``Bayesian Methods for Online Experimentation'' $\mid$ Advisor: Prof. Andrew Gelman}\\[2pt]
+\textbf{B.S. Mathematics \& Economics} -- University of Chicago, 2011
+
+\section{Publications \& Talks}
+
+{\small ``Adaptive Sequential Testing for Always-Valid Inference'' -- NeurIPS 2020 Workshop\\
+``Interference in Marketplace Experiments'' -- KDD 2019 (Oral Presentation)}
+
+\end{document}

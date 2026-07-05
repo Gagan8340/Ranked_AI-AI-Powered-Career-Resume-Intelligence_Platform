@@ -1,0 +1,95 @@
+%% DESIGN: Source Sans Pro | Portfolio-card layout, boxed clients | Teal (#008080) accent
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{fontawesome5}
+
+\definecolor{teal}{HTML}{008080}
+\definecolor{lightgray}{HTML}{F5F5F5}
+
+\tcbset{colback=lightgray,colframe=teal,boxrule=0.5pt,arc=3pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+\titleformat{\section}{\large\bfseries\color{teal}}{}{0em}{\faIcon{chevron-right}\hspace{4pt}}[]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\setlist[itemize]{leftmargin=1em,itemsep=1pt,parsep=0pt,label=\color{teal}\small\faIcon{check}}
+
+\hypersetup{colorlinks=true,urlcolor=teal}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{teal} PRIYA MEHTA}\\[4pt]
+{\large Freelance Software Consultant}\\[6pt]
+{\small \faIcon{map-marker-alt} Pune, India \quad \faIcon{phone} +91-87654-32109 \quad \faIcon{envelope} priya@consultant.dev \quad \faIcon{globe} \href{https://priyamehta.dev}{priyamehta.dev}}
+\end{center}
+
+\vspace{6pt}
+\begin{tcolorbox}
+\textbf{Independent consultant} specializing in cloud architecture, DevOps transformation, and backend system design. 8+ years experience across 25+ clients from startups to enterprises. Available for contract engagements.
+\end{tcolorbox}
+
+\section{Key Engagements}
+
+\begin{tcolorbox}[title={\textbf{Razorpay} -- Cloud Architecture Consultant},colbacktitle=teal,coltitle=white]
+\textit{Jan 2024 -- Present} \hfill \textit{Contract: 6 months}
+\begin{itemize}
+\item Redesigned payment processing pipeline handling 10M+ daily transactions
+\item Migrated monolith to microservices reducing deployment time from 4hrs to 15min
+\item Implemented chaos engineering practices reducing MTTR by 60\%
+\end{itemize}
+\end{tcolorbox}
+
+\vspace{4pt}
+\begin{tcolorbox}[title={\textbf{Swiggy} -- DevOps Transformation Lead},colbacktitle=teal,coltitle=white]
+\textit{Mar 2023 -- Dec 2023} \hfill \textit{Contract: 9 months}
+\begin{itemize}
+\item Built CI/CD platform serving 200+ developers across 80 microservices
+\item Reduced infrastructure costs by 35\% through Kubernetes optimization
+\item Established SRE practices and on-call rotation for 99.95\% uptime SLA
+\end{itemize}
+\end{tcolorbox}
+
+\vspace{4pt}
+\begin{tcolorbox}[title={\textbf{CRED} -- Backend Systems Architect},colbacktitle=teal,coltitle=white]
+\textit{Jun 2022 -- Feb 2023} \hfill \textit{Contract: 8 months}
+\begin{itemize}
+\item Designed event-driven architecture processing 5M credit card transactions/day
+\item Built real-time fraud detection pipeline with sub-100ms latency
+\item Mentored team of 6 engineers on distributed systems best practices
+\end{itemize}
+\end{tcolorbox}
+
+\section{Technical Expertise}
+\begin{multicols}{2}
+\begin{itemize}
+\item \textbf{Cloud:} AWS, GCP, Azure
+\item \textbf{Orchestration:} Kubernetes, Terraform, Pulumi
+\item \textbf{Languages:} Go, Python, Rust, Java
+\item \textbf{Data:} Kafka, Redis, PostgreSQL, DynamoDB
+\item \textbf{Observability:} Datadog, Grafana, PagerDuty
+\item \textbf{Practices:} SRE, Chaos Engineering, GitOps
+\end{itemize}
+\end{multicols}
+
+\section{Credentials}
+\begin{multicols}{2}
+\begin{itemize}
+\item AWS Solutions Architect Professional
+\item Google Cloud Professional Architect
+\item Certified Kubernetes Administrator (CKA)
+\item HashiCorp Terraform Associate
+\end{itemize}
+\end{multicols}
+
+\section{Education}
+\textbf{B.Tech Computer Engineering} -- Pune University \hfill 2012 -- 2016
+
+\end{document}

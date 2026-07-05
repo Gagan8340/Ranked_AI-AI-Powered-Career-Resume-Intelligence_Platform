@@ -1,0 +1,77 @@
+%% DESIGN: EB Garamond | Single-column ultra-clean | Gray accent | Centered header, no rules
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{5D6D7E}
+\definecolor{ACCENT}{HTML}{5D6D7E}
+
+\titleformat{\section}{\color{accent}\large\scshape}{}{0em}{}
+\titlespacing{\section}{0pt}{14pt}{6pt}
+
+\setlist[itemize]{nosep, leftmargin=14pt, label={\color{accent}\tiny$\bullet$}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\Huge Marcus Thompson}\\[8pt]
+{\color{accent}\small Cupertino, CA \quad $\diamond$ \quad (408) 555-0167 \quad $\diamond$ \quad marcus.thompson@email.com}\\[2pt]
+{\color{accent}\small \href{https://linkedin.com/in/marcusthompson}{linkedin.com/in/marcusthompson} \quad $\diamond$ \quad \href{https://github.com/mthompson}{github.com/mthompson}}
+\end{center}
+
+\vspace{8pt}
+
+\section{Experience}
+
+\textbf{Senior Software Engineer} \quad {\color{accent}Spotify} \quad {\color{accent}\itshape iOS Client Platform} \hfill Feb 2020 -- Present
+\begin{itemize}
+    \item Redesigned audio playback engine reducing cold-start time from 3.2s to 0.8s, improving Day-1 retention by 6\% across 180M mobile users
+    \item Optimized memory footprint of offline sync module by 40\% through custom memory-mapped file handling, eliminating OOM crashes on 3GB RAM devices
+    \item Architected on-device listening history analysis using differential privacy, enabling personalization without transmitting raw user data to servers
+    \item Leveraged Apple Neural Engine via Core ML for on-device audio fingerprinting, reducing server costs by 60\% while improving accuracy to 99.2\%
+    \item Partnered with design team to implement fluid animations using Metal shaders, achieving 120fps on ProMotion displays while maintaining battery efficiency
+\end{itemize}
+
+\vspace{4pt}
+\textbf{Software Engineer} \quad {\color{accent}Airbnb} \quad {\color{accent}\itshape Mobile Experience Team} \hfill Jul 2017 -- Jan 2020
+\begin{itemize}
+    \item Owned AR room measurement feature from prototype to launch, used by 2M+ hosts increasing booking conversion by 8\%
+    \item Reduced app binary size by 25\% (18MB) through dead code elimination and asset optimization, improving install rate by 4\% in emerging markets
+    \item Led accessibility initiative achieving WCAG 2.1 AA compliance across 40+ screens, earning App Store editorial feature
+    \item Implemented UI testing framework covering 85\% of user flows, reducing regression bugs by 70\%
+\end{itemize}
+
+\vspace{4pt}
+\textbf{iOS Developer} \quad {\color{accent}Lyft} \quad {\color{accent}\itshape Rider App} \hfill Jun 2015 -- Jun 2017
+\begin{itemize}
+    \item Built custom map rendering layer using MapKit and Metal, achieving 60fps panning with real-time driver updates for 30M monthly riders
+    \item Implemented offline-first architecture enabling ride requests in low-connectivity areas, recovering 3\% of failed bookings
+\end{itemize}
+
+\section{Education}
+
+\textbf{B.S. Computer Science} \quad University of Michigan \hfill 2015\\
+{\small Minor: Human-Computer Interaction \hfill GPA: 3.8/4.0}
+
+\section{Published Apps \& Projects}
+
+\textbf{Tempo} {\small(App Store, 50K+ downloads)} -- Minimal music practice timer with haptic metronome. SwiftUI, Core Haptics. Featured in ``Apps We Love.''
+
+\textbf{FluidTransitions} {\small(Open Source)} -- Custom UIKit transition library with physics-based animations. 2.4K GitHub stars.
+
+\section{Technical Skills}
+
+\textbf{Languages:} Swift, Objective-C, C++, Python, Metal Shading Language \\
+\textbf{Frameworks:} UIKit, SwiftUI, Core ML, ARKit, Core Animation, AVFoundation, Combine \\
+\textbf{Performance:} Instruments, Metal, LLVM profiling, memory optimization, battery profiling \\
+\textbf{Practices:} Accessibility (VoiceOver), Localization, Privacy by Design, Xcode Cloud
+
+\end{document}

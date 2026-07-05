@@ -1,0 +1,82 @@
+%% DESIGN: Courier (courier) monospace | Terminal-inspired | Green (#00C853) accent on dark | Code-block section headers
+%% DevOps/SRE style with terminal aesthetic, green-on-dark header, monospace throughout, CLI-inspired
+
+\documentclass[9.5pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\renewcommand{\familydefault}{\ttdefault}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\definecolor{termgreen}{HTML}{00C853}
+\definecolor{darkbg}{HTML}{1A1A2E}
+\definecolor{dimtext}{HTML}{B0BEC5}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section: terminal-style with $ prompt
+\titleformat{\section}{\normalfont\bfseries\color{termgreen}}{}{0em}{\$ }[\color{dimtext}\rule{\textwidth}{0.3pt}]
+\titlespacing{\section}{0pt}{7pt}{3pt}
+\setlist[itemize]{nosep,left=0pt,labelsep=4pt,itemsep=1pt,label={\color{termgreen}->}}
+
+\begin{document}
+
+% Header: dark terminal-style box
+\begin{tcolorbox}[colback=darkbg,colframe=termgreen,boxrule=1pt,arc=0pt,left=8pt,right=8pt,top=6pt,bottom=6pt]
+{\color{termgreen}\bfseries\large marcus.chen@sre \~{}\$} {\color{white}\large whoami}\\[4pt]
+{\color{white}\bfseries\Large Marcus Chen} {\color{dimtext}// Site Reliability Engineer}\\[4pt]
+{\color{dimtext}\small Seattle, WA | (206) 555-0147 | marcus.chen@email.com}\\
+{\color{dimtext}\small \href{https://linkedin.com/in/marcuschen}{linkedin.com/in/marcuschen} | \href{https://github.com/mchen-sre}{github.com/mchen-sre}}
+\end{tcolorbox}
+
+\section{cat summary.txt}
+Site Reliability Engineer with 7+ years building and scaling infrastructure for high-traffic platforms. Expert in Kubernetes orchestration, CI/CD pipeline design, and observability. Achieved 99.99\% uptime across services handling 50M+ daily requests while reducing infrastructure costs by 35\%.
+
+\section{cat skills.yaml}
+{\color{termgreen}orchestration:} Kubernetes, Helm, Terraform, Ansible, Docker, ArgoCD, Pulumi\\
+{\color{termgreen}ci\_cd:} Jenkins, GitHub Actions, GitLab CI, Spinnaker, Tekton, Blue-Green/Canary\\
+{\color{termgreen}monitoring:} Prometheus, Grafana, Datadog, PagerDuty, ELK Stack, OpenTelemetry\\
+{\color{termgreen}cloud:} AWS (EKS, EC2, Lambda, CloudFormation), GCP (GKE, Cloud Run)\\
+{\color{termgreen}languages:} Python, Go, Bash, YAML, HCL\\
+{\color{termgreen}practices:} SLO/SLI/SLA, Incident Mgmt, Chaos Engineering, Toil Reduction
+
+\section{history | grep experience}
+
+{\color{termgreen}[2021-present]} \textbf{Senior Site Reliability Engineer} @ Datastream Inc., Seattle
+\begin{itemize}
+  \item Architected multi-cluster K8s platform (EKS) serving 50M daily requests with 99.99\% availability, reducing incidents by 62\% YoY
+  \item Designed CI/CD with ArgoCD + GitHub Actions, cutting deploy time from 45min to 8min; enabled 120+ daily production deploys
+  \item Implemented SLO framework with Prometheus/Grafana for 40+ microservices; reduced SLA breaches by 78\%
+  \item Led chaos engineering program (Litmus, Gremlin); proactively identified 23 failure modes
+  \item Automated toil reduction saving 20 eng-hours/week through self-healing runbooks
+\end{itemize}
+
+{\color{termgreen}[2018-2021]} \textbf{DevOps Engineer} @ FinServe Technologies, Portland
+\begin{itemize}
+  \item Migrated monolith to 25 containerized microservices on K8s; improved deploy frequency from weekly to daily
+  \item Built Terraform modules for 3 AWS regions; reduced env setup from 2 days to 30 minutes
+  \item Implemented ELK Stack processing 2TB/day; reduced MTTD from 15min to 2min
+  \item Established on-call rotation and incident playbooks; decreased MTTR from 45min to 12min
+\end{itemize}
+
+{\color{termgreen}[2016-2018]} \textbf{Systems Engineer} @ CloudBase Solutions, San Francisco
+\begin{itemize}
+  \item Managed fleet of 200+ Linux servers with Ansible; 99.9\% configuration compliance
+  \item Automated CI pipelines with Jenkins for 15 teams; reduced build failures by 40\%
+  \item Designed DR strategy with RPO < 1hr and RTO < 15min across 2 regions
+\end{itemize}
+
+\section{cat certs.txt}
+AWS Certified DevOps Engineer -- Professional | CKA (Certified Kubernetes Administrator)\\
+Google Cloud Professional Cloud DevOps Engineer | HashiCorp Terraform Associate
+
+\section{cat education.txt}
+\textbf{B.S. Computer Science} -- University of Washington, 2016
+
+\end{document}

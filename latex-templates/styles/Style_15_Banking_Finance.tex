@@ -1,0 +1,75 @@
+%% Style 15: Banking/Finance - Ultra-conservative, Times, no color, wide margins, formal
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[left=1.0in,right=1.0in,top=0.8in,bottom=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\vspace{-4pt}\rule{\textwidth}{0.5pt}]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries ARJUN MEHTA}\\[4pt]
+Bangalore, India $\cdot$ +91-98765-43210 $\cdot$ arjun.mehta@email.com\\
+linkedin.com/in/arjunmehta
+\end{center}
+
+\section{Professional Experience}
+
+\begin{tabular}{@{}p{1.2in}p{5.0in}@{}}
+Jan 2023 -- & \textbf{Amazon Web Services} -- Bangalore, India\\
+Present & \textit{Senior Software Engineer}\\[2pt]
+& \begin{itemize}[leftmargin=*, itemsep=1pt, topsep=0pt, parsep=0pt]
+    \item Designed and implemented distributed microservices architecture handling 50,000+ requests per second utilizing Java and AWS Lambda
+    \item Led comprehensive migration of monolithic application to event-driven architecture, achieving 40\% reduction in end-to-end latency
+    \item Mentored team of four junior engineers and conducted over 50 technical interviews
+  \end{itemize}\\[6pt]
+
+Jun 2020 -- & \textbf{Microsoft Corporation} -- Hyderabad, India\\
+Dec 2022 & \textit{Software Engineer}\\[2pt]
+& \begin{itemize}[leftmargin=*, itemsep=1pt, topsep=0pt, parsep=0pt]
+    \item Built real-time data pipeline processing in excess of 10TB daily utilizing Apache Kafka and Spark
+    \item Developed RESTful APIs serving over one million users with 99.9\% uptime service level agreement
+    \item Reduced continuous integration and deployment pipeline execution time by 60\%
+  \end{itemize}
+\end{tabular}
+
+\section{Education}
+
+\begin{tabular}{@{}p{1.2in}p{5.0in}@{}}
+Aug 2016 -- & \textbf{Indian Institute of Technology, Bombay}\\
+May 2020 & Bachelor of Technology in Computer Science\\
+& Cumulative GPA: 3.8/4.0
+\end{tabular}
+
+\section{Selected Projects}
+
+\begin{tabular}{@{}p{1.2in}p{5.0in}@{}}
+2023 & \textbf{Distributed Task Scheduler} (Go, gRPC, Redis, Kubernetes)\\
+& \begin{itemize}[leftmargin=*, itemsep=1pt, topsep=0pt, parsep=0pt]
+    \item Engineered fault-tolerant distributed task scheduler supporting 100,000+ concurrent jobs
+    \item Implemented leader election utilizing Raft consensus algorithm
+  \end{itemize}\\[4pt]
+
+2022 & \textbf{Real-time Analytics Dashboard} (React, TypeScript, D3.js)\\
+& \begin{itemize}[leftmargin=*, itemsep=1pt, topsep=0pt, parsep=0pt]
+    \item Created interactive dashboard for streaming data visualization with sub-second refresh
+  \end{itemize}
+\end{tabular}
+
+\section{Technical Proficiencies}
+
+\textbf{Programming Languages:} Java, Python, Go, TypeScript, SQL\\[2pt]
+\textbf{Frameworks \& Technologies:} Spring Boot, React, Node.js, Apache Kafka, Apache Spark\\[2pt]
+\textbf{Infrastructure \& Tools:} Amazon Web Services, Docker, Kubernetes, Terraform, Git, Jenkins
+
+\end{document}
