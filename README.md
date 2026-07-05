@@ -70,7 +70,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-*(Note: The `sentence-transformers` and `torch` packages may take a few minutes to download).*
+*(Note: The `sentence-transformers` and `torch` packages may take a few minutes to download).* 
 
 ### 3. Environment Variables
 Create a `.env` file in the root directory and configure the following required variables:
@@ -115,5 +115,5 @@ The application will be accessible at `http://127.0.0.1:5000`.
 3.  **Start Command:** Run the app using a production WSGI server like Gunicorn (Waitress for Windows):
     ```bash
     pip install gunicorn
-    gunicorn "app:create_app()" --bind 0.0.0.0:5000
+gunicorn "app:create_app()" --bind 0.0.0.0:5000
     ```
