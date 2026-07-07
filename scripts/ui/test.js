@@ -31,10 +31,12 @@
           const pdfBlob = await pdfRes.blob();
           await renderPdfBlob(pdfBlob);
         } else {
-          document.getElementById('page-container').style.display = 'none';
+          const pageContainer = document.getElementById('page-container');
+          if (pageContainer) pageContainer.style.display = 'none';
         }
       } else {
-        document.getElementById('page-container').style.display = 'none';
+        const pageContainer = document.getElementById('page-container');
+        if (pageContainer) pageContainer.style.display = 'none';
       }
       
       document.getElementById('recompile-btn').disabled = false;
@@ -180,9 +182,12 @@
       canvas.height = viewport.height;
       canvas.width = viewport.width;
       
-      document.getElementById('page-container').style.width = viewport.width + 'px';
-      document.getElementById('page-container').style.height = viewport.height + 'px';
-      document.getElementById('page-container').style.display = 'block';
+      const pageContainer = document.getElementById('page-container');
+      if (pageContainer) {
+        pageContainer.style.width = viewport.width + 'px';
+        pageContainer.style.height = viewport.height + 'px';
+        pageContainer.style.display = 'block';
+      }
 
       const renderContext = { canvasContext: context, viewport: viewport };
       await page.render(renderContext).promise;
