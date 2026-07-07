@@ -9,8 +9,7 @@ import requests
 from config import get_db_connection
 from utils.validators import validate_file
 from utils.cloudinary_helper import upload_private_resume, get_signed_url, delete_resume
-from utils.resume_parser import extract_resume_text
-from utils.gemini_helper import parse_resume_for_profile
+from utils.resume_parser import extract_resume_text, parse_resume_for_profile_deterministic
 import json
 
 resume_bp = Blueprint('resume', __name__)
@@ -83,11 +82,11 @@ def upload_resume():
                 "bytes": os.path.getsize(filepath)
             }
             
-        # 5. Parse profile with Gemini
+        # 5. Parse profile deterministically
         try:
-            parsed_data = parse_resume_for_profile(text)
+            parsed_data = parse_resume_for_profile_deterministic(text)
         except Exception as e:
-            print(f"Gemini parsing failed during upload: {e}")
+            print(f"Deterministic parsing failed during upload: {e}")
             parsed_data = {}
             
         # 6. Database Operations

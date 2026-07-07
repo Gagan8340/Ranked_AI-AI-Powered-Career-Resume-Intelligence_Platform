@@ -246,59 +246,6 @@ JOB DESCRIPTION:
     text = response.text.strip()
     return text
 
-def parse_resume_for_profile(resume_text):
-    """
-    Parses raw resume text into structured fields for the builder profile.
-    """
-    safe_resume = strip_pii(resume_text)
-    
-    prompt = f"""
-You are an expert ATS Resume Parser.
-Extract the following information from the provided Resume text.
-
-STRICT RULES:
-1. Do NOT hallucinate. Only extract what is present in the text.
-2. If a section is missing, return an empty list or string for it.
-3. Your response MUST be valid JSON. Do not include any other text.
-
-JSON FORMAT EXACTLY LIKE THIS:
-{{
-  "professional_summary": "Extracted summary or objective...",
-  "skills": ["Skill 1", "Skill 2"],
-  "achievements": ["Achievement 1", "Achievement 2"],
-  "education": ["Degree from University (Year)", "Another degree..."],
-  "experience": ["Role at Company (Dates) - Detail...", "Another role..."],
-  "projects": [
-    {{
-      "project_name": "Name",
-      "description": "Short description",
-      "tech_stack": "React, Node",
-      "github_url": "",
-      "live_url": ""
-    }}
-  ],
-  "certifications": [
-    {{
-      "name": "Cert Name",
-      "issuer": "Issuer",
-      "issue_date": "Date",
-      "certificate_url": ""
-    }}
-  ],
-  "linkedin": "",
-  "github": "",
-  "portfolio": ""
-}}
-
-RESUME:
-{safe_resume}
-"""
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=prompt
-    )
-    
-    return clean_gemini_response(response.text)
 
 def generate_skill_gap_analysis(resume_text, jd_text):
     """

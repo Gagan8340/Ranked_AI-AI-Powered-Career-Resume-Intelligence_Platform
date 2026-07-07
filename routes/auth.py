@@ -17,8 +17,7 @@ from utils.activity_logger import log_activity
 from utils.extensions import limiter
 from utils.validators import validate_file
 from utils.cloudinary_helper import upload_private_resume
-from utils.resume_parser import extract_resume_text
-from utils.gemini_helper import parse_resume_for_profile
+from utils.resume_parser import extract_resume_text, parse_resume_for_profile_deterministic
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -143,8 +142,8 @@ def register():
                     "bytes": os.path.getsize(filepath)
                 }
 
-            # Send text to Gemini for profile parsing
-            parsed_data = parse_resume_for_profile(text)
+            # Parse profile deterministically
+            parsed_data = parse_resume_for_profile_deterministic(text)
         except Exception as e:
             return jsonify({"success": False, "message": f"Failed processing resume: {str(e)}"}), 500
 
