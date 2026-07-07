@@ -225,10 +225,10 @@
           const pdfBlob = await pdfRes.blob();
           await renderPdfBlob(pdfBlob);
         } else {
-          document.getElementById('page-container').style.display = 'none';
+          document.getElementById('pdf-viewer-container').innerHTML = '<div style="color: #ccc; margin-top: 20px;">No PDF preview available. Click Recompile to generate one.</div>';
         }
       } else {
-        document.getElementById('page-container').style.display = 'none';
+        document.getElementById('pdf-viewer-container').innerHTML = '<div style="color: #ccc; margin-top: 20px;">No PDF preview available. Click Recompile to generate one.</div>';
       }
       
       document.getElementById('recompile-btn').disabled = false;
