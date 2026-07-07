@@ -41,7 +41,12 @@ def analyze_jd():
     Analyzes a JD against a specific user resume securely using Gemini.
     """
     import time
+    import logging
+    import traceback
     from utils.telemetry import record_latency
+    logger = logging.getLogger(__name__)
+    
+    logger.info("[JD] Request received")
     start_time = time.time()
     
     user_id = get_jwt_identity()
@@ -78,10 +83,18 @@ def analyze_jd():
             else:
                 resume_text = resume['resume_text']
             
-        # 2. Analyze using new JDAnalyzerService
-        analyzer = get_jd_analyzer_service()
-        raw_analysis = analyzer.analyze(jd_text=jd_text, resume_text=resume_text)
-        
+        try:
+            logger.info("[JD] Creating JDAnalyzerService")
+            analyzer = get_jd_analyzer_service()
+            logger.info("[JD] JDAnalyzerService created")
+            
+            logger.info("[JD] Parsing JD text")
+            raw_analysis = analyzer.analyze(jd_text=jd_text, resume_text=resume_text)
+        except Exception as e:
+            logger.error(f"[JD] Error in JDAnalyzerService.analyze: {e}")
+            logger.error(traceback.format_exc())
+            raise
+            
         if not raw_analysis.get('valid_jd', True):
             return jsonify({
                 "valid_jd": False,
@@ -103,13 +116,22 @@ def analyze_jd():
         missing_skills = [obj.get('skill') for obj in missing_skills_objects] if missing_skills_objects else []
         jd_required = jd_skills.get('all', [])
         
-        # Use RecommendationEngine
-        engine = get_recommendation_engine()
+        try:
+            import time
+            logger.info("[JD] About to generate roadmap")
+            t0_road = time.perf_counter()
+            engine = get_recommendation_engine()
+            
+            project_recs = engine.generate_project_recommendations(job_title, missing_skills, jd_required)
+            interview_prep = engine.generate_interview_prep(missing_skills, jd_required)
+            experience_recs = engine.generate_experience_improvements(job_title, missing_skills)
+            logger.info(f"[JD] Roadmap generated in {time.perf_counter() - t0_road:.2f} sec")
+        except Exception as e:
+            logger.error(f"[JD] Error in Roadmap generation: {e}")
+            logger.error(traceback.format_exc())
+            raise
         
-        project_recs = engine.generate_project_recommendations(job_title, missing_skills, jd_required)
-        interview_prep = engine.generate_interview_prep(missing_skills, jd_required)
-        experience_recs = engine.generate_experience_improvements(job_title, missing_skills)
-        
+        logger.info("[JD] Response serialization started")
         analysis_data = {
             "job_title": job_title,
             "company": company,
@@ -123,73 +145,79 @@ def analyze_jd():
             "summary_improvements": experience_recs.get("missing_evidence", []),
             "_raw_jd_analysis": raw_analysis
         }
-        # 3. Save to Job Descriptions Table
-        title = analysis_data.get('job_title', 'Target Role')
-        with conn.cursor() as cursor:
-            cursor.execute("""
-                INSERT INTO job_descriptions 
-                (user_id, resume_id, title, jd_text, ats_score, analysis_json)
-                VALUES (%s, %s, %s, %s, %s, %s)
-            """, (user_id, resume_id, title, jd_text, analysis_data.get('ats_score', 0), json.dumps(analysis_data)))
-            jd_id = cursor.lastrowid
-            
-            # Populate company_profiles automatically
-            if company and company != "Not specified" and company != "Target Company":
-                try:
-                    cursor.execute("""
-                        INSERT INTO company_profiles (company_name, known_skills)
-                        VALUES (%s, %s)
-                        ON DUPLICATE KEY UPDATE known_skills = JSON_ARRAY_APPEND(COALESCE(known_skills, JSON_ARRAY()), '$', %s)
-                    """, (company, json.dumps(jd_required[:5]), jd_required[0] if jd_required else ""))
-                except Exception as e:
-                    pass # Ignore if duplicate key logic fails
-                    
-            # Store evidence for missing skills
-            for missing in missing_skills:
-                try:
-                    cursor.execute("""
-                        INSERT INTO skill_evidence (analysis_id, skill_name, evidence_type, evidence_text)
-                        VALUES (%s, %s, 'resume_missing', %s)
-                    """, (jd_id, missing, f"Missing {missing} in resume for {job_title} role at {company}"))
-                except Exception:
-                    pass
-            
-            # Also store learning resources
-            for prep in interview_prep:
-                skill_cat = prep.get('category', '')
-                for vid in prep.get('videos', []):
+        try:
+            # 3. Save to Job Descriptions Table
+            title = analysis_data.get('job_title', 'Target Role')
+            with conn.cursor() as cursor:
+                cursor.execute("""
+                    INSERT INTO job_descriptions 
+                    (user_id, resume_id, title, jd_text, ats_score, analysis_json)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                """, (user_id, resume_id, title, jd_text, analysis_data.get('ats_score', 0), json.dumps(analysis_data)))
+                jd_id = cursor.lastrowid
+                
+                # Populate company_profiles automatically
+                if company and company != "Not specified" and company != "Target Company":
                     try:
                         cursor.execute("""
-                            INSERT INTO learning_resources (skill_name, resource_type, title, url, provider, difficulty)
-                            VALUES (%s, 'youtube', %s, %s, %s, 'Intermediate')
-                        """, (skill_cat, vid.get('title'), vid.get('url'), vid.get('channel')))
+                            INSERT INTO company_profiles (company_name, known_skills)
+                            VALUES (%s, %s)
+                            ON DUPLICATE KEY UPDATE known_skills = JSON_ARRAY_APPEND(COALESCE(known_skills, JSON_ARRAY()), '$', %s)
+                        """, (company, json.dumps(jd_required[:5]), jd_required[0] if jd_required else ""))
+                    except Exception as e:
+                        pass # Ignore if duplicate key logic fails
+                        
+                # Store evidence for missing skills
+                for missing in missing_skills:
+                    try:
+                        cursor.execute("""
+                            INSERT INTO skill_evidence (analysis_id, skill_name, evidence_type, evidence_text)
+                            VALUES (%s, %s, 'resume_missing', %s)
+                        """, (jd_id, missing, f"Missing {missing} in resume for {job_title} role at {company}"))
                     except Exception:
                         pass
-                        
-            # Store recommendation_cache
-            try:
-                cursor.execute("INSERT INTO recommendation_cache (user_id, analysis_id, recommendation_type, recommendation_json) VALUES (%s, %s, 'project', %s)", (user_id, jd_id, json.dumps(project_recs)))
-                cursor.execute("INSERT INTO recommendation_cache (user_id, analysis_id, recommendation_type, recommendation_json) VALUES (%s, %s, 'interview', %s)", (user_id, jd_id, json.dumps(interview_prep)))
-                cursor.execute("INSERT INTO recommendation_cache (user_id, analysis_id, recommendation_type, recommendation_json) VALUES (%s, %s, 'experience', %s)", (user_id, jd_id, json.dumps(experience_recs)))
-            except Exception:
-                pass
-                        
-        conn.commit()    
+                
+                # Also store learning resources
+                for prep in interview_prep:
+                    skill_cat = prep.get('category', '')
+                    for vid in prep.get('videos', []):
+                        try:
+                            cursor.execute("""
+                                INSERT INTO learning_resources (skill_name, resource_type, title, url, provider, difficulty)
+                                VALUES (%s, 'youtube', %s, %s, %s, 'Intermediate')
+                            """, (skill_cat, vid.get('title'), vid.get('url'), vid.get('channel')))
+                        except Exception:
+                            pass
+                            
+                # Store recommendation_cache
+                try:
+                    cursor.execute("INSERT INTO recommendation_cache (user_id, analysis_id, recommendation_type, recommendation_json) VALUES (%s, %s, 'project', %s)", (user_id, jd_id, json.dumps(project_recs)))
+                    cursor.execute("INSERT INTO recommendation_cache (user_id, analysis_id, recommendation_type, recommendation_json) VALUES (%s, %s, 'interview', %s)", (user_id, jd_id, json.dumps(interview_prep)))
+                    cursor.execute("INSERT INTO recommendation_cache (user_id, analysis_id, recommendation_type, recommendation_json) VALUES (%s, %s, 'experience', %s)", (user_id, jd_id, json.dumps(experience_recs)))
+                except Exception:
+                    pass
+                            
+            conn.commit()    
             # 4. Add Notification
-        with conn.cursor() as cursor:
-            ats_score = analysis_data.get('ats_score') or 0
-            missing_keywords = analysis_data.get('missing_keywords') or []
-            missing = len(missing_keywords)
-            cursor.execute(
-                """
-                INSERT INTO notifications (student_id, message, type)
-                VALUES (%s, %s, %s)
-                """,
-                (user_id, f"JD Analysis completed for {title}. ATS Score: {ats_score}. Missing keywords: {missing}.", "info")
-            )
+            with conn.cursor() as cursor:
+                ats_score = analysis_data.get('ats_score') or 0
+                missing_keywords = analysis_data.get('missing_keywords') or []
+                missing = len(missing_keywords)
+                cursor.execute(
+                    """
+                    INSERT INTO notifications (student_id, message, type)
+                    VALUES (%s, %s, %s)
+                    """,
+                    (user_id, f"JD Analysis completed for {title}. ATS Score: {ats_score}. Missing keywords: {missing}.", "info")
+                )
 
-        conn.commit()
-        
+            conn.commit()
+            
+        except Exception as e:
+            logger.error(f"[JD] Error in Response serialization/DB insertion: {e}")
+            logger.error(traceback.format_exc())
+            raise
+            
         # No ATS history logging for JD Analyzer
         from utils.activity_logger import log_activity
         log_activity(user_id, "JD Analysis", {"ats_score": analysis_data.get('ats_score')})

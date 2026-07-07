@@ -118,9 +118,19 @@ class SemanticMatcherService:
         """Return embeddings, using cache to avoid recomputing."""
         cache_key = hashlib.md5("|".join(texts).encode()).hexdigest()
         if cache_key not in self._embedding_cache:
-            self._embedding_cache[cache_key] = self._model.encode(
-                texts, convert_to_numpy=True, show_progress_bar=False
-            )
+            try:
+                import time
+                logger.info("[JD] About to encode embedding")
+                t0_emb = time.perf_counter()
+                self._embedding_cache[cache_key] = self._model.encode(
+                    texts, convert_to_numpy=True, show_progress_bar=False
+                )
+                logger.info(f"[JD] Embedding complete in {time.perf_counter() - t0_emb:.2f} sec")
+            except Exception as e:
+                logger.error(f"[JD] Error in SentenceTransformer encoding: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
+                raise
         return self._embedding_cache[cache_key]
 
     @staticmethod
@@ -129,16 +139,27 @@ class SemanticMatcherService:
         For each vector in A, find the maximum cosine similarity to any vector in B.
         Returns the mean of those maxima — measures "best-match coverage".
         """
-        # Normalize
-        norm_a = embs_a / (np.linalg.norm(embs_a, axis=1, keepdims=True) + 1e-8)
-        norm_b = embs_b / (np.linalg.norm(embs_b, axis=1, keepdims=True) + 1e-8)
-
-        # Similarity matrix [len_a x len_b]
-        sim_matrix = np.dot(norm_a, norm_b.T)
-
-        # Max similarity per row (each JD item matched to best resume item)
-        max_sims = sim_matrix.max(axis=1)
-        return float(np.mean(max_sims))
+        try:
+            import time
+            logger.info("[JD] About to compute cosine similarity")
+            t0_cos = time.perf_counter()
+            # Normalize
+            norm_a = embs_a / (np.linalg.norm(embs_a, axis=1, keepdims=True) + 1e-8)
+            norm_b = embs_b / (np.linalg.norm(embs_b, axis=1, keepdims=True) + 1e-8)
+    
+            # Similarity matrix [len_a x len_b]
+            sim_matrix = np.dot(norm_a, norm_b.T)
+    
+            # Max similarity per row (each JD item matched to best resume item)
+            max_sims = sim_matrix.max(axis=1)
+            result = float(np.mean(max_sims))
+            logger.info(f"[JD] Cosine similarity complete in {time.perf_counter() - t0_cos:.2f} sec")
+            return result
+        except Exception as e:
+            logger.error(f"[JD] Error in Similarity calculation: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
     @staticmethod
     def _chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> List[str]:

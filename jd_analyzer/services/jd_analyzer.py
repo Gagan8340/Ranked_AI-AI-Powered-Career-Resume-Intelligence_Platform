@@ -107,12 +107,34 @@ class JDAnalyzerService:
         # ----------------------------------------------------------------
         # Step 3 — Entity extraction
         # ----------------------------------------------------------------
-        jd_entities = self.entity_extractor.extract(clean_jd)
+        try:
+            logger.info("[JD] Entity extraction started")
+            t0_ent = time.perf_counter()
+            logger.info("[JD] Calling entity_extractor.extract()")
+            jd_entities = self.entity_extractor.extract(clean_jd)
+            logger.info("[JD] entity_extractor.extract() returned")
+            logger.info(f"[JD] Entity extraction finished in {time.perf_counter() - t0_ent:.2f} sec")
+        except Exception as e:
+            logger.error(f"[JD] Error in Entity extraction: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
         # ----------------------------------------------------------------
         # Step 4 — JD Skill extraction
         # ----------------------------------------------------------------
-        jd_skills = self.skill_extractor.extract(clean_jd_lower)
+        try:
+            logger.info("[JD] Skill extraction started")
+            t0_skill = time.perf_counter()
+            logger.info("[JD] Calling skill_extractor.extract()")
+            jd_skills = self.skill_extractor.extract(clean_jd_lower)
+            logger.info("[JD] skill_extractor.extract() returned")
+            logger.info(f"[JD] Skill extraction finished in {time.perf_counter() - t0_skill:.2f} sec")
+        except Exception as e:
+            logger.error(f"[JD] Error in Skill extraction: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
         # ----------------------------------------------------------------
         # Step 5 — Resume parsing (optional)
@@ -134,27 +156,51 @@ class JDAnalyzerService:
         # ----------------------------------------------------------------
         # Step 6 — Skill gap analysis
         # ----------------------------------------------------------------
-        skill_gap = self.skill_gap_analyzer.analyze(jd_skills, resume_skills)
+        try:
+            skill_gap = self.skill_gap_analyzer.analyze(jd_skills, resume_skills)
+        except Exception as e:
+            logger.error(f"[JD] Error in Skill gap analysis: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
         # ----------------------------------------------------------------
         # Step 7 — Semantic matching
         # ----------------------------------------------------------------
-        semantic_scores = self.semantic_matcher.compute_similarity(
-            jd_text=clean_jd_lower,
-            resume_text=raw_resume,
-            jd_skills=jd_skills.get("all", []),
-            resume_skills=resume_skills.get("all", []),
-        )
+        try:
+            logger.info("[JD] Semantic matching started")
+            t0_sem = time.perf_counter()
+            semantic_scores = self.semantic_matcher.compute_similarity(
+                jd_text=clean_jd_lower,
+                resume_text=raw_resume,
+                jd_skills=jd_skills.get("all", []),
+                resume_skills=resume_skills.get("all", []),
+            )
+            logger.info(f"[JD] Semantic matching finished in {time.perf_counter() - t0_sem:.2f} sec")
+        except Exception as e:
+            logger.error(f"[JD] Error in Semantic matching: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
         # ----------------------------------------------------------------
         # Step 8 — Scoring
         # ----------------------------------------------------------------
-        scores = self.scoring_engine.score(
-            skill_gap=skill_gap,
-            jd_entities=jd_entities,
-            resume_entities=resume_entities,
-            semantic_scores=semantic_scores,
-        )
+        try:
+            logger.info("[JD] About to score")
+            t0_score = time.perf_counter()
+            scores = self.scoring_engine.score(
+                skill_gap=skill_gap,
+                jd_entities=jd_entities,
+                resume_entities=resume_entities,
+                semantic_scores=semantic_scores,
+            )
+            logger.info(f"[JD] Score complete in {time.perf_counter() - t0_score:.2f} sec")
+        except Exception as e:
+            logger.error(f"[JD] Error in Scoring: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
         # ----------------------------------------------------------------
         # Step 9 — Learning resources for missing skills
