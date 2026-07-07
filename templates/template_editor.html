@@ -376,6 +376,7 @@
   }, false);
   // Custom PDF.js rendering logic
   let currentPdfDocument = null;
+  let currentPdfBlob = null;
   let currentZoom = 'fit';
   
   async function renderPage() {
@@ -483,6 +484,7 @@
 
   async function renderPdfBlob(blob) {
     const url = URL.createObjectURL(blob);
+    currentPdfBlob = blob;
     const loadingTask = pdfjsLib.getDocument(url);
     try {
       currentPdfDocument = await loadingTask.promise;
@@ -550,32 +552,20 @@
 
   // Download PDF logic
   document.getElementById('download-pdf-btn').addEventListener('click', async () => {
-    if (!currentPdfDocument) {
-      alert("No PDF has been generated yet.");
+    if (!currentPdfBlob) {
+      alert("No PDF has been generated yet. Recompile first.");
       return;
     }
+
     try {
-      // Re-fetch the exact compiled PDF blob to ensure we have the latest version for download
-      const token = localStorage.getItem("token");
-      const headers = { 'Authorization': `Bearer ${token}` };
-      const res = await fetch(`/api/latex/template/${currentTemplateId}`, { headers });
-      const data = await res.json();
-      if (data.has_default_pdf) {
-        const pdfRes = await fetch(`${data.pdf_url}?t=${new Date().getTime()}`, { headers });
-        if (pdfRes.ok) {
-          const blob = await pdfRes.blob();
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = currentTemplateId + ".pdf";
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        } else {
-          alert("Could not fetch PDF for download.");
-        }
-      }
+      const url = URL.createObjectURL(currentPdfBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = currentTemplateId + ".pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     } catch (e) {
       alert("Error downloading PDF: " + e.message);
     }
