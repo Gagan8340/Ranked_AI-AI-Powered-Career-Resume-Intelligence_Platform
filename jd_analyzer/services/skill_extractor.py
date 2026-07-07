@@ -208,6 +208,13 @@ class SkillExtractorService:
 
     def _skillner_extract(self, text: str) -> Set[str]:
         """Optional SkillNER extraction (graceful fallback if not installed)."""
+        import os
+        use_skillner = os.getenv("USE_SKILLNER", "false").lower() in ("true", "1", "yes")
+        
+        if not use_skillner:
+            logger.info("[JD] SkillNER disabled; using deterministic extraction only")
+            return set()
+            
         found: Set[str] = set()
         try:
             import spacy
