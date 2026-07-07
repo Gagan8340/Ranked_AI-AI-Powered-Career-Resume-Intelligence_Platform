@@ -34,10 +34,18 @@ class SemanticMatcherService:
 
     @staticmethod
     def _load_model():
+        import os
+        use_transformer = os.getenv("USE_SENTENCE_TRANSFORMER", "false").lower() in ("true", "1", "yes")
+        
+        if not use_transformer:
+            logger.info("[JD] Semantic matcher using deterministic TF-IDF backend")
+            return None
+            
         try:
             from .model_cache import get_sentence_transformer_model
             model = get_sentence_transformer_model()
             if model:
+                logger.info("[JD] Semantic matcher using SentenceTransformer backend")
                 return model
             else:
                 logger.warning("[SemanticMatcher] SentenceTransformer unavailable. Using TF-IDF fallback.")
