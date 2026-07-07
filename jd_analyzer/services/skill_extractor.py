@@ -115,8 +115,8 @@ class SkillExtractorService:
     @staticmethod
     def _load_spacy():
         try:
-            import spacy
-            return spacy.load("en_core_web_sm")
+            from .model_cache import get_spacy_model
+            return get_spacy_model()
         except Exception as e:
             logger.warning(f"[SkillExtractor] spaCy unavailable: {e}")
             return None

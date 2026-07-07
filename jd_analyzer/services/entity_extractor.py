@@ -112,11 +112,14 @@ class EntityExtractorService:
     @staticmethod
     def _load_spacy():
         try:
-            import spacy
-            nlp = spacy.load("en_core_web_sm")
-            logger.info("[EntityExtractor] spaCy model loaded.")
-            return nlp
-        except (ImportError, OSError) as e:
+            from .model_cache import get_spacy_model
+            nlp = get_spacy_model()
+            if nlp:
+                return nlp
+            else:
+                logger.warning("[EntityExtractor] spaCy unavailable. Using regex only.")
+                return None
+        except Exception as e:
             logger.warning(f"[EntityExtractor] spaCy unavailable: {e}. Using regex only.")
             return None
 

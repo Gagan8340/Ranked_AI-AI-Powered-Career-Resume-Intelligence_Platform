@@ -35,16 +35,13 @@ class SemanticMatcherService:
     @staticmethod
     def _load_model():
         try:
-            from sentence_transformers import SentenceTransformer
-            model = SentenceTransformer(MODEL_NAME)
-            logger.info(f"[SemanticMatcher] Loaded model: {MODEL_NAME}")
-            return model
-        except ImportError:
-            logger.warning(
-                "[SemanticMatcher] sentence-transformers not installed. "
-                "Falling back to TF-IDF similarity."
-            )
-            return None
+            from .model_cache import get_sentence_transformer_model
+            model = get_sentence_transformer_model()
+            if model:
+                return model
+            else:
+                logger.warning("[SemanticMatcher] SentenceTransformer unavailable. Using TF-IDF fallback.")
+                return None
         except Exception as e:
             logger.warning(f"[SemanticMatcher] Model load failed: {e}. Using TF-IDF fallback.")
             return None

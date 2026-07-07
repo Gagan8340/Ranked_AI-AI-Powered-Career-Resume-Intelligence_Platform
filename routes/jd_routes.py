@@ -8,6 +8,25 @@ from utils.gemini_helper import analyze_jd_match
 
 jd_bp = Blueprint('jd', __name__)
 
+# Global instances for memory optimization
+_JD_ANALYZER_SERVICE = None
+_RECOMMENDATION_ENGINE = None
+
+def get_jd_analyzer_service():
+    global _JD_ANALYZER_SERVICE
+    if _JD_ANALYZER_SERVICE is None:
+        from jd_analyzer.services.jd_analyzer import JDAnalyzerService
+        _JD_ANALYZER_SERVICE = JDAnalyzerService()
+    return _JD_ANALYZER_SERVICE
+
+def get_recommendation_engine():
+    global _RECOMMENDATION_ENGINE
+    if _RECOMMENDATION_ENGINE is None:
+        from jd_analyzer.services.recommendation_engine import RecommendationEngine
+        _RECOMMENDATION_ENGINE = RecommendationEngine()
+    return _RECOMMENDATION_ENGINE
+
+
 @jd_bp.route('/jd-analyzer', methods=['GET'])
 @jwt_required()
 def jd_analyzer_page():
@@ -60,8 +79,7 @@ def analyze_jd():
                 resume_text = resume['resume_text']
             
         # 2. Analyze using new JDAnalyzerService
-        from jd_analyzer.services.jd_analyzer import JDAnalyzerService
-        analyzer = JDAnalyzerService()
+        analyzer = get_jd_analyzer_service()
         raw_analysis = analyzer.analyze(jd_text=jd_text, resume_text=resume_text)
         
         if not raw_analysis.get('valid_jd', True):
@@ -86,8 +104,7 @@ def analyze_jd():
         jd_required = jd_skills.get('all', [])
         
         # Use RecommendationEngine
-        from jd_analyzer.services.recommendation_engine import RecommendationEngine
-        engine = RecommendationEngine()
+        engine = get_recommendation_engine()
         
         project_recs = engine.generate_project_recommendations(job_title, missing_skills, jd_required)
         interview_prep = engine.generate_interview_prep(missing_skills, jd_required)
