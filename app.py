@@ -60,21 +60,9 @@ def create_app():
         app.logger.warning(f"Email service unavailable during startup: {e}")
 
     @app.route('/health', methods=['GET'])
+    @limiter.exempt
     def health_check():
-        status = {"app": "online", "database": "offline"}
-        try:
-            print("HEALTH: Trying to get connection", flush=True)
-            conn = get_db_connection()
-            print("HEALTH: Got connection", flush=True)
-            with conn.cursor() as cursor:
-                cursor.execute("SELECT 1")
-            conn.close()
-            print("HEALTH: Connection closed", flush=True)
-            status["database"] = "online"
-        except Exception as e:
-            print(f"HEALTH ERROR: {e}", flush=True)
-            app.logger.error(f"Health check DB error: {e}")
-        return jsonify(status)
+        return jsonify({"status": "ok"})
         
     # @app.errorhandler(pymysql.err.OperationalError)
     # def handle_db_error(e):
@@ -112,6 +100,8 @@ def create_app():
 
     @app.before_request
     def enforce_https_redirect():
+        if request.path == '/health':
+            return None
         if not FORCE_HTTPS:
             return None
         if request.is_secure:
